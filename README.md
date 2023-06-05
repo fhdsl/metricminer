@@ -1,5 +1,9 @@
 # dasl-analytics
 
-Tools to quantify our impact.  
+To update Google Analytics data:
 
-# Getting Started
+```r
+library(charm)
+
+assemble("app/_charm.R")
+```
