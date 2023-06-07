@@ -8,7 +8,7 @@ library(slider)
 ## Data Import ##
 #################
 
-ga_data_ <- here("data", "ga.csv") |> read_csv() |>
+ga_data_ <- here("app", "data", "ga.csv") |> read_csv() |>
   mutate(pagePath = gsub("//", "/", pagePath)) |>
   group_by(Property, pagePath) |> mutate(group_size = n()) |>
   ungroup() |> filter(group_size > 1) |>
