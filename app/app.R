@@ -8,7 +8,19 @@ library(slider)
 ## Data Import ##
 #################
 
-ga_data_ <- here("app", "data", "ga.csv") |> read_csv() |>
+here_ <- function(...) {
+  # Am I on Fred Hutch infrastructure?
+  on_fh_infra <- getwd() == "/home/shiny" &&
+    as.character(Sys.info()["user"]) == "shiny"
+
+  if (on_fh_infra) {
+    here(...)
+  } else {
+    here("app", ...)
+  }
+}
+
+ga_data_ <- here_("data", "ga.csv") |> read_csv() |>
   mutate(pagePath = gsub("//", "/", pagePath)) |>
   group_by(Property, pagePath) |> mutate(group_size = n()) |>
   ungroup() |> filter(group_size > 1) |>
