@@ -30,6 +30,11 @@ ga_data_ <- here_("data", "ga.csv") |> read_csv() |>
   mutate(activeUsers = sum(activeUsers), sessions = sum(sessions)) |>
   ungroup() |> unique()
 
+slack_data <- here_("data", "slack.csv") |> read_csv() |>
+  select(Date, "Total Members", "Daily active members",
+         "Daily members posting messages", "Messages in public channels",
+         "Messages in private channels", "Messages in DMs")
+
 ######################
 ## UI Specification ##
 ######################
@@ -63,10 +68,14 @@ slack_ui <- tabPanel(title = "FH Data Slack",
                            h2("FH Data Slack"),
                            sidebarLayout(
                              sidebarPanel(
-                               p("Under Construction")
+                               dateRangeInput("slack_date", label = "Date Range",
+                                              start = slack_data$Date |> as.Date() |> min(),
+                                              end = slack_data$Date |> as.Date() |> max())
                              ),
                              mainPanel(
-                               p("Under Construction")
+                               plotOutput("slack_total_members_plot"),
+                               plotOutput("slack_weekly_members_plot"),
+                               plotOutput("slack_messages_plot")
                              )
                            )
                          )
@@ -155,7 +164,8 @@ server <- function(input, output, session) {
                    names_to = "Metric", values_to = "Value") |>
       ggplot(aes(Date, Value, colour = Metric)) +
       geom_line() +
-      ggtitle(paste("Daily Google Analytics for", input$ga_property, input$ga_page))
+      ggtitle(paste("Daily Google Analytics for", input$ga_property, input$ga_page)) +
+      theme_minimal()
   })
 
   observeEvent(ga_daily_plot(),
@@ -180,7 +190,8 @@ server <- function(input, output, session) {
                    names_to = "Metric", values_to = "Value") |>
       ggplot(aes(Date, Value, colour = Metric)) +
       geom_line() +
-      ggtitle(paste("Average Monthly Google Analytics for", input$ga_property, input$ga_page))
+      ggtitle(paste("Average Monthly Google Analytics for", input$ga_property, input$ga_page)) +
+      theme_minimal()
   })
 
   observeEvent(ga_weekly_plot(),
@@ -224,6 +235,54 @@ server <- function(input, output, session) {
                output$ga_summary <- renderTable(
                  ga_summary()
                ))
+
+  # Dynamically creates a data for Slack based on date range
+  slack_data_by_date <- reactive({
+    slack_data |>
+      filter(Date >= input$slack_date[1], Date <= input$slack_date[2])
+  })
+
+  output$slack_total_members_plot <- renderPlot(
+    slack_data_by_date() |>
+      ggplot(aes(Date, `Total Members`)) +
+        geom_line() +
+        ggtitle("FH Data Slack Total Membership") +
+        theme_minimal()
+  )
+
+  output$slack_weekly_members_plot <- renderPlot(
+    slack_data_by_date() |>
+      select(Date, "Daily active members", "Daily members posting messages") |>
+      arrange(Date) |>
+      mutate(`Daily active members` = slide_dbl(`Daily active members`, mean, .before = 30)) |>
+      mutate(`Daily members posting messages` = slide_dbl(`Daily members posting messages`, mean, .before = 30)) |>
+      rename(`Members posting messages` = `Daily members posting messages`,
+             `Active members` = `Daily active members`) |>
+      pivot_longer(cols = c("Active members", "Members posting messages"),
+                   names_to = "Metric", values_to = "Value") |>
+      ggplot(aes(Date, Value, colour = Metric)) +
+      geom_line() +
+      ggtitle("FH Data Slack Average Monthly Membership Activity") +
+      theme_minimal()
+  )
+
+  output$slack_messages_plot <- renderPlot(
+    slack_data_by_date() |>
+      select(Date, "Messages in public channels", "Messages in private channels",
+             "Messages in DMs") |>
+      arrange(Date) |>
+      mutate(`Messages in public channels` = slide_dbl(`Messages in public channels`, mean, .before = 30)) |>
+      mutate(`Messages in private channels` = slide_dbl(`Messages in private channels`, mean, .before = 30)) |>
+      mutate(`Messages in DMs` = slide_dbl(`Messages in DMs`, mean, .before = 30)) |>
+      pivot_longer(cols = c("Messages in public channels",
+                            "Messages in private channels",
+                            "Messages in DMs"),
+                   names_to = "Metric", values_to = "Value") |>
+      ggplot(aes(Date, Value, colour = Metric)) +
+      geom_line() +
+      ggtitle("FH Data Slack Average Monthly Message Activity") +
+      theme_minimal()
+  )
 }
 
 shinyApp(ui, server)
