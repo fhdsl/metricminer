@@ -1,22 +1,26 @@
 Property,ID,date,pagePath,pageTitle,activeUsers,sessions
 hutchdatasci,331303847,2023-01-13,/projects/nihdatasharing/,NIH Data Sharing -,1514,1516
 hutchdatasci,331303847,2023-01-10,/projects/nihdatasharing/,NIH Data Sharing -,111,115
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,99,128
 hutchdatasci,331303847,2023-03-20,/,(not set),83,97
 hutchdatasci,331303847,2023-01-17,/news/dasl-culture/,DaSL Culture and Workstyle -,72,73
 hutchdatasci,331303847,2023-01-30,/projects/nihdatasharing/,NIH Data Sharing -,47,53
 hutchdatasci,331303847,2023-01-18,/news/dasl-culture/,DaSL Culture and Workstyle -,32,32
 hutchdatasci,331303847,2023-02-21,/,(not set),32,33
 hutchdatasci,331303847,2022-11-14,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,28,38
+hutchdatasci,331303847,2023-06-20,/,(not set),28,31
 hutchdatasci,331303847,2023-05-09,/,(not set),26,30
 hutchdatasci,331303847,2022-11-08,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,24,34
 hutchdatasci,331303847,2023-03-28,/projects/nihdatasharing/,NIH Data Sharing -,23,25
 hutchdatasci,331303847,2023-05-15,/jobs/,Data Jobs Across Fred Hutch -,23,23
+hutchdatasci,331303847,2023-06-08,/,(not set),23,25
 hutchdatasci,331303847,2022-11-04,/,(not set),22,25
 hutchdatasci,331303847,2022-11-07,/,(not set),21,25
 hutchdatasci,331303847,2023-03-20,/training/,Training Resources for Data Science -,21,23
 hutchdatasci,331303847,2023-03-17,/,(not set),20,28
 hutchdatasci,331303847,2023-02-02,/,(not set),19,24
 hutchdatasci,331303847,2023-03-21,/,(not set),19,36
+hutchdatasci,331303847,2023-06-07,/,(not set),19,25
 hutchdatasci,331303847,2023-01-11,/projects/nihdatasharing/,NIH Data Sharing -,18,21
 hutchdatasci,331303847,2023-04-10,/,(not set),18,19
 hutchdatasci,331303847,2023-05-15,/,(not set),18,23
@@ -30,9 +34,13 @@ hutchdatasci,331303847,2022-11-14,/,(not set),16,19
 hutchdatasci,331303847,2023-02-01,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,16,16
 hutchdatasci,331303847,2023-03-13,/,(not set),16,19
 hutchdatasci,331303847,2023-06-01,/,(not set),16,20
+hutchdatasci,331303847,2023-06-15,/ourteam/,Who We Are -,16,17
+hutchdatasci,331303847,2023-06-21,/,(not set),16,18
+hutchdatasci,331303847,2023-06-26,/,(not set),16,19
 hutchdatasci,331303847,2022-10-20,/,(not set),15,23
 hutchdatasci,331303847,2023-02-22,/,(not set),15,18
 hutchdatasci,331303847,2023-04-18,/,(not set),15,21
+hutchdatasci,331303847,2023-06-13,/,(not set),15,18
 hutchdatasci,331303847,2022-09-16,/support/,Support Resources for Data Science -,14,15
 hutchdatasci,331303847,2022-10-11,/,(not set),14,18
 hutchdatasci,331303847,2022-11-09,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,14,18
@@ -47,6 +55,8 @@ hutchdatasci,331303847,2023-03-24,/,(not set),14,19
 hutchdatasci,331303847,2023-03-27,/,(not set),14,20
 hutchdatasci,331303847,2023-04-28,/,(not set),14,14
 hutchdatasci,331303847,2023-05-16,/,(not set),14,17
+hutchdatasci,331303847,2023-06-06,/,(not set),14,17
+hutchdatasci,331303847,2023-06-12,/,(not set),14,18
 hutchdatasci,331303847,2022-10-18,/,(not set),13,15
 hutchdatasci,331303847,2022-11-08,/,(not set),13,16
 hutchdatasci,331303847,2023-01-18,/,(not set),13,14
@@ -77,6 +87,10 @@ hutchdatasci,331303847,2023-05-15,/ourteam/,Who We Are -,12,12
 hutchdatasci,331303847,2023-05-17,/,(not set),12,17
 hutchdatasci,331303847,2023-06-02,/,(not set),12,13
 hutchdatasci,331303847,2023-06-05,/,(not set),12,14
+hutchdatasci,331303847,2023-06-09,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,12,16
+hutchdatasci,331303847,2023-06-22,/,(not set),12,17
+hutchdatasci,331303847,2023-06-27,/,(not set),12,12
+hutchdatasci,331303847,2023-06-30,/,(not set),12,15
 hutchdatasci,331303847,2022-10-06,/ourteam/,Who We Are -,11,12
 hutchdatasci,331303847,2022-10-31,/news/Data-Needs-Study-Launch/,Launching the Fred Hutch Data Needs Study -,11,12
 hutchdatasci,331303847,2022-11-09,/,(not set),11,14
@@ -94,6 +108,8 @@ hutchdatasci,331303847,2023-05-01,/,(not set),11,18
 hutchdatasci,331303847,2023-05-03,/,(not set),11,20
 hutchdatasci,331303847,2023-05-05,/,(not set),11,13
 hutchdatasci,331303847,2023-05-08,/,(not set),11,17
+hutchdatasci,331303847,2023-06-20,/ourteam/,Who We Are -,11,11
+hutchdatasci,331303847,2023-06-28,/,(not set),11,15
 hutchdatasci,331303847,2022-09-14,/,Fred Hutch Data Science Laboratory -,10,11
 hutchdatasci,331303847,2022-10-19,/,(not set),10,12
 hutchdatasci,331303847,2022-11-16,/,(not set),10,12
@@ -141,6 +157,10 @@ hutchdatasci,331303847,2023-03-31,/projects/userdropin/,User Groups and Drop in 
 hutchdatasci,331303847,2023-05-03,/ourteam/,Who We Are -,9,10
 hutchdatasci,331303847,2023-05-10,/,(not set),9,9
 hutchdatasci,331303847,2023-05-22,/,(not set),9,12
+hutchdatasci,331303847,2023-06-12,/plan/,Fred Hutch Year 1 Data Program Plan -,9,10
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,9,9
+hutchdatasci,331303847,2023-06-20,/jobs/,Data Jobs Across Fred Hutch -,9,10
+hutchdatasci,331303847,2023-06-29,/,(not set),9,11
 hutchdatasci,331303847,2022-10-13,/,(not set),8,9
 hutchdatasci,331303847,2022-11-02,/,(not set),8,12
 hutchdatasci,331303847,2022-11-03,/,(not set),8,12
@@ -179,6 +199,10 @@ hutchdatasci,331303847,2023-05-08,/projects/userdropin/,User Groups and Drop in 
 hutchdatasci,331303847,2023-05-26,/,(not set),8,9
 hutchdatasci,331303847,2023-05-30,/,(not set),8,12
 hutchdatasci,331303847,2023-06-01,/jobs/,Data Jobs Across Fred Hutch -,8,8
+hutchdatasci,331303847,2023-06-08,/plan/,Fred Hutch Year 1 Data Program Plan -,8,11
+hutchdatasci,331303847,2023-06-14,/,(not set),8,11
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,8,14
+hutchdatasci,331303847,2023-06-23,/,(not set),8,10
 hutchdatasci,331303847,2022-09-12,/,Fred Hutch Data Science Laboratory -,7,7
 hutchdatasci,331303847,2022-09-23,/,Fred Hutch Data Science Laboratory -,7,10
 hutchdatasci,331303847,2022-09-29,/ourteam/,Who We Are -,7,7
@@ -219,6 +243,9 @@ hutchdatasci,331303847,2023-05-04,/ourteam/,Who We Are -,7,8
 hutchdatasci,331303847,2023-05-05,/ourteam/,Who We Are -,7,7
 hutchdatasci,331303847,2023-05-24,/ourteam/,Who We Are -,7,7
 hutchdatasci,331303847,2023-06-02,/projects/userdropin/,User Groups and Drop in Hours -,7,7
+hutchdatasci,331303847,2023-06-07,/ourteam/,Who We Are -,7,7
+hutchdatasci,331303847,2023-06-15,/,(not set),7,10
+hutchdatasci,331303847,2023-06-27,/ourteam/,Who We Are -,7,9
 hutchdatasci,331303847,2022-09-22,/,Fred Hutch Data Science Laboratory -,6,9
 hutchdatasci,331303847,2022-10-06,/datagroups/,Data Science Groups in the Fred Hutch Community -,6,7
 hutchdatasci,331303847,2022-10-06,/support/,Support Resources for Data Science -,6,6
@@ -260,6 +287,13 @@ hutchdatasci,331303847,2023-05-12,/,(not set),6,10
 hutchdatasci,331303847,2023-05-16,/ourteam/,Who We Are -,6,6
 hutchdatasci,331303847,2023-05-16,/training/,Training Resources for Data Science -,6,6
 hutchdatasci,331303847,2023-05-25,/ourteam/,Who We Are -,6,6
+hutchdatasci,331303847,2023-06-08,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,6,6
+hutchdatasci,331303847,2023-06-09,/,(not set),6,8
+hutchdatasci,331303847,2023-06-16,/,(not set),6,10
+hutchdatasci,331303847,2023-06-18,/,(not set),6,7
+hutchdatasci,331303847,2023-06-22,/projects/userdropin/,User Groups and Drop in Hours -,6,6
+hutchdatasci,331303847,2023-06-29,/ourteam/,Who We Are -,6,6
+hutchdatasci,331303847,2023-06-30,/ourteam/,Who We Are -,6,7
 hutchdatasci,331303847,2022-09-13,/,Fred Hutch Data Science Laboratory -,5,7
 hutchdatasci,331303847,2022-09-16,/ourteam/,Who We Are -,5,8
 hutchdatasci,331303847,2022-09-22,/support/,Support Resources for Data Science -,5,5
@@ -337,6 +371,17 @@ hutchdatasci,331303847,2023-05-24,/jobs/,Data Jobs Across Fred Hutch -,5,5
 hutchdatasci,331303847,2023-06-01,/news/dasl-culture/,DaSL Culture and Work Style -,5,6
 hutchdatasci,331303847,2023-06-01,/ourteam/,Who We Are -,5,6
 hutchdatasci,331303847,2023-06-05,/jobs/,Data Jobs Across Fred Hutch -,5,7
+hutchdatasci,331303847,2023-06-07,/jobs/,Data Jobs Across Fred Hutch -,5,5
+hutchdatasci,331303847,2023-06-08,/news/,Fred Hutch DaSL News -,5,5
+hutchdatasci,331303847,2023-06-08,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,5,7
+hutchdatasci,331303847,2023-06-08,/news/dasl-culture/,DaSL Culture and Work Style -,5,6
+hutchdatasci,331303847,2023-06-09,/ourteam/,Who We Are -,5,6
+hutchdatasci,331303847,2023-06-12,/ourteam/,Who We Are -,5,6
+hutchdatasci,331303847,2023-06-20,/projects/,DaSL Projects -,5,6
+hutchdatasci,331303847,2023-06-21,/ourteam/,Who We Are -,5,6
+hutchdatasci,331303847,2023-06-25,/,(not set),5,5
+hutchdatasci,331303847,2023-06-26,/NIH_Data_Sharing/index.html,NIH Data Management and Sharing Policy,5,6
+hutchdatasci,331303847,2023-06-26,/ourteam/,Who We Are -,5,5
 hutchdatasci,331303847,2022-09-09,/live/,Fred Hutch DaSL Live Events -,4,5
 hutchdatasci,331303847,2022-09-20,/,Fred Hutch Data Science Laboratory -,4,5
 hutchdatasci,331303847,2022-09-25,/,Fred Hutch Data Science Laboratory -,4,4
@@ -461,6 +506,24 @@ hutchdatasci,331303847,2023-05-22,/projects/nihdatasharing/,NIH Data Sharing -,4
 hutchdatasci,331303847,2023-05-26,/ourteam/,Who We Are -,4,4
 hutchdatasci,331303847,2023-05-29,/,(not set),4,5
 hutchdatasci,331303847,2023-06-02,/ourteam/,Who We Are -,4,5
+hutchdatasci,331303847,2023-06-07,/training/,Training Resources for Data Science -,4,5
+hutchdatasci,331303847,2023-06-11,/,(not set),4,5
+hutchdatasci,331303847,2023-06-12,/jobs/,Data Jobs Across Fred Hutch -,4,4
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/how-will-this-policy-affect-me.html,Chapter 2 How will this policy affect me? | NIH Data Management and Sharing Policy,4,5
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/index.html,NIH Data Management and Sharing Policy,4,6
+hutchdatasci,331303847,2023-06-13,/jobs/,Data Jobs Across Fred Hutch -,4,4
+hutchdatasci,331303847,2023-06-14,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,4,6
+hutchdatasci,331303847,2023-06-14,/ourteam/,Who We Are -,4,5
+hutchdatasci,331303847,2023-06-15,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,4,6
+hutchdatasci,331303847,2023-06-15,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,4,5
+hutchdatasci,331303847,2023-06-20,/plan/,Fred Hutch Year 1 Data Program Plan -,4,4
+hutchdatasci,331303847,2023-06-20,/projects/userdropin/,User Groups and Drop in Hours -,4,4
+hutchdatasci,331303847,2023-06-22,/ourteam/,Who We Are -,4,5
+hutchdatasci,331303847,2023-06-25,/ourteam/,Who We Are -,4,4
+hutchdatasci,331303847,2023-06-26,/projects/nihdatasharing/,NIH Data Sharing -,4,6
+hutchdatasci,331303847,2023-06-27,/jobs/,Data Jobs Across Fred Hutch -,4,4
+hutchdatasci,331303847,2023-06-28,/ourteam/,Who We Are -,4,4
+hutchdatasci,331303847,2023-06-30,/training/,Training Resources for Data Science -,4,5
 hutchdatasci,331303847,2022-09-09,/,Fred Hutch Data Science Laboratory -,3,3
 hutchdatasci,331303847,2022-09-12,/ourteam/,Who We Are -,3,3
 hutchdatasci,331303847,2022-09-13,/live/,Fred Hutch DaSL Live Events -,3,3
@@ -669,6 +732,30 @@ hutchdatasci,331303847,2023-06-04,/,(not set),3,3
 hutchdatasci,331303847,2023-06-05,/news/NeedsAssessmentv1.0/,Page Not Found -,3,3
 hutchdatasci,331303847,2023-06-05,/ourteam/,Who We Are -,3,4
 hutchdatasci,331303847,2023-06-05,/projects/userdropin/,User Groups and Drop in Hours -,3,3
+hutchdatasci,331303847,2023-06-06,/ourteam/,Who We Are -,3,3
+hutchdatasci,331303847,2023-06-06,/plan/,Fred Hutch Year 1 Data Program Plan -,3,3
+hutchdatasci,331303847,2023-06-06,/training/,Training Resources for Data Science -,3,3
+hutchdatasci,331303847,2023-06-07,/projects/,DaSL Projects -,3,3
+hutchdatasci,331303847,2023-06-08,/jobs/,Data Jobs Across Fred Hutch -,3,3
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,3,4
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/dms-helper-app.html,DMS Helper App | NIH Data Management and Sharing Policy,3,3
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,3,3
+hutchdatasci,331303847,2023-06-14,/jobs/,Data Jobs Across Fred Hutch -,3,3
+hutchdatasci,331303847,2023-06-16,/ourteam/,Who We Are -,3,5
+hutchdatasci,331303847,2023-06-19,/,(not set),3,3
+hutchdatasci,331303847,2023-06-20,/projects/nihdatasharing/,NIH Data Sharing -,3,5
+hutchdatasci,331303847,2023-06-20,/training/,Training Resources for Data Science -,3,3
+hutchdatasci,331303847,2023-06-21,/jobs/,Data Jobs Across Fred Hutch -,3,3
+hutchdatasci,331303847,2023-06-22,/jobs/,Data Jobs Across Fred Hutch -,3,5
+hutchdatasci,331303847,2023-06-25,/jobs/,Data Jobs Across Fred Hutch -,3,3
+hutchdatasci,331303847,2023-06-26,/datagroups/,Data Science Groups in the Fred Hutch Community -,3,3
+hutchdatasci,331303847,2023-06-26,/jobs/,Data Jobs Across Fred Hutch -,3,3
+hutchdatasci,331303847,2023-06-26,/needs/,DaSL Needs Assessment -,3,4
+hutchdatasci,331303847,2023-06-26,/projects/,DaSL Projects -,3,3
+hutchdatasci,331303847,2023-06-30,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,3,3
+hutchdatasci,331303847,2023-06-30,/jobs/,Data Jobs Across Fred Hutch -,3,4
+hutchdatasci,331303847,2023-06-30,/news/,Fred Hutch DaSL News -,3,4
+hutchdatasci,331303847,2023-07-02,/,(not set),3,4
 hutchdatasci,331303847,2022-09-10,/,Fred Hutch Data Science Laboratory -,2,2
 hutchdatasci,331303847,2022-09-12,/news/FHDaSLRoadShow/,The FH DaSL RoadShow -,2,2
 hutchdatasci,331303847,2022-09-13,/support/,Support Resources for Data Science -,2,2
@@ -1058,6 +1145,61 @@ hutchdatasci,331303847,2023-06-04,/jobs/,Data Jobs Across Fred Hutch -,2,2
 hutchdatasci,331303847,2023-06-05,/datagroups/,Data Science Groups in the Fred Hutch Community -,2,2
 hutchdatasci,331303847,2023-06-05,/plan/,Fred Hutch Year 1 Data Program Plan -,2,2
 hutchdatasci,331303847,2023-06-05,/training/,Training Resources for Data Science -,2,2
+hutchdatasci,331303847,2023-06-06,/jobs/,Data Jobs Across Fred Hutch -,2,2
+hutchdatasci,331303847,2023-06-06,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,2,2
+hutchdatasci,331303847,2023-06-06,/projects/,DaSL Projects -,2,2
+hutchdatasci,331303847,2023-06-07,/datagroups/,Data Science Groups in the Fred Hutch Community -,2,2
+hutchdatasci,331303847,2023-06-07,/needs/,DaSL Needs Assessment -,2,3
+hutchdatasci,331303847,2023-06-07,/news/Data-Needs-Study-Launch/,Launching the Fred Hutch Data Needs Study -,2,2
+hutchdatasci,331303847,2023-06-07,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,2,3
+hutchdatasci,331303847,2023-06-08,/needs/,DaSL Needs Assessment -,2,2
+hutchdatasci,331303847,2023-06-08,/news/tags/,Posts by Tag -,2,2
+hutchdatasci,331303847,2023-06-08,/ourteam/,Who We Are -,2,4
+hutchdatasci,331303847,2023-06-08,/projects/,DaSL Projects -,2,2
+hutchdatasci,331303847,2023-06-09,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,2,2
+hutchdatasci,331303847,2023-06-09,/plan/,Fred Hutch Year 1 Data Program Plan -,2,4
+hutchdatasci,331303847,2023-06-11,/jobs/,Data Jobs Across Fred Hutch -,2,2
+hutchdatasci,331303847,2023-06-12,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,2,2
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/data-file-size-details.html,Data File Size Details | NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/faq.html,FAQ | NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/post-submission-tips.html,Chapter 8 Post Submission Tips | NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/tools-used-for-this-course.html,Tools Used for This Course | NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/writing-a-dms-plan.html,Chapter 6 Writing a DMS Plan | NIH Data Management and Sharing Policy,2,3
+hutchdatasci,331303847,2023-06-13,/news/,Fred Hutch DaSL News -,2,2
+hutchdatasci,331303847,2023-06-13,/ourteam/,Who We Are -,2,2
+hutchdatasci,331303847,2023-06-13,/projects/,DaSL Projects -,2,2
+hutchdatasci,331303847,2023-06-13,/training/,Training Resources for Data Science -,2,3
+hutchdatasci,331303847,2023-06-15,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-15,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,2,3
+hutchdatasci,331303847,2023-06-20,/contact/,Get Connected With DaSL -,2,2
+hutchdatasci,331303847,2023-06-20,/datagroups/,Data Science Groups in the Fred Hutch Community -,2,2
+hutchdatasci,331303847,2023-06-20,/needs/,DaSL Needs Assessment -,2,2
+hutchdatasci,331303847,2023-06-20,/news/dasl-culture/,DaSL Culture and Work Style -,2,3
+hutchdatasci,331303847,2023-06-21,/news/dasl-culture/,DaSL Culture and Work Style -,2,2
+hutchdatasci,331303847,2023-06-22,/contact/,Get Connected With DaSL -,2,2
+hutchdatasci,331303847,2023-06-22,/projects/nihdatasharing/,NIH Data Sharing -,2,3
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,2,3
+hutchdatasci,331303847,2023-06-23,/jobs/,Data Jobs Across Fred Hutch -,2,3
+hutchdatasci,331303847,2023-06-23,/ourteam/,Who We Are -,2,2
+hutchdatasci,331303847,2023-06-23,/projects/,DaSL Projects -,2,2
+hutchdatasci,331303847,2023-06-23,/projects/nihdatasharing/,NIH Data Sharing -,2,4
+hutchdatasci,331303847,2023-06-24,/,(not set),2,2
+hutchdatasci,331303847,2023-06-26,/news/dasl-culture/,DaSL Culture and Work Style -,2,2
+hutchdatasci,331303847,2023-06-26,/training/,Training Resources for Data Science -,2,3
+hutchdatasci,331303847,2023-06-27,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,2,3
+hutchdatasci,331303847,2023-06-27,/seattlestatsummer_r/data/states.csv,Page Not Found -,2,2
+hutchdatasci,331303847,2023-06-28,/jobs/,Data Jobs Across Fred Hutch -,2,4
+hutchdatasci,331303847,2023-06-28,/needs/,DaSL Needs Assessment -,2,2
+hutchdatasci,331303847,2023-06-28,/projects/nihdatasharing/,NIH Data Sharing -,2,2
+hutchdatasci,331303847,2023-06-29,/needs/,DaSL Needs Assessment -,2,2
+hutchdatasci,331303847,2023-06-29,/news/Data-Needs-Study-Launch/,Launching the Fred Hutch Data Needs Study -,2,2
+hutchdatasci,331303847,2023-06-29,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,2,2
+hutchdatasci,331303847,2023-06-30,/news/ITCRWorkshops/,Free Cancer Informatics Workshops – Lunch included -,2,2
+hutchdatasci,331303847,2023-07-01,/,(not set),2,3
+hutchdatasci,331303847,2023-07-01,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,2,2
+hutchdatasci,331303847,2023-07-01,/ourteam/,Who We Are -,2,2
 hutchdatasci,331303847,2022-09-09,/news/,Hutch DaSL Blog -,1,1
 hutchdatasci,331303847,2022-09-09,/news/FHDaSLRoadShow/,The FH DaSL RoadShow -,1,1
 hutchdatasci,331303847,2022-09-09,/search/,Page Not Found -,1,1
@@ -2082,10 +2224,221 @@ hutchdatasci,331303847,2023-06-05,/news/firstYear/,First Year of DaSL -,1,1
 hutchdatasci,331303847,2023-06-05,/news/tags/,Posts by Tag -,1,2
 hutchdatasci,331303847,2023-06-05,/projects/nihdatasharing/,NIH Data Sharing -,1,1
 hutchdatasci,331303847,2023-06-05,/year%20zero%20doc%20URL,Page Not Found -,1,1
-hutchdatasci,331303847,2023-06-06,/,,1,1
 hutchdatasci,331303847,2023-06-06,/AnVIL_demos,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-06,/MOU,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-06,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,1,1
 hutchdatasci,331303847,2023-06-06,/anvil_demos,Page Not Found -,1,1
-hutchdatasci,331303847,2023-06-06,/training/,Training Resources for Data Science -,1,1
+hutchdatasci,331303847,2023-06-06,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-06,/news/NeedsAssessmentv1.0/,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-06,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-06,/year%20zero%20doc%20URL,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,1,2
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/additional-resources.html,Additional Resources | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/faq.html,FAQ | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-07,/NIH_Data_Sharing/tools-used-for-this-course.html,Tools Used for This Course | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-07,/aiwhat,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-07,/contact/,Get Connected With DaSL -,1,1
+hutchdatasci,331303847,2023-06-07,/news/FHDaSLRoadShow/,The FH DaSL RoadShow -,1,1
+hutchdatasci,331303847,2023-06-07,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-07,/news/firstYear/,First Year of DaSL -,1,1
+hutchdatasci,331303847,2023-06-07,/news/tags/,Posts by Tag -,1,2
+hutchdatasci,331303847,2023-06-08,//plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-08,/STTR,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-08,/contact/,Get Connected With DaSL -,1,1
+hutchdatasci,331303847,2023-06-08,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-08,/new/sttr,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-08,/news/plan,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-08,/news/sttr-talk,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-08,/training/,Training Resources for Data Science -,1,2
+hutchdatasci,331303847,2023-06-09,/Overleaf_Tutorial/latex.html,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-09,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-09,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-09,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-10,/,(not set),1,1
+hutchdatasci,331303847,2023-06-10,/jobs/,Data Jobs Across Fred Hutch -,1,1
+hutchdatasci,331303847,2023-06-10,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-10,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-10,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,1,1
+hutchdatasci,331303847,2023-06-10,/ourteam/,Who We Are -,1,2
+hutchdatasci,331303847,2023-06-10,/projects/userdropin/,User Groups and Drop in Hours -,1,1
+hutchdatasci,331303847,2023-06-11,/needs/,DaSL Needs Assessment -,1,1
+hutchdatasci,331303847,2023-06-11,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-11,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-11,/news/archive/,Posts by Year -,1,1
+hutchdatasci,331303847,2023-06-11,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,1,1
+hutchdatasci,331303847,2023-06-11,/news/tags/,Posts by Tag -,1,1
+hutchdatasci,331303847,2023-06-11,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-12,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-12,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-12,/join_slack,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-12,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-12,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-12,/projects/nihdatasharing/).,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/about-the-authors.html,About the Authors | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/additional-resources.html,Additional Resources | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/ethics.html,Ethical Considerations | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/further-reading.html,Further Reading | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/presubmission-tips.html,Chapter 7 Presubmission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/references.html,References | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/NIH_Data_Sharing/www.iconpacks.net,Page not found | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-13,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-13,/needs/,DaSL Needs Assessment -,1,1
+hutchdatasci,331303847,2023-06-13,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-13,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/additional-resources.html,Additional Resources | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/ethics.html,Ethical Considerations | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/faq.html,FAQ | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/further-reading.html,Further Reading | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/how-will-this-policy-affect-me.html,Chapter 2 How will this policy affect me? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,1,2
+hutchdatasci,331303847,2023-06-14,/NIH_Data_Sharing/writing-a-dms-plan.html,Chapter 6 Writing a DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-14,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-14,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,1,1
+hutchdatasci,331303847,2023-06-14,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-14,/projects/,DaSL Projects -,1,1
+hutchdatasci,331303847,2023-06-14,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-14,/training/,Training Resources for Data Science -,1,1
+hutchdatasci,331303847,2023-06-15,/AnVil_Collection/,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-15,/Anvil_collection,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-15,/NIH_Data_Sharing/dms-helper-app.html,DMS Helper App | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-15,/NIH_Data_Sharing/how-will-this-policy-affect-me.html,Chapter 2 How will this policy affect me? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-15,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-15,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-15,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-15,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-15,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-15,/projects/userdropin/,User Groups and Drop in Hours -,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/dms-helper-app.html,DMS Helper App | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/faq.html,FAQ | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/index.html,NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/post-submission-tips.html,Chapter 8 Post Submission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/presubmission-tips.html,Chapter 7 Presubmission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/NIH_Data_Sharing/writing-a-dms-plan.html,Chapter 6 Writing a DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-16,/jobs/,Data Jobs Across Fred Hutch -,1,1
+hutchdatasci,331303847,2023-06-16,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-16,/projects/,DaSL Projects -,1,1
+hutchdatasci,331303847,2023-06-16,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-16,/training/,Training Resources for Data Science -,1,1
+hutchdatasci,331303847,2023-06-17,/,(not set),1,1
+hutchdatasci,331303847,2023-06-17,/contact/,Get Connected With DaSL -,1,2
+hutchdatasci,331303847,2023-06-17,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-17,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-17,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-18,/contact/,Get Connected With DaSL -,1,1
+hutchdatasci,331303847,2023-06-18,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-18,/ourteam/,Who We Are -,1,1
+hutchdatasci,331303847,2023-06-18,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-19,/ourteam/,Who We Are -,1,1
+hutchdatasci,331303847,2023-06-19,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/about-the-authors.html,About the Authors | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/additional-resources.html,Additional Resources | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/data-file-size-details.html,Data File Size Details | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/dms-helper-app.html,DMS Helper App | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/ethics.html,Ethical Considerations | NIH Data Management and Sharing Policy,1,2
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/faq.html,FAQ | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/further-reading.html,Further Reading | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/how-will-this-policy-affect-me.html,Chapter 2 How will this policy affect me? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/post-submission-tips.html,Chapter 8 Post Submission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/presubmission-tips.html,Chapter 7 Presubmission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/references.html,References | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/tools-used-for-this-course.html,Tools Used for This Course | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/NIH_Data_Sharing/writing-a-dms-plan.html,Chapter 6 Writing a DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-20,/news/Data-Needs-Study-Launch/,Launching the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-20,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,1,1
+hutchdatasci,331303847,2023-06-20,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-21,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-21,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-21,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-21,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,1,1
+hutchdatasci,331303847,2023-06-21,/personas/,DaSL Data Science Personas -,1,2
+hutchdatasci,331303847,2023-06-21,/projects/,DaSL Projects -,1,2
+hutchdatasci,331303847,2023-06-21,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-22,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-22,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-22,/news/FHDaSLRoadShow/,The FH DaSL RoadShow -,1,1
+hutchdatasci,331303847,2023-06-22,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,1,1
+hutchdatasci,331303847,2023-06-22,/news/NeedsAssessmentv1/,Version 1.0 of the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-22,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-22,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,1,1
+hutchdatasci,331303847,2023-06-22,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/dms-helper-app.html,DMS Helper App | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/faq.html,FAQ | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/how-will-this-policy-affect-me.html,Chapter 2 How will this policy affect me? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/post-submission-tips.html,Chapter 8 Post Submission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/presubmission-tips.html,Chapter 7 Presubmission Tips | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/NIH_Data_Sharing/writing-a-dms-plan.html,Chapter 6 Writing a DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-23,/SeattleStatSummer_Intro_to_R,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-23,/SeattleStatSummer_Intro_to_R/,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-23,/training/,Training Resources for Data Science -,1,1
+hutchdatasci,331303847,2023-06-24,/ourteam/,Who We Are -,1,1
+hutchdatasci,331303847,2023-06-24,/projects/,DaSL Projects -,1,1
+hutchdatasci,331303847,2023-06-24,/training/,Training Resources for Data Science -,1,1
+hutchdatasci,331303847,2023-06-26,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-26,/NIH_Data_Sharing/budgeting-for-data-sharing.html,Chapter 5 Budgeting for Data Sharing | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-26,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-26,/NIH_Data_Sharing/overview-of-the-dms-plan.html,Chapter 3 Overview of the DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-26,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-26,/SeattleStatSummer,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-26,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-26,/news/Data-Needs-Study-Launch/,Launching the Fred Hutch Data Needs Study -,1,1
+hutchdatasci,331303847,2023-06-26,/news/TDSAnnualRetreat-full/,TDS IRC Annual Retreat Full Schedule -,1,1
+hutchdatasci,331303847,2023-06-27,/SeattleSatSummer_R/data/states.csv,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-27,/SeattleStatSummer_R.htm,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-27,/SeattleStatSummer_R.html,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-27,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,1
+hutchdatasci,331303847,2023-06-27,/projects/,DaSL Projects -,1,1
+hutchdatasci,331303847,2023-06-27,/projects/nihdatasharing/,NIH Data Sharing -,1,2
+hutchdatasci,331303847,2023-06-27,/seattlestatsummer_r/daa/states.csv,Page Not Found -,1,1
+hutchdatasci,331303847,2023-06-28,/NIH_Data_Sharing/,NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-06-28,/contact/,Get Connected With DaSL -,1,1
+hutchdatasci,331303847,2023-06-28,/datagroups/,Data Science Groups in the Fred Hutch Community -,1,2
+hutchdatasci,331303847,2023-06-28,/news/FHDaSLRoadShow/,The FH DaSL RoadShow -,1,2
+hutchdatasci,331303847,2023-06-28,/personas/,DaSL Data Science Personas -,1,1
+hutchdatasci,331303847,2023-06-28,/personas/100-tr-res-analytics/,Translational Research Analyst -,1,1
+hutchdatasci,331303847,2023-06-28,/personas/111-biostats-faculty/,Biostatistics Faculty Member -,1,1
+hutchdatasci,331303847,2023-06-28,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-28,/projects/userdropin/,User Groups and Drop in Hours -,1,1
+hutchdatasci,331303847,2023-06-28,/training/,Training Resources for Data Science -,1,2
+hutchdatasci,331303847,2023-06-29,/news/,Fred Hutch DaSL News -,1,1
+hutchdatasci,331303847,2023-06-29,/news/FHDaSLRoadShow/,The FH DaSL RoadShow -,1,1
+hutchdatasci,331303847,2023-06-29,/news/NIH-Data-Sharing-Policy-Draft/,Supporting the NIH Data Sharing Policy at Fred Hutch -,1,1
+hutchdatasci,331303847,2023-06-29,/news/TDSAnnualRetreat-full/,TDS IRC Annual Retreat Full Schedule -,1,1
+hutchdatasci,331303847,2023-06-29,/news/dasl-culture/,DaSL Culture and Work Style -,1,1
+hutchdatasci,331303847,2023-06-29,/news/firstYear/,First Year of DaSL -,1,1
+hutchdatasci,331303847,2023-06-29,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,1,1
+hutchdatasci,331303847,2023-06-29,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-06-29,/projects/,DaSL Projects -,1,2
+hutchdatasci,331303847,2023-06-29,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-06-29,/projects/userdropin/,User Groups and Drop in Hours -,1,1
+hutchdatasci,331303847,2023-06-30,/Overleaf_Tutorial/index.html,Page Not Found -,1,2
+hutchdatasci,331303847,2023-06-30,/contact/,Get Connected With DaSL -,1,1
+hutchdatasci,331303847,2023-06-30,/news/sttr/,Working Together To Build an AI Engine for Precision Oncology -,1,1
+hutchdatasci,331303847,2023-06-30,/plan/,Fred Hutch Year 1 Data Program Plan -,1,1
+hutchdatasci,331303847,2023-07-01,/NIH_Data_Sharing/index.html,NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-07-01,/NIH_Data_Sharing/writing-a-dms-plan.html,Chapter 6 Writing a DMS Plan | NIH Data Management and Sharing Policy,1,1
+hutchdatasci,331303847,2023-07-01,/jobs/,Data Jobs Across Fred Hutch -,1,2
+hutchdatasci,331303847,2023-07-01,/news/ITCRWorkshops/,Free Cancer Informatics Workshops – Lunch included -,1,1
+hutchdatasci,331303847,2023-07-02,/contact/,Get Connected With DaSL -,1,1
+hutchdatasci,331303847,2023-07-02,/projects/nihdatasharing/,NIH Data Sharing -,1,1
+hutchdatasci,331303847,2023-07-02,/training/,Training Resources for Data Science -,1,1
 hutchdatasci,331303847,2022-09-21,/training/,Training Resources for Data Science -,0,1
 hutchdatasci,331303847,2022-10-04,/datagroups/,Data Science Groups in the Fred Hutch Community -,0,2
 hutchdatasci,331303847,2022-10-09,/,(not set),0,1
@@ -2130,6 +2483,16 @@ hutchdatasci,331303847,2023-05-13,/projects/nihdatasharing/,NIH Data Sharing -,0
 hutchdatasci,331303847,2023-05-22,/datagroups/,Data Science Groups in the Fred Hutch Community -,0,1
 hutchdatasci,331303847,2023-05-30,/NIH_Data_Sharing/why-this-new-dms-policy.html,Chapter 1 Why this new DMS policy? | NIH Data Management and Sharing Policy,0,1
 hutchdatasci,331303847,2023-06-01,/projects/nihdatasharing/,NIH Data Sharing -,0,1
+hutchdatasci,331303847,2023-06-06,/NIH_Data_Sharing/data-management-and-storage.html,Chapter 4 Data Management and Storage | NIH Data Management and Sharing Policy,0,1
+hutchdatasci,331303847,2023-06-09,/projects/,DaSL Projects -,0,1
+hutchdatasci,331303847,2023-06-13,/projects/nihdatasharing/,NIH Data Sharing -,0,1
+hutchdatasci,331303847,2023-06-15,/jobs/,Data Jobs Across Fred Hutch -,0,1
+hutchdatasci,331303847,2023-06-17,/ourteam/,Who We Are -,0,1
+hutchdatasci,331303847,2023-06-19,/projects/,DaSL Projects -,0,1
+hutchdatasci,331303847,2023-06-21,/plan/,Fred Hutch Year 1 Data Program Plan -,0,1
+hutchdatasci,331303847,2023-06-23,/news/dasl-culture/,DaSL Culture and Work Style -,0,1
+hutchdatasci,331303847,2023-06-24,/news/dasl-culture/,DaSL Culture and Work Style -,0,1
+hutchdatasci,331303847,2023-06-29,/jobs/,Data Jobs Across Fred Hutch -,0,2
 whoiswho,342516390,2023-01-10,/,Who’s Who in Fred Hutch Data -,10,12
 whoiswho,342516390,2023-01-11,/,Who’s Who in Fred Hutch Data -,9,9
 whoiswho,342516390,2023-01-09,/,Who’s Who in Fred Hutch Data -,7,8
@@ -2144,6 +2507,7 @@ whoiswho,342516390,2023-02-08,/,Who’s Who in Fred Hutch Data -,2,2
 whoiswho,342516390,2023-02-08,/roles/,People by Role -,2,2
 whoiswho,342516390,2023-02-21,/,Who’s Who in Fred Hutch Data -,2,2
 whoiswho,342516390,2023-03-06,/,Who’s Who in Fred Hutch Data -,2,3
+whoiswho,342516390,2023-06-08,/,Who’s Who in Fred Hutch Data -,2,3
 whoiswho,342516390,2023-01-09,/keywords/,People by Keyword -,1,1
 whoiswho,342516390,2023-01-09,/roles/,People by Role -,1,1
 whoiswho,342516390,2023-01-11,/collaborate/mentor/leek-j/,Jeff Leek -,1,1
@@ -2215,6 +2579,9 @@ whoiswho,342516390,2023-03-02,/,Who’s Who in Fred Hutch Data -,0,1
 whoiswho,342516390,2023-03-05,/,Who’s Who in Fred Hutch Data -,0,1
 whoiswho,342516390,2023-03-09,/,Who’s Who in Fred Hutch Data -,0,1
 whoiswho,342516390,2023-05-28,/,Who’s Who in Fred Hutch Data -,0,1
+whoiswho,342516390,2023-06-11,/,Who’s Who in Fred Hutch Data -,0,1
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-13,/,DMS 📁 Helper,89,124
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-14,/,DMS 📁 Helper,10,14
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-15,/,DMS 📁 Helper,6,9
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-20,/,DMS 📁 Helper,6,17
 NIH DMS Helper (shiny app) - GA4,358228687,2023-04-11,/,DMS 📁 Helper,6,9
@@ -2224,12 +2591,16 @@ NIH DMS Helper (shiny app) - GA4,358228687,2023-03-21,/,DMS 📁 Helper,4,7
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-22,/,DMS 📁 Helper,4,6
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-23,/,DMS 📁 Helper,4,7
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-31,/,DMS 📁 Helper,4,7
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-15,/,DMS 📁 Helper,4,6
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-22,/,DMS 📁 Helper,4,4
 NIH DMS Helper (shiny app) - GA4,358228687,2023-04-12,/,DMS 📁 Helper,3,4
 NIH DMS Helper (shiny app) - GA4,358228687,2023-05-30,/,DMS 📁 Helper,3,4
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-17,/,DMS 📁 Helper,2,4
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-29,/,DMS 📁 Helper,2,2
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-30,/,DMS 📁 Helper,2,4
 NIH DMS Helper (shiny app) - GA4,358228687,2023-05-16,/,DMS 📁 Helper,2,2
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-16,/,DMS 📁 Helper,2,2
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-28,/,DMS 📁 Helper,2,2
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-14,/,DSMP 📁 Helper,1,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-24,/,DMS 📁 Helper,1,3
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-28,/,DMS 📁 Helper,1,1
@@ -2247,9 +2618,15 @@ NIH DMS Helper (shiny app) - GA4,358228687,2023-05-23,/,DMS 📁 Helper,1,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-06-02,/,DMS 📁 Helper,1,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-06-04,/,DMS 📁 Helper,1,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-06-06,/,DMS 📁 Helper,1,1
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-21,/,DMS 📁 Helper,1,2
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-27,/,DMS 📁 Helper,1,2
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-29,/,DMS 📁 Helper,1,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-03-27,/,DMS 📁 Helper,0,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-04-01,/,DMS 📁 Helper,0,1
 NIH DMS Helper (shiny app) - GA4,358228687,2023-05-24,/,DMS 📁 Helper,0,1
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-19,/,DMS 📁 Helper,0,1
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-23,/,DMS 📁 Helper,0,1
+NIH DMS Helper (shiny app) - GA4,358228687,2023-06-26,/,DMS 📁 Helper,0,1
 GDSCN Book: Intro R with swirl,377173764,2023-05-22,/GDSCN_Book_swirl/,Intro R with swirl,3,3
 GDSCN Book: Intro R with swirl,377173764,2023-05-22,/GDSCN_Book_swirl/explore-us_contagious_diseases-dataframe.html,Chapter 4 Explore us_contagious_diseases dataframe | Intro R with swirl,1,1
 GDSCN Book: Intro R with swirl,377173764,2023-05-22,/GDSCN_Book_swirl/index.html,Intro R with swirl,1,3
@@ -2261,15 +2638,41 @@ GDSCN Book: Intro R with swirl,377173764,2023-05-26,/GDSCN_Book_swirl/,Intro R w
 GDSCN Book: Intro R with swirl,377173764,2023-05-26,/GDSCN_Book_swirl/index.html,Intro R with swirl,1,1
 GDSCN Book: Intro R with swirl,377173764,2023-05-26,/GDSCN_Book_swirl/instructor-guide.html,Instructor Guide | Intro R with swirl,1,1
 GDSCN Book: Intro R with swirl,377173764,2023-06-05,/GDSCN_Book_swirl/,Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-10,/GDSCN_Book_swirl/,Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-12,/GDSCN_Book_swirl/,Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-16,/GDSCN_Book_swirl/,Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-20,/GDSCN_Book_swirl/,Intro R with swirl,1,2
+GDSCN Book: Intro R with swirl,377173764,2023-06-28,/GDSCN_Book_swirl/,Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-28,/GDSCN_Book_swirl/setup-on-anvil.html,Chapter 2 Setup on AnVIL | Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-29,/GDSCN_Book_swirl/,Intro R with swirl,1,1
+GDSCN Book: Intro R with swirl,377173764,2023-06-30,/GDSCN_Book_swirl/,Intro R with swirl,1,2
+GDSCN Book: Intro R with swirl,377173764,2023-06-29,/GDSCN_Book_swirl/setup-on-anvil.html,Chapter 2 Setup on AnVIL | Intro R with swirl,0,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,13,13
 AnVIL Book: Getting Started,377543643,2023-05-23,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,6,6
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,6,7
 AnVIL Book: Getting Started,377543643,2023-05-31,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,5,8
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,5,6
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,5,6
 AnVIL Book: Getting Started,377543643,2023-05-24,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,4,5
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,4,4
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,4,4
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,4,4
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,4,6
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,4,4
 AnVIL Book: Getting Started,377543643,2023-05-23,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,3,3
 AnVIL Book: Getting Started,377543643,2023-05-23,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,3,3
 AnVIL Book: Getting Started,377543643,2023-05-24,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,3,5
 AnVIL Book: Getting Started,377543643,2023-05-30,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,3,3
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,3,4
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,3,3
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,3,3
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,3,4
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,3,4
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,3,3
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,3,3
+AnVIL Book: Getting Started,377543643,2023-06-21,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,3,3
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,3,3
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,3,3
 AnVIL Book: Getting Started,377543643,2023-05-22,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,2,2
 AnVIL Book: Getting Started,377543643,2023-05-22,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,2,2
 AnVIL Book: Getting Started,377543643,2023-05-22,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,2,2
@@ -2296,6 +2699,48 @@ AnVIL Book: Getting Started,377543643,2023-06-01,/AnVIL_Book_Getting_Started/ste
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html,2.3 Step 2: Set Up Google Billing | Getting Started on AnVIL,2,3
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,2,2
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/step-5-set-budgets-and-alerts.html,2.6 Step 5: Set Budgets and Alerts | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/galaxy.html,Chapter 7 Galaxy | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/jupyter-notebook.html,Chapter 6 Jupyter Notebook | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-09,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/analyze-existing-data.html,9.2 Analyze Existing Data | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/budget-templates.html,D Budget Templates | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/jupyter-notebook.html,Chapter 6 Jupyter Notebook | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/rstudio-step-by-step-guide.html,8.2 RStudio: Step-by-step guide | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/rstudio.html,Chapter 8 RStudio | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/pis-step-1.html,2.2 Step 1: Create a Google Account | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html,2.3 Step 2: Set Up Google Billing | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/access-your-workspaces.html,5.1 Access Your Workspaces | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/rstudio.html,Chapter 8 RStudio | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,2,2
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,2,3
+AnVIL Book: Getting Started,377543643,2023-06-30,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,2,3
 AnVIL Book: Getting Started,377543643,2023-05-22,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,1
 AnVIL Book: Getting Started,377543643,2023-05-22,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
 AnVIL Book: Getting Started,377543643,2023-05-22,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
@@ -2420,15 +2865,238 @@ AnVIL Book: Getting Started,377543643,2023-06-03,/AnVIL_Book_Getting_Started/ove
 AnVIL Book: Getting Started,377543643,2023-06-03,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/pis-step-1.html,2.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
 AnVIL Book: Getting Started,377543643,2023-06-05,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-06,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-06,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-06,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-06,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-06,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-06,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/jupyter-notebook-video-tutorial.html,6.1 Jupyter Notebook: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/pis-wrap-up.html,2.8 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html,2.3 Step 2: Set Up Google Billing | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-07,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/galaxy-step-by-step-guide.html,7.2 Galaxy: Step-by-step guide | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/galaxy-video-tutorial.html,7.1 Galaxy: Video tutorial | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/galaxy.html,Chapter 7 Galaxy | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/jupyter-notebook-video-tutorial.html,6.1 Jupyter Notebook: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/jupyter-notebook.html,Chapter 6 Jupyter Notebook | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/rstudio.html,Chapter 8 RStudio | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-08,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-09,/AnVIL_Book_Getting_Started/budget-templates.html,D Budget Templates | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-09,/AnVIL_Book_Getting_Started/irb-templates.html,E IRB Templates | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-09,/AnVIL_Book_Getting_Started/overview-videos.html,F Overview Videos | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-09,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/faqs.html,A FAQs | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-12,/AnVIL_Book_Getting_Started/troubleshooting.html,B Troubleshooting | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/about.html,About the Authors | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/bring-your-own-data.html,9.1 Bring Your Own Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/irb-templates.html,E IRB Templates | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/jupyter-notebook-video-tutorial.html,6.1 Jupyter Notebook: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/overview-videos.html,F Overview Videos | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/rstudio-video-tutorial.html,8.1 RStudio: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-13,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/consortium-data-analysts-and-researchers.html,4.4 Consortium Data Analysts and Researchers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/consortium-pis-and-lab-managers.html,4.3 Consortium PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/overview-consortia.html,4.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/pis-wrap-up.html,2.8 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-5-set-budgets-and-alerts.html,2.6 Step 5: Set Budgets and Alerts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-14,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/clone-workspace.html,5.2 Clone an Existing Workspace | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/galaxy.html,Chapter 7 Galaxy | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-16,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-18,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-18,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-20,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-21,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/access-your-workspaces.html,5.1 Access Your Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/add-members-to-workspace.html,5.4 Add Members to Workspace | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/analyze-existing-data.html,9.2 Analyze Existing Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/bring-your-own-data.html,9.1 Bring Your Own Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/budget-templates.html,D Budget Templates | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/clone-workspace.html,5.2 Clone an Existing Workspace | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/consortium-data-analysts-and-researchers.html,4.4 Consortium Data Analysts and Researchers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/consortium-data-managers.html,4.2 Consortium Data Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/consortium-pis-and-lab-managers.html,4.3 Consortium PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/create-a-new-workspace-1.html,5.3 Create a New Workspace | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/faqs.html,A FAQs | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/galaxy.html,Chapter 7 Galaxy | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/jupyter-notebook-video-tutorial.html,6.1 Jupyter Notebook: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/jupyter-notebook.html,Chapter 6 Jupyter Notebook | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/overview-consortia.html,4.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/pis-step-1.html,2.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/pis-wrap-up.html,2.8 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/rstudio-video-tutorial.html,8.1 RStudio: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/rstudio.html,Chapter 8 RStudio | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html,2.3 Step 2: Set Up Google Billing | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-5-set-budgets-and-alerts.html,2.6 Step 5: Set Budgets and Alerts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-22,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/jupyter-notebook.html,Chapter 6 Jupyter Notebook | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/pis-step-1.html,2.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/rstudio.html,Chapter 8 RStudio | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-23,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/budget-templates.html,D Budget Templates | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/pis-step-1.html,2.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/pis-wrap-up.html,2.8 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html,2.3 Step 2: Set Up Google Billing | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-5-set-budgets-and-alerts.html,2.6 Step 5: Set Budgets and Alerts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-24,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/about.html,About the Authors | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/analyze-existing-data.html,9.2 Analyze Existing Data | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/bring-your-own-data.html,9.1 Bring Your Own Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/consortia-wrap-up.html,4.6 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/consortium-data-analysts-and-researchers.html,4.4 Consortium Data Analysts and Researchers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/consortium-data-managers.html,4.2 Consortium Data Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/consortium-data-submitters.html,4.5 Consortium Data Submitters | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/consortium-pis-and-lab-managers.html,4.3 Consortium PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/faqs.html,A FAQs | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/overview-consortia.html,4.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-25,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/bring-your-own-data.html,9.1 Bring Your Own Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/consortium-data-managers.html,4.2 Consortium Data Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/galaxy-step-by-step-guide.html,7.2 Galaxy: Step-by-step guide | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/galaxy-video-tutorial.html,7.1 Galaxy: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/galaxy.html,Chapter 7 Galaxy | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/introduction.html,Chapter 1 Introduction | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/overview-consortia.html,4.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/rstudio-step-by-step-guide.html,8.2 RStudio: Step-by-step guide | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/rstudio-video-tutorial.html,8.1 RStudio: Video tutorial | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-26,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,4
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/data.html,Chapter 9 Data | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/galaxy.html,Chapter 7 Galaxy | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/rstudio-video-tutorial.html,8.1 RStudio: Video tutorial | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/rstudio.html,Chapter 8 RStudio | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html%23add-users-or-viewers-optional,Page not found | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-27,/AnVIL_Book_Getting_Started/step-6-add-users-and-workspaces.html,2.7 Step 6: Add Users and Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/about.html,About the Authors | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,2
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/troubleshooting.html,B Troubleshooting | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-29,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-06-30,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/data-analysts-step-1.html,3.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/data-analysts-wrap-up.html,3.5 Wrap-Up | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/data-analysts.html,Chapter 3 Data Analysts | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/overview-analysts.html,3.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/pis-and-lab-managers.html,Chapter 2 PIs and Lab Managers | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/pis-step-1.html,2.2 Step 1: Create a Google Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/step-2-set-up-google-billing.html,2.3 Step 2: Set Up Google Billing | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/step-2-set-up-terra.html,3.3 Step 2: Set Up Terra | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-02,/AnVIL_Book_Getting_Started/step-3-link-external-accounts-optional.html,3.4 Step 3: Link External Accounts (optional) | Getting Started on AnVIL,1,1
+AnVIL Book: Getting Started,377543643,2023-07-03,/AnVIL_Book_Getting_Started/overview-pis.html,2.1 Account Setup Overview | Getting Started on AnVIL,1,1
 AnVIL Book: Getting Started,377543643,2023-05-23,/AnVIL_Book_Getting_Started/consortia.html,Chapter 4 Consortia | Getting Started on AnVIL,0,1
 AnVIL Book: Getting Started,377543643,2023-05-24,/AnVIL_Book_Getting_Started/index.html,Getting Started on AnVIL,0,1
 AnVIL Book: Getting Started,377543643,2023-06-04,/AnVIL_Book_Getting_Started/clone-workspace.html,5.2 Clone an Existing Workspace | Getting Started on AnVIL,0,1
+AnVIL Book: Getting Started,377543643,2023-06-15,/AnVIL_Book_Getting_Started/step-3-add-terra-to-google-billing-account.html,2.4 Step 3: Add Terra to Google Billing Account | Getting Started on AnVIL,0,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/step-4-create-terra-billing-projects.html,2.5 Step 4: Create Terra Billing Projects | Getting Started on AnVIL,0,1
+AnVIL Book: Getting Started,377543643,2023-06-28,/AnVIL_Book_Getting_Started/workflows.html,Chapter 10 Workflows | Getting Started on AnVIL,0,1
+AnVIL Book: Getting Started,377543643,2023-06-30,/AnVIL_Book_Getting_Started/workspaces.html,Chapter 5 Workspaces | Getting Started on AnVIL,0,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,4,9
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-31,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,3,4
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/instructor-guide.html,Instructor Guide | GDSCN Book: SARS with Galaxy on AnVIL,3,8
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,3,7
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,3,6
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-31,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,2,2
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-31,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,2,2
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-31,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,2,2
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-31,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,2,2
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-31,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/instructor-guide.html,Instructor Guide | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,2,3
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/answer-key.html,Answer Key | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,2,3
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,2,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-28,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,2,3
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-22,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,1
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-22,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-05-22,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
@@ -2465,13 +3133,92 @@ GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-05,/GDSCN_Book_SARS_Gala
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-05,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-05,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-05,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/answer-key.html,Answer Key | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-06,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-07,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-07,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-07,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-08,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-08,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-09,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/download.html,Download | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/help.html,Help | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-10,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-12,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/answer-key.html,Answer Key | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/download.html,Download | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-13,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-16,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-16,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-20,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-21,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-21,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-22,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-22,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-23,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-23,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-23,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-23,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-23,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-23,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-25,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-25,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-26,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-27,/GDSCN_Book_SARS_Galaxy_on_AnVIL/,GDSCN Book: SARS with Galaxy on AnVIL,1,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-27,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-28,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-28,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-29,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-29,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-29,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/instructor-guide.html,Instructor Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,2
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-30,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-01,/GDSCN_Book_SARS_Galaxy_on_AnVIL/answer-key.html,Answer Key | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-01,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/alignments.html,Chapter 3 Alignments | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/cloud-computing.html,Chapter 4 Cloud Computing | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/overview-video.html,Chapter 5 Overview Video | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-02,/GDSCN_Book_SARS_Galaxy_on_AnVIL/what-is-a-variant.html,Chapter 1 What Is a Variant? | GDSCN Book: SARS with Galaxy on AnVIL,1,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-07-03,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,1,1
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-04,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,0,1
 GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-05,/GDSCN_Book_SARS_Galaxy_on_AnVIL/index.html,GDSCN Book: SARS with Galaxy on AnVIL,0,1
+GDSCN Book: SARS with Galaxy on AnVIL,377714582,2023-06-19,/GDSCN_Book_SARS_Galaxy_on_AnVIL/student-activity-guide.html,Chapter 6 Student Activity Guide | GDSCN Book: SARS with Galaxy on AnVIL,0,1
 AnVIL Book: Instructor Guide,377952717,2023-05-23,/AnVIL_Book_Instructor_Guide/,AnVIL Instructor Guide,1,1
 AnVIL Book: Instructor Guide,377952717,2023-05-23,/AnVIL_Book_Instructor_Guide/google-billing-account.html,Chapter 4 Set up Google Billing | AnVIL Instructor Guide,1,1
 AnVIL Book: Instructor Guide,377952717,2023-05-23,/AnVIL_Book_Instructor_Guide/index.html,AnVIL Instructor Guide,1,2
 AnVIL Book: Instructor Guide,377952717,2023-05-23,/AnVIL_Book_Instructor_Guide/instructor-google-account.html,Chapter 3 Create Google account | AnVIL Instructor Guide,1,1
 AnVIL Book: Instructor Guide,377952717,2023-05-23,/AnVIL_Book_Instructor_Guide/overview-1.html,Chapter 2 Overview | AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-08,/AnVIL_Book_Instructor_Guide/,AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-12,/AnVIL_Book_Instructor_Guide/,AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-12,/AnVIL_Book_Instructor_Guide/instructor-google-account.html,Chapter 3 Create Google account | AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-12,/AnVIL_Book_Instructor_Guide/overview-1.html,Chapter 2 Overview | AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-12,/AnVIL_Book_Instructor_Guide/run-class.html,Chapter 10 Overview | AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-13,/AnVIL_Book_Instructor_Guide/,AnVIL Instructor Guide,1,1
+AnVIL Book: Instructor Guide,377952717,2023-06-15,/AnVIL_Book_Instructor_Guide/,AnVIL Instructor Guide,1,2
+AnVIL Book: Instructor Guide,377952717,2023-06-15,/AnVIL_Book_Instructor_Guide/introduction.html,Chapter 1 Introduction | AnVIL Instructor Guide,1,2
 AnVIL Book: SRA Data,377940703,2023-05-30,/AnVIL_SRA_Data/,AnVIL: SRA Data,3,3
 AnVIL Book: SRA Data,377940703,2023-05-24,/AnVIL_SRA_Data/,AnVIL: SRA Data,1,1
 AnVIL Book: SRA Data,377940703,2023-05-24,/AnVIL_SRA_Data/customize-samples.html,Chapter 3 Customize Samples | AnVIL: SRA Data,1,1
@@ -2482,8 +3229,15 @@ AnVIL Book: SRA Data,377940703,2023-05-30,/AnVIL_SRA_Data/customize-samples.html
 AnVIL Book: SRA Data,377940703,2023-05-30,/AnVIL_SRA_Data/index.html,AnVIL: SRA Data,1,1
 AnVIL Book: SRA Data,377940703,2023-05-30,/AnVIL_SRA_Data/multiple-sra-files.html,Chapter 2 Multiple SRA files | AnVIL: SRA Data,1,1
 AnVIL Book: SRA Data,377940703,2023-05-30,/AnVIL_SRA_Data/quick-start.html,Chapter 1 Quick Start | AnVIL: SRA Data,1,1
+AnVIL Book: SRA Data,377940703,2023-06-13,/AnVIL_SRA_Data/,AnVIL: SRA Data,1,1
+AnVIL Book: SRA Data,377940703,2023-06-23,/AnVIL_SRA_Data/customize-samples.html,Chapter 3 Customize Samples | AnVIL: SRA Data,1,1
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-05-24,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,3,3
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-08,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,3,4
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-13,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,3,3
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-05-25,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,2,2
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-07,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,2,2
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-12,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,2,2
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-18,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,2,2
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-05-24,/AnVIL_Phylogenetic-Techniques/,Molecular Phylogenetic Techniques,1,1
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-05-24,/AnVIL_Phylogenetic-Techniques/index.html,Molecular Phylogenetic Techniques,1,1
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-05-24,/AnVIL_Phylogenetic-Techniques/phylogenetics-basics.html,Chapter 5 Phylogenetics basics | Molecular Phylogenetic Techniques,1,1
@@ -2509,14 +3263,71 @@ AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-01,/AnVIL_Phylog
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-05,/AnVIL_Phylogenetic-Techniques/,Molecular Phylogenetic Techniques,1,1
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-05,/AnVIL_Phylogenetic-Techniques/finding-sequences-in-genbank.html,Chapter 8 Finding sequences in GenBank | Molecular Phylogenetic Techniques,1,3
 AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-05,/AnVIL_Phylogenetic-Techniques/what-sequences-should-i-choose.html,Chapter 7 What sequences should I choose? | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-06,/AnVIL_Phylogenetic-Techniques/ancestral-state-reconstruction.html,Chapter 23 Ancestral state reconstruction | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-06,/AnVIL_Phylogenetic-Techniques/building-a-parsimony-tree.html,Chapter 15 Building a parsimony tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-06,/AnVIL_Phylogenetic-Techniques/finding-sequences-in-genbank.html,Chapter 8 Finding sequences in GenBank | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-06,/AnVIL_Phylogenetic-Techniques/more-phylogenetics-basics.html,Chapter 16 More Phylogenetics Basics | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-07,/AnVIL_Phylogenetic-Techniques/ancestral-state-reconstruction.html,Chapter 23 Ancestral state reconstruction | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-08,/AnVIL_Phylogenetic-Techniques/building-a-neighbor-joining-tree.html,Chapter 13 Building a neighbor joining tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-10,/AnVIL_Phylogenetic-Techniques/building-a-neighbor-joining-tree.html,Chapter 13 Building a neighbor joining tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-11,/AnVIL_Phylogenetic-Techniques/,Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-11,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-11,/AnVIL_Phylogenetic-Techniques/why-do-we-align-sequences.html,Chapter 10 Why do we align sequences? | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-12,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Capítulo 12 El método de unión vecina de estimación de árboles | Técnicas filogenéticas moleculares,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-14,/AnVIL_Phylogenetic-Techniques/building-a-neighbor-joining-tree.html,Chapter 13 Building a neighbor joining tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-16,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-18,/AnVIL_Phylogenetic-Techniques/building-a-neighbor-joining-tree.html,Chapter 13 Building a neighbor joining tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-18,/AnVIL_Phylogenetic-Techniques/index.html,Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-18,/AnVIL_Phylogenetic-Techniques/why-do-we-align-sequences.html,Chapter 10 Why do we align sequences? | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-19,/AnVIL_Phylogenetic-Techniques/more-phylogenetics-basics.html,Chapter 16 More Phylogenetics Basics | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-19,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-20,/AnVIL_Phylogenetic-Techniques/building-a-neighbor-joining-tree.html,Chapter 13 Building a neighbor joining tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-20,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-21,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-25,/AnVIL_Phylogenetic-Techniques/downloading-the-sequences-from-genbank.html,Chapter 9 Downloading the sequences from GenBank | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/adding-calibration-points-to-your-phylogenies.html,Chapter 20 Adding calibration points to your phylogenies | Molecular Phylogenetic Techniques,1,2
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/building-a-parsimony-tree.html,Chapter 15 Building a parsimony tree | Molecular Phylogenetic Techniques,1,2
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/estimating-a-tree-using-maximum-likelihood.html,Chapter 18 Estimating a tree using Maximum Likelihood | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/more-phylogenetics-basics.html,Chapter 16 More Phylogenetics Basics | Molecular Phylogenetic Techniques,1,2
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/the-parsimony-method-of-tree-estimation.html,Chapter 14 The parsimony method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/what-is-a-time-tree.html,Chapter 19 What is a time tree? | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-26,/AnVIL_Phylogenetic-Techniques/what-is-maximum-likelihood.html,Chapter 17 What is Maximum Likelihood? | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-30,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-07-01,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-07-03,/AnVIL_Phylogenetic-Techniques/building-a-parsimony-tree.html,Chapter 15 Building a parsimony tree | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-07-03,/AnVIL_Phylogenetic-Techniques/more-phylogenetics-basics.html,Chapter 16 More Phylogenetics Basics | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-07-03,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-07-03,/AnVIL_Phylogenetic-Techniques/the-parsimony-method-of-tree-estimation.html,Chapter 14 The parsimony method of tree estimation | Molecular Phylogenetic Techniques,1,1
+AnVIL Book: Molecular Phylogenetic Techniques,377936985,2023-06-23,/AnVIL_Phylogenetic-Techniques/the-neighbor-joining-method-of-tree-estimation.html,Chapter 12 The neighbor joining method of tree estimation | Molecular Phylogenetic Techniques,0,1
+MMDS,377954053,2023-06-08,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,6,6
+MMDS,377954053,2023-06-08,/subscribe,Subscribe to Monday Morning Data Science,6,6
+MMDS,377954053,2023-06-07,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,4,5
+MMDS,377954053,2023-06-12,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,4,4
+MMDS,377954053,2023-06-20,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,4,5
 MMDS,377954053,2023-05-30,/p/busting-out,🎠 Busting Out - by Fred Hutch Data Science Lab,3,3
 MMDS,377954053,2023-06-05,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,3,3
+MMDS,377954053,2023-06-09,/p/busting-out,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,3,3
+MMDS,377954053,2023-06-12,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,3,3
+MMDS,377954053,2023-06-21,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,3,3
+MMDS,377954053,2023-06-22,/p/sun-king,🌞 Sun King - by Fred Hutch Data Science Lab,3,5
+MMDS,377954053,2023-06-26,/p/summer-treat,🧉 Summer Treat - by Fred Hutch Data Science Lab,3,3
 MMDS,377954053,2023-05-25,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,2,2
 MMDS,377954053,2023-05-31,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,2,2
 MMDS,377954053,2023-05-31,/p/heat-wave,🌡 Heat Wave - by Fred Hutch Data Science Lab,2,2
 MMDS,377954053,2023-05-31,/p/small-revelation,🤔 Small Revelation - by Fred Hutch Data Science Lab,2,2
 MMDS,377954053,2023-06-05,/p/busting-out,🎠 Busting Out - by Fred Hutch Data Science Lab,2,2
 MMDS,377954053,2023-06-05,/subscribe,Subscribe to Monday Morning Data Science,2,2
+MMDS,377954053,2023-06-07,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,2,2
+MMDS,377954053,2023-06-09,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,2,2
+MMDS,377954053,2023-06-12,/p/island-life,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,2,2
+MMDS,377954053,2023-06-12,/p/raise-them-high,🏁 Raise them High - by Fred Hutch Data Science Lab,2,4
+MMDS,377954053,2023-06-12,/subscribe,Subscribe to Monday Morning Data Science,2,2
+MMDS,377954053,2023-06-20,/p/raise-them-high,🏁 Raise them High - by Fred Hutch Data Science Lab,2,2
+MMDS,377954053,2023-06-20,/subscribe,Subscribe to Monday Morning Data Science,2,2
+MMDS,377954053,2023-06-21,/subscribe,Subscribe to Monday Morning Data Science,2,2
+MMDS,377954053,2023-06-22,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,2,2
+MMDS,377954053,2023-06-22,/subscribe,Subscribe to Monday Morning Data Science,2,2
+MMDS,377954053,2023-06-28,/p/summer-treat,🧉 Summer Treat - by Fred Hutch Data Science Lab,2,2
 MMDS,377954053,2023-05-24,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
 MMDS,377954053,2023-05-24,/p/heat-wave,🌡 Heat Wave - by Fred Hutch Data Science Lab,1,1
 MMDS,377954053,2023-05-24,/p/small-revelation,🤔 Small Revelation - by Fred Hutch Data Science Lab,1,1
@@ -2544,7 +3355,70 @@ MMDS,377954053,2023-06-05,/p/small-revelation,Monday Morning Data Science | Fred
 MMDS,377954053,2023-06-05,/p/small-revelation,🤔 Small Revelation - by Fred Hutch Data Science Lab,1,1
 MMDS,377954053,2023-06-05,/podcast,Monday Morning Data Science Podcast | Fred Hutch Data Science Lab | Substack,1,1
 MMDS,377954053,2023-06-05,/subscribe,(1) Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-06,/p/island-life,(20) 🏖 Island Life - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-07,/archive,Archive - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-07,/p/a-spooky-start,🎃 A Spooky Start - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-07,/p/busting-out,🎠 Busting Out - by Fred Hutch Data Science Lab,1,2
+MMDS,377954053,2023-06-07,/p/coast-to-coast,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-07,/p/coast-to-coast,🏞️ Coast to Coast - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-07,/p/lucky,🍀 Lucky - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-07,/p/turkey-trot,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-07,/p/turkey-trot,🦃 Turkey Trot - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-07,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-08,/p/busting-out,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-08,/p/heat-wave,🌡 Heat Wave - by Fred Hutch Data Science Lab,1,2
+MMDS,377954053,2023-06-08,/p/island-life,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-08,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-09,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,1,2
+MMDS,377954053,2023-06-10,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,2
+MMDS,377954053,2023-06-10,/about,About - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-12,/action/disable_email,My Account - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-12,/p/busting-out,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-12,/p/busting-out,🎠 Busting Out - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-12,/p/raise-them-high,(20) 🏁 Raise them High - by Fred Hutch Data Science Lab,1,2
+MMDS,377954053,2023-06-12,/podcast,Monday Morning Data Science Podcast | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-13,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-13,/action/disable_email,My Account - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-13,/p/island-life,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-15,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-15,/p/island-life,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-15,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,1,2
+MMDS,377954053,2023-06-15,/p/raise-them-high,🏁 Raise them High - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-16,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-16,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-20,/about,About - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-20,/account,My Account - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-20,/p/sun-king,🌞 Sun King - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-21,/p/sun-king,🌞 Sun King - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-22,/about,About - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-22,/action/disable_email,My Account - Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-22,/p/heat-wave,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-22,/p/heat-wave,🌡 Heat Wave - by Fred Hutch Data Science Lab,1,2
+MMDS,377954053,2023-06-22,/p/sun-king,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-22,/podcast,Monday Morning Data Science Podcast | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-24,/p/raise-them-high,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-24,/p/raise-them-high,🏁 Raise them High - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-26,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-26,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-27,/p/summer-treat,🧉 Summer Treat - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-28,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-28,/p/sun-king,🌞 Sun King - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-28,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-29,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-29,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-06-30,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-30,/p/island-life,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-30,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,1,1
+MMDS,377954053,2023-06-30,/podcast,Monday Morning Data Science Podcast | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-06-30,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-07-01,/,Monday Morning Data Science | Fred Hutch Data Science Lab | Substack,1,1
+MMDS,377954053,2023-07-01,/about,About - Monday Morning Data Science,1,1
+MMDS,377954053,2023-07-01,/subscribe,Subscribe to Monday Morning Data Science,1,1
+MMDS,377954053,2023-07-03,/action/disable_email,(2) My Account - Monday Morning Data Science,1,1
+MMDS,377954053,2023-07-03,/action/disable_email,My Account - Monday Morning Data Science,1,1
 MMDS,377954053,2023-06-05,/p/island-life,🏖 Island Life - by Fred Hutch Data Science Lab,0,2
+MMDS,377954053,2023-06-08,/p/busting-out,🎠 Busting Out - by Fred Hutch Data Science Lab,0,1
+MMDS,377954053,2023-06-11,/subscribe,Subscribe to Monday Morning Data Science,0,1
 AnVIL Book: Epigenetics on AnVIL: Nature vs Nurture,377955956,2023-05-24,/AnVIL_Book_Epigenetics_Intro/,Epigenetics on AnVIL: Nature vs Nurture,1,1
 AnVIL Book: Epigenetics on AnVIL: Nature vs Nurture,377955956,2023-05-24,/AnVIL_Book_Epigenetics_Intro/epigenetics-in-the-media.html,Chapter 2 Epigenetics in the Media | Epigenetics on AnVIL: Nature vs Nurture,1,1
 AnVIL Book: Epigenetics on AnVIL: Nature vs Nurture,377955956,2023-05-24,/AnVIL_Book_Epigenetics_Intro/nature-versus-nurture.html,Chapter 1 Nature versus Nurture | Epigenetics on AnVIL: Nature vs Nurture,1,1
@@ -2555,10 +3429,23 @@ AnVIL Book: Urban Genomics: Identifying population structure among feral pigeon 
 AnVIL Book: Urban Genomics: Identifying population structure among feral pigeon populations,378103140,2023-05-30,/AnVIL_Urban_Genomics_PCA/lesson-plan.html,Chapter 1 Lesson Plan | AnVIL Urban Genomics: Identifying population structure among feral pigeon populations,1,1
 AnVIL Book: Urban Genomics: Identifying population structure among feral pigeon populations,378103140,2023-05-30,/AnVIL_Urban_Genomics_PCA/notes-for-instructors.html,Chapter 2 Notes for Instructors | AnVIL Urban Genomics: Identifying population structure among feral pigeon populations,1,1
 AnVIL Book: Urban Genomics: Identifying population structure among feral pigeon populations,378103140,2023-06-05,/AnVIL_Urban_Genomics_PCA/,AnVIL Urban Genomics: Identifying population structure among feral pigeon populations,1,1
+AnVIL Book: Urban Genomics: Identifying population structure among feral pigeon populations,378103140,2023-06-08,/AnVIL_Urban_Genomics_PCA/,AnVIL Urban Genomics: Identifying population structure among feral pigeon populations,1,1
 GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-05-24,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/,Statistics for Genomics: Differential Expression,1,1
 GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-05-24,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/getting-set-up.html,Chapter 2 Getting Set Up | Statistics for Genomics: Differential Expression,1,1
 GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-05-24,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/summarizedexperiment.html,Chapter 5 The SummarizedExperiment class | Statistics for Genomics: Differential Expression,1,1
 GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-05-29,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/rstudio.html,Chapter 4 Working in RStudio | Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-09,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/transformation-fold-change-ma-plots.html,"Chapter 6 Transformation, Fold-change, & MA Plots | Statistics for Genomics: Differential Expression",1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-11,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/transformation-fold-change-ma-plots.html,"Chapter 6 Transformation, Fold-change, & MA Plots | Statistics for Genomics: Differential Expression",1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/,Statistics for Genomics: Differential Expression,1,2
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-13,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/index.html,Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-13,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/rstudio.html,Chapter 4 Working in RStudio | Statistics for Genomics: Differential Expression,1,3
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-14,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/rstudio.html,Chapter 4 Working in RStudio | Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-22,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/rstudio.html,Chapter 4 Working in RStudio | Statistics for Genomics: Differential Expression,1,2
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-23,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/rstudio.html,Chapter 4 Working in RStudio | Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-30,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/,Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-30,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/getting-set-up.html,Chapter 2 Getting Set Up | Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-30,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/workspace.html,Chapter 3 Creating a Workspace | Statistics for Genomics: Differential Expression,1,1
+GDSCN Book: Statistics for Genomics: Differential Expression,378115179,2023-06-29,/GDSCN_Book_Statistics_for_Genomics_Differential_Expression/rstudio.html,Chapter 4 Working in RStudio | Statistics for Genomics: Differential Expression,0,1
 GDSCN Book: SARS with RStudio on AnVIL,378115667,2023-05-24,/GDSCN_SARS_RStudio_on_AnVIL/,GDSCN Book: SARS with RStudio on AnVIL,1,1
 GDSCN Book: SARS with RStudio on AnVIL,378115667,2023-05-24,/GDSCN_SARS_RStudio_on_AnVIL/reading-phylogenies.html,Chapter 3 Reading Phylogenies | GDSCN Book: SARS with RStudio on AnVIL,1,1
 GDSCN Book: SARS with RStudio on AnVIL,378115667,2023-05-24,/GDSCN_SARS_RStudio_on_AnVIL/the-sequencing-revolution.html,Chapter 2 The Sequencing Revolution | GDSCN Book: SARS with RStudio on AnVIL,1,1
@@ -2567,6 +3454,23 @@ GDSCN Book: Statistics for Genomics: PCA,378137983,2023-05-24,/GDSCN_Book_Statis
 GDSCN Book: Statistics for Genomics: PCA,378137983,2023-05-24,/GDSCN_Book_Statistics_for_Genomics_PCA/overview.html,Chapter 1 Overview | Statistics for Genomics: PCA,1,1
 GDSCN Book: Statistics for Genomics: PCA,378137983,2023-05-24,/GDSCN_Book_Statistics_for_Genomics_PCA/principal-components-analysis.html,Chapter 3 Principal Components Analysis | Statistics for Genomics: PCA,1,1
 GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-02,/GDSCN_Book_Statistics_for_Genomics_PCA/,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-09,/GDSCN_Book_Statistics_for_Genomics_PCA/,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_PCA/,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_PCA/about-the-authors.html,About the Authors | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_PCA/index.html,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_PCA/introduction.html,Chapter 2 Introduction | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_PCA/overview.html,Chapter 1 Overview | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_PCA/principal-components-analysis.html,Chapter 3 Principal Components Analysis | Statistics for Genomics: PCA,1,2
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-18,/GDSCN_Book_Statistics_for_Genomics_PCA/,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-18,/GDSCN_Book_Statistics_for_Genomics_PCA/index.html,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-18,/GDSCN_Book_Statistics_for_Genomics_PCA/introduction.html,Chapter 2 Introduction | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-18,/GDSCN_Book_Statistics_for_Genomics_PCA/overview.html,Chapter 1 Overview | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-18,/GDSCN_Book_Statistics_for_Genomics_PCA/principal-components-analysis.html,Chapter 3 Principal Components Analysis | Statistics for Genomics: PCA,1,2
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-22,/GDSCN_Book_Statistics_for_Genomics_PCA/principal-components-analysis.html,Chapter 3 Principal Components Analysis | Statistics for Genomics: PCA,1,2
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-26,/GDSCN_Book_Statistics_for_Genomics_PCA/principal-components-analysis.html,Chapter 3 Principal Components Analysis | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-30,/GDSCN_Book_Statistics_for_Genomics_PCA/,Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-30,/GDSCN_Book_Statistics_for_Genomics_PCA/principal-components-analysis.html,Chapter 3 Principal Components Analysis | Statistics for Genomics: PCA,1,1
+GDSCN Book: Statistics for Genomics: PCA,378137983,2023-06-08,/GDSCN_Book_Statistics_for_Genomics_PCA/,Statistics for Genomics: PCA,0,1
 GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-02,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/dimensionality-reduction.html,Chapter 5 Dimensionality reduction | Statistics for Genomics: scRNAseq,2,2
 GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-05-25,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/,Statistics for Genomics: scRNAseq,1,1
 GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-05-25,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/choosing-features-for-the-analysis.html,Chapter 4 Choosing features for the analysis | Statistics for Genomics: scRNAseq,1,1
@@ -2575,7 +3479,192 @@ GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-05-25,/GDSCN_Book_S
 GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-05,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/dimensionality-reduction.html,Chapter 5 Dimensionality reduction | Statistics for Genomics: scRNAseq,1,1
 GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-05,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/overview.html,Chapter 1 OVERVIEW | Statistics for Genomics: scRNAseq,1,2
 GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-05,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/quality-control-of-the-library.html,Chapter 2 Quality control of the library | Statistics for Genomics: scRNAseq,1,2
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-06,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/choosing-features-for-the-analysis.html,Chapter 4 Choosing features for the analysis | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-06,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/normalization.html,Chapter 3 Normalization | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-06,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/overview.html,Chapter 1 OVERVIEW | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-06,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/quality-control-of-the-library.html,Chapter 2 Quality control of the library | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/,Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/about-the-authors.html,About the Authors | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/cell-type-annotation.html,Chapter 8 Cell type annotation | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/choosing-features-for-the-analysis.html,Chapter 4 Choosing features for the analysis | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/clustering.html,Chapter 6 Clustering | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/dimensionality-reduction.html,Chapter 5 Dimensionality reduction | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/index.html,Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/marker-gene-detection.html,Chapter 7 Marker gene detection | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/normalization.html,Chapter 3 Normalization | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/overview.html,Chapter 1 OVERVIEW | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/quality-control-of-the-library.html,Chapter 2 Quality control of the library | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-12,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/references.html,Chapter 9 References | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-13,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/,Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-13,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/overview.html,Chapter 1 OVERVIEW | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-13,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/quality-control-of-the-library.html,Chapter 2 Quality control of the library | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-18,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/,Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-23,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/quality-control-of-the-library.html,Chapter 2 Quality control of the library | Statistics for Genomics: scRNAseq,1,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-08,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/dimensionality-reduction.html,Chapter 5 Dimensionality reduction | Statistics for Genomics: scRNAseq,0,1
+GDSCN Book: Statistics for Genomics: scRNAseq,378182819,2023-06-09,/GDSCN_Book_Statistics_for_Genomics_scRNA-seq/choosing-features-for-the-analysis.html,Chapter 4 Choosing features for the analysis | Statistics for Genomics: scRNAseq,0,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/what-is-anvil-preparation.html,2 Preparation | AnVIL Demos,14,20
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/,AnVIL Demos,12,14
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/,AnVIL Demos,10,10
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/,AnVIL Demos,9,11
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/,AnVIL Demos,9,10
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/,AnVIL Demos,7,9
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,6,9
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,6,6
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,6,8
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/,AnVIL Demos,6,6
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,5,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,5,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,5,6
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/scale-with-workflows-instructor-guide.html,8 Instructor Guide | AnVIL Demos,5,7
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,5,6
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,5,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/single-cell-with-bioconductor-preparation.html,10 Preparation | AnVIL Demos,5,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/create-workflows-with-galaxy-overview.html,13 Overview | AnVIL Demos,5,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/what-is-anvil-exercises.html,3 Exercises | AnVIL Demos,5,8
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/,AnVIL Demos,4,4
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,4,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,4,4
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,4,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/create-workflows-with-galaxy-preparation.html,10 Preparation | AnVIL Demos,4,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,4,4
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,4,4
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/AnVIL_Demos/,AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/,AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,3,5
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/single-cell-with-bioconductor-preparation.html,10 Preparation | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-30,/AnVIL_Demos/create-workflows-with-galaxy-overview.html,13 Overview | AnVIL Demos,3,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/AnVIL_Demos/google-slides.html,2 Google Slides | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,2,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/AnVIL_Demos/,AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-10,/AnVIL_Demos/,AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/AnVIL_Demos/,AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-21,/AnVIL_Demos/,AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-21,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,2,4
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/,AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/scale-with-workflows-instructor-guide.html,8 Instructor Guide | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/create-workflows-with-galaxy-overview.html,9 Overview | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,2,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/create-workflows-with-galaxy-instructor-guide.html,12 Instructor Guide | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/create-workflows-with-galaxy-exercises.html,15 Exercises | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/create-workflows-with-galaxy-preparation.html,14 Preparation | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/index.html,AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/scale-with-workflows-instructor-guide.html,8 Instructor Guide | AnVIL Demos,2,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/single-cell-with-bioconductor-exercises.html,11 Exercises | AnVIL Demos,2,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/index.html,AnVIL Demos,2,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/what-is-anvil-overview.html,1 Overview | AnVIL Demos,2,2
 AnVIL Book: AnVIL Demos,378491147,2023-06-05,/AnVIL_Demos/,AnVIL Demos,1,1
 AnVIL Book: AnVIL Demos,378491147,2023-06-05,/AnVIL_Demos/demo-recording.html,3 Demo Recording | AnVIL Demos,1,1
 AnVIL Book: AnVIL Demos,378491147,2023-06-05,/AnVIL_Demos/google-slides.html,2 Google Slides | AnVIL Demos,1,1
 AnVIL Book: AnVIL Demos,378491147,2023-06-05,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/AnVIL_Demos/demo-recording.html,3 Demo Recording | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/p/adcdd3c8/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/p/adcdd3c8/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/p/adcdd3c8/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/p/adcdd3c8/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-06,/p/adcdd3c8/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-08,/AnVIL_Demos/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-08,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-08,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/AnVIL_Demos/demo-recording.html,3 Demo Recording | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/p/ac77ab0c/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/p/ac77ab0c/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/p/ac77ab0c/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/p/ac77ab0c/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/p/ac77ab0c/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-09,/p/adcdd3c8/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-10,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-10,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-10,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-10,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/p/ccf29b70/,AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-12,/p/fac18e48/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/AnVIL_Demos/scale-with-workflows-instructor-guide.html,8 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/files/docs/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/files/docs/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/files/docs/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/files/docs/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-13,/files/docs/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/AnVIL_Demos/,AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/files/docs/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/files/docs/index.html,AnVIL Demos,1,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/files/docs/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/files/docs/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,1,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-15,/AnVIL_Demos/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-15,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-15,/files/docs/index.html,AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-15,/files/docs/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,1,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-15,/files/docs/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-16,/AnVIL_Demos/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-16,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-16,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-20,/AnVIL_Demos/scale-with-workflows-instructor-guide.html,8 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-21,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,1,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-21,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-21,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-21,/AnVIL_Demos/scale-with-workflows-preparation.html,6 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-23,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-24,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/create-workflows-with-galaxy-exercises.html,11 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-26,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/create-workflows-with-galaxy-exercises.html,11 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/create-workflows-with-galaxy-overview.html,9 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/create-workflows-with-galaxy-preparation.html,10 Preparation | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-27,/AnVIL_Demos/scale-with-workflows-exercises.html,7 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/create-workflows-with-galaxy-instructor-guide.html,16 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/create-workflows-with-galaxy-overview.html,13 Overview | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/create-workflows-with-galaxy-preparation.html,10 Preparation | AnVIL Demos,1,2
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-28,/AnVIL_Demos/single-cell-with-bioconductor-overview.html,9 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/create-workflows-with-galaxy-exercises.html,15 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/create-workflows-with-galaxy-preparation.html,14 Preparation | AnVIL Demos,1,3
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/single-cell-with-bioconductor-overview.html,9 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/what-is-anvil-instructor-guide.html,4 Instructor Guide | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-29,/AnVIL_Demos/what-is-anvil-overview.html,Page not found | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-30,/AnVIL_Demos/index.html,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-30,/AnVIL_Demos/what-is-anvil-overview.html,1 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-30,/AnVIL_Demos/what-is-anvil-preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-07-01,/AnVIL_Demos/scale-with-workflows-overview.html,5 Overview | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-07-01,/AnVIL_Demos/what-is-anvil-preparation.html,2 Preparation | AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-07-02,/AnVIL_Demos/,AnVIL Demos,1,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-14,/AnVIL_Demos/exercises.html,3 Exercises | AnVIL Demos,0,1
+AnVIL Book: AnVIL Demos,378491147,2023-06-22,/AnVIL_Demos/instructor-guide.html,4 Instructor Guide | AnVIL Demos,0,1

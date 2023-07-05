@@ -5,7 +5,8 @@ To update Google Analytics data:
 ```r
 library(charm)
 
-assemble("app/_charm.R")
+clean_slate(path = "app/_charm.R")
+assemble(path = "app/_charm.R")
 ```
 
 How to create `app/data/ga-properties.json`:
