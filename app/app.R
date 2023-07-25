@@ -35,6 +35,9 @@ slack_data <- here_("data", "slack.csv") |> read_csv() |>
          "Daily members posting messages", "Messages in public channels",
          "Messages in private channels", "Messages in DMs")
 
+substack_opens <- here_("data", "substack-opens.csv") |> read_csv()
+substack_subs <- here_("data", "substack-subs.csv") |> read_csv()
+
 ######################
 ## UI Specification ##
 ######################
@@ -95,29 +98,18 @@ calendly_ui <- tabPanel(title = "Calendly",
                         )
 )
 
-notion_ui <- tabPanel(title = "Notion",
-                        fluidPage(
-                          h2("Notion"),
-                          sidebarLayout(
-                            sidebarPanel(
-                              p("Under Construction")
-                            ),
-                            mainPanel(
-                              p("Under Construction")
-                            )
-                          )
-                        )
-)
-
 substack_ui <- tabPanel(title = "Substack",
                       fluidPage(
                         h2("Substack"),
                         sidebarLayout(
                           sidebarPanel(
-                            p("Under Construction")
+                            dateRangeInput("substack_date", label = "Date Range",
+                                           start = substack_subs$created_at |> as.Date() |> min(),
+                                           end = substack_subs$created_at |> as.Date() |> max())
                           ),
                           mainPanel(
-                            p("Under Construction")
+                            plotOutput("substack_subs_plot"),
+                            plotOutput("substack_opens_plot")
                           )
                         )
                       )
@@ -127,7 +119,6 @@ dashboards_ui <- navbarMenu(title = "Dashboards",
                             ga_ui,
                             slack_ui,
                             calendly_ui,
-                            notion_ui,
                             substack_ui,
                             )
 
@@ -282,6 +273,28 @@ server <- function(input, output, session) {
       geom_line() +
       ggtitle("FH Data Slack Average Monthly Message Activity") +
       theme_minimal()
+  )
+
+  output$substack_subs_plot <- renderPlot(
+    substack_subs |>
+      filter(created_at >= input$substack_date[1], created_at <= input$substack_date[2]) |>
+      ggplot(aes(created_at, count)) +
+        geom_line() +
+        ggtitle("Number of fhdata.substack.com Subscribers Over Time") +
+        theme_minimal() +
+        xlab("Date") + ylab("Count")
+  )
+
+  output$substack_opens_plot <- renderPlot(
+    substack_opens |>
+      arrange(post_date) |>
+      filter(post_date >= input$substack_date[1], post_date <= input$substack_date[2]) |>
+      ggplot(aes(post_date, open_rate)) +
+        geom_line() +
+        ggtitle("Open Rate for fhdata.substack.com Posts") +
+        theme_minimal() +
+        xlab("Date") + ylab("Open Rate") +
+        ylim(0, 1)
   )
 }
 
