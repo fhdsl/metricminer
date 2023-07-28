@@ -31,8 +31,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 118434010,2023-05-01T12:06:48.061Z,ejhickey@gmail.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:48.075Z,nashavirata12@gmail.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:48.124Z,wlabovdunne@gmail.com,newsletter,everyone,true
-118434010,2023-05-01T12:06:48.153Z,pbmorgan@yahoo.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:48.153Z,superdiegao@gmail.com,newsletter,everyone,true
+118434010,2023-05-01T12:06:48.153Z,pbmorgan@yahoo.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:48.185Z,noble@outlook.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:48.202Z,tfrostig@gmail.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:48.204Z,kimoyerr@gmail.com,newsletter,everyone,true
@@ -181,8 +181,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 118434010,2023-05-01T12:06:52.601Z,diana.zaig@osfi-bsif.gc.ca,newsletter,everyone,true
 118434010,2023-05-01T12:06:52.611Z,ehumphri@fredhutch.org,newsletter,everyone,true
 118434010,2023-05-01T12:06:52.613Z,surial.bernard@gmail.com,newsletter,everyone,true
-118434010,2023-05-01T12:06:52.613Z,stefaniebutland@gmail.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:52.613Z,e_paskaleva@hotmail.com,newsletter,everyone,true
+118434010,2023-05-01T12:06:52.613Z,stefaniebutland@gmail.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:52.627Z,csoj079m5wcroyqzlw7s@feedly.email,newsletter,everyone,true
 118434010,2023-05-01T12:06:52.635Z,janordstrom@gmail.com,newsletter,everyone,true
 118434010,2023-05-01T12:06:52.638Z,juan.g.abraldes@ualberta.ca,newsletter,everyone,true
@@ -269,8 +269,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 118434010,2023-05-01T12:06:55.269Z,ndesarka@fredhutch.org,newsletter,everyone,true
 118434010,2023-05-01T12:06:55.310Z,bguo@fredhutch.org,newsletter,everyone,true
 118434010,2023-05-01T12:06:55.322Z,fcriscuo@genomicdatasci.org,newsletter,everyone,true
-118434010,2023-05-01T12:06:55.376Z,dhippe2@fredhutch.org,newsletter,everyone,true
 118434010,2023-05-01T12:06:55.376Z,ksmolnyc@fredhutch.org,newsletter,everyone,true
+118434010,2023-05-01T12:06:55.376Z,dhippe2@fredhutch.org,newsletter,everyone,true
 118434010,2023-05-01T12:06:55.427Z,teasley@fredhutch.org,newsletter,everyone,true
 118434010,2023-05-01T12:06:55.499Z,g.otto@imperial.ac.uk,newsletter,everyone,true
 118434010,2023-05-01T12:06:55.603Z,mnjensen@fredhutch.org,newsletter,everyone,true

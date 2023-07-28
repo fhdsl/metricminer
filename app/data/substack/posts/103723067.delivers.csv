@@ -120,8 +120,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 103723067,2023-02-22T15:51:56.504Z,kopysoleg@gmail.com,newsletter,everyone,true
 103723067,2023-02-22T15:51:56.586Z,stephen.parton@gmail.com,newsletter,everyone,true
 103723067,2023-02-22T15:51:56.606Z,Doctornachman@gmail.com,newsletter,everyone,true
-103723067,2023-02-22T15:51:56.806Z,cwright2@fredhutch.org,newsletter,everyone,true
 103723067,2023-02-22T15:51:56.806Z,wlabovdunne@gmail.com,newsletter,everyone,true
+103723067,2023-02-22T15:51:56.806Z,cwright2@fredhutch.org,newsletter,everyone,true
 103723067,2023-02-22T15:51:56.878Z,emmab5@uw.edu,newsletter,everyone,true
 103723067,2023-02-22T15:51:57.039Z,iain.m.wallace@gmail.com,newsletter,everyone,true
 103723067,2023-02-22T15:51:57.051Z,letmereadthis@outlook.com,newsletter,everyone,true
@@ -153,8 +153,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 103723067,2023-02-22T15:51:58.501Z,mcoccia@gmail.com,newsletter,everyone,true
 103723067,2023-02-22T15:51:58.505Z,lindsey.sydnor@seattlechildrens.org,newsletter,everyone,true
 103723067,2023-02-22T15:51:58.515Z,tybottorff@gmail.com,newsletter,everyone,true
-103723067,2023-02-22T15:51:58.529Z,edmond.kwan@monash.edu,newsletter,everyone,true
 103723067,2023-02-22T15:51:58.529Z,jayoung@fredhutch.org,newsletter,everyone,true
+103723067,2023-02-22T15:51:58.529Z,edmond.kwan@monash.edu,newsletter,everyone,true
 103723067,2023-02-22T15:51:58.552Z,hankkim90@gmail.com,newsletter,everyone,true
 103723067,2023-02-22T15:51:58.561Z,hejianpitt@gmail.com,newsletter,everyone,true
 103723067,2023-02-22T15:51:58.569Z,toro.m.maria@gmail.com,newsletter,everyone,true

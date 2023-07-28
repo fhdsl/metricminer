@@ -30,8 +30,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 130826538,2023-06-26T14:17:34.784Z,noble@outlook.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:34.815Z,frederic.pad@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:34.877Z,hejianpitt@gmail.com,newsletter,everyone,true
-130826538,2023-06-26T14:17:34.880Z,rodrigosperb@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:34.880Z,shasankdave@gmail.com,newsletter,everyone,true
+130826538,2023-06-26T14:17:34.880Z,rodrigosperb@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:34.937Z,scsik@ucsb.edu,newsletter,everyone,true
 130826538,2023-06-26T14:17:34.986Z,akrantasiwakoti@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:35.189Z,dkillian@msi-inc.com,newsletter,everyone,true
@@ -102,8 +102,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 130826538,2023-06-26T14:17:38.280Z,dlee23@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:38.374Z,nsalama@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:38.417Z,vargas-poulsen@nceas.ucsb.edu,newsletter,everyone,true
-130826538,2023-06-26T14:17:38.527Z,chowning@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:38.527Z,ktodd@fredhutch.org,newsletter,everyone,true
+130826538,2023-06-26T14:17:38.527Z,chowning@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:38.572Z,abdullahkhasawneh@hotmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:38.592Z,sherrirose@stanford.edu,newsletter,everyone,true
 130826538,2023-06-26T14:17:38.629Z,snadel@yahoo.com,newsletter,everyone,true
@@ -214,9 +214,9 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 130826538,2023-06-26T14:17:41.636Z,cmarinim@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.652Z,Emily.lescak@cscce.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.664Z,shelby@fruitionanalytics.com,newsletter,everyone,true
+130826538,2023-06-26T14:17:41.665Z,Doctornachman@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.665Z,data.lulu@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.665Z,mjkirsche@gmail.com,newsletter,everyone,true
-130826538,2023-06-26T14:17:41.665Z,Doctornachman@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.665Z,frederick.boehm@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.715Z,jrharrell@outlook.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.722Z,seagrinch@gmail.com,newsletter,everyone,true
@@ -229,8 +229,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 130826538,2023-06-26T14:17:41.852Z,asaha3@uw.edu,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.952Z,npho@uw.edu,newsletter,everyone,true
 130826538,2023-06-26T14:17:41.980Z,Jwu149@jh.edu,newsletter,everyone,true
-130826538,2023-06-26T14:17:42.075Z,twigs_caddie0u@icloud.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:42.075Z,mark.lamin@gmail.com,newsletter,everyone,true
+130826538,2023-06-26T14:17:42.075Z,twigs_caddie0u@icloud.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:42.169Z,saljailani@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:42.201Z,david.lockhart@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:42.201Z,mjohnso4@fredhutch.org,newsletter,everyone,true
@@ -295,8 +295,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 130826538,2023-06-26T14:17:45.984Z,makaylatang723@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:46.046Z,pgal@fredhutch.org,newsletter,everyone,true
 130826538,2023-06-26T14:17:46.118Z,sarahcn@uw.edu,newsletter,everyone,true
-130826538,2023-06-26T14:17:46.124Z,katherinecox@jhu.edu,newsletter,everyone,true
 130826538,2023-06-26T14:17:46.124Z,ayesha@datasciencedojo.com,newsletter,everyone,true
+130826538,2023-06-26T14:17:46.124Z,katherinecox@jhu.edu,newsletter,everyone,true
 130826538,2023-06-26T14:17:46.209Z,aditya.suru95@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:46.290Z,nareal@gmail.com,newsletter,everyone,true
 130826538,2023-06-26T14:17:46.348Z,fernando.tessaro@gmail.com,newsletter,everyone,true

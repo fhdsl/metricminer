@@ -36,8 +36,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 93017750,2022-12-26T16:53:15.000Z,b.nvo92@gmail.com,newsletter,everyone,true
 93017750,2022-12-26T16:53:15.012Z,ssilbern@fredhutch.org,newsletter,everyone,true
 93017750,2022-12-26T16:53:15.021Z,nsalama@fredhutch.org,newsletter,everyone,true
-93017750,2022-12-26T16:53:15.032Z,pdavis@fredhutch.org,newsletter,everyone,true
 93017750,2022-12-26T16:53:15.032Z,alanfeder@gmail.com,newsletter,everyone,true
+93017750,2022-12-26T16:53:15.032Z,pdavis@fredhutch.org,newsletter,everyone,true
 93017750,2022-12-26T16:53:15.057Z,Jwu149@jh.edu,newsletter,everyone,true
 93017750,2022-12-26T16:53:15.070Z,sam.meier@gmail.com,newsletter,everyone,true
 93017750,2022-12-26T16:53:15.078Z,davidbody@bigcreek.com,newsletter,everyone,true

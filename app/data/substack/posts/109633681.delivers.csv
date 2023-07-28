@@ -68,8 +68,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 109633681,2023-03-20T23:39:06.614Z,davidbody@bigcreek.com,newsletter,everyone,true
 109633681,2023-03-20T23:39:06.688Z,srothmul@fredhutch.org,newsletter,everyone,true
 109633681,2023-03-20T23:39:06.697Z,grus.kat@gmail.com,newsletter,everyone,true
-109633681,2023-03-20T23:39:06.708Z,kmacphee@fredhutch.org,newsletter,everyone,true
 109633681,2023-03-20T23:39:06.708Z,denis.vlasicek@gmail.com,newsletter,everyone,true
+109633681,2023-03-20T23:39:06.708Z,kmacphee@fredhutch.org,newsletter,everyone,true
 109633681,2023-03-20T23:39:06.724Z,dglass@fredhutch.org,newsletter,everyone,true
 109633681,2023-03-20T23:39:06.724Z,cmaerzlu@fredhutch.org,newsletter,everyone,true
 109633681,2023-03-20T23:39:07.102Z,winkeler@gmail.com,newsletter,everyone,true

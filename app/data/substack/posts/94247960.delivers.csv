@@ -44,8 +44,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 94247960,2023-01-02T17:45:09.893Z,jacobwhitney95@gmail.com,newsletter,everyone,true
 94247960,2023-01-02T17:45:09.905Z,coded3lit3@gmail.com,newsletter,everyone,true
 94247960,2023-01-02T17:45:09.942Z,lsanders650@gmail.com,newsletter,everyone,true
-94247960,2023-01-02T17:45:09.951Z,edmond.kwan@monash.edu,newsletter,everyone,true
 94247960,2023-01-02T17:45:09.951Z,ghana.challa@jacks.sdstate.edu,newsletter,everyone,true
+94247960,2023-01-02T17:45:09.951Z,edmond.kwan@monash.edu,newsletter,everyone,true
 94247960,2023-01-02T17:45:10.294Z,normanderson61@yahoo.com,newsletter,everyone,true
 94247960,2023-01-02T17:45:10.303Z,franco.laurianne@gmail.com,newsletter,everyone,true
 94247960,2023-01-02T17:45:10.444Z,tonycmachado@gmail.com,newsletter,everyone,true
@@ -157,8 +157,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 94247960,2023-01-02T17:45:14.786Z,lhschmertz@gmail.com,newsletter,everyone,true
 94247960,2023-01-02T17:45:14.835Z,agartlan@fredhutch.org,newsletter,everyone,true
 94247960,2023-01-02T17:45:14.839Z,rtakenak@fredhutch.org,newsletter,everyone,true
-94247960,2023-01-02T17:45:14.852Z,sravisha@fredhutch.org,newsletter,everyone,true
 94247960,2023-01-02T17:45:14.852Z,kcooper2@fredhutch.org,newsletter,everyone,true
+94247960,2023-01-02T17:45:14.852Z,sravisha@fredhutch.org,newsletter,everyone,true
 94247960,2023-01-02T17:45:14.855Z,qenvio@gmail.com,newsletter,everyone,true
 94247960,2023-01-02T17:45:14.954Z,mzager@fredhutch.org,newsletter,everyone,true
 94247960,2023-01-02T17:45:14.976Z,jtleek@fredhutch.org,newsletter,everyone,true

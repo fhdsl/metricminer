@@ -55,8 +55,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 124732999,2023-05-30T14:02:25.961Z,steve_subscribes@fastmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:25.963Z,MSM1620@aol.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:25.983Z,antoniouma@gmail.com,newsletter,everyone,true
-124732999,2023-05-30T14:02:25.990Z,e.m.switzer@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:25.990Z,paul.v.leeuwen@gmail.com,newsletter,everyone,true
+124732999,2023-05-30T14:02:25.990Z,e.m.switzer@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:26.022Z,nicolasmolina45@hotmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:26.084Z,winkeler@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:26.084Z,daveauty@gmail.com,newsletter,everyone,true
@@ -197,10 +197,10 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 124732999,2023-05-30T14:02:30.329Z,ndoiron@mapmeld.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.345Z,jgoecks@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.350Z,mgilbir@gmail.com,newsletter,everyone,true
-124732999,2023-05-30T14:02:30.388Z,mtpan9@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.388Z,lukebunge14@gmail.com,newsletter,everyone,true
-124732999,2023-05-30T14:02:30.391Z,sb4422@gmail.com,newsletter,everyone,true
+124732999,2023-05-30T14:02:30.388Z,mtpan9@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.391Z,mzager@fredhutch.org,newsletter,everyone,true
+124732999,2023-05-30T14:02:30.391Z,sb4422@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.396Z,irina.benson@noaa.gov,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.406Z,dontforget11122@hotmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.423Z,tomsing1@gmail.com,newsletter,everyone,true
@@ -237,8 +237,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 124732999,2023-05-30T14:02:30.849Z,vargas-poulsen@nceas.ucsb.edu,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.918Z,e_paskaleva@hotmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.922Z,ehatch@fredhutch.org,newsletter,everyone,true
-124732999,2023-05-30T14:02:30.925Z,taylorhderby@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.925Z,crhudson@fredhutch.org,newsletter,everyone,true
+124732999,2023-05-30T14:02:30.925Z,taylorhderby@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.935Z,mzepedar@fredhutch.org,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.941Z,benjamindpedigo@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:30.979Z,abdullahkhasawneh@hotmail.com,newsletter,everyone,true
@@ -247,8 +247,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 124732999,2023-05-30T14:02:31.092Z,sharic0010@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:31.194Z,emarellahumphries@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:31.195Z,anumkaz@uw.edu,newsletter,everyone,true
-124732999,2023-05-30T14:02:31.195Z,tsibley@fredhutch.org,newsletter,everyone,true
 124732999,2023-05-30T14:02:31.195Z,jslosbe1@jh.edu,newsletter,everyone,true
+124732999,2023-05-30T14:02:31.195Z,tsibley@fredhutch.org,newsletter,everyone,true
 124732999,2023-05-30T14:02:31.221Z,rachaelblakemarineecology@gmail.com,newsletter,everyone,true
 124732999,2023-05-30T14:02:31.242Z,moduff@fredhutch.org,newsletter,everyone,true
 124732999,2023-05-30T14:02:31.259Z,asaha3@uw.edu,newsletter,everyone,true

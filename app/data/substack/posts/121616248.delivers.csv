@@ -33,8 +33,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 121616248,2023-05-15T19:36:05.187Z,knockanand@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:05.235Z,timebythetail@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:05.250Z,kopysoleg@gmail.com,newsletter,everyone,true
-121616248,2023-05-15T19:36:05.340Z,pbmorgan@yahoo.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:05.340Z,hejianpitt@gmail.com,newsletter,everyone,true
+121616248,2023-05-15T19:36:05.340Z,pbmorgan@yahoo.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:05.360Z,maruthi99@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:05.403Z,rachidjelloul212@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:05.471Z,gem.e.moran@gmail.com,newsletter,everyone,true
@@ -102,8 +102,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 121616248,2023-05-15T19:36:10.460Z,erincgray@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.473Z,winston.bharat@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.494Z,satagopj@sph.rutgers.edu,newsletter,everyone,true
-121616248,2023-05-15T19:36:10.505Z,collin.miller86@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.505Z,beccahadi@gmail.com,newsletter,everyone,true
+121616248,2023-05-15T19:36:10.505Z,collin.miller86@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.516Z,scsik@ucsb.edu,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.523Z,jawilson@seattlecca.org,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.526Z,seagrinch@gmail.com,newsletter,everyone,true
@@ -127,8 +127,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 121616248,2023-05-15T19:36:10.697Z,mrg@fredhutch.org,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.713Z,tybottorff@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.722Z,ksurace_smith@hotmail.com,newsletter,everyone,true
-121616248,2023-05-15T19:36:10.724Z,lhschmertz@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.724Z,data.lulu@gmail.com,newsletter,everyone,true
+121616248,2023-05-15T19:36:10.724Z,lhschmertz@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.738Z,sharic0010@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.758Z,david.patton@outlook.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:10.771Z,vargas-poulsen@nceas.ucsb.edu,newsletter,everyone,true
@@ -163,8 +163,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 121616248,2023-05-15T19:36:11.058Z,justinjmillar@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.071Z,grantlcook@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.077Z,thomas.zeffiro@som.umaryland.edu,newsletter,everyone,true
-121616248,2023-05-15T19:36:11.090Z,cjoyce6@luc.edu,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.090Z,mark.lamin@gmail.com,newsletter,everyone,true
+121616248,2023-05-15T19:36:11.090Z,cjoyce6@luc.edu,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.109Z,mgilbir@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.112Z,Rainimorgan@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.125Z,srcanchi@ucdavis.edu,newsletter,everyone,true
@@ -183,13 +183,13 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 121616248,2023-05-15T19:36:11.234Z,malhairecaroline@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.249Z,idobbs@yahoo.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.269Z,harisuddin84@gmail.com,newsletter,everyone,true
-121616248,2023-05-15T19:36:11.287Z,mathesong@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.287Z,kadamson615@gmail.com,newsletter,everyone,true
-121616248,2023-05-15T19:36:11.312Z,rosiersg@amazon.com,newsletter,everyone,true
+121616248,2023-05-15T19:36:11.287Z,mathesong@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.312Z,nkucher3@jhu.edu,newsletter,everyone,true
+121616248,2023-05-15T19:36:11.312Z,rosiersg@amazon.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.325Z,shelby@fruitionanalytics.com,newsletter,everyone,true
-121616248,2023-05-15T19:36:11.349Z,suprabhathk@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.349Z,mjkirsche@gmail.com,newsletter,everyone,true
+121616248,2023-05-15T19:36:11.349Z,suprabhathk@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.353Z,lindsey.sydnor@seattlechildrens.org,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.354Z,alice.beittel@noaa.gov,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.358Z,shnjonk@gmail.com,newsletter,everyone,true
@@ -216,8 +216,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 121616248,2023-05-15T19:36:11.716Z,rebecca.k.butler@kp.org,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.724Z,abdullahkhasawneh@hotmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.736Z,amccurdy@aspennature.org,newsletter,everyone,true
-121616248,2023-05-15T19:36:11.758Z,tomsing1@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.758Z,hermine.vancoppenolle@ugent.be,newsletter,everyone,true
+121616248,2023-05-15T19:36:11.758Z,tomsing1@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.760Z,mtpan9@gmail.com,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.773Z,guerau.fernandez@sjd.es,newsletter,everyone,true
 121616248,2023-05-15T19:36:11.783Z,snichol2@fredhutch.org,newsletter,everyone,true

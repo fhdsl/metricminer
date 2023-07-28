@@ -98,8 +98,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 87199123,2022-11-28T14:55:28.321Z,gwcarter@gmail.com,newsletter,everyone,true
 87199123,2022-11-28T14:55:28.339Z,burcht11@gmail.com,newsletter,everyone,true
 87199123,2022-11-28T14:55:28.359Z,kiefer89@me.com,newsletter,everyone,true
-87199123,2022-11-28T14:55:28.435Z,spgolden@gmail.com,newsletter,everyone,true
 87199123,2022-11-28T14:55:28.435Z,kcooper2@fredhutch.org,newsletter,everyone,true
+87199123,2022-11-28T14:55:28.435Z,spgolden@gmail.com,newsletter,everyone,true
 87199123,2022-11-28T14:55:28.521Z,winkeler@gmail.com,newsletter,everyone,true
 87199123,2022-11-28T14:55:28.530Z,adam.taylor@sagebase.org,newsletter,everyone,true
 87199123,2022-11-28T14:55:28.539Z,chris.billingham@gmail.com,newsletter,everyone,true

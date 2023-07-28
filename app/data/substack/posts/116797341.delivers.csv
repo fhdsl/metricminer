@@ -62,8 +62,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 116797341,2023-04-24T14:04:02.788Z,jacobwhitney95@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:02.987Z,nareal@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:02.997Z,rljpe@yahoo.com,newsletter,everyone,true
-116797341,2023-04-24T14:04:03.015Z,tan@ciwemb.edu,newsletter,everyone,true
 116797341,2023-04-24T14:04:03.015Z,anne.louise.clark@gmail.com,newsletter,everyone,true
+116797341,2023-04-24T14:04:03.015Z,tan@ciwemb.edu,newsletter,everyone,true
 116797341,2023-04-24T14:04:03.037Z,antoniouma@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:03.059Z,grus.kat@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:03.068Z,tonycmachado@gmail.com,newsletter,everyone,true
@@ -147,8 +147,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 116797341,2023-04-24T14:04:04.894Z,tjkelman@ucdavis.edu,newsletter,everyone,true
 116797341,2023-04-24T14:04:04.935Z,dkillian@msi-inc.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:04.952Z,brian.vancil@ku.edu,newsletter,everyone,true
-116797341,2023-04-24T14:04:04.954Z,tjbencomo@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:04.954Z,06shrutib@gmail.com,newsletter,everyone,true
+116797341,2023-04-24T14:04:04.954Z,tjbencomo@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:04.962Z,paulwreed2014@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:04.972Z,aditya.suru95@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:04.978Z,teon.brooks@gmail.com,newsletter,everyone,true
@@ -184,8 +184,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 116797341,2023-04-24T14:04:05.703Z,Rainimorgan@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.705Z,rachaelblakemarineecology@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.707Z,shelby@fruitionanalytics.com,newsletter,everyone,true
-116797341,2023-04-24T14:04:05.721Z,kinahan@uw.edu,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.721Z,ruijpbastos@gmail.com,newsletter,everyone,true
+116797341,2023-04-24T14:04:05.721Z,kinahan@uw.edu,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.730Z,sharic0010@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.743Z,Aaronccrowley@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.762Z,rrivoagbor@gmail.com,newsletter,everyone,true
@@ -199,8 +199,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 116797341,2023-04-24T14:04:05.884Z,jk3868@drexel.edu,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.922Z,jgreene3@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.939Z,cpcunha@gmail.com,newsletter,everyone,true
-116797341,2023-04-24T14:04:05.972Z,janordstrom@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.972Z,stefaniebutland@gmail.com,newsletter,everyone,true
+116797341,2023-04-24T14:04:05.972Z,janordstrom@gmail.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:05.976Z,emmanuel.robesyn@ecdc.europa.eu,newsletter,everyone,true
 116797341,2023-04-24T14:04:06.030Z,sophie.lemire@novartis.com,newsletter,everyone,true
 116797341,2023-04-24T14:04:06.040Z,kelli.johnson@noaa.gov,newsletter,everyone,true
@@ -303,8 +303,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 116797341,2023-04-24T14:04:11.665Z,schalla@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:11.719Z,rtakenak@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:11.970Z,agalvan@seattlecca.org,newsletter,everyone,true
-116797341,2023-04-24T14:04:12.137Z,cmarinim@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:12.137Z,akoeste2@fredhutch.org,newsletter,everyone,true
+116797341,2023-04-24T14:04:12.137Z,cmarinim@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:12.211Z,dglass@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:12.242Z,tpegan@fredhutch.org,newsletter,everyone,true
 116797341,2023-04-24T14:04:12.274Z,jfdey@fredhutch.org,newsletter,everyone,true

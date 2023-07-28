@@ -1,4 +1,9 @@
 post_id,post_date,is_published,email_sent_at,inbox_sent_at,type,audience,title,subtitle,podcast_url
+135505583.percolate-the-ocean,,false,,,newsletter,everyone,,,
+135220253.sample-sale,2023-07-24T17:14:59.094Z,true,2023-07-24T17:14:59.282Z,2023-07-24T17:14:59.282Z,newsletter,everyone,👡 Sample Sale,Time to splurge,
+135116824.seeing-things,2023-07-17T15:45:54.320Z,true,2023-07-17T15:45:54.458Z,2023-07-17T15:45:54.458Z,newsletter,everyone,🧐 Seeing Things,I always feel like somebody's watching me,
+133742692.all-the-way-up,2023-07-10T17:18:53.646Z,true,2023-07-10T17:18:53.760Z,2023-07-10T17:18:53.760Z,newsletter,everyone,⛰️ All the Way Up,"This carabiner is definitely not ""Not for Climbing""",
+132782850.i-can-hear-the-bells,2023-07-03T15:41:44.682Z,true,2023-07-03T15:41:44.811Z,2023-07-03T15:41:44.811Z,newsletter,everyone,🔔 I can hear the bells,I can't contain my joy,
 130826538.summer-treat,2023-06-26T14:09:04.645Z,true,2023-06-26T14:09:04.715Z,2023-06-26T14:09:04.715Z,newsletter,everyone,🧉 Summer Treat,Can I get two of those?,
 129746892.sun-king,2023-06-20T16:29:48.316Z,true,2023-06-20T16:29:48.386Z,2023-06-20T16:29:48.386Z,newsletter,everyone,🌞 Sun King,Here it comes!,
 127189594.raise-them-high,2023-06-12T17:08:53.881Z,true,2023-06-12T17:08:54.872Z,2023-06-12T17:08:54.872Z,newsletter,everyone,🏁 Raise them High,Like a Plane with a Banner,

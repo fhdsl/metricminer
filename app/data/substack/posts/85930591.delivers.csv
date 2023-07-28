@@ -34,8 +34,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 85930591,2022-11-21T17:23:39.591Z,jchang3@fredhutch.org,newsletter,everyone,true
 85930591,2022-11-21T17:23:39.704Z,iain.m.wallace@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:39.711Z,collin.miller86@gmail.com,newsletter,everyone,true
-85930591,2022-11-21T17:23:39.728Z,xraydiffraction@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:39.728Z,mnescot@fredhutch.org,newsletter,everyone,true
+85930591,2022-11-21T17:23:39.728Z,xraydiffraction@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:39.830Z,akrantasiwakoti@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:39.843Z,erincgray@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:39.854Z,robinstr@gmail.com,newsletter,everyone,true
@@ -100,8 +100,8 @@ post_id,timestamp,email,post_type,post_audience,active_subscription
 85930591,2022-11-21T17:23:42.453Z,lindsey.sydnor@seattlechildrens.org,newsletter,everyone,true
 85930591,2022-11-21T17:23:42.456Z,hejianpitt@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:42.471Z,rongvaux@fredhutch.org,newsletter,everyone,true
-85930591,2022-11-21T17:23:42.489Z,howardba@uw.edu,newsletter,everyone,true
 85930591,2022-11-21T17:23:42.489Z,cwright2@fredhutch.org,newsletter,everyone,true
+85930591,2022-11-21T17:23:42.489Z,howardba@uw.edu,newsletter,everyone,true
 85930591,2022-11-21T17:23:42.510Z,agawne@fredhutch.org,newsletter,everyone,true
 85930591,2022-11-21T17:23:42.526Z,tybottorff@gmail.com,newsletter,everyone,true
 85930591,2022-11-21T17:23:42.550Z,wlabovdunne@gmail.com,newsletter,everyone,true
