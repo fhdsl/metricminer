@@ -1,11 +1,13 @@
-FROM fredhutch/r-shiny-base:4.2.0
-RUN Rscript -e "install.packages(c('tidyverse', 'here', 'ggplot2', 'slider'))"
-RUN apt-get update
-RUN apt-get install -y pandoc
-RUN useradd -u 5555 -m -d /home/shiny -c "shiny user" shiny
-ADD app/. /home/shiny/
-RUN chown -R shiny:shiny /home/shiny
-WORKDIR /home/shiny
-USER shiny
-EXPOSE 7777
-CMD Rscript start.R
+FROM jhudsl/base_ottr:main
+LABEL maintainer="cansav09@gmail.com"
+
+# Install python
+RUN apt-get -y --no-install-recommends install \
+    python3-pip  python3-dev
+
+# Install python packages
+RUN pip3 install \
+   google-cloud-api-keys \
+   disutils \
+   google-oauth2-tool \
+   google-api-python-client
