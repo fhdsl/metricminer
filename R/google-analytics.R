@@ -1,4 +1,3 @@
-
 remotes::install_github("MarkEdmondson1234/googleAnalyticsR")
 
 library(tidyverse)
@@ -18,10 +17,11 @@ ga_webproperty_list(ga_id)
 
 ## simple query to test connection, get 10 rows
 google_analytics(ga_id,
-                 date_range = c("2021-01-01", lubridate::today()),
-                 metrics = "sessions",
-                 dimensions = "date",
-                 max = 10)
+  date_range = c("2021-01-01", lubridate::today()),
+  metrics = "sessions",
+  dimensions = "date",
+  max = 10
+)
 
 
 # Ideally these Property IDs would get pulled from the API using the package,
@@ -37,9 +37,10 @@ here("app", "data", "ga-properties.json") |>
   rename(ID = name, Property = displayName) |>
   select(Property, ID) |>
   mutate(GA = map(ID, ga_data,
-                      metrics = c("activeUsers","sessions"),
-                      dimensions = c("date", "pagePath", "pageTitle"),
-                      date_range = c("2022-01-01", as.character(Sys.Date())),
-                      limit = -1)) %>%
+    metrics = c("activeUsers", "sessions"),
+    dimensions = c("date", "pagePath", "pageTitle"),
+    date_range = c("2022-01-01", as.character(Sys.Date())),
+    limit = -1
+  )) %>%
   unnest(GA) %>%
   write_csv(here("app", "data", "ga.csv"))
