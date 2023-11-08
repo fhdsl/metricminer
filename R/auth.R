@@ -1,25 +1,33 @@
 
-# TODO: Need to figure out a storage system for each app's token
-
-
-.onAttach <- function(libname, pkgname) {
-  packageStartupMessage("Use authorize() function to begin give the package the proper credentials to run. ")
+supported_endpoints <- function() {
+  list(
+    "calendly" = "https://auth.calendly.com/oauth/token",
+    "github" = httr::oauth_endpoints("github"),
+    "google" = httr::oauth_endpoints("google")
+  )
 }
 
+
+############### The creds handlers ###############
 .Env <- new.env(parent = emptyenv())
-.Env$Token <- NULL
+
+.Env$metricminer_tokens <- list(
+  "calendly" = NULL,
+  "github" = NULL,
+  "google" = NULL
+)
 
 # Set token to environment
-set_token <- function(value) {
-  .Env$Token <- value
-  return(value)
+set_token <- function(token, app_name) {
+  .Env$metricminer_tokens[[app_name]] <- token
+  return(token)
 }
 
 # Get token from environment
-get_token <- function() {
-  .Env$Token
+get_token <- function(app_name) {
+  .Env$metricminer_tokens[app_name]
 }
-
+################################################################################
 #' Authorize R package to access endpoints
 #' @description This is a function to authorize the R package to access APIs interactively.
 #' @param token an output from \code{\link{oauth2.0_token}} to set as the authentication token.
@@ -33,10 +41,22 @@ get_token <- function() {
 #'
 #' authorize()
 #' }
-authorize <- function(endpoint = NULL,
+authorize <- function(app_name = NULL,
                       token = NULL,
                       cache = FALSE,
                       ...) {
+
+  if (is.null(app_name)) {
+    # Ask the user what app they would like to authorize
+    endpoint_index <- menu(names(supported_endpoints()), title = "Which app would you like to authorize?")
+
+    # Extract info from supported endpoints list
+    endpoint <- supported_endpoints()[endpoint_index]
+
+    # Set app name based on selection
+    app_name <- names(endpoint)
+  }
+
   if (!cache) {
     cache_it <- menu(c("Yes store credentials as .httr-oauth file", "No do not store credentials, I will re-run this authorize() in my next R session"))
     if (cache_it == 1) {
@@ -45,19 +65,34 @@ authorize <- function(endpoint = NULL,
   } else {
     cache_it <- 1
   }
+
+  if (app_name == "calendly") {
+    browseURL("https://calendly.com/integrations/api_webhooks")
+    message("On the opened page, click 'Generate Token'. Choose a name, then click 'Create Token'.")
+    token <- readline(prompt = "Paste token here and press enter. ")
+  }
+
+  if (app_name == "google") {
+    browseURL("https://github.com/settings/tokens/new?description=metricminer&scopes=repo,read:packages,read:org")
+    message("On the opened page, scroll down and click 'Generate Token'.")
+    token <- readline(prompt = "Paste token here and press enter.")
+  }
+
   if (is.null(token)) {
-
-    # scopes_list <- find_scopes(endpoint)
-
-    token <- oauth2.0_token(
-      endpoint = app_set_up()$endpoint,
-      app = app_set_up()$app,
+    if (app_name == "google") {
+      scopes_list <- unlist(find_scopes(app_name))
+    } else {
+      scopes_list <- NULL
+    }
+    token <- httr::oauth2.0_token(
+      endpoint = app_set_up(app_name)$endpoint,
+      app = app_set_up(app_name)$app,
       cache = cache_it == 1,
       scope = scopes_list,
       ...
     )
   }
-  set_token(token)
+  set_token(token = token, app_name = app_name)
   return(invisible(token))
 }
 
@@ -80,7 +115,7 @@ authorize <- function(endpoint = NULL,
 #' )
 #' }
 #'
-auth_from_secret <- function(endpoint, access_token, refresh_token) {
+auth_from_secret <- function(app_name, access_token, refresh_token) {
   credentials <- list(
     access_token = access_token,
     expires_in = 3599L,
@@ -90,8 +125,8 @@ auth_from_secret <- function(endpoint, access_token, refresh_token) {
   )
 
   token <- httr::oauth2.0_token(
-    endpoint = app_set_up()$endpoint,
-    app = app_set_up()$app,
+    endpoint = app_set_up(endpoint)$endpoint,
+    app = app_set_up(endpoint)$app,
     scope = scopes,
     credentials = credentials
   )
@@ -100,21 +135,30 @@ auth_from_secret <- function(endpoint, access_token, refresh_token) {
   return(invisible(token))
 }
 
+#' App Set Up
+#' @description This is a function that sets up the app. It's generally called by another function
+#' @importFrom utils menu installed.packages
+#' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
+#'
 # This sets up the app creds no matter which way authorization is called
-app_set_up <- function(endpoint) {
+app_set_up <- function(app_name) {
 
+  supported <- names(supported_endpoints())
+
+  if (!(app_name %in% supported)) stop("That is not a supported app or endpoint")
 
   decrypted <- openssl::aes_cbc_decrypt(
-    readRDS(encrypt_creds_path(endpoint)),
-    key = readRDS(key_encrypt_creds_path(endpoint))
+    readRDS(encrypt_creds_path(app_name)),
+    key = readRDS(key_encrypt_creds_path())
   )
 
-  app <- oauth_app(
+  app <- httr::oauth_app(
     appname = "metricminer",
     key = unserialize(decrypted)$client_id,
     secret = unserialize(decrypted)$client_secret
   )
-  endpoint <- oauth_endpoints(endpoint)
 
-  return(list(app = app, endpoint = endpoint))
+  endpoint_url <- httr::oauth_endpoints(app_name)
+
+  return(list(app = app, endpoint = endpoint_url))
 }

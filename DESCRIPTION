@@ -1,4 +1,4 @@
-Package: metricminer2
+Package: metricminer
 Type: Package
 Title: What the Package Does (Title Case)
 Version: 0.1.0
@@ -7,5 +7,12 @@ Maintainer: The package maintainer <yourself@somewhere.net>
 Description: More about what it does (maybe more than one line)
     Use four spaces when indenting paragraphs within the Description.
 License: What license is it under?
+BugReports: https://github.com/datatrail-jhu/rgoogleclassroom/issues
+Imports:
+    attempt,
+    curl,
+    httr,
+    jsonlite
 Encoding: UTF-8
+RoxygenNote: 7.2.3
 LazyData: true
