@@ -19,7 +19,7 @@ This is a function to get the Calendly API user info
 \dontrun{
 
 authorize("calendly")
-get_github_user()
+get_calendly_user()
 
 }
 }

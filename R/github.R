@@ -1,4 +1,5 @@
-#' Get the GitHub User
+
+#' Get the GitHub User's info
 #' @description This is a function to get the GitHub user's info
 #' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @return Information regarding a github account
@@ -11,6 +12,7 @@
 #' get_github_user()
 #'
 #' }
+#'
 get_github_user <- function(api_key) {
   # Get auth token
   token <- get_token(app_name = "github")

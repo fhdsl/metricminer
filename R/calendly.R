@@ -10,7 +10,7 @@
 #' @examples \dontrun{
 #'
 #' authorize("calendly")
-#' get_github_user()
+#' get_calendly_user()
 #'
 #' }
 get_calendly_user <- function(api_key) {
