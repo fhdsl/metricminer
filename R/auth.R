@@ -1,4 +1,3 @@
-
 #' Authorize R package to access endpoints
 #' @description This is a function to authorize the R package to access APIs interactively.
 #' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'

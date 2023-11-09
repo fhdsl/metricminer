@@ -1,4 +1,3 @@
-
 ############### The creds handlers ###############
 .Env <- new.env(parent = emptyenv())
 
@@ -32,6 +31,6 @@ get_cached_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly_api")
   if (app_name == "github") token <- getOption("github_api")
   if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
-  
+
   return(token)
 }

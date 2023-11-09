@@ -14,6 +14,5 @@ This is a function to get the Google Analytics accounts that this user has acces
 
 authorize("google")
 get_ga_user()
-
 }
 }

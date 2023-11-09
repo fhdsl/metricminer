@@ -1,3 +1,4 @@
+# Extracting data from GitHub
 
 #' Get the GitHub User's info
 #' @description This is a function to get the GitHub user's info
@@ -10,9 +11,7 @@
 #'
 #' authorize("github")
 #' get_github_user()
-#'
 #' }
-#'
 get_github_user <- function(api_key) {
   # Get auth token
   token <- get_token(app_name = "github")

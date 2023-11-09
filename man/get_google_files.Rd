@@ -21,6 +21,5 @@ This is a function to get a list of files from a Googledrive location
 
 authorize("google")
 get_google_files()
-
 }
 }

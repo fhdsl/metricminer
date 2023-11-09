@@ -10,10 +10,8 @@
 #'
 #' authorize("google")
 #' get_ga_user()
-#'
 #' }
 get_ga_user <- function() {
-
   # Declare URL
   url <- "https://analytics.googleapis.com/analytics/v3/management/accountSummaries"
 
@@ -33,5 +31,3 @@ get_ga_user <- function() {
   result_list <- jsonlite::fromJSON(result_content)
   return(result_list$items)
 }
-
-

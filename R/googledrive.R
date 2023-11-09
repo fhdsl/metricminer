@@ -14,10 +14,8 @@
 #'
 #' authorize("google")
 #' get_google_files()
-#'
 #' }
 get_google_files <- function(drive_id, type) {
-
   # Get endpoint url
   url <- "https://www.googleapis.com/drive/v3/files"
 
@@ -27,16 +25,15 @@ get_google_files <- function(drive_id, type) {
 
   # Wrapping body parameters in a requests list
   if (!is.null(drive_id)) {
-
     # If a URL is supplied, only take the ID from it.
     if (grep("https:", drive_id)) drive_id <- gsub("https://drive.google.com/drive/folders/", "")
 
     body_params <- list(
-    corpora = "drive",
-    driveId = drive_id,
-    includeItemsFromAllDrives = "true",
-    supportsAllDrives = "true"
-  )
+      corpora = "drive",
+      driveId = drive_id,
+      includeItemsFromAllDrives = "true",
+      supportsAllDrives = "true"
+    )
   } else {
     # If drive ID is not supplied, just see what this user has
     body_params <- list(

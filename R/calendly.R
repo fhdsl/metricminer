@@ -11,7 +11,6 @@
 #'
 #' authorize("calendly")
 #' get_calendly_user()
-#'
 #' }
 get_calendly_user <- function(api_key) {
   # Get auth token
