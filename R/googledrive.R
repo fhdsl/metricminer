@@ -5,8 +5,4 @@
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export
-#' @examples \dontrun{
-#'
-#'
-googledrive::drive_find(n = 1)
-
+#' @examples

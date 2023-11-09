@@ -5,11 +5,8 @@
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export
-#' @examples \dontrun{
-#'
-#'
+#' @examples
 get_calendly_user <- function(api_key) {
-
   # Get auth token
   token <- get_token(app_name = "calendly")
 

@@ -1,9 +1,8 @@
-
 supported_endpoints <- function() {
   list(
     "calendly" = "https://auth.calendly.com/oauth/token",
     "github" = httr::oauth_endpoints("github"),
-    "google" = httr::oauth_endpoints("google")
+    "google" = httr::oauth_endpoints("google"),
   )
 }
 
@@ -38,10 +37,9 @@ get_token <- function(app_name) {
 
 # A function that attempts to grab cached credentials
 get_cached_token <- function(app_name) {
-
   if (app_name == "calendly") token <- getOption("calendly_api")
   if (app_name == "github") token <- getOption("github_api")
-  if (app_name == "google") token <- try(readRDS('.httr-oauth'), silent = TRUE)
+  if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
 
   return(token)
 }
@@ -64,7 +62,6 @@ authorize <- function(app_name = NULL,
                       token = NULL,
                       cache = FALSE,
                       ...) {
-
   if (is.null(app_name)) {
     # Ask the user what app they would like to authorize
     endpoint_index <- menu(names(supported_endpoints()), title = "Which app would you like to authorize?")
@@ -85,8 +82,10 @@ authorize <- function(app_name = NULL,
     cache_it <- 1
   }
 
+  if (app_name == "google_analytics") {
+    googleAnalyticsR::ga_auth()
+  }
   if (app_name == "calendly") {
-
     # Open up browser to have them create a key
     browseURL("https://calendly.com/integrations/api_webhooks")
     message("On the opened page, click 'Generate Token'. Choose a name, then click 'Create Token'.")
@@ -96,7 +95,6 @@ authorize <- function(app_name = NULL,
 
     # If they chose to cache it, we'll store it in the .Rprofile
     if (cache_it == 1) options(calendly_api = token)
-
   }
 
   if (app_name == "github") {
@@ -111,12 +109,9 @@ authorize <- function(app_name = NULL,
     if (cache_it == 1) options(github_api = token)
   }
 
-  if (is.null(token)) {
-    if (app_name == "google") {
-      scopes_list <- unlist(find_scopes(app_name))
-    } else {
-      scopes_list <- NULL
-    }
+  if (app_name == "google") {
+    scopes_list <- unlist(find_scopes(app_name))
+
     token <- httr::oauth2.0_token(
       endpoint = app_set_up(app_name)$endpoint,
       app = app_set_up(app_name)$app,
@@ -138,14 +133,12 @@ authorize <- function(app_name = NULL,
 #'
 #' delete_creds("google")
 #' }
-
 delete_creds <- function(app_name = "all") {
-
   supported <- names(supported_endpoints())
 
   if (!(app_name %in% c("all", supported))) stop("That is not a supported app or endpoint")
 
-    if (app_name == "all" | app_name == "calendly") {
+  if (app_name == "all" | app_name == "calendly") {
     options(calendly_api = NULL)
     remove_token("calendly")
     message("Calendly creds deleted from .Rprofile")
@@ -188,35 +181,33 @@ delete_creds <- function(app_name = "all") {
 #' # Example for authorizing for Google
 #' token <- authorize("google")
 #' auth_from_secret(
-#'   app_name = "google"
+#'   app_name = "google",
 #'   refresh_token = token$credentials$access_token,
 #'   access_token = token$credentials$refresh_token
 #' )
 #' }
 #'
 auth_from_secret <- function(app_name, api_key, access_token, refresh_token, cache = FALSE) {
-
   if (app_name %in% c("github", "calendly") && is.null(api_key)) stop("For GitHub and Calendly, api_key cannot be NULL")
 
   if (app_name == "google") {
-
     if (is.null(access_token) || is.null(refresh_token)) stop("For Google auth, need access_token and refresh_token cannot be NULL")
 
     credentials <- list(
-    access_token = access_token,
-    expires_in = 3599L,
-    refresh_token = refresh_token,
-    scope = scopes,
-    token_type = "Bearer"
-  )
+      access_token = access_token,
+      expires_in = 3599L,
+      refresh_token = refresh_token,
+      scope = scopes,
+      token_type = "Bearer"
+    )
 
-  token <- httr::oauth2.0_token(
-    endpoint = app_set_up(endpoint)$endpoint,
-    app = app_set_up(endpoint)$app,
-    scope = scopes,
-    credentials = credentials,
-    cache = cache
-  )
+    token <- httr::oauth2.0_token(
+      endpoint = app_set_up(app_name)$endpoint,
+      app = app_set_up(app_name)$app,
+      scope = scopes,
+      credentials = credentials,
+      cache = cache
+    )
   }
 
   # If they chose to cache it, we'll store it in the .Rprofile
@@ -244,14 +235,9 @@ auth_from_secret <- function(app_name, api_key, access_token, refresh_token, cac
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #'
 # This sets up the app creds no matter which way authorization is called
-app_set_up <- function(app_name) {
-
-  supported <- names(supported_endpoints())
-
-  if (!(app_name %in% supported)) stop("That is not a supported app or endpoint")
-
+app_set_up <- function(app_name = "google") {
   decrypted <- openssl::aes_cbc_decrypt(
-    readRDS(encrypt_creds_path(app_name)),
+    readRDS(encrypt_creds_path("google")),
     key = readRDS(key_encrypt_creds_path())
   )
 
@@ -261,7 +247,7 @@ app_set_up <- function(app_name) {
     secret = unserialize(decrypted)$client_secret
   )
 
-  endpoint_url <- httr::oauth_endpoints(app_name)
+  endpoint_url <- httr::oauth_endpoints("google")
 
   return(list(app = app, endpoint = endpoint_url))
 }

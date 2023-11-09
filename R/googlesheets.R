@@ -1,3 +1,3 @@
 # Extracting data from Google Sheets
 
-googledrive::drive_find(type = "spreadsheet")
+# googledrive::drive_find(type = "spreadsheet")
