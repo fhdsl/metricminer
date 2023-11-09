@@ -1,3 +1,17 @@
+utils::globalVariables(c(
+  "scopes", "set_token", "browseURL", "remove_token", "get_token"
+))
+#' Supported endpoints
+#' @description This is function stores endpoints and supported app names
+supported_endpoints <- function() {
+  list(
+    "calendly" = "https://auth.calendly.com/oauth/token",
+    "github" = httr::oauth_endpoints("github"),
+    "google" = httr::oauth_endpoints("google")
+  )
+}
+#' Default creds path
+#' @param app_name What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
 #' Get file path to an default credentials RDS
 default_creds_path <- function(app_name) {
   list.files(
@@ -7,19 +21,21 @@ default_creds_path <- function(app_name) {
     full.names = TRUE
   )
 }
-#' Get file path to an key encryption RDS
-key_encrypt_creds_path <- function() {
+#' Default creds path
+#' @param app_name What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
+encrypt_creds_path <- function(app_name) {
   list.files(
-    pattern = "encrypt_pass.rds",
+    pattern = paste0(app_name, "_encrypt.rds"),
     recursive = TRUE,
     system.file("extdata", package = "metricminer"),
     full.names = TRUE
   )
 }
-#' Get file path to an encrypted credentials RDS
-encrypt_creds_path <- function(app_name) {
+
+#' Get file path to an key encryption RDS
+key_encrypt_creds_path <- function() {
   list.files(
-    pattern = paste0(app_name, "_encrypt.rds"),
+    pattern = "encrypt_pass.rds",
     recursive = TRUE,
     system.file("extdata", package = "metricminer"),
     full.names = TRUE

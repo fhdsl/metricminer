@@ -2,10 +2,13 @@
 % Please edit documentation in R/utils.R
 \name{encrypt_creds_path}
 \alias{encrypt_creds_path}
-\title{Get file path to an encrypted credentials RDS}
+\title{Default creds path}
 \usage{
 encrypt_creds_path(app_name)
 }
+\arguments{
+\item{app_name}{What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'}
+}
 \description{
-Get file path to an encrypted credentials RDS
+Default creds path
 }

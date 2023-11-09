@@ -1,57 +1,12 @@
-supported_endpoints <- function() {
-  list(
-    "calendly" = "https://auth.calendly.com/oauth/token",
-    "github" = httr::oauth_endpoints("github"),
-    "google" = httr::oauth_endpoints("google"),
-  )
-}
 
-
-############### The creds handlers ###############
-.Env <- new.env(parent = emptyenv())
-
-.Env$metricminer_tokens <- list(
-  "calendly" = NULL,
-  "github" = NULL,
-  "google" = NULL
-)
-
-# Set token to environment
-set_token <- function(token, app_name) {
-  .Env$metricminer_tokens[[app_name]] <- token
-  return(token)
-}
-
-remove_token <- function(app_name) {
-  .Env$metricminer_tokens[[app_name]] <- NULL
-}
-
-# Get token from environment
-get_token <- function(app_name) {
-  # If there's none in the current environemnt, attempt to grab a cached credential
-  if (is.null(.Env$metricminer_tokens[[app_name]])) {
-    .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
-  }
-  return(invisible(.Env$metricminer_tokens[[app_name]]))
-}
-
-# A function that attempts to grab cached credentials
-get_cached_token <- function(app_name) {
-  if (app_name == "calendly") token <- getOption("calendly_api")
-  if (app_name == "github") token <- getOption("github_api")
-  if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
-
-  return(token)
-}
-
-################################################################################
 #' Authorize R package to access endpoints
 #' @description This is a function to authorize the R package to access APIs interactively.
+#' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
 #' @param token an output from \code{\link{oauth2.0_token}} to set as the authentication token.
 #' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
 #' @param ... additional arguments to send to \code{\link{oauth2.0_token}}
 #' @return OAuth token saved to the environment so the package can use the users' Google data
-#' @importFrom utils menu installed.packages
+#' @importFrom utils menu installed.packages browseURL
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export
 #' @examples \dontrun{
@@ -82,9 +37,6 @@ authorize <- function(app_name = NULL,
     cache_it <- 1
   }
 
-  if (app_name == "google_analytics") {
-    googleAnalyticsR::ga_auth()
-  }
   if (app_name == "calendly") {
     # Open up browser to have them create a key
     browseURL("https://calendly.com/integrations/api_webhooks")
@@ -162,6 +114,7 @@ delete_creds <- function(app_name = "all") {
 #' @description This is a function to authorize metricminer to access calendly, github or google noninteractively from passing in a keys or tokens.
 #' @param app_name Which app are you trying to authorize? 'google', 'calendly' or 'github'?
 #' @param api_key For calendly or github, pass in the API key that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.
+#' @param cache Should the credentials be cached? TRUE or FALSE?
 #' @param access_token For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token
 #' @param refresh_token For Google, refresh token can be obtained from running authorize interactively: token <-authorize(); token$credentials$refresh_token
 #' @return OAuth token saved to the environment so the package can use the users' Google data
@@ -231,6 +184,7 @@ auth_from_secret <- function(app_name, api_key, access_token, refresh_token, cac
 
 #' App Set Up
 #' @description This is a function that sets up the app. It's generally called by another function
+#' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #'

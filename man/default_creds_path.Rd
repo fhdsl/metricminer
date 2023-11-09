@@ -2,10 +2,14 @@
 % Please edit documentation in R/utils.R
 \name{default_creds_path}
 \alias{default_creds_path}
-\title{Get file path to an default credentials RDS}
+\title{Default creds path}
 \usage{
 default_creds_path(app_name)
 }
+\arguments{
+\item{app_name}{What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
+Get file path to an default credentials RDS}
+}
 \description{
-Get file path to an default credentials RDS
+Default creds path
 }

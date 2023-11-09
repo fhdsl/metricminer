@@ -3,3 +3,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^\.httr-oauth$
+.secrets/*
+.httr-oauth
+.github/*

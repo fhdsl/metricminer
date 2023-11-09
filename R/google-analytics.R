@@ -1,30 +1,37 @@
 # Extracting data from Google Analytics
 
+#' Get Google Analytics Accounts
+#' @description This is a function to get the Google Analytics accounts that this user has access to
+#' @importFrom httr config accept_json content
+#' @importFrom jsonlite fromJSON
+#' @importFrom assertthat assert_that is.string
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("google")
+#' get_ga_user()
+#'
+#' }
+get_ga_user <- function() {
 
-# gar_set_client("client_secret_1098881682415-i4djgrp2a7mgn2pdnipco2hs33tqpvq3.apps.googleusercontent.com.json",
-#               scopes = "http://www.googleapis.com/auth/webmasters")
-# gar_auth_service("google-service-auth.json")
+  # Declare URL
+  url <- "https://analytics.googleapis.com/analytics/v3/management/accountSummaries"
 
-# token <- googleAnalyticsR::ga_auth(email="hutchdasl@gmail.com")
-# account_list <- googleAnalyticsR::ga_account_list("ga4")
+  # Get auth token
+  token <- get_token(app_name = "google")
+  config <- httr::config(token = token)
 
-# metadata <- ga_meta(version = "data")
+  # Get list of topics
+  result <- httr::GET(url, config = config, httr::accept_json())
 
-# ga_meta("data", propertyId = 	289316473)
+  if (httr::status_code(result) != 200) {
+    httr::stop_for_status(result)
+  }
 
-# all_accounts <- account_list$propertyId
+  # Process and return results
+  result_content <- httr::content(result, "text")
+  result_list <- jsonlite::fromJSON(result_content)
+  return(result_list$items)
+}
 
 
-# grab_user_data <- function(account_id) {
-#  basic <- ga_data(
-#    account_id,
-#    metrics = c("activeUsers", "sessions", "engagedSessions", "eventCountPerUser"),
-#    date_range = c("2020-01-01", "2024-01-01")
-#  )
-
-# ga_data(
-#  account_id,
-#  metrics = c("activeUsers","sessions"),
-#  dimensions = c("date","city","dayOfWeek", "linkUrl"),
-#  date_range = c("2020-01-01", "2024-01-01")
-# )

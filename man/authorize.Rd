@@ -7,6 +7,8 @@
 authorize(app_name = NULL, token = NULL, cache = FALSE, ...)
 }
 \arguments{
+\item{app_name}{app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'}
+
 \item{token}{an output from \code{\link{oauth2.0_token}} to set as the authentication token.}
 
 \item{cache}{Should the token be cached as an .httr-oauth file or API keys stored as global options?}

@@ -14,6 +14,8 @@ auth_from_secret(app_name, api_key, access_token, refresh_token, cache = FALSE)
 \item{access_token}{For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token}
 
 \item{refresh_token}{For Google, refresh token can be obtained from running authorize interactively: token <-authorize(); token$credentials$refresh_token}
+
+\item{cache}{Should the credentials be cached? TRUE or FALSE?}
 }
 \value{
 OAuth token saved to the environment so the package can use the users' Google data
@@ -35,7 +37,7 @@ auth_from_secret("github", api_key = "ghp_a_github_pat_here")
 # Example for authorizing for Google
 token <- authorize("google")
 auth_from_secret(
-  app_name = "google"
+  app_name = "google",
   refresh_token = token$credentials$access_token,
   access_token = token$credentials$refresh_token
 )

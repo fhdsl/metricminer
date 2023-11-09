@@ -1,3 +1,5 @@
+# Calendly data extraction handlers
+
 #' Get Calendly API user
 #' @description This is a function to get the Calendly API user info
 #' @param api_key You can provide the API key directly or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function
@@ -5,7 +7,12 @@
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export
-#' @examples
+#' @examples \dontrun{
+#'
+#' authorize("calendly")
+#' get_github_user()
+#'
+#' }
 get_calendly_user <- function(api_key) {
   # Get auth token
   token <- get_token(app_name = "calendly")
