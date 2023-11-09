@@ -179,7 +179,12 @@ delete_creds <- function(app_name = "all") {
 #' @examples \dontrun{
 #'
 #' # Example for authorizing Calendly
-#' auth_from_secret("calendly", api_key )
+#' # You go to https://calendly.com/integrations/api_webhooks to get an api key
+#' auth_from_secret("calendly", api_key = "A_calendly_api_key_here")
+#'
+#' # Example for GitHub
+#' # You go to https://github.com/settings/tokens/new to get a Personal Access Token
+#' auth_from_secret("github", api_key = "ghp_a_github_pat_here")
 #'
 #' # Example for authorizing for Google
 #' token <- authorize("google")
