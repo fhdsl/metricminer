@@ -1,5 +1,4 @@
-# Scopes
-
+# Google Scopes
 
 find_scopes <- function(app_name) {
   ### Declare all the scopes

@@ -29,12 +29,11 @@ remove_token <- function(app_name) {
 
 # Get token from environment
 get_token <- function(app_name) {
-  .Env$metricminer_tokens[app_name]
-
   # If there's none in the current environemnt, attempt to grab a cached credential
-  if (is.null(.Env$metricminer_tokens[app_name])) {
-    .Env$metricminer_tokens[app_name] <- get_cached_token(app_name)
+  if (is.null(.Env$metricminer_tokens[[app_name]])) {
+    .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
   }
+  return(invisible(.Env$metricminer_tokens[[app_name]]))
 }
 
 # A function that attempts to grab cached credentials
@@ -42,9 +41,9 @@ get_cached_token <- function(app_name) {
 
   if (app_name == "calendly") token <- getOption("calendly_api")
   if (app_name == "github") token <- getOption("github_api")
-  if (app_name == "google") token <- readRDS('.httr-oauth')
+  if (app_name == "google") token <- try(readRDS('.httr-oauth'), silent = TRUE)
 
-  return(invisible(token))
+  return(token)
 }
 
 ################################################################################
@@ -266,4 +265,3 @@ app_set_up <- function(app_name) {
 
   return(list(app = app, endpoint = endpoint_url))
 }
-
