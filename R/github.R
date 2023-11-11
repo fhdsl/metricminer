@@ -58,14 +58,20 @@ get_github_stats <- function(api_key, owner, repo) {
     token <- api_key
   }
 
-  results <- gh::gh("GET /repos/{owner}/{repo}/community/profile",
+  community <- gh::gh("GET /repos/{owner}/{repo}/community/profile",
          owner = owner,
          repo = repo,
          .token = token)
 
-  results <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
+  clones <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
                     owner = owner,
                     repo = repo,
                     .token = token)
+
+  views <- gh::gh("GET /repos/{owner}/{repo}/traffic/views",
+                   owner = owner,
+                   repo = repo,
+                  .params = list("per" = "day"),
+                   .token = token)
 }
 
