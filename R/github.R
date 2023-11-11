@@ -35,3 +35,37 @@ get_github_user <- function(api_key) {
   result_list <- jsonlite::fromJSON(result_content)
   return(result_list)
 }
+
+#' Get the GitHub User's info
+#' @description This is a function to get the GitHub user's info
+#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param owner Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner
+#' @param repo What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.
+#' @return Information regarding a github account
+#' @importFrom gh gh
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("github")
+#' get_github_user()
+#' }
+get_github_stats <- function(api_key, owner, repo) {
+
+  if (is.null(api_key)) {
+    # Get auth token
+    token <- get_token(app_name = "github")
+  } else {
+    token <- api_key
+  }
+
+  results <- gh::gh("GET /repos/{owner}/{repo}/community/profile",
+         owner = owner,
+         repo = repo,
+         .token = token)
+
+  results <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
+                    owner = owner,
+                    repo = repo,
+                    .token = token)
+}
+
