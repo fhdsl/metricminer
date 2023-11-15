@@ -1,5 +1,52 @@
 # Extracting data from Google Analytics
 
+
+
+#' Handler for API requests from Google Analytics
+#' @description This is a function that handles requests from Google Analytics
+#' @param url The endpoint URL for the request
+#' @param token credentials for access to Google using OAuth. `authorize("google")`
+#' @param body The body parameters for the request
+#' @param query A list to be passed to query
+#' @param type Is this a GET or a POST?
+#' @importFrom httr config accept_json content
+#' @importFrom jsonlite fromJSON
+#' @importFrom assertthat assert_that is.string
+#' @export
+request_ga <- function(token, url, query = NULL, body = NULL, type) {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
+  config <- httr::config(token = token)
+
+  if (type == "GET") {
+    result <- httr::GET(url,
+                        body = body,
+                        query = query,
+                        config = config,
+                        httr::accept_json())
+  }
+
+  if (type == "POST") {
+    result <- httr::POST(url,
+                        body = body,
+                        query = query,
+                        config = config,
+                        httr::accept_json())
+  }
+
+  if (httr::status_code(result) != 200) {
+    httr::stop_for_status(result)
+  }
+
+  # Process and return results
+  result_content <- httr::content(result, "text")
+  result_list <- jsonlite::fromJSON(result_content)
+  return(result_list)
+}
+
 #' Get Google Analytics Accounts
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @importFrom httr config accept_json content
@@ -12,24 +59,17 @@
 #' get_ga_user()
 #' }
 get_ga_user <- function() {
-  # Declare URL
-  url <- "https://analytics.googleapis.com/analytics/v3/management/accountSummaries"
 
   # Get auth token
   token <- get_token(app_name = "google")
-  config <- httr::config(token = token)
 
-  # Get list of topics
-  result <- httr::GET(url, config = config, httr::accept_json())
+  results <- request_ga(
+    token = token,
+    url = "https://analytics.googleapis.com/analytics/v3/management/accountSummaries",
+    type = "GET"
+  )
 
-  if (httr::status_code(result) != 200) {
-    httr::stop_for_status(result)
-  }
-
-  # Process and return results
-  result_content <- httr::content(result, "text")
-  result_list <- jsonlite::fromJSON(result_content)
-  return(result_list$items)
+  return(results$items)
 }
 
 #' Get all property ids for all google analytics associated with an account id
@@ -43,32 +83,21 @@ get_ga_user <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' accounts$id[1]
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #'
 #' }
 get_ga_properties <- function(account_id) {
-  # Declare URL
-  url <- "https://analyticsadmin.googleapis.com/v1alpha/properties"
-
   # Get auth token
   token <- get_token(app_name = "google")
-  config <- httr::config(token = token)
 
-  # Get list of topics
-  result <- httr::GET(url,
-                      query = list(filter = paste0("parent:accounts/", account_id)),
-                      config = config,
-                      httr::accept_json())
+  results <- request_ga(
+    token = token,
+    url = "https://analyticsadmin.googleapis.com/v1alpha/properties",
+    query = list(filter = paste0("parent:accounts/", account_id)),
+    type = "GET"
+  )
 
-  if (httr::status_code(result) != 200) {
-    httr::stop_for_status(result)
-  }
-
-  # Process and return results
-  result_content <- httr::content(result, "text")
-  result_list <- jsonlite::fromJSON(result_content)
-  return(result_list$properties)
+  return(results)
 }
 
 #' Get metadata associated google analytics property
@@ -83,8 +112,10 @@ get_ga_properties <- function(account_id) {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' accounts$id[1]
-#' properties_list <- get_ga_metadata(account_id = accounts$id[1])
+#' properties_list <- get_ga_properties(account_id = accounts$id[1])
+#'
+#' property_id <- gsub("properties/", "", properties_list$properties$name[1])
+#' property_metadata <- get_ga_metadata(property_id = property_id)
 #'
 #' }
 get_ga_metadata <- function(property_id) {
@@ -95,24 +126,17 @@ get_ga_metadata <- function(property_id) {
 
   # Get auth token
   token <- get_token(app_name = "google")
-  config <- httr::config(token = token)
 
-  # Get list of topics
-  result <- httr::GET(url,
-                      config = config,
-                      httr::accept_json())
+  results <- request_ga(
+    token = token,
+    url = url,
+    type = "GET"
+  )
 
-  if (httr::status_code(result) != 200) {
-    httr::stop_for_status(result)
-  }
-
-  # Process and return results
-  result_content <- httr::content(result, "text")
-  result_list <- jsonlite::fromJSON(result_content)
-  return(result_list$properties)
+  return(results)
 }
 
-#' Get all metrics for an associated google analytics property
+#' Get metrics for an associated google analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
@@ -120,17 +144,24 @@ get_ga_metadata <- function(property_id) {
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
+#' @importFrom lubridate today
 #' @export
 #' @examples \dontrun{
 #'
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' accounts$id[1]
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #'
+#' property_id <- gsub("properties/", "", properties_list$properties$name[1])
+#' metrics <- get_ga_stats(property_id, type = "metrics")
+#' dimensions <- get_ga_stats(property_id, type = "dimensions")
+#'
 #' }
-get_ga_metrics <- function(property_id, start_date = "2015-08-14", end_date = lubridate::today()) {
+get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL, type = "metrics") {
+
+  # If no end_date is set, use today
+  end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
   # Declare URL
   url <- "https://analyticsdata.googleapis.com/v1beta/properties/property_id:runReport"
@@ -138,36 +169,63 @@ get_ga_metrics <- function(property_id, start_date = "2015-08-14", end_date = lu
 
   # Get auth token
   token <- get_token(app_name = "google")
-  config <- httr::config(token = token)
 
-  body_params <- list(
-    "dateRanges" = list(
-      "startDate" = start_date,
-      "endDate" = end_date),
-    list(name = "activeUsers"),
-    list(name = "newUsers"),
-    list(name = "totalUsers"),
-    list(name = "eventCountPerUser"),
-    list(name = "screenPageViewsPerUser"),
-    list(name = "sessions"),
-    list(name = "averageSessionDuration"),
-    list(name = "screenPageViews"),
-    list(name = "engagementRate")
-  )
-
-  # Get list of topics
-  result <- httr::GET(url,
-                      config = config,
-                      body = body_params,
-                      httr::accept_json())
-
-  if (httr::status_code(result) != 200) {
-    httr::stop_for_status(result)
+  if (type == "metrics") {
+    body_params <- list(
+      dateRanges = list(
+        list("startDate" = start_date,
+            "endDate" = end_date)),
+      metrics = metrics_list()
+      )
+  }
+  if (type == "dimensions") {
+    body_params <- list(
+      dateRanges = list(
+        list("startDate" = start_date,
+             "endDate" = end_date)),
+      dimensions = dimensions_list()
+    )
   }
 
-  # Process and return results
-  result_content <- httr::content(result, "text")
-  result_list <- jsonlite::fromJSON(result_content)
-  return(result_list$properties)
+  results <- request_ga(
+    token = token,
+    url = url,
+    body = body_params,
+    type = "POST"
+  )
+
+  return(result_list)
 }
 
+
+metrics_list <- function() {
+
+  metrics <- list(
+  list("name" = "activeUsers"),
+  list("name" = "newUsers"),
+  list("name" = "totalUsers"),
+  list("name" = "eventCountPerUser"),
+  list("name" = "screenPageViewsPerUser"),
+  list("name" = "sessions"),
+  list("name" = "averageSessionDuration"),
+  list("name" = "screenPageViews"),
+  list("name" = "engagementRate"))
+
+  return(metrics)
+}
+
+dimensions_list <- function() {
+
+  dimensions <- list(
+    list("name" = "activeUsers"),
+    list("name" = "newUsers"),
+    list("name" = "totalUsers"),
+    list("name" = "eventCountPerUser"),
+    list("name" = "screenPageViewsPerUser"),
+    list("name" = "sessions"),
+    list("name" = "averageSessionDuration"),
+    list("name" = "screenPageViews"),
+    list("name" = "engagementRate"))
+
+  return(metrics)
+}
