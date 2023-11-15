@@ -44,7 +44,7 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter: ")
 
-    # If they chose to cache it, we'll store it in the .Rprofile
+    # If they chose to cache it, we'll store it as a global option
     if (cache_it == 1) options(calendly_api = token)
   }
 
@@ -56,7 +56,7 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter:")
 
-    # If they chose to cache it, we'll store it in the .Rprofile
+    # If they chose to cache it, we'll store it as a global option
     if (cache_it == 1) options(github_api = token)
   }
 
