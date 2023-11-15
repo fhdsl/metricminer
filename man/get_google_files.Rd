@@ -4,7 +4,7 @@
 \alias{get_google_files}
 \title{Get list of files from a Google Shared Drive}
 \usage{
-get_google_files(drive_id, type)
+get_google_files(drive_id = NULL, type = NULL)
 }
 \arguments{
 \item{drive_id}{ID of the drive to retrieve a list of files from.

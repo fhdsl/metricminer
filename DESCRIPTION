@@ -16,7 +16,8 @@ Imports:
     httr,
     jsonlite, 
     assertthat, 
-    openssl 
+    openssl, 
+    gh
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true
