@@ -8,17 +8,21 @@ get_github_repo(api_key, owner, repo)
 }
 \arguments{
 \item{api_key}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+
+\item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
+
+\item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
 }
 \value{
 Information regarding a github account
 }
 \description{
-This is a function to get the GitHub user's info
+This is a function to get the information about a repository
 }
 \examples{
 \dontrun{
 
 authorize("github")
-get_github_repo()
+get_github_repo(owner = "fhdsl", repo = "metricminer")
 }
 }

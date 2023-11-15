@@ -9,20 +9,20 @@ get_github_metrics(api_key, owner, repo)
 \arguments{
 \item{api_key}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
-\item{owner}{Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner}
+\item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
-\item{repo}{What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.}
+\item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
 }
 \value{
 Information regarding a github account
 }
 \description{
-This is a function to get the GitHub user's info
+This is a function to grab metrics about a specific GitHub repository
 }
 \examples{
 \dontrun{
 
 authorize("github")
-get_github_user()
+get_github_metrics(owner = "fhdsl", repo = "metricminer")
 }
 }

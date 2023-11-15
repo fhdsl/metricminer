@@ -1,6 +1,6 @@
 # Extracting data from GitHub
 
-#' Wrapper function for GET requests from GitHub
+#' Handler function for GET requests from GitHub
 #' @description This is a function to get the GitHub user's info
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param url What is the URL endpoint we are attempting to grab here?
@@ -43,7 +43,7 @@ get_github <- function(token, url) {
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_user <- function(api_key)
+get_github_user <- function(api_key) {
 
   if (is.null(api_key)) {
     # Get auth token
@@ -54,13 +54,15 @@ get_github_user <- function(api_key)
 
     get_github(
     url = "https://api.github.com/user",
-    token = token,
+    token = token
   )
 }
 
 #' Get the repository info
-#' @description This is a function to get the GitHub user's info
+#' @description This is a function to get the information about a repository
 #' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
+#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @return Information regarding a github account
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
@@ -68,7 +70,7 @@ get_github_user <- function(api_key)
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_github_repo()
+#' get_github_repo(owner = "fhdsl", repo = "metricminer")
 #' }
 get_github_repo <- function(api_key,  owner, repo) {
 
@@ -82,8 +84,6 @@ get_github_repo <- function(api_key,  owner, repo) {
                           owner = owner,
                           repo = repo,
                           .token = token)
-
-
 
   stars <- gh::gh("GET /repos/{owner}/{repo}/stargazers",
                           owner = owner,
@@ -106,17 +106,17 @@ get_github_repo <- function(api_key,  owner, repo) {
 
 
 #' Get the metrics from GitHub on a repo
-#' @description This is a function to get the GitHub user's info
+#' @description This is a function to grab metrics about a specific GitHub repository
 #' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
-#' @param owner Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner
-#' @param repo What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.
+#' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
+#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @export
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_github_user()
+#' get_github_metrics(owner = "fhdsl", repo = "metricminer")
 #' }
 get_github_metrics <- function(api_key, owner, repo) {
 
@@ -142,5 +142,7 @@ get_github_metrics <- function(api_key, owner, repo) {
                    repo = repo,
                   .params = list("per" = "day"),
                    .token = token)
+
+  return(list(community, clones, views))
 }
 
