@@ -17,7 +17,9 @@ Imports:
     jsonlite, 
     assertthat, 
     openssl, 
-    gh
+    gh, 
+    lubridate, 
+    purrr
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true

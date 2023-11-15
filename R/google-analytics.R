@@ -6,7 +6,7 @@
 #' @description This is a function that handles requests from Google Analytics
 #' @param url The endpoint URL for the request
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
-#' @param body The body parameters for the request
+#' @param body_params The body parameters for the request
 #' @param query A list to be passed to query
 #' @param type Is this a GET or a POST?
 #' @importFrom httr config accept_json content

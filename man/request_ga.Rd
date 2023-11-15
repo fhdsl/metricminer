@@ -13,9 +13,9 @@ request_ga(token, url, query = NULL, body_params = NULL, type)
 
 \item{query}{A list to be passed to query}
 
-\item{type}{Is this a GET or a POST?}
+\item{body_params}{The body parameters for the request}
 
-\item{body}{The body parameters for the request}
+\item{type}{Is this a GET or a POST?}
 }
 \description{
 This is a function that handles requests from Google Analytics

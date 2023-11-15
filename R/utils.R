@@ -1,5 +1,5 @@
 utils::globalVariables(c(
-  "scopes", "set_token", "browseURL", "remove_token", "get_token"
+  "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github"
 ))
 #' Supported endpoints
 #' @description This is function stores endpoints and supported app names
