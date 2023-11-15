@@ -49,7 +49,6 @@ get_github_user <- function(api_key) {
 #' get_github_user()
 #' }
 get_github_user <- function(api_key) {
-
   if (is.null(api_key)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -57,7 +56,7 @@ get_github_user <- function(api_key) {
     token <- api_key
   }
 
-    get_github(
+  get_github(
     url = "https://api.github.com/user",
     token = token,
   )
@@ -75,8 +74,7 @@ get_github_user <- function(api_key) {
 #' authorize("github")
 #' get_github_repo()
 #' }
-get_github_repo <- function(api_key,  owner, repo) {
-
+get_github_repo <- function(api_key, owner, repo) {
   if (is.null(api_key)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -84,29 +82,32 @@ get_github_repo <- function(api_key,  owner, repo) {
     token <- api_key
   }
   repo_activity <- gh::gh("GET /repos/{owner}/{repo}/activity",
-                          owner = owner,
-                          repo = repo,
-                          .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
 
 
   stars <- gh::gh("GET /repos/{owner}/{repo}/stargazers",
-                          owner = owner,
-                          repo = repo,
-                          .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   forks <- gh::gh("GET /repos/{owner}/{repo}/forks",
-                  owner = owner,
-                  repo = repo,
-                  .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   contributors <- gh::gh("GET /repos/{owner}/{repo}/contributors",
-                  owner = owner,
-                  repo = repo,
-                  .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   return(list(repo_activity, stars, forks, contributors))
-
 }
 
 
@@ -124,7 +125,6 @@ get_github_repo <- function(api_key,  owner, repo) {
 #' get_github_user()
 #' }
 get_github_metrics <- function(api_key, owner, repo) {
-
   if (is.null(api_key)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -133,19 +133,21 @@ get_github_metrics <- function(api_key, owner, repo) {
   }
 
   community <- gh::gh("GET /repos/{owner}/{repo}/community/profile",
-         owner = owner,
-         repo = repo,
-         .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   clones <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
-                    owner = owner,
-                    repo = repo,
-                    .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   views <- gh::gh("GET /repos/{owner}/{repo}/traffic/views",
-                   owner = owner,
-                   repo = repo,
-                  .params = list("per" = "day"),
-                   .token = token)
+    owner = owner,
+    repo = repo,
+    .params = list("per" = "day"),
+    .token = token
+  )
 }
-

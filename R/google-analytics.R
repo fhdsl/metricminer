@@ -14,7 +14,6 @@
 #' @importFrom assertthat assert_that is.string
 #' @export
 request_ga <- function(token, url, query = NULL, body = NULL, type) {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -23,18 +22,20 @@ request_ga <- function(token, url, query = NULL, body = NULL, type) {
 
   if (type == "GET") {
     result <- httr::GET(url,
-                        body = body,
-                        query = query,
-                        config = config,
-                        httr::accept_json())
+      body = body,
+      query = query,
+      config = config,
+      httr::accept_json()
+    )
   }
 
   if (type == "POST") {
     result <- httr::POST(url,
-                        body = body,
-                        query = query,
-                        config = config,
-                        httr::accept_json())
+      body = body,
+      query = query,
+      config = config,
+      httr::accept_json()
+    )
   }
 
   if (httr::status_code(result) != 200) {
@@ -59,7 +60,6 @@ request_ga <- function(token, url, query = NULL, body = NULL, type) {
 #' get_ga_user()
 #' }
 get_ga_user <- function() {
-
   # Get auth token
   token <- get_token(app_name = "google")
 
@@ -84,7 +84,6 @@ get_ga_user <- function() {
 #' accounts <- get_ga_user()
 #'
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
-#'
 #' }
 get_ga_properties <- function(account_id) {
   # Get auth token
@@ -116,10 +115,8 @@ get_ga_properties <- function(account_id) {
 #'
 #' property_id <- gsub("properties/", "", properties_list$properties$name[1])
 #' property_metadata <- get_ga_metadata(property_id = property_id)
-#'
 #' }
 get_ga_metadata <- function(property_id) {
-
   # Declare URL
   url <- "https://analyticsdata.googleapis.com/v1beta/properties/property_id/metadata"
   url <- gsub("property_id", property_id, url)
@@ -141,6 +138,7 @@ get_ga_metadata <- function(property_id) {
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
+#'
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -156,10 +154,8 @@ get_ga_metadata <- function(property_id) {
 #' property_id <- gsub("properties/", "", properties_list$properties$name[1])
 #' metrics <- get_ga_stats(property_id, type = "metrics")
 #' dimensions <- get_ga_stats(property_id, type = "dimensions")
-#'
 #' }
 get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL, type = "metrics") {
-
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -173,16 +169,22 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
   if (type == "metrics") {
     body_params <- list(
       dateRanges = list(
-        list("startDate" = start_date,
-            "endDate" = end_date)),
+        list(
+          "startDate" = start_date,
+          "endDate" = end_date
+        )
+      ),
       metrics = metrics_list()
-      )
+    )
   }
   if (type == "dimensions") {
     body_params <- list(
       dateRanges = list(
-        list("startDate" = start_date,
-             "endDate" = end_date)),
+        list(
+          "startDate" = start_date,
+          "endDate" = end_date
+        )
+      ),
       dimensions = dimensions_list()
     )
   }
@@ -199,23 +201,22 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
 
 
 metrics_list <- function() {
-
   metrics <- list(
-  list("name" = "activeUsers"),
-  list("name" = "newUsers"),
-  list("name" = "totalUsers"),
-  list("name" = "eventCountPerUser"),
-  list("name" = "screenPageViewsPerUser"),
-  list("name" = "sessions"),
-  list("name" = "averageSessionDuration"),
-  list("name" = "screenPageViews"),
-  list("name" = "engagementRate"))
+    list("name" = "activeUsers"),
+    list("name" = "newUsers"),
+    list("name" = "totalUsers"),
+    list("name" = "eventCountPerUser"),
+    list("name" = "screenPageViewsPerUser"),
+    list("name" = "sessions"),
+    list("name" = "averageSessionDuration"),
+    list("name" = "screenPageViews"),
+    list("name" = "engagementRate")
+  )
 
   return(metrics)
 }
 
 dimensions_list <- function() {
-
   dimensions <- list(
     list("name" = "activeUsers"),
     list("name" = "newUsers"),
@@ -225,7 +226,8 @@ dimensions_list <- function() {
     list("name" = "sessions"),
     list("name" = "averageSessionDuration"),
     list("name" = "screenPageViews"),
-    list("name" = "engagementRate"))
+    list("name" = "engagementRate")
+  )
 
   return(metrics)
 }
