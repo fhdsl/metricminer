@@ -73,8 +73,9 @@ get_calendly_user <- function(api_key) {
 }
 
 #' Get Calendly Event Lists
-#' @description This is a function to get the Calendly API user info
-#' @param user You can provide the API key directly or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function
+#' @description This is a function to get a list of scheduled events from a calendly user.
+#' @param api_key You can provide the API key directly or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function
+#' @param user You need to retrieve the calendly user's URI. You can do this by doing `user <- get_calendly_user()` and `user$resource$uri`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
 #' @return Calendly REST API response as a list
 #' @importFrom utils menu installed.packages
@@ -85,11 +86,17 @@ get_calendly_user <- function(api_key) {
 #' authorize("calendly")
 #' user <- get_calendly_user()
 #' list_calendly_events(user = user$resource$uri)
+#'
 #' }
 #'
 list_calendly_events <- function(user, count = 100) {
-  token <- get_token(app_name = "calendly")
 
+  if (is.null(api_key)) {
+    # Get auth token
+    token <- get_token(app_name = "calendly")
+  } else {
+    token <- api_key
+  }
   # Only can handle requests with 100 at a time
   request_count <- ifelse(count > 100, 100, count)
 
