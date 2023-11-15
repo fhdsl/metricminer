@@ -1,18 +1,23 @@
-Package: metricminer
 Type: Package
-Title: What the Package Does (Title Case)
+Package: metricminer
+Title: Mine metrics from common places on the web
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
-BugReports: https://github.com/datatrail-jhu/rgoogleclassroom/issues
+Authors@R: c(
+    person("Candace", "Savonen", , 
+    c("cansav09@gmail.com","csavonen@fredhutch.org"), 
+    role = c("aut", "cre"))
+    )
+Description: metricminer helps you mine places on the web through the power of their APIs. 
+    It also helps make the data in a format that is easily used for a dashboard or other purposes.
+License: GPL-3
+URL: https://github.com/fhdsl/metricminer
+BugReports: https://github.com/fhdsl/metricminer/issues
 Imports:
-    attempt,
-    curl,
     httr,
-    jsonlite
+    jsonlite, 
+    assertthat, 
+    openssl, 
+    gh
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true
