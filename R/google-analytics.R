@@ -13,7 +13,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_ga <- function(token, url, query = NULL, body = NULL, type) {
+request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -25,21 +25,23 @@ request_ga <- function(token, url, query = NULL, body = NULL, type) {
       body = body,
       query = query,
       config = config,
-      httr::accept_json()
+      httr::accept_json(),
+      encode = "json"
     )
   }
 
   if (type == "POST") {
     result <- httr::POST(url,
-      body = body,
+      body = body_params,
       query = query,
       config = config,
-      httr::accept_json()
+      httr::accept_json(),
+      encode = "json"
     )
   }
 
   if (httr::status_code(result) != 200) {
-    httr::stop_for_status(result)
+    return(httr::content(result, "text"))
   }
 
   # Process and return results
@@ -74,6 +76,7 @@ get_ga_user <- function() {
 
 #' Get all property ids for all google analytics associated with an account id
 #' @description This is a function to get the Google Analytics accounts that this user has access to
+#' @param account_id the account id of the properties you are trying to retrieve
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -169,22 +172,16 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
   if (type == "metrics") {
     body_params <- list(
       dateRanges = list(
-        list(
           "startDate" = start_date,
-          "endDate" = end_date
-        )
-      ),
+          "endDate" = end_date),
       metrics = metrics_list()
     )
   }
   if (type == "dimensions") {
     body_params <- list(
       dateRanges = list(
-        list(
           "startDate" = start_date,
-          "endDate" = end_date
-        )
-      ),
+          "endDate" = end_date),
       dimensions = dimensions_list()
     )
   }
@@ -196,7 +193,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
     type = "POST"
   )
 
-  return(result_list)
+  return(results)
 }
 
 
@@ -218,16 +215,45 @@ metrics_list <- function() {
 
 dimensions_list <- function() {
   dimensions <- list(
-    list("name" = "activeUsers"),
-    list("name" = "newUsers"),
-    list("name" = "totalUsers"),
-    list("name" = "eventCountPerUser"),
-    list("name" = "screenPageViewsPerUser"),
-    list("name" = "sessions"),
-    list("name" = "averageSessionDuration"),
-    list("name" = "screenPageViews"),
-    list("name" = "engagementRate")
+    list("name" = "day"),
+    list("name" = "month"),
+    list("name" = "year"),
+    list("name" = "country"),
+    list("name" = "linkUrl"),
+    list("name" = "fullPageUrl")
   )
 
-  return(metrics)
+  return(dimensions)
 }
+
+#' Get all metrics for all properties associated with an account
+#' @description This is a function to gets metrics and dimensions for all properties associated with an account
+#' @param account_id the account id of the properties you are trying to retrieve
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("google")
+#' accounts <- get_ga_user()
+#'
+#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
+#' }
+all_ga_metrics <- function(account_id) {
+
+  properties_list <- get_ga_properties(account_id = account_id)
+
+  # This is the code for one website/property
+  property_names <- gsub("properties/", "", properties_list$properties$name)
+
+  all_google_analytics_data <- lapply(property_names,  function(property_id) {
+
+    metrics <- get_ga_stats(property_id, type = "metrics")
+    dimensions <- get_ga_stats(property_id, type = "dimensions")
+
+    return(list(metrics = metrics, dimensions = dimensions))
+  })
+
+  names(all_google_analytics_data) <- properties_list$properties$displayName
+
+  return(all_google_analytics_data)
+}
+
