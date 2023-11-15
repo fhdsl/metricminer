@@ -100,32 +100,30 @@ delete_creds <- function(app_name = "all") {
 
   if (none_exist) {
     message("No cached creds to delete (from metricminer anyway). Done")
-
   } else {
-
-  if (app_name == "all" | app_name == "calendly") {
-    if (calendly_creds_exist) {
-      options(calendly_api = NULL)
-      remove_token("calendly")
-      message("Calendly creds deleted from .Rprofile")
+    if (app_name == "all" | app_name == "calendly") {
+      if (calendly_creds_exist) {
+        options(calendly_api = NULL)
+        remove_token("calendly")
+        message("Calendly creds deleted from .Rprofile")
+      }
     }
-  }
 
-  if (app_name == "all" | app_name == "github") {
-    if (github_creds_exist) {
-      options(github_api = NULL)
-      remove_token("github")
-      message("GitHub creds deleted from .Rprofile")
+    if (app_name == "all" | app_name == "github") {
+      if (github_creds_exist) {
+        options(github_api = NULL)
+        remove_token("github")
+        message("GitHub creds deleted from .Rprofile")
+      }
     }
-  }
 
-  if (app_name == "all" | app_name == "google") {
-    if (google_creds_exist) {
-      file.remove(oauth_file)
-      remove_token("google")
-      message("Cached Google .httr-oauth file deleted")
+    if (app_name == "all" | app_name == "google") {
+      if (google_creds_exist) {
+        file.remove(oauth_file)
+        remove_token("google")
+        message("Cached Google .httr-oauth file deleted")
+      }
     }
-  }
   }
 }
 

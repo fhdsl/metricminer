@@ -17,10 +17,3 @@ Information regarding a github account
 \description{
 This is a function to get the GitHub user's info
 }
-\examples{
-\dontrun{
-
-authorize("github")
-get_github()
-}
-}

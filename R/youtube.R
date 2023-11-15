@@ -26,13 +26,13 @@ get_youtube_stats <- function(channel_id) {
     # If a URL is supplied, only take the ID from it.
     if (grepl("https:", channel_id)) channel_id <- gsub("https://drive.google.com/drive/folders/", "")
 
-    query = list(
+    query <- list(
       part = "snippet,contentDetails,statistics",
       id = channel_id
     )
   } else {
     stop(paste0("No channel_id was given"))
-    }
+  }
 
   # Get list of topics
   result <- httr::GET(url, config = config, query = query, httr::accept_json())
