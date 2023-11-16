@@ -36,7 +36,7 @@ get_github <- function(token, url) {
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_user <- function(token) {
+get_github_user <- function(token = NULL) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -226,7 +226,7 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
 
   metrics <- data.frame(
     repo_name,
-    repo_metric_list$repo_activity
+    repo_metric_list$repo_activity,
     num_forks <- length(forks),
     num_contributors = length(unique(contributors$contributor)),
     total_contributions = sum(contributors$num_contributors),
