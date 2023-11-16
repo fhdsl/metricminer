@@ -9,7 +9,7 @@ auth_from_secret(app_name, token, access_token, refresh_token, cache = FALSE)
 \arguments{
 \item{app_name}{Which app are you trying to authorize? 'google', 'calendly' or 'github'?}
 
-\item{token}{For calendly or github, pass in the API key that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.}
+\item{token}{For calendly or github, pass in the API key or Personal Access Token that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.}
 
 \item{access_token}{For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token}
 
