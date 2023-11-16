@@ -49,7 +49,6 @@ get_github_user <- function(token) {
 #' get_github_user()
 #' }
 get_github_user <- function(token) {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -77,8 +76,7 @@ get_github_user <- function(token) {
 #' authorize("github")
 #' get_github_repo()
 #' }
-get_github_repo <- function(token,  owner, repo) {
-
+get_github_repo <- function(token, owner, repo) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -129,7 +127,6 @@ get_github_repo <- function(token,  owner, repo) {
 #' get_github_user()
 #' }
 get_github_metrics <- function(token, owner, repo) {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
