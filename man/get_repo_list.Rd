@@ -12,8 +12,6 @@ get_repo_list(owner = NULL, count = "all", token = NULL)
 \item{count}{The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.}
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
-
-\item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
 }
 \value{
 Information regarding a github account

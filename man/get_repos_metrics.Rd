@@ -4,7 +4,12 @@
 \alias{get_repos_metrics}
 \title{Retrieve metrics for a list of repos}
 \usage{
-get_repos_metrics(owner = NULL, repo_names = NULL, token = NULL)
+get_repos_metrics(
+  owner = NULL,
+  repo_names = NULL,
+  token = NULL,
+  format = "dataframe"
+)
 }
 \arguments{
 \item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
