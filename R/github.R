@@ -140,6 +140,7 @@ get_github_metrics <- function(repo, token = NULL) {
     .token = token
   )
 
+
   contributors <- gh::gh("GET /repos/{owner}/{repo}/contributors",
     owner = owner,
     repo = repo,
@@ -211,4 +212,32 @@ get_org_metrics <- function(owner = NULL, token = NULL) {
 
   return(repo_metrics)
 
+}
+
+#' Handler for retrieving more pages
+#' @description This is a function to retrieve all the pages of a call
+#' @param first_page_result The first page `gh` call.
+#' @return All the responses
+#' @export
+#' @examples \dontrun{
+#'
+#'  first_page_repo_list <- gh::gh("GET /orgs/{owner}/repos", owner = owner, .token = token)
+#'
+#'  all_repos_list <- gh_pagination(first_page_repo_list)
+#' }
+#'
+gh_pagination <- function(first_page_result) {
+  # Set up a while loop for us to store the multiple page requests in
+  cummulative_pages <- first_page_result
+  page <- 1
+
+  next_pg <- try(gh::gh_next(first_page_result), silent = TRUE)
+
+  while (!grepl("Error", next_pg[1])) {
+    cummulative_pages <- c(cummulative_pages, next_pg)
+    next_pg <- try(gh::gh_next(next_pg), silent = TRUE)
+    page <- page + 1
+  }
+
+  return(cummulative_pages)
 }

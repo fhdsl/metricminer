@@ -4,12 +4,12 @@
 \alias{get_org_metrics}
 \title{Retrieve metrics for all repos of an organization}
 \usage{
-get_org_metrics(owner = NULL, api_key = NULL)
+get_org_metrics(owner = NULL, token = NULL)
 }
 \arguments{
 \item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
-\item{api_key}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+\item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 }
 \value{
 Information regarding a github account
