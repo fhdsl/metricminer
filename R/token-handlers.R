@@ -20,7 +20,6 @@ remove_token <- function(app_name) {
 remove_cache <- function(app_name) {
   if (app_name == "calendly") file.remove(file.path(cache_secrets_folder(), "calendly.RDS"))
   if (app_name == "github") file.remove(file.path(cache_secrets_folder(), "github.RDS"))
-  if (app_name == "google") file.remove(".httr-oauth")
 }
 
 # Get token from environment

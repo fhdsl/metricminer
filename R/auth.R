@@ -126,8 +126,7 @@ delete_creds <- function(app_name = "all") {
       if (google_creds_exist) {
         file.remove(oauth_file)
         remove_token("google")
-        remove_cache("google")
-        message("Cached Google .httr-oauth file deleted")
+        message("Cached Google .httr-oauth file deleted and token removed from environment")
       }
     }
   }

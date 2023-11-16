@@ -41,8 +41,6 @@ key_encrypt_creds_path <- function() {
     full.names = TRUE
   )
 }
-
-
 cache_secrets_folder <- function() {
   list.files(
     pattern = "cached-secrets",
