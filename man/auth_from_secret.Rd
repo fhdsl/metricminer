@@ -4,12 +4,12 @@
 \alias{auth_from_secret}
 \title{Use secrets to Authorize R package to access endpoints}
 \usage{
-auth_from_secret(app_name, api_key, access_token, refresh_token, cache = FALSE)
+auth_from_secret(app_name, token, access_token, refresh_token, cache = FALSE)
 }
 \arguments{
 \item{app_name}{Which app are you trying to authorize? 'google', 'calendly' or 'github'?}
 
-\item{api_key}{For calendly or github, pass in the API key that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.}
+\item{token}{For calendly or github, pass in the API key that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.}
 
 \item{access_token}{For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token}
 
@@ -28,11 +28,11 @@ This is a function to authorize metricminer to access calendly, github or google
 
 # Example for authorizing Calendly
 # You go to https://calendly.com/integrations/api_webhooks to get an api key
-auth_from_secret("calendly", api_key = "A_calendly_api_key_here")
+auth_from_secret("calendly", token = "A_calendly_token_here")
 
 # Example for GitHub
 # You go to https://github.com/settings/tokens/new to get a Personal Access Token
-auth_from_secret("github", api_key = "ghp_a_github_pat_here")
+auth_from_secret("github", token = "ghp_a_github_pat_here")
 
 # Example for authorizing for Google
 token <- authorize("google")

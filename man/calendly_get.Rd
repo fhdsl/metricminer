@@ -4,10 +4,12 @@
 \alias{calendly_get}
 \title{Handle Calendly GET requests}
 \usage{
-calendly_get(url, token, user = NULL, count = NULL, page_token = NULL)
+calendly_get(url, token = NULL, user = NULL, count = NULL, page_token = NULL)
 }
 \arguments{
-\item{token}{You can provide the API key directly or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
+\item{url}{The endpoint URL for this API request}
+
+\item{token}{You can provide the API key directly using this argument or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
 
 \item{user}{The user param for Calendly. Usually looks like "https://api.calendly.com/users/c208a750-9214-4c62-9ee6-a1a9507c7b43"}
 
@@ -19,7 +21,7 @@ calendly_get(url, token, user = NULL, count = NULL, page_token = NULL)
 Calendly REST API response as a list
 }
 \description{
-This is a function to get the Calendly API user info
+This is a function that handles Calendly GET requests
 }
 \examples{
 \dontrun{

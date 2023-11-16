@@ -4,14 +4,14 @@
 \alias{list_calendly_events}
 \title{Get Calendly Event Lists}
 \usage{
-list_calendly_events(user, count = 100)
+list_calendly_events(token = NULL, user, count = 100)
 }
 \arguments{
+\item{token}{You can provide the API key directly using this argument or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
+
 \item{user}{You need to retrieve the calendly user's URI. You can do this by doing `user <- get_calendly_user()` and `user$resource$uri`}
 
 \item{count}{The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.}
-
-\item{api_key}{You can provide the API key directly or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
 }
 \value{
 Calendly REST API response as a list

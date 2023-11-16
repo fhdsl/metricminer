@@ -4,10 +4,10 @@
 \alias{get_calendly_user}
 \title{Get Calendly API user}
 \usage{
-get_calendly_user(api_key)
+get_calendly_user(token = NULL)
 }
 \arguments{
-\item{api_key}{You can provide the API key directly or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
+\item{token}{You can provide the API key directly using this argument or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
 }
 \value{
 Calendly REST API response as a list
