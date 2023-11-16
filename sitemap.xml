@@ -22,6 +22,9 @@
     <loc>/reference/authorize.html</loc>
   </url>
   <url>
+    <loc>/reference/calendly_get.html</loc>
+  </url>
+  <url>
     <loc>/reference/default_creds_path.html</loc>
   </url>
   <url>
@@ -56,6 +59,9 @@
   </url>
   <url>
     <loc>/reference/key_encrypt_creds_path.html</loc>
+  </url>
+  <url>
+    <loc>/reference/list_calendly_events.html</loc>
   </url>
   <url>
     <loc>/reference/supported_endpoints.html</loc>
