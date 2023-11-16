@@ -64,6 +64,7 @@ get_github_user <- function(token) {
 #' }
 #'
 get_repo_list <- function(owner = NULL, count = "all", token = NULL) {
+  if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
     # Get auth token
@@ -72,45 +73,29 @@ get_repo_list <- function(owner = NULL, count = "all", token = NULL) {
 
   repo_list <- gh::gh("GET /orgs/{owner}/repos",
     owner = owner,
-    .token = token
+    .token = token,
+    .limit = count
   )
 
-  if (count == "all") {
-
-    # Set up a while loop for us to store the multiple page requests in
-    cummulative_pages <- repo_list
-    page <- 1
-
-    next_pg <- try(gh::gh_next(repo_list), silent = TRUE)
-
-    while (!grepl("Error", next_pg[1])) {
-      cummulative_pages <- c(cummulative_pages, next_pg)
-      next_pg <- try(gh::gh_next(next_pg), silent = TRUE)
-      page <- page + 1
-    }
-
-  } else {
-    # if less than 100 events were requested then we don't have any page stuff
-    # to do, just return the first list
-    cummulative_pages <- repo_list
-  }
-
-  return(cummulative_pages)
+  return(repo_list)
 }
 
 #' Get the repository metrics
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
+#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @export
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_github_metrics(repo = "fhdsl/metricminer")
+#' metrics <- get_github_metrics(repo = "fhdsl/metricminer")
 #' }
-get_github_metrics <- function(repo, token = NULL) {
+get_github_metrics <- function(repo, token = NULL, count = "all") {
+
+  if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
     # Get auth token
@@ -122,60 +107,26 @@ get_github_metrics <- function(repo, token = NULL) {
   owner <- split_it[[1]][1]
   repo <- split_it[[1]][2]
 
-  repo_activity <- gh::gh("GET /repos/{owner}/{repo}/activity",
-    owner = owner,
-    repo = repo,
-    .token = token
+  api_calls <- list(
+    repo_activity = "GET /repos/{owner}/{repo}/activity",
+    stars = "GET /repos/{owner}/{repo}/stargazers",
+    forks = "GET /repos/{owner}/{repo}/forks",
+    contributors = "GET /repos/{owner}/{repo}/contributors",
+    community = "GET /repos/{owner}/{repo}/community/profile",
+    clones = "GET /repos/{owner}/{repo}/traffic/clones",
+    views = "GET /repos/{owner}/{repo}/traffic/views"
   )
 
-  stars <- gh::gh("GET /repos/{owner}/{repo}/stargazers",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
+  results <- lapply(api_calls, function(api_call) {
+    gh_repo_wrapper(api_call = api_call,
+                    owner = owner,
+                    repo = repo,
+                    token = token,
+                    count = count
+                    )
+  })
 
-  forks <- gh::gh("GET /repos/{owner}/{repo}/forks",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
-
-
-  contributors <- gh::gh("GET /repos/{owner}/{repo}/contributors",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
-
-  # Forked repos don't have community profile stats, so we have to just TRY to grab
-  # these stats and we'll store NULL if there isn't one.
-  community <- try(gh::gh("GET /repos/{owner}/{repo}/community/profile",
-    owner = owner,
-    repo = repo,
-    .token = token
-  ), silent = TRUE)
-
-  community <- ifelse(!grepl("404", community), community, NULL)
-
-  clones <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
-
-  views <- gh::gh("GET /repos/{owner}/{repo}/traffic/views",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
-
-  return(list(repo_activity = repo_activity,
-              stars = stars,
-              forks = forks,
-              contributors = contributors,
-              community = community,
-              clones = clones,
-              views = views))
+  return(results)
 }
 
 
@@ -190,16 +141,15 @@ get_github_metrics <- function(repo, token = NULL) {
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_org_metrics(owner = "fhdsl")
+#' all_repos_metrics <- get_org_metrics(owner = "fhdsl")
 #' }
 #'
 get_org_metrics <- function(owner = NULL, token = NULL) {
-
   repo_list <- get_repo_list(
     token = token,
     owner = owner,
     count = "all"
-    )
+  )
 
   # Extra repo names from the repo list
   repo_names <- unlist(purrr::map(repo_list, "full_name"))
@@ -211,33 +161,31 @@ get_org_metrics <- function(owner = NULL, token = NULL) {
   names(repo_metrics) <- repo_names
 
   return(repo_metrics)
-
 }
 
-#' Handler for retrieving more pages
-#' @description This is a function to retrieve all the pages of a call
-#' @param first_page_result The first page `gh` call.
-#' @return All the responses
+#' Wrapper function for gh repo calls
+#' @description This is a function to get metrics for all the repos underneath an organization
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param owner The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
+#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
+#' @param count How many items would you like to receive? Put "all" to retrieve all records.
+#' @return Metrics for a repo on GitHub
+#' @importFrom gh gh
 #' @export
-#' @examples \dontrun{
 #'
-#'  first_page_repo_list <- gh::gh("GET /orgs/{owner}/repos", owner = owner, .token = token)
-#'
-#'  all_repos_list <- gh_pagination(first_page_repo_list)
-#' }
-#'
-gh_pagination <- function(first_page_result) {
-  # Set up a while loop for us to store the multiple page requests in
-  cummulative_pages <- first_page_result
-  page <- 1
+gh_repo_wrapper <- function(api_call, owner, repo, token, count) {
 
-  next_pg <- try(gh::gh_next(first_page_result), silent = TRUE)
+  message(paste("Trying", api_call))
 
-  while (!grepl("Error", next_pg[1])) {
-    cummulative_pages <- c(cummulative_pages, next_pg)
-    next_pg <- try(gh::gh_next(next_pg), silent = TRUE)
-    page <- page + 1
-  }
+  # Not all repos have all stats so we have to try it.
+  result <- try(gh::gh(api_call,
+    owner = owner,
+    repo = repo,
+    .token = token,
+    .limit = count
+  ))
 
-  return(cummulative_pages)
+  result <- ifelse(!grepl("404", result), result, NULL)
+
+  return(result)
 }

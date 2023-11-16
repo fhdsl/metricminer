@@ -21,7 +21,7 @@ This is a function to get metrics for all the repos underneath an organization
 \dontrun{
 
 authorize("github")
-get_org_metrics(owner = "fhdsl")
+all_repos_metrics <- get_org_metrics(owner = "fhdsl")
 }
 
 }

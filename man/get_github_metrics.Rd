@@ -4,12 +4,14 @@
 \alias{get_github_metrics}
 \title{Get the repository metrics}
 \usage{
-get_github_metrics(repo, token = NULL)
+get_github_metrics(repo, token = NULL, count = "all")
 }
 \arguments{
 \item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`}
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+
+\item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
 }
 \value{
 Information regarding a github account
@@ -21,6 +23,6 @@ This is a function to get the information about a repository
 \dontrun{
 
 authorize("github")
-get_github_metrics(repo = "fhdsl/metricminer")
+metrics <- get_github_metrics(repo = "fhdsl/metricminer")
 }
 }
