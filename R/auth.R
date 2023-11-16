@@ -1,7 +1,6 @@
 #' Authorize R package to access endpoints
 #' @description This is a function to authorize the R package to access APIs interactively.
 #' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
-#' @param token an output from \code{\link{oauth2.0_token}} to set as the authentication token.
 #' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
 #' @param ... additional arguments to send to \code{\link{oauth2.0_token}}
 #' @return OAuth token saved to the environment so the package can use the users' Google data
@@ -13,7 +12,6 @@
 #' authorize()
 #' }
 authorize <- function(app_name = NULL,
-                      token = NULL,
                       cache = FALSE,
                       ...) {
   if (is.null(app_name)) {
@@ -44,7 +42,7 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter: ")
 
-    # If they chose to cache it, we'll store it in the .Rprofile
+    # If they chose to cache it, we'll store it as a global option
     if (cache_it == 1) options(calendly_api = token)
   }
 
@@ -56,7 +54,7 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter:")
 
-    # If they chose to cache it, we'll store it in the .Rprofile
+    # If they chose to cache it, we'll store it as a global option
     if (cache_it == 1) options(github_api = token)
   }
 
@@ -112,7 +110,7 @@ delete_creds <- function(app_name = "all") {
 #' Use secrets to Authorize R package to access endpoints
 #' @description This is a function to authorize metricminer to access calendly, github or google noninteractively from passing in a keys or tokens.
 #' @param app_name Which app are you trying to authorize? 'google', 'calendly' or 'github'?
-#' @param api_key For calendly or github, pass in the API key that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.
+#' @param token For calendly or github, pass in the API key or Personal Access Token that you have set up from going to https://github.com/settings/tokens/new or https://calendly.com/integrations/api_webhooks respectively.
 #' @param cache Should the credentials be cached? TRUE or FALSE?
 #' @param access_token For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token
 #' @param refresh_token For Google, refresh token can be obtained from running authorize interactively: token <-authorize(); token$credentials$refresh_token
@@ -124,11 +122,11 @@ delete_creds <- function(app_name = "all") {
 #'
 #' # Example for authorizing Calendly
 #' # You go to https://calendly.com/integrations/api_webhooks to get an api key
-#' auth_from_secret("calendly", api_key = "A_calendly_api_key_here")
+#' auth_from_secret("calendly", token = "A_calendly_token_here")
 #'
 #' # Example for GitHub
 #' # You go to https://github.com/settings/tokens/new to get a Personal Access Token
-#' auth_from_secret("github", api_key = "ghp_a_github_pat_here")
+#' auth_from_secret("github", token = "ghp_a_github_pat_here")
 #'
 #' # Example for authorizing for Google
 #' token <- authorize("google")
@@ -139,11 +137,16 @@ delete_creds <- function(app_name = "all") {
 #' )
 #' }
 #'
-auth_from_secret <- function(app_name, api_key, access_token, refresh_token, cache = FALSE) {
-  if (app_name %in% c("github", "calendly") && is.null(api_key)) stop("For GitHub and Calendly, api_key cannot be NULL")
+auth_from_secret <- function(app_name, token, access_token, refresh_token, cache = FALSE) {
+
+  if (app_name %in% c("github", "calendly") && is.null(token)) {
+    stop("For GitHub and Calendly, token cannot be NULL")
+  }
 
   if (app_name == "google") {
-    if (is.null(access_token) || is.null(refresh_token)) stop("For Google auth, need access_token and refresh_token cannot be NULL")
+    if (is.null(access_token) || is.null(refresh_token)) {
+      stop("For Google auth, need access_token and refresh_token cannot be NULL")
+    }
 
     credentials <- list(
       access_token = access_token,
@@ -164,13 +167,11 @@ auth_from_secret <- function(app_name, api_key, access_token, refresh_token, cac
 
   # If they chose to cache it, we'll store it in the .Rprofile
   if (app_name == "calendly" && cache) {
-    options(calendly = api_key)
-    token <- api_key
+    options(calendly = token)
   }
 
   if (app_name == "github" && cache) {
-    options(github_api = api_key)
-    token <- api_key
+    options(github_api = token)
   }
 
   if (cache) message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \n Be careful not to push .httr-oauth or .Rprofile files to GitHub or share it anywhere.")

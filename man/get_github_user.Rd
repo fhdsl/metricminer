@@ -4,12 +4,12 @@
 \alias{get_github_user}
 \title{Get the GitHub User's info}
 \usage{
-get_github_user(api_key)
+get_github_user(token)
 
-get_github_user(api_key)
+get_github_user(token)
 }
 \arguments{
-\item{api_key}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+\item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 }
 \value{
 Information regarding a github account

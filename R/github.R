@@ -2,7 +2,7 @@
 
 #' Get the GitHub User's info
 #' @description This is a function to get the GitHub user's info
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @return Information regarding a github account
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
@@ -12,7 +12,7 @@
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_user <- function(api_key) {
+get_github_user <- function(token) {
   # Get auth token
   token <- get_token(app_name = "github")
 
@@ -38,7 +38,7 @@ get_github_user <- function(api_key) {
 
 #' Get the GitHub User's info
 #' @description This is a function to get the GitHub user's info
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @return Information regarding a github account
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
@@ -48,12 +48,13 @@ get_github_user <- function(api_key) {
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_user <- function(api_key) {
-  if (is.null(api_key)) {
+get_github_user <- function(token) {
+
+  if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
   } else {
-    token <- api_key
+    token <- token
   }
 
   get_github(
@@ -64,8 +65,9 @@ get_github_user <- function(api_key) {
 
 #' Get the repository info
 #' @description This is a function to get the GitHub user's info
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
-#' @param repo What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param owner The owner
+#' @param repo The repository
 #' @return Information regarding a github account
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
@@ -75,12 +77,13 @@ get_github_user <- function(api_key) {
 #' authorize("github")
 #' get_github_repo()
 #' }
-get_github_repo <- function(api_key, repo) {
-  if (is.null(api_key)) {
+get_github_repo <- function(token,  owner, repo) {
+
+  if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
   } else {
-    token <- api_key
+    token <- token
   }
   repo_activity <- gh::gh("GET /repos/{owner}/{repo}/activity",
     owner = owner,
@@ -114,7 +117,8 @@ get_github_repo <- function(api_key, repo) {
 
 #' Get the metrics from GitHub on a repo
 #' @description This is a function to get the GitHub user's info
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param owner Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner
 #' @param repo What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.
 #' @return Information regarding a github account
 #' @importFrom gh gh
@@ -124,12 +128,13 @@ get_github_repo <- function(api_key, repo) {
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_metrics <- function(api_key, owner, repo) {
-  if (is.null(api_key)) {
+get_github_metrics <- function(token, owner, repo) {
+
+  if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
   } else {
-    token <- api_key
+    token <- token
   }
 
   community <- gh::gh("GET /repos/{owner}/{repo}/community/profile",

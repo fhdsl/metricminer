@@ -4,10 +4,10 @@
 \alias{get_github_metrics}
 \title{Get the metrics from GitHub on a repo}
 \usage{
-get_github_metrics(api_key, owner, repo)
+get_github_metrics(token, owner, repo)
 }
 \arguments{
-\item{api_key}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+\item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
 \item{repo}{What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.}
 }
