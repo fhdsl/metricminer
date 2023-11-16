@@ -54,6 +54,9 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter:")
 
+    # Check that token
+    if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
+
     # If they chose to cache it, we'll store it as a global option
     if (cache_it == 1) options(github_api = token)
   }
