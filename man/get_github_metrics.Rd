@@ -9,6 +9,8 @@ get_github_metrics(token, owner, repo)
 \arguments{
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
+\item{owner}{Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner}
+
 \item{repo}{What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.}
 }
 \value{

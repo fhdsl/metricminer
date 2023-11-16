@@ -14,6 +14,7 @@
 #' @importFrom assertthat assert_that is.string
 #' @export
 request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
+
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -196,7 +197,6 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
   return(results)
 }
 
-
 metrics_list <- function() {
   metrics <- list(
     list("name" = "activeUsers"),
@@ -244,6 +244,7 @@ all_ga_metrics <- function(account_id) {
   # This is the code for one website/property
   property_names <- gsub("properties/", "", properties_list$properties$name)
 
+  # Now loop through all the properties
   all_google_analytics_data <- lapply(property_names,  function(property_id) {
 
     metrics <- get_ga_stats(property_id, type = "metrics")
@@ -252,6 +253,7 @@ all_ga_metrics <- function(account_id) {
     return(list(metrics = metrics, dimensions = dimensions))
   })
 
+  # Save the names
   names(all_google_analytics_data) <- properties_list$properties$displayName
 
   return(all_google_analytics_data)
