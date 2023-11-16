@@ -21,6 +21,7 @@ remove_token <- function(app_name) {
 get_token <- function(app_name) {
   # If there's none in the current environemnt, attempt to grab a cached credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
+    message("Using user-supplied token stored using authorize(\"", app_name, "\")")
     .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
   }
   return(invisible(.Env$metricminer_tokens[[app_name]]))

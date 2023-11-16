@@ -28,7 +28,7 @@ get_github <- function(token, url) {
 
 #' Get the GitHub User's info
 #' @description This is a function to get the GitHub user's info
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @return Information regarding a github account
 #' @export
 #' @examples \dontrun{
@@ -36,12 +36,10 @@ get_github <- function(token, url) {
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_user <- function(api_key) {
-  if (is.null(api_key)) {
+get_github_user <- function(token) {
+  if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
-  } else {
-    token <- api_key
   }
 
   get_github(
@@ -52,7 +50,7 @@ get_github_user <- function(api_key) {
 
 #' Retrieve list of repositories for an owner
 #' @description This is a function to get the information about a repository
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
@@ -65,14 +63,13 @@ get_github_user <- function(api_key) {
 #' get_repo_list(owner = "fhdsl")
 #' }
 #'
-get_repo_list <- function(owner = NULL, count = "all", api_key = NULL) {
+get_repo_list <- function(owner = NULL, count = "all", token = NULL) {
 
-  if (is.null(api_key)) {
+  if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
-  } else {
-    token <- api_key
   }
+
   repo_list <- gh::gh("GET /orgs/{owner}/repos",
     owner = owner,
     .token = token
@@ -103,7 +100,7 @@ get_repo_list <- function(owner = NULL, count = "all", api_key = NULL) {
 
 #' Get the repository metrics
 #' @description This is a function to get the information about a repository
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
 #' @return Information regarding a github account
 #' @importFrom gh gh
@@ -113,12 +110,11 @@ get_repo_list <- function(owner = NULL, count = "all", api_key = NULL) {
 #' authorize("github")
 #' get_github_metrics(repo = "fhdsl/metricminer")
 #' }
-get_github_metrics <- function(repo, api_key = NULL) {
-  if (is.null(api_key)) {
+get_github_metrics <- function(repo, token = NULL) {
+
+  if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
-  } else {
-    token <- api_key
   }
 
   # Split it up
@@ -184,7 +180,7 @@ get_github_metrics <- function(repo, api_key = NULL) {
 
 #' Retrieve metrics for all repos of an organization
 #' @description This is a function to get metrics for all the repos underneath an organization
-#' @param api_key You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @return Information regarding a github account
 #' @importFrom gh gh
@@ -196,10 +192,10 @@ get_github_metrics <- function(repo, api_key = NULL) {
 #' get_org_metrics(owner = "fhdsl")
 #' }
 #'
-get_org_metrics <- function(owner = NULL, api_key = NULL) {
+get_org_metrics <- function(owner = NULL, token = NULL) {
 
   repo_list <- get_repo_list(
-    api_key = api_key,
+    token = token,
     owner = owner,
     count = "all"
     )
