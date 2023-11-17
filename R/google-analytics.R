@@ -75,7 +75,7 @@ get_ga_user <- function() {
   return(results$items)
 }
 
-#' Get all property ids for all google analytics associated with an account id
+#' Get all property ids for all Google Analytics associated with an account id
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param account_id the account id of the properties you are trying to retrieve
 #' @importFrom httr config accept_json content
@@ -103,7 +103,7 @@ get_ga_properties <- function(account_id) {
   return(results)
 }
 
-#' Get metadata associated google analytics property
+#' Get metadata associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @importFrom httr config accept_json content
@@ -137,7 +137,7 @@ get_ga_metadata <- function(property_id) {
   return(results)
 }
 
-#' Get metrics for an associated google analytics property
+#' Get metrics for an associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
