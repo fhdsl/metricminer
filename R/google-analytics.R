@@ -22,7 +22,8 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
   config <- httr::config(token = token)
 
   if (type == "GET") {
-    result <- httr::GET(url,
+    result <- httr::GET(
+      url  = url,
       body = body,
       query = query,
       config = config,
@@ -32,7 +33,8 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
   }
 
   if (type == "POST") {
-    result <- httr::POST(url,
+    result <- httr::POST(
+      url  = url,
       body = body_params,
       query = query,
       config = config,
