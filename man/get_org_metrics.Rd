@@ -4,7 +4,7 @@
 \alias{get_org_metrics}
 \title{Retrieve metrics for all repos of an organization}
 \usage{
-get_org_metrics(owner = NULL, token = NULL)
+get_org_metrics(owner, token = NULL)
 }
 \arguments{
 \item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
