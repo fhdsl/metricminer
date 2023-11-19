@@ -13,6 +13,9 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/reference/all_ga_metrics.html</loc>
+  </url>
+  <url>
     <loc>/reference/app_set_up.html</loc>
   </url>
   <url>
@@ -35,6 +38,15 @@
   </url>
   <url>
     <loc>/reference/get_calendly_user.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_ga_metadata.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_ga_properties.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_ga_stats.html</loc>
   </url>
   <url>
     <loc>/reference/get_ga_user.html</loc>
@@ -62,6 +74,9 @@
   </url>
   <url>
     <loc>/reference/list_calendly_events.html</loc>
+  </url>
+  <url>
+    <loc>/reference/request_ga.html</loc>
   </url>
   <url>
     <loc>/reference/supported_endpoints.html</loc>
