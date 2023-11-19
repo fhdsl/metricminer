@@ -85,6 +85,7 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
   return(repo_list)
 }
 
+
 #' Get the repository metrics
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
