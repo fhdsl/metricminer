@@ -2,7 +2,7 @@
 % Please edit documentation in R/google-analytics.R
 \name{get_ga_stats}
 \alias{get_ga_stats}
-\title{Get metrics for an associated google analytics property}
+\title{Get stats for an associated google analytics property}
 \usage{
 get_ga_stats(
   property_id,
@@ -17,6 +17,8 @@ get_ga_stats(
 \item{start_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.}
 
 \item{end_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.}
+
+\item{type}{What type of stats would you like to collect? Options are "metrics", "dimensions" or "link_clicks".}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
