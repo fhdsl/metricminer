@@ -57,7 +57,7 @@ get_github_user <- function(token) {
     token <- token
   }
 
-    get_github(
+  get_github(
     url = "https://api.github.com/user",
     token = token,
   )
@@ -86,29 +86,32 @@ get_github_repo <- function(token,  owner, repo) {
     token <- token
   }
   repo_activity <- gh::gh("GET /repos/{owner}/{repo}/activity",
-                          owner = owner,
-                          repo = repo,
-                          .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
 
 
   stars <- gh::gh("GET /repos/{owner}/{repo}/stargazers",
-                          owner = owner,
-                          repo = repo,
-                          .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   forks <- gh::gh("GET /repos/{owner}/{repo}/forks",
-                  owner = owner,
-                  repo = repo,
-                  .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   contributors <- gh::gh("GET /repos/{owner}/{repo}/contributors",
-                  owner = owner,
-                  repo = repo,
-                  .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   return(list(repo_activity, stars, forks, contributors))
-
 }
 
 
@@ -135,19 +138,21 @@ get_github_metrics <- function(token, owner, repo) {
   }
 
   community <- gh::gh("GET /repos/{owner}/{repo}/community/profile",
-         owner = owner,
-         repo = repo,
-         .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   clones <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
-                    owner = owner,
-                    repo = repo,
-                    .token = token)
+    owner = owner,
+    repo = repo,
+    .token = token
+  )
 
   views <- gh::gh("GET /repos/{owner}/{repo}/traffic/views",
-                   owner = owner,
-                   repo = repo,
-                  .params = list("per" = "day"),
-                   .token = token)
+    owner = owner,
+    repo = repo,
+    .params = list("per" = "day"),
+    .token = token
+  )
 }
-

@@ -18,7 +18,9 @@ Imports:
     assertthat, 
     openssl, 
     gh, 
-    dplyr
+    dplyr,
+    lubridate, 
+    purrr
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true
