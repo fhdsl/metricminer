@@ -151,7 +151,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all") {
 #' all_repos_metrics <- get_org_metrics(owner = "fhdsl")
 #' }
 #'
-get_org_metrics <- function(owner = NULL, token = NULL) {
+get_org_metrics <- function(owner, token = NULL) {
   repo_list <- get_repo_list(
     token = token,
     owner = owner,
