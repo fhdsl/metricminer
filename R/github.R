@@ -72,9 +72,9 @@ get_repo_list <- function(owner = NULL, count = "all", token = NULL) {
   }
 
   repo_list <- gh::gh("GET /orgs/{owner}/repos",
-    owner = owner,
-    .token = token,
-    .limit = count
+                      owner = owner,
+                      .token = token,
+                      .limit = count
   )
 
   return(repo_list)
@@ -116,15 +116,17 @@ get_github_metrics <- function(repo, token = NULL, count = "all") {
     clones = "GET /repos/{owner}/{repo}/traffic/clones",
     views = "GET /repos/{owner}/{repo}/traffic/views"
   )
-
-  results <- lapply(api_calls, function(api_call) {
+  # Put gh_repo_wrapper inside function
+  gh_repo_wrapper_fn <- function(api_call) {
     gh_repo_wrapper(api_call = api_call,
                     owner = owner,
                     repo = repo,
                     token = token,
-                    count = count
-                    )
-  })
+                    count = count)
+  }
+  # Run gh_repo_wrapper_fn() on api_calls
+  # when error occurs, set value to "Not Found"
+  results <- purrr::map(api_calls, purrr::possibly(gh_repo_wrapper_fn, "Not Found"))
 
   return(results)
 }
@@ -179,10 +181,10 @@ gh_repo_wrapper <- function(api_call, owner, repo, token, count) {
 
   # Not all repos have all stats so we have to try it.
   result <- try(gh::gh(api_call,
-    owner = owner,
-    repo = repo,
-    .token = token,
-    .limit = count
+                       owner = owner,
+                       repo = repo,
+                       .token = token,
+                       .limit = count
   ))
 
   result <- ifelse(!grepl("404", result), result, NULL)
