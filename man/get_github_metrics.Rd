@@ -4,7 +4,12 @@
 \alias{get_github_metrics}
 \title{Get the repository metrics}
 \usage{
-get_github_metrics(repo, token = NULL, count = "all")
+get_github_metrics(
+  repo,
+  token = NULL,
+  count = "all",
+  data_format = "dataframe"
+)
 }
 \arguments{
 \item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`}
@@ -12,6 +17,8 @@ get_github_metrics(repo, token = NULL, count = "all")
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
 \item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
+
+\item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
 Information regarding a github account

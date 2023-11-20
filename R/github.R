@@ -130,13 +130,12 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
                     count = count,
                     data_format = data_format
                    )
-  })
-  names(results) <- names(api_calls)
-                    count = count)
   }
   # Run gh_repo_wrapper_fn() on api_calls
   # when error occurs, set value to "Not Found"
   results <- purrr::map(api_calls, purrr::possibly(gh_repo_wrapper_fn, "Not Found"))
+
+  names(results) <- names(api_calls)
 
   return(results)
 }
