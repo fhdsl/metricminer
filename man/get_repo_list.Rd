@@ -4,7 +4,7 @@
 \alias{get_repo_list}
 \title{Retrieve list of repositories for an owner}
 \usage{
-get_repo_list(owner = NULL, count = "all", token = NULL)
+get_repo_list(owner, count = "all", token = NULL)
 }
 \arguments{
 \item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}

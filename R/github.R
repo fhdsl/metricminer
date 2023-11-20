@@ -8,8 +8,13 @@
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export
-get_github <- function(token, url) {
-  # Github api get
+get_github <- function(token = NULL, url) {
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "github")
+  }
+
+    # Github api get
   result <- httr::GET(
     url,
     httr::add_headers(Authorization = paste0("Bearer ", token)),
@@ -62,7 +67,7 @@ get_github_user <- function(token = NULL) {
 #' get_repo_list(owner = "fhdsl")
 #' }
 #'
-get_repo_list <- function(owner = NULL, count = "all", token = NULL) {
+get_repo_list <- function(owner, count = "all", token = NULL) {
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
