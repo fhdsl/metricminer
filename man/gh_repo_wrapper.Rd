@@ -8,9 +8,9 @@ gh_repo_wrapper(
   api_call,
   owner,
   repo,
-  token,
+  token = NULL,
   count = Inf,
-  format = "dataframe"
+  data_format = "dataframe"
 )
 }
 \arguments{
@@ -24,11 +24,11 @@ gh_repo_wrapper(
 
 \item{count}{How many items would you like to receive? Put "all" to retrieve all records.}
 
-\item{format}{What format should the data be returned in? Default is dataframe. But if you'd like the original raw results, saw "raw".}
+\item{data_format}{What format should the data be returned in? Default is dataframe. But if you'd like the original raw results, saw "raw".}
 }
 \value{
 Metrics for a repo on GitHub
 }
 \description{
-This is a function to get metrics for all the repos underneath an organization
+This is a function that wraps up gh calls for us
 }

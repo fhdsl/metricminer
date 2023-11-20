@@ -8,7 +8,7 @@ get_repos_metrics(
   owner = NULL,
   repo_names = NULL,
   token = NULL,
-  format = "dataframe"
+  data_format = "dataframe"
 )
 }
 \arguments{
@@ -18,7 +18,7 @@ get_repos_metrics(
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
-\item{format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
+\item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
 Information regarding a github account
