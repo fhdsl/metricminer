@@ -2,7 +2,7 @@
 % Please edit documentation in R/google-analytics.R
 \name{get_ga_stats}
 \alias{get_ga_stats}
-\title{Get stats for an associated google analytics property}
+\title{Get stats for an associated Google Analytics property}
 \usage{
 get_ga_stats(
   property_id,

@@ -2,7 +2,7 @@
 % Please edit documentation in R/google-analytics.R
 \name{get_ga_properties}
 \alias{get_ga_properties}
-\title{Get all property ids for all google analytics associated with an account id}
+\title{Get all property ids for all Google Analytics associated with an account id}
 \usage{
 get_ga_properties(account_id)
 }

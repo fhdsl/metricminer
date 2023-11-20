@@ -2,7 +2,7 @@
 % Please edit documentation in R/google-analytics.R
 \name{get_ga_metadata}
 \alias{get_ga_metadata}
-\title{Get metadata associated google analytics property}
+\title{Get metadata associated Google Analytics property}
 \usage{
 get_ga_metadata(property_id)
 }
