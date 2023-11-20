@@ -54,7 +54,7 @@ authorize <- function(app_name = NULL,
     message("On the opened page, scroll down and click 'Generate Token'.")
 
     # Store api key here
-    token <- readline(prompt = "Paste token here and press enter:")
+    token <- readline(prompt = "Paste token here and press enter: ")
 
     # Check that token
     if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
