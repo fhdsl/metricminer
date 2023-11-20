@@ -44,7 +44,7 @@ authorize <- function(app_name = NULL,
 
     options(calendly_api = token)
 
-    # If they chose to cache it, we'll store it as a global option
+    # If they chose to cache it, we'll store it in rds file format
     if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "calendly.RDS"))
   }
 
@@ -59,7 +59,7 @@ authorize <- function(app_name = NULL,
     # Check that token
     if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
 
-    # If they chose to cache it, we'll store it as a global option
+    # If they chose to cache it, we'll store it in rds file format
     if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "github.RDS"))
   }
 
