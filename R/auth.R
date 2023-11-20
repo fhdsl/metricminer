@@ -42,8 +42,10 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter: ")
 
+    options(calendly_api = token)
+
     # If they chose to cache it, we'll store it as a global option
-    if (cache_it == 1) options(calendly_api = token)
+    if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "calendly.RDS"))
   }
 
   if (app_name == "github") {
@@ -54,8 +56,11 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter:")
 
+    # Check that token
+    if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
+
     # If they chose to cache it, we'll store it as a global option
-    if (cache_it == 1) options(github_api = token)
+    if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "github.RDS"))
   }
 
   if (app_name == "google") {
@@ -103,7 +108,8 @@ delete_creds <- function(app_name = "all") {
       if (calendly_creds_exist) {
         options(calendly_api = NULL)
         remove_token("calendly")
-        message("Calendly creds deleted from .Rprofile")
+        remove_cache("calendly")
+        message("Calendly creds deleted from cache and environment")
       }
     }
 
@@ -111,7 +117,8 @@ delete_creds <- function(app_name = "all") {
       if (github_creds_exist) {
         options(github_api = NULL)
         remove_token("github")
-        message("GitHub creds deleted from .Rprofile")
+        remove_cache("github")
+        message("GitHub creds deleted from cache and environment")
       }
     }
 
@@ -119,7 +126,7 @@ delete_creds <- function(app_name = "all") {
       if (google_creds_exist) {
         file.remove(oauth_file)
         remove_token("google")
-        message("Cached Google .httr-oauth file deleted")
+        message("Cached Google .httr-oauth file deleted and token removed from environment")
       }
     }
   }

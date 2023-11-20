@@ -41,7 +41,7 @@ get_github <- function(token = NULL, url) {
 #' authorize("github")
 #' get_github_user()
 #' }
-get_github_user <- function(token) {
+get_github_user <- function(token = NULL) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github")
@@ -57,7 +57,6 @@ get_github_user <- function(token) {
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
-#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
 #' @return Information regarding a github account
 #' @importFrom gh gh
@@ -85,12 +84,12 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
   return(repo_list)
 }
 
-
 #' Get the repository metrics
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
 #' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @export
@@ -99,9 +98,9 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
 #' authorize("github")
 #' metrics <- get_github_metrics(repo = "fhdsl/metricminer")
 #' }
-get_github_metrics <- function(repo, token = NULL, count = "all") {
+get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
 
-  if (count == "all") count <- "Inf"
+  if (count == "all") count <- Inf
 
   if (is.null(token)) {
     # Get auth token
@@ -128,6 +127,11 @@ get_github_metrics <- function(repo, token = NULL, count = "all") {
                     owner = owner,
                     repo = repo,
                     token = token,
+                    count = count,
+                    data_format = data_format
+                   )
+  })
+  names(results) <- names(api_calls)
                     count = count)
   }
   # Run gh_repo_wrapper_fn() on api_calls
@@ -138,10 +142,13 @@ get_github_metrics <- function(repo, token = NULL, count = "all") {
 }
 
 
-#' Retrieve metrics for all repos of an organization
-#' @description This is a function to get metrics for all the repos underneath an organization
+#' Retrieve metrics for a list of repos
+#' @description This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repos from a
+#' particular organization, or you can provide a character vector of repos like "
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
+#' @param repo_names a character vector of repositories you'd like to collect metrics from.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @importFrom purrr map
@@ -149,51 +156,137 @@ get_github_metrics <- function(repo, token = NULL, count = "all") {
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' all_repos_metrics <- get_org_metrics(owner = "fhdsl")
+#' all_repos_metrics <- get_repos_metrics(owner = "fhdsl")
+#'
+#' repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
+#' some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
+#'
 #' }
 #'
-get_org_metrics <- function(owner, token = NULL) {
-  repo_list <- get_repo_list(
-    token = token,
-    owner = owner,
-    count = "all"
-  )
+get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, data_format = "dataframe") {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "github")
+  }
+
+  if (is.null(repo_names) && !is.null(owner)) {
+    repo_list <- get_repo_list(
+      token = token,
+      owner = owner,
+      count = "all"
+    )
 
   # Extra repo names from the repo list
   repo_names <- unlist(purrr::map(repo_list, "full_name"))
+  }
 
   # Now run get_github_metrics on all repos
-  repo_metrics <- lapply(repo_names, get_github_metrics)
+  repo_metrics <- lapply(repo_names, function(repo) {
+    get_github_metrics(token = token,
+                       repo = repo,
+                       data_format = data_format)
+  })
 
   # Keep names
   names(repo_metrics) <- repo_names
 
+  if (data_format == "dataframe") {
+    repo_metrics <- clean_repo_metrics(
+      repo_name = paste0(c(repo, "/", owner)),
+      repo_metric_list = repo_metrics
+    )
+  }
   return(repo_metrics)
 }
 
 #' Wrapper function for gh repo calls
-#' @description This is a function to get metrics for all the repos underneath an organization
+#' @description This is a function that wraps up gh calls for us
+#' @param api_call an API call and endpoint like "GET /repos/{owner}/{repo}/activity". That has `owner` and `user`.
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param count How many items would you like to receive? Put "all" to retrieve all records.
+#' @param data_format What format should the data be returned in? Default is dataframe. But if you'd like the original raw results, saw "raw".
 #' @return Metrics for a repo on GitHub
 #' @importFrom gh gh
 #' @export
 #'
-gh_repo_wrapper <- function(api_call, owner, repo, token, count) {
+gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, data_format = "dataframe") {
 
-  message(paste("Trying", api_call))
+  message(paste("Trying", api_call, "for", repo))
 
   # Not all repos have all stats so we have to try it.
   result <- try(gh::gh(api_call,
-                       owner = owner,
-                       repo = repo,
-                       .token = token,
-                       .limit = count
-  ))
+    owner = owner,
+    repo = repo,
+    .token = token,
+    .limit = count
+  ), silent = TRUE)
 
-  result <- ifelse(!grepl("404", result), result, NULL)
+  # Some handlers because not all repos have all stats
+  if (length(result) == 0) result <-  "No results"
+  if (grepl("404", result[1])) result <-  "No results"
+  if (grepl("Error", result[1])) result <-  "No results"
 
   return(result)
+}
+
+#' Cleaning metrics from GitHub
+#' @description This is a function to get metrics for all the repos underneath an organization
+#' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
+#' @param repo_metric_list a list containing the metrics c
+#' @return Metrics for a repo on GitHub
+#' @importFrom gh gh
+#' @export
+#'
+clean_repo_metrics <- function(repo_name, repo_metric_list) {
+
+  if (repo_metric_list$contributors != "No results") {
+    contributors <-
+     lapply(repo_metric_list$contributors, function(contributor) {
+      data.frame(
+        contributor = contributor$login,
+        num_contributors = contributor$contributions)
+    }) %>%
+      dplyr::bind_rows(contributors) %>%
+      dplyr::distinct()
+  } else {
+    contributors <- NULL
+  }
+
+  if (repo_metric_list$forks != "No results") {
+    forks <- unlist(purrr::map(repo_metric_list$forks, "full_name"))
+  } else {
+    forks <- NULL
+  }
+  metrics <- data.frame(
+    repo_name,
+    num_forks <- length(forks),
+    num_contributors = length(unique(contributors$contributor)),
+    total_contributions = sum(contributors$num_contributors),
+    num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
+    health_percentage = repo_metric_list$community$health_percentage,
+    num_clones = repo_metric_list$clones$count,
+    unique_views = repo_metric_list$views$count
+  )
+
+  return(metrics)
+}
+
+
+gh_pagination <- function(first_page_result) {
+  # Set up a while loop for us to store the multiple page requests in
+  cummulative_pages <- first_page_result
+  page <- 1
+
+  next_pg <- try(gh::gh_next(first_page_result), silent = TRUE)
+
+  while (!grepl("Error", next_pg[1])) {
+    cummulative_pages <- c(cummulative_pages, next_pg)
+    next_pg <- try(gh::gh_next(next_pg), silent = TRUE)
+    page <- page + 1
+  }
+
+  return(cummulative_pages)
 }
