@@ -31,10 +31,15 @@ get_token <- function(app_name) {
       .Env$metricminer_tokens[[app_name]] <- get_stored_token(app_name)
 
       # Attempt to grab a cached credential
-    } else if (is.null(.Env$metricminer_tokens[[app_name]])) {
+  }
+  # Attempt to grab a cached credential
+  if (is.null(.Env$metricminer_tokens[[app_name]])) {
       message("Using user-supplied cached token using authorize(\"", app_name, "\")")
       .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
     }
+
+  if (is.null(.Env$metricminer_tokens[[app_name]])) stop("No token found. Please run `authorize('github')` to supply token.")
+
   return(invisible(.Env$metricminer_tokens[[app_name]]))
 }
 

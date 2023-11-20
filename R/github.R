@@ -137,6 +137,12 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   names(results) <- names(api_calls)
 
+  if (data_format == "dataframe") {
+    results <- clean_repo_metrics(
+      repo_name = paste0(c(repo, owner), collapse = "/"),
+      repo_metric_list = results
+    )
+  }
   return(results)
 }
 
@@ -191,11 +197,9 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
   names(repo_metrics) <- repo_names
 
   if (data_format == "dataframe") {
-    repo_metrics <- clean_repo_metrics(
-      repo_name = paste0(c(repo, "/", owner)),
-      repo_metric_list = repo_metrics
-    )
+    repo_metrics <- dplyr::bind_rows(repo_metrics)
   }
+
   return(repo_metrics)
 }
 
@@ -241,20 +245,20 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
 
-  if (repo_metric_list$contributors != "No results") {
+  if (repo_metric_list$contributors[1] != "No results") {
     contributors <-
      lapply(repo_metric_list$contributors, function(contributor) {
       data.frame(
         contributor = contributor$login,
         num_contributors = contributor$contributions)
     }) %>%
-      dplyr::bind_rows(contributors) %>%
+      dplyr::bind_rows() %>%
       dplyr::distinct()
   } else {
     contributors <- NULL
   }
 
-  if (repo_metric_list$forks != "No results") {
+  if (repo_metric_list$forks[1] != "No results") {
     forks <- unlist(purrr::map(repo_metric_list$forks, "full_name"))
   } else {
     forks <- NULL
@@ -265,11 +269,12 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
     num_contributors = length(unique(contributors$contributor)),
     total_contributions = sum(contributors$num_contributors),
     num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
-    health_percentage = repo_metric_list$community$health_percentage,
-    num_clones = repo_metric_list$clones$count,
-    unique_views = repo_metric_list$views$count
+    health_percentage = ifelse(repo_metric_list$community[1] != "No results", repo_metric_list$community$health_percentage, "No results"),
+    num_clones = ifelse(repo_metric_list$clones[1] != "No results", repo_metric_list$clones$count, "No results"),
+    unique_views = ifelse(repo_metric_list$views[1] != "No results", repo_metric_list$views$count, "No results")
   )
 
+  rownames(metrics) <- repo_name
   return(metrics)
 }
 
