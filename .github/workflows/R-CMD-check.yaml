@@ -71,10 +71,10 @@ jobs:
       - name: Provide authorization
         run: |
           Rscript ".github/workflows/auth_from_secret.R" \
-            --calendly_api METRICMINER_CALENDLY \
-            --git_pat METRICMINER_GITHUB_PAT \
-            --google_access secrets.METRICMINER_GOOGLE_ACCESS \
-            --google_refresh secrets.METRICMINER_GOOGLE_REFRESH
+            --calendly_api $secrets.METRICMINER_CALENDLY \
+            --git_pat $secrets.METRICMINER_GITHUB_PAT \
+            --google_access $secrets.METRICMINER_GOOGLE_ACCESS \
+            --google_refresh $secrets.METRICMINER_GOOGLE_REFRESH
 
       - name: Check
         env:
