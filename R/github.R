@@ -136,7 +136,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   if (data_format == "dataframe") {
     results <- clean_repo_metrics(
-      repo_name = paste0(c(repo, owner), collapse = "/"),
+      repo_name = paste0(c(owner, repo), collapse = "/"),
       repo_metric_list = results
     )
   }
