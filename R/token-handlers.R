@@ -55,7 +55,7 @@ get_cached_token <- function(app_name) {
   if (app_name == "github") token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
   if (app_name == "google") token <- try(readRDS(".httr-oauth")[[1]], silent = TRUE)
 
-  if (grepl("Error", token[1])) {
+  if (class(token)[1] == "try-error") {
     token <- NULL
   }
 
