@@ -24,7 +24,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
   if (type == "GET") {
     result <- httr::GET(
       url  = url,
-      body = body,
+      body = body_params,
       query = query,
       config = config,
       httr::accept_json(),
@@ -55,6 +55,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 
 #' Get Google Analytics Accounts
 #' @description This is a function to get the Google Analytics accounts that this user has access to
+#' @param type Is this a GET or a POST?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -64,7 +65,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 #' authorize("google")
 #' get_ga_user()
 #' }
-get_ga_user <- function() {
+get_ga_user <- function(type = "GET") {
   # Get auth token
   token <- get_token(app_name = "google")
 
@@ -144,7 +145,8 @@ get_ga_metadata <- function(property_id) {
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
-#'
+#' @param body_params The body parameters for the request
+#' @param stats_type Do you want to retrieve metrics or dimensions?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -161,7 +163,7 @@ get_ga_metadata <- function(property_id) {
 #' metrics <- get_ga_stats(property_id, type = "metrics")
 #' dimensions <- get_ga_stats(property_id, type = "dimensions")
 #' }
-get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL, type = "metrics") {
+get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = NULL, end_date = NULL, stats_type = "metrics") {
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -172,7 +174,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
   # Get auth token
   token <- get_token(app_name = "google")
 
-  if (type == "metrics") {
+  if (stats_type == "metrics") {
     body_params <- list(
       dateRanges = list(
           "startDate" = start_date,
@@ -180,7 +182,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
       metrics = metrics_list()
     )
   }
-  if (type == "dimensions") {
+  if (stats_type == "dimensions") {
     body_params <- list(
       dateRanges = list(
           "startDate" = start_date,

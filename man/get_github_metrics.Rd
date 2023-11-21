@@ -4,12 +4,15 @@
 \alias{get_github_metrics}
 \title{Get the repository metrics}
 \usage{
+get_github_metrics(token, owner, repo)
+
 get_github_metrics(
   repo,
   token = NULL,
   count = "all",
   data_format = "dataframe"
 )
+
 }
 \arguments{
 \item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`}
@@ -18,18 +21,35 @@ get_github_metrics(
 
 \item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
 
+\item{repo}{What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.}
+
+\item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
+
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
 Information regarding a github account
+
+Information regarding a github account
 }
 \description{
 This is a function to get the information about a repository
+
+
+This is a function to get the GitHub user's info
+
 }
 \examples{
 \dontrun{
 
 authorize("github")
 metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+
+}
+\dontrun{
+
+authorize("github")
+get_github_user()
+
 }
 }

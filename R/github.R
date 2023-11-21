@@ -94,6 +94,7 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return Information regarding a github account
 #' @importFrom gh gh
+#' @importFrom purrr map
 #' @export
 #' @examples \dontrun{
 #'
@@ -154,6 +155,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @importFrom purrr map
+#' @importFrom dplyr bind_rows
 #' @export
 #' @examples \dontrun{
 #'
@@ -234,13 +236,15 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
   return(result)
 }
 
+
 #' Cleaning metrics from GitHub
 #' @description This is a function to get metrics for all the repos underneath an organization
 #' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param repo_metric_list a list containing the metrics c
 #' @return Metrics for a repo on GitHub
 #' @importFrom gh gh
-#' @importFrom dplyr %>%
+#' @importFrom dplyr bind_rows distinct %>%
+#' @importFrom purrr map
 #' @export
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
