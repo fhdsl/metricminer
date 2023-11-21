@@ -4,7 +4,10 @@
 \alias{get_ga_user}
 \title{Get Google Analytics Accounts}
 \usage{
-get_ga_user()
+get_ga_user(request_type = "GET")
+}
+\arguments{
+\item{request_type}{Is this a GET or a POST?}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to

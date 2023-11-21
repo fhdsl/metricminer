@@ -4,7 +4,7 @@
 \alias{request_ga}
 \title{Handler for API requests from Google Analytics}
 \usage{
-request_ga(token, url, query = NULL, body_params = NULL, type)
+request_ga(token, url, query = NULL, body_params = NULL, request_type)
 }
 \arguments{
 \item{token}{credentials for access to Google using OAuth. `authorize("google")`}
@@ -15,7 +15,7 @@ request_ga(token, url, query = NULL, body_params = NULL, type)
 
 \item{body_params}{The body parameters for the request}
 
-\item{type}{Is this a GET or a POST?}
+\item{request_type}{Is this a GET or a POST?}
 }
 \description{
 This is a function that handles requests from Google Analytics

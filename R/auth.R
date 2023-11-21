@@ -42,8 +42,13 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter: ")
 
-    # If they chose to cache it, we'll store it as a global option
-    if (cache_it == 1) options(calendly_api = token)
+    options(calendly_api = token)
+
+
+    # If they chose to cache it, we'll store it in rds file format
+    if (cache_it == 1) {
+      saveRDS(token, file.path(cache_secrets_folder(), "calendly.RDS"))
+    }
   }
 
   if (app_name == "github") {
@@ -52,10 +57,13 @@ authorize <- function(app_name = NULL,
     message("On the opened page, scroll down and click 'Generate Token'.")
 
     # Store api key here
-    token <- readline(prompt = "Paste token here and press enter:")
+    token <- readline(prompt = "Paste token here and press enter: ")
 
-    # If they chose to cache it, we'll store it as a global option
-    if (cache_it == 1) options(github_api = token)
+    # Check that token
+    if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
+
+    # If they chose to cache it, we'll store it in rds file format
+    if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "github.RDS"))
   }
 
   if (app_name == "google") {
@@ -87,23 +95,43 @@ delete_creds <- function(app_name = "all") {
 
   if (!(app_name %in% c("all", supported))) stop("That is not a supported app or endpoint")
 
-  if (app_name == "all" | app_name == "calendly") {
-    options(calendly_api = NULL)
-    remove_token("calendly")
-    message("Calendly creds deleted from .Rprofile")
-  }
+  ## Checking for the existence of cached creds
+  calendly_creds_exist <- !is.null(getOption("calendly_api"))
+  github_creds_exist <- !is.null(getOption("github_api"))
+  oauth_file <- list.files(pattern = ".httr-oauth", all.files = TRUE, recursive = TRUE, full.names = TRUE)
+  google_creds_exist <- length(oauth_file) != 0
 
-  if (app_name == "all" | app_name == "github") {
-    options(github_api = NULL)
-    remove_token("github")
-    message("GitHub creds deleted from .Rprofile")
-  }
+  # Do any exist?
+  none_exist <- all(!calendly_creds_exist, !github_creds_exist, !google_creds_exist)
 
-  if (app_name == "all" | app_name == "google") {
-    oauth_file <- list.files(pattern = ".httr-oauth", all.files = TRUE, recursive = TRUE, full.names = TRUE)
-    file.remove(oauth_file)
-    remove_token("google")
-    message("Cached Google .httr-oauth file deleted")
+  if (none_exist) {
+    message("No cached creds to delete (from metricminer anyway). Done")
+  } else {
+    if (app_name == "all" | app_name == "calendly") {
+      if (calendly_creds_exist) {
+        options(calendly_api = NULL)
+        remove_token("calendly")
+        remove_cache("calendly")
+        message("Calendly creds deleted from cache and environment")
+      }
+    }
+
+    if (app_name == "all" | app_name == "github") {
+      if (github_creds_exist) {
+        options(github_api = NULL)
+        remove_token("github")
+        remove_cache("github")
+        message("GitHub creds deleted from cache and environment")
+      }
+    }
+
+    if (app_name == "all" | app_name == "google") {
+      if (google_creds_exist) {
+        file.remove(oauth_file)
+        remove_token("google")
+        message("Cached Google .httr-oauth file deleted and token removed from environment")
+      }
+    }
   }
 }
 
