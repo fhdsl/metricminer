@@ -1,10 +1,10 @@
 # Authorize metricminer
 
 if (!("optparse" %in% installed.packages())){
-  install.packages("optparse")
+  install.packages("optparse", repos='http://cran.us.r-project.org')
 }
 if (!("devtools" %in% installed.packages())){
-  install.packages("devtools")
+  install.packages("devtools", repos='http://cran.us.r-project.org')
 }
 
 # Find .git root directory
