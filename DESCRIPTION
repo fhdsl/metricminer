@@ -8,7 +8,7 @@ Authors@R: c(
     role = c("aut", "cre")), 
     person("Howard", "Baek", , 
     c("howardbaek@fredhutch.org","howardbaek.fh@gmail.com"), 
-    role = c("aut", "cre"))
+    role = c("aut"))
     )
 Description: Mine metrics on common places on the web through the power of their APIs. 
     It also helps make the data in a format that is easily used for a dashboard or other purposes.
