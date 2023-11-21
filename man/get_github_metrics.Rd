@@ -6,12 +6,20 @@
 \usage{
 get_github_metrics(token, owner, repo)
 
-get_github_metrics(token, owner, repo)
+get_github_metrics(
+  repo,
+  token = NULL,
+  count = "all",
+  data_format = "dataframe"
+)
+
 }
 \arguments{
+\item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`}
+
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
-\item{owner}{Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner}
+\item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
 
 \item{repo}{What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.}
 
@@ -27,17 +35,21 @@ Information regarding a github account
 \description{
 This is a function to get the information about a repository
 
+
 This is a function to get the GitHub user's info
+
 }
 \examples{
 \dontrun{
 
 authorize("github")
 metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+
 }
 \dontrun{
 
 authorize("github")
 get_github_user()
+
 }
 }

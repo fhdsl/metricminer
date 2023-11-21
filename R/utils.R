@@ -1,5 +1,5 @@
 utils::globalVariables(c(
-  "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly"
+  "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%"
 ))
 #' Supported endpoints
 #' @description This is function stores endpoints and supported app names
@@ -39,5 +39,26 @@ key_encrypt_creds_path <- function() {
     recursive = TRUE,
     system.file("extdata", package = "metricminer"),
     full.names = TRUE
+  )
+}
+cache_secrets_folder <- function() {
+  file_path <- list.files(
+    pattern = "cached-secrets",
+    recursive = TRUE,
+    system.file("extdata", package = "metricminer"),
+    full.names = TRUE,
+    include.dirs = TRUE,
+  )
+
+  if (length(file_path) == 0) {
+    dir.create(file.path(system.file("extdata", package = "metricminer"),
+                         "cached-secrets"), recursive = TRUE, showWarnings = FALSE)
+  }
+  list.files(
+    pattern = "cached-secrets",
+    recursive = TRUE,
+    system.file("extdata", package = "metricminer"),
+    full.names = TRUE,
+    include.dirs = TRUE,
   )
 }
