@@ -44,8 +44,11 @@ authorize <- function(app_name = NULL,
 
     options(calendly_api = token)
 
+
     # If they chose to cache it, we'll store it in rds file format
-    if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "calendly.RDS"))
+    if (cache_it == 1) {
+      saveRDS(token, file.path(cache_secrets_folder(), "calendly.RDS"))
+    }
   }
 
   if (app_name == "github") {

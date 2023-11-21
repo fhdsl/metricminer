@@ -68,11 +68,13 @@ get_github_user <- function(token = NULL) {
 #' }
 #'
 get_repo_list <- function(owner, count = "all", token = NULL) {
+
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
     # Get auth token
-    token <- get_token(app_name = "github")
+    token <- get_token(app_name = "github", try = TRUE)
+    if (is.null(token)) warning("No token found. Only public repositories will be retrieved.")
   }
 
   repo_list <- gh::gh("GET /orgs/{owner}/repos",
@@ -217,6 +219,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
+    if (is.null(token)) warning("No GitHub token found. Only certain metrics will be able to be retrieved.")
   }
 
   # Not all repos have all stats so we have to try it.
@@ -241,7 +244,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 #' @param repo_metric_list a list containing the metrics c
 #' @return Metrics for a repo on GitHub
 #' @importFrom gh gh
-#' @importFrom magrittr %>%
+#' @importFrom dplyr %>%
 #' @export
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
@@ -270,7 +273,7 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
     num_contributors = length(unique(contributors$contributor)),
     total_contributions = sum(contributors$num_contributors),
     num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
-    health_percentage = ifelse(repo_metric_list$community[1] != "No results", repo_metric_list$community$health_percentage, "No results"),
+    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), "No results"),
     num_clones = ifelse(repo_metric_list$clones[1] != "No results", repo_metric_list$clones$count, "No results"),
     unique_views = ifelse(repo_metric_list$views[1] != "No results", repo_metric_list$views$count, "No results")
   )

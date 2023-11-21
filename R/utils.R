@@ -42,6 +42,18 @@ key_encrypt_creds_path <- function() {
   )
 }
 cache_secrets_folder <- function() {
+  file_path <- list.files(
+    pattern = "cached-secrets",
+    recursive = TRUE,
+    system.file("extdata", package = "metricminer"),
+    full.names = TRUE,
+    include.dirs = TRUE,
+  )
+
+  if (length(file_path) == 0) {
+    dir.create(file.path(system.file("extdata", package = "metricminer"),
+                         "cached-secrets"), recursive = TRUE, showWarnings = FALSE)
+  }
   list.files(
     pattern = "cached-secrets",
     recursive = TRUE,
