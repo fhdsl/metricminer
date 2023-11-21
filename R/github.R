@@ -241,6 +241,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 #' @param repo_metric_list a list containing the metrics c
 #' @return Metrics for a repo on GitHub
 #' @importFrom gh gh
+#' @importFrom magrittr %>%
 #' @export
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
