@@ -269,7 +269,7 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
   }
   metrics <- data.frame(
     repo_name,
-    num_forks <- length(forks),
+    num_forks = length(forks),
     num_contributors = length(unique(contributors$contributor)),
     total_contributions = sum(contributors$num_contributors),
     num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
