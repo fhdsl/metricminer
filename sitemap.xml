@@ -28,6 +28,9 @@
     <loc>/reference/calendly_get.html</loc>
   </url>
   <url>
+    <loc>/reference/clean_repo_metrics.html</loc>
+  </url>
+  <url>
     <loc>/reference/default_creds_path.html</loc>
   </url>
   <url>
@@ -52,10 +55,10 @@
     <loc>/reference/get_ga_user.html</loc>
   </url>
   <url>
-    <loc>/reference/get_github_metrics.html</loc>
+    <loc>/reference/get_github.html</loc>
   </url>
   <url>
-    <loc>/reference/get_github_repo.html</loc>
+    <loc>/reference/get_github_metrics.html</loc>
   </url>
   <url>
     <loc>/reference/get_github_user.html</loc>
@@ -64,7 +67,16 @@
     <loc>/reference/get_google_files.html</loc>
   </url>
   <url>
+    <loc>/reference/get_repo_list.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_repos_metrics.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_youtube_stats.html</loc>
+  </url>
+  <url>
+    <loc>/reference/gh_repo_wrapper.html</loc>
   </url>
   <url>
     <loc>/reference/index.html</loc>
