@@ -3,6 +3,9 @@
 if (!("optparse" %in% installed.packages())){
   install.packages("optparse")
 }
+if (!("devtools" %in% installed.packages())){
+  install.packages("devtools")
+}
 
 # Find .git root directory
 root_dir <- rprojroot::find_root(rprojroot::has_dir(".git"))
