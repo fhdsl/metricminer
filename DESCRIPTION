@@ -20,7 +20,8 @@ Imports:
     gh, 
     dplyr,
     lubridate, 
-    purrr
+    purrr, 
+    tidyr
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true

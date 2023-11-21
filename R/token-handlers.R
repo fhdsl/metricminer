@@ -26,26 +26,26 @@ remove_cache <- function(app_name) {
 # Default is to try to retrieve credentials but if credentials are not necessary
 # and you just want to attempt to grab credentials and see if you can then set try = TRUE
 get_token <- function(app_name, try = FALSE) {
-
   # If there's none in the current environment, attempt to grab a stored credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
-
-      .Env$metricminer_tokens[[app_name]] <- get_stored_token(app_name)
-      # only print this message if we are successful
-      if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied token stored using authorize(\"", app_name, "\")")
+    .Env$metricminer_tokens[[app_name]] <- get_stored_token(app_name)
+    # only print this message if we are successful
+    if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied token stored using authorize(\"", app_name, "\")")
   }
   # Attempt to grab a cached credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
-      .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
+    .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
 
-      # only print this message if we are successful
-      if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
+    # only print this message if we are successful
+    if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
+  }
+
+  # If we don't get authorization, check if we said it was required or not
+  if (is.null(.Env$metricminer_tokens[[app_name]])) {
+    warning("No token found. Please run `authorize()` to supply token.")
+    if (!try) {
+      stop("Authorization required for the called function. Quitting.")
     }
-
-  if (is.null(.Env$metricminer_tokens[[app_name]])) warning("No token found. Please run `authorize()` to supply token.")
-
-  if (!try) {
-    stop("Authorization required for the called function. Quitting.")
   }
   return(invisible(.Env$metricminer_tokens[[app_name]]))
 }
@@ -54,7 +54,7 @@ get_token <- function(app_name, try = FALSE) {
 get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly_api")
   if (app_name == "github") token <- getOption("github_api")
-  if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
+  if (app_name == "google") token <- try(readRDS(".httr-oauth")[[1]], silent = TRUE)
   return(token)
 }
 
@@ -62,9 +62,9 @@ get_stored_token <- function(app_name) {
 get_cached_token <- function(app_name) {
   if (app_name == "calendly") token <- try(readRDS(file.path(cache_secrets_folder(), "calendly.RDS")), silent = TRUE)
   if (app_name == "github") token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
-  if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
+  if (app_name == "google") token <- try(readRDS(".httr-oauth")[[1]], silent = TRUE)
 
-  if (grepl("Error", token[1])) {
+  if (class(token)[1] == "try-error") {
     token <- NULL
   }
 

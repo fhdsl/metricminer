@@ -4,10 +4,15 @@
 \alias{all_ga_metrics}
 \title{Get all metrics for all properties associated with an account}
 \usage{
-all_ga_metrics(account_id)
+all_ga_metrics(account_id, format = "dataframe")
 }
 \arguments{
 \item{account_id}{the account id of the properties you are trying to retrieve}
+
+\item{format}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
+}
+\value{
+Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
 }
 \description{
 This is a function to gets metrics and dimensions for all properties associated with an account
@@ -19,5 +24,6 @@ authorize("google")
 accounts <- get_ga_user()
 
 stats_list <- all_ga_metrics(account_id = accounts$id[5])
+saveRDS(stats_list, "itcr_website_data.rds")
 }
 }
