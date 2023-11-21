@@ -25,7 +25,6 @@ This is a function to get a list of scheduled events from a calendly user.
 authorize("calendly")
 user <- get_calendly_user()
 list_calendly_events(user = user$resource$uri)
-
 }
 
 }

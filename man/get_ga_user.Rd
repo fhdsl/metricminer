@@ -4,9 +4,11 @@
 \alias{get_ga_user}
 \title{Get Google Analytics Accounts}
 \usage{
-get_ga_user(request_type = "GET")
+get_ga_user(token = NULL, request_type = "GET")
 }
 \arguments{
+\item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
+
 \item{request_type}{Is this a GET or a POST?}
 }
 \description{

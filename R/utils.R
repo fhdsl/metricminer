@@ -51,8 +51,10 @@ cache_secrets_folder <- function() {
   )
 
   if (length(file_path) == 0) {
-    dir.create(file.path(system.file("extdata", package = "metricminer"),
-                         "cached-secrets"), recursive = TRUE, showWarnings = FALSE)
+    dir.create(file.path(
+      system.file("extdata", package = "metricminer"),
+      "cached-secrets"
+    ), recursive = TRUE, showWarnings = FALSE)
   }
   list.files(
     pattern = "cached-secrets",

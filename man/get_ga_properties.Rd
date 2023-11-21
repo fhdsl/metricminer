@@ -18,6 +18,6 @@ This is a function to get the Google Analytics accounts that this user has acces
 authorize("google")
 accounts <- get_ga_user()
 
-properties_list <- get_ga_properties(account_id = accounts$id[1])
+properties_list <- get_ga_properties(account_id = 209776907)
 }
 }
