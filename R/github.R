@@ -102,11 +102,6 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   if (count == "all") count <- Inf
 
-  if (is.null(token)) {
-    # Get auth token
-    token <- get_token(app_name = "github")
-  }
-
   # Split it up
   split_it <- strsplit(repo, split = "\\/")
   owner <- split_it[[1]][1]
@@ -218,6 +213,11 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
 gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, data_format = "dataframe") {
 
   message(paste("Trying", api_call, "for", repo))
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "github")
+  }
 
   # Not all repos have all stats so we have to try it.
   result <- try(gh::gh(api_call,

@@ -53,8 +53,13 @@ get_stored_token <- function(app_name) {
 
 # A function that attempts to grab cached credentials
 get_cached_token <- function(app_name) {
-  if (app_name == "calendly") token <- readRDS(file.path(cache_secrets_folder(), "calendly.RDS"))
-  if (app_name == "github") token <- readRDS(file.path(cache_secrets_folder(), "github.RDS"))
+  if (app_name == "calendly") token <- try(readRDS(file.path(cache_secrets_folder(), "calendly.RDS")), silent = TRUE)
+  if (app_name == "github") token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
   if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
+
+  if (grepl("Error", token[1])) {
+    token <- NULL
+    stop("No token found. Please run `authorize('github')` to supply token.")
+  }
   return(token)
 }
