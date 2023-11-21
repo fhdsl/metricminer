@@ -167,19 +167,20 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
     if (is.null(access_token) || is.null(refresh_token)) {
       stop("For Google auth, need access_token and refresh_token cannot be NULL")
     }
+    scopes_list <- unlist(find_scopes(app_name))
 
     credentials <- list(
       access_token = access_token,
       expires_in = 3599L,
       refresh_token = refresh_token,
-      scope = scopes,
+      scope = scopes_list,
       token_type = "Bearer"
     )
 
     token <- httr::oauth2.0_token(
       endpoint = app_set_up(app_name)$endpoint,
       app = app_set_up(app_name)$app,
-      scope = scopes,
+      scope = scopes_list,
       credentials = credentials,
       cache = cache
     )
