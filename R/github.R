@@ -92,6 +92,22 @@ get_github_repo <- function(token,  owner, repo) {
   )
 
 
+#' Get the repository metrics
+#' @description This is a function to get the information about a repository
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
+#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
+#' @return Information regarding a github account
+#' @importFrom gh gh
+#' @importFrom purrr map
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("github")
+#' metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+#' }
+get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
 
   stars <- gh::gh("GET /repos/{owner}/{repo}/stargazers",
     owner = owner,
@@ -122,6 +138,8 @@ get_github_repo <- function(token,  owner, repo) {
 #' @param repo What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.
 #' @return Information regarding a github account
 #' @importFrom gh gh
+#' @importFrom purrr map
+#' @importFrom dplyr bind_rows
 #' @export
 #' @examples \dontrun{
 #'
@@ -143,10 +161,53 @@ get_github_metrics <- function(token, owner, repo) {
     .token = token
   )
 
-  clones <- gh::gh("GET /repos/{owner}/{repo}/traffic/clones",
-    owner = owner,
-    repo = repo,
-    .token = token
+  # Some handlers because not all repos have all stats
+  if (length(result) == 0) result <-  "No results"
+  if (grepl("404", result[1])) result <-  "No results"
+  if (grepl("Error", result[1])) result <-  "No results"
+
+  return(result)
+}
+
+#' Cleaning metrics from GitHub
+#' @description This is a function to get metrics for all the repos underneath an organization
+#' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
+#' @param repo_metric_list a list containing the metrics c
+#' @return Metrics for a repo on GitHub
+#' @importFrom gh gh
+#' @importFrom dplyr bind_rows distinct %>%
+#' @importFrom purrr map
+#' @export
+#'
+clean_repo_metrics <- function(repo_name, repo_metric_list) {
+
+  if (repo_metric_list$contributors[1] != "No results") {
+    contributors <-
+     lapply(repo_metric_list$contributors, function(contributor) {
+      data.frame(
+        contributor = contributor$login,
+        num_contributors = contributor$contributions)
+    }) %>%
+      dplyr::bind_rows() %>%
+      dplyr::distinct()
+  } else {
+    contributors <- NULL
+  }
+
+  if (repo_metric_list$forks[1] != "No results") {
+    forks <- unlist(purrr::map(repo_metric_list$forks, "full_name"))
+  } else {
+    forks <- NULL
+  }
+  metrics <- data.frame(
+    repo_name,
+    num_forks <- length(forks),
+    num_contributors = length(unique(contributors$contributor)),
+    total_contributions = sum(contributors$num_contributors),
+    num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
+    health_percentage = ifelse(repo_metric_list$community[1] != "No results", repo_metric_list$community$health_percentage, "No results"),
+    num_clones = ifelse(repo_metric_list$clones[1] != "No results", repo_metric_list$clones$count, "No results"),
+    unique_views = ifelse(repo_metric_list$views[1] != "No results", repo_metric_list$views$count, "No results")
   )
 
   views <- gh::gh("GET /repos/{owner}/{repo}/traffic/views",
