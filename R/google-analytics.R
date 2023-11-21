@@ -8,12 +8,12 @@
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
 #' @param query A list to be passed to query
-#' @param type Is this a GET or a POST?
+#' @param request_type Is this a GET or a POST?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
+request_ga <- function(token, url, query = NULL, body_params = NULL, request_type) {
 
   if (is.null(token)) {
     # Get auth token
@@ -21,7 +21,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
   }
   config <- httr::config(token = token)
 
-  if (type == "GET") {
+  if (request_type == "GET") {
     result <- httr::GET(
       url  = url,
       body = body_params,
@@ -32,7 +32,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
     )
   }
 
-  if (type == "POST") {
+  if (request_type == "POST") {
     result <- httr::POST(
       url  = url,
       body = body_params,
@@ -55,7 +55,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 
 #' Get Google Analytics Accounts
 #' @description This is a function to get the Google Analytics accounts that this user has access to
-#' @param type Is this a GET or a POST?
+#' @param request_type Is this a GET or a POST?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -65,14 +65,14 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 #' authorize("google")
 #' get_ga_user()
 #' }
-get_ga_user <- function(type = "GET") {
+get_ga_user <- function(request_type = "GET") {
   # Get auth token
   token <- get_token(app_name = "google")
 
   results <- request_ga(
     token = token,
     url = "https://analytics.googleapis.com/analytics/v3/management/accountSummaries",
-    type = "GET"
+    request_type = "GET"
   )
 
   return(results$items)
@@ -100,7 +100,7 @@ get_ga_properties <- function(account_id) {
     token = token,
     url = "https://analyticsadmin.googleapis.com/v1alpha/properties",
     query = list(filter = paste0("parent:accounts/", account_id)),
-    type = "GET"
+    request_type = "GET"
   )
 
   return(results)
@@ -134,7 +134,7 @@ get_ga_metadata <- function(property_id) {
   results <- request_ga(
     token = token,
     url = url,
-    type = "GET"
+    request_type = "GET"
   )
 
   return(results)
@@ -160,8 +160,8 @@ get_ga_metadata <- function(property_id) {
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #'
 #' property_id <- gsub("properties/", "", properties_list$properties$name[1])
-#' metrics <- get_ga_stats(property_id, type = "metrics")
-#' dimensions <- get_ga_stats(property_id, type = "dimensions")
+#' metrics <- get_ga_stats(property_id, stats_type = "metrics")
+#' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
 get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = NULL, end_date = NULL, stats_type = "metrics") {
   # If no end_date is set, use today
@@ -194,8 +194,8 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
   results <- request_ga(
     token = token,
     url = url,
-    body = body_params,
-    type = "POST"
+    body_params = body_params,
+    request_type = "POST"
   )
 
   return(results)
@@ -251,8 +251,8 @@ all_ga_metrics <- function(account_id) {
   # Now loop through all the properties
   all_google_analytics_data <- lapply(property_names,  function(property_id) {
 
-    metrics <- get_ga_stats(property_id, type = "metrics")
-    dimensions <- get_ga_stats(property_id, type = "dimensions")
+    metrics <- get_ga_stats(property_id, stats_type = "metrics")
+    dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 
     return(list(metrics = metrics, dimensions = dimensions))
   })

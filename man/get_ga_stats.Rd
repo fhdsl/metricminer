@@ -35,7 +35,7 @@ accounts <- get_ga_user()
 properties_list <- get_ga_properties(account_id = accounts$id[1])
 
 property_id <- gsub("properties/", "", properties_list$properties$name[1])
-metrics <- get_ga_stats(property_id, type = "metrics")
-dimensions <- get_ga_stats(property_id, type = "dimensions")
+metrics <- get_ga_stats(property_id, stats_type = "metrics")
+dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 }
 }
