@@ -63,14 +63,17 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 #' authorize("google")
 #' get_ga_user()
 #' }
-get_ga_user <- function() {
-  # Get auth token
-  token <- get_token(app_name = "google")
+get_ga_user <- function(token = NULL, request_type = "GET") {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   results <- request_ga(
     token = token,
     url = "https://analytics.googleapis.com/analytics/v3/management/accountSummaries",
-    type = "GET"
+    request_type = request_type
   )
 
   return(results$items)
