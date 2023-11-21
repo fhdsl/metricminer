@@ -70,7 +70,7 @@ jobs:
 
       - name: Provide authorization
         run: |
-          Rscript .github/workflows/auth_from_secret.R \
+          Rscript --vanilla .github/workflows/auth_from_secret.R \
             --calendly_api ${{secrets.METRICMINER_CALENDLY}} \
             --git_pat ${{secrets.METRICMINER_GITHUB_PAT}} \
             --google_access ${{secrets.METRICMINER_GOOGLE_ACCESS}} \
