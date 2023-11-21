@@ -258,24 +258,29 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
     }) %>%
       dplyr::bind_rows() %>%
       dplyr::distinct()
+
+    num_contributors <- length(unique(contributors$contributor))
+    total_contributors <- sum(contributors$num_contributors)
   } else {
-    contributors <- NULL
+    num_contributors <- NA
+    total_contributors <- NA
   }
 
   if (repo_metric_list$forks[1] != "No results") {
     forks <- unlist(purrr::map(repo_metric_list$forks, "full_name"))
+    num_forks <- length(forks)
   } else {
-    forks <- NULL
+    num_forks <- NA
   }
   metrics <- data.frame(
     repo_name,
-    num_forks = length(forks),
-    num_contributors = length(unique(contributors$contributor)),
-    total_contributions = sum(contributors$num_contributors),
+    num_forks = num_forks,
+    num_contributors =  num_contributors,
+    total_contributions = total_contributors,
     num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
-    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), "No results"),
-    num_clones = ifelse(repo_metric_list$clones[1] != "No results", repo_metric_list$clones$count, "No results"),
-    unique_views = ifelse(repo_metric_list$views[1] != "No results", repo_metric_list$views$count, "No results")
+    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), NA),
+    num_clones = ifelse(repo_metric_list$clones[1] != "No results", as.numeric(repo_metric_list$clones$count), NA),
+    unique_views = ifelse(repo_metric_list$views[1] != "No results", as.numeric(repo_metric_list$views$count), NA)
   )
 
   rownames(metrics) <- repo_name
