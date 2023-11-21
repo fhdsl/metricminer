@@ -195,6 +195,10 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
   # Keep names
   names(repo_metrics) <- repo_names
 
+  if (data_format == "dataframe") {
+    repo_metrics <- dplyr::bind_rows(all_repos_metrics)
+  }
+
   return(repo_metrics)
 }
 
