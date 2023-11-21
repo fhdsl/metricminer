@@ -85,11 +85,7 @@ get_github_repo <- function(token,  owner, repo) {
   } else {
     token <- token
   }
-  repo_activity <- gh::gh("GET /repos/{owner}/{repo}/activity",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
+}
 
 
 #' Get the repository metrics
@@ -154,12 +150,6 @@ get_github_metrics <- function(token, owner, repo) {
   } else {
     token <- token
   }
-
-  community <- gh::gh("GET /repos/{owner}/{repo}/community/profile",
-    owner = owner,
-    repo = repo,
-    .token = token
-  )
 
   # Some handlers because not all repos have all stats
   if (length(result) == 0) result <-  "No results"

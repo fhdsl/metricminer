@@ -2,8 +2,10 @@
 % Please edit documentation in R/github.R
 \name{get_github_metrics}
 \alias{get_github_metrics}
-\title{Get the metrics from GitHub on a repo}
+\title{Get the repository metrics}
 \usage{
+get_github_metrics(token, owner, repo)
+
 get_github_metrics(token, owner, repo)
 }
 \arguments{
@@ -12,14 +14,27 @@ get_github_metrics(token, owner, repo)
 \item{owner}{Who is the owner of this account? For example in the repository fhdsl/metricminer, fhdsl is the owner}
 
 \item{repo}{What is the repository name? For example in the repository fhdsl/metricminer, "metricminer" is the repo name.}
+
+\item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
+
+\item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
 Information regarding a github account
+
+Information regarding a github account
 }
 \description{
+This is a function to get the information about a repository
+
 This is a function to get the GitHub user's info
 }
 \examples{
+\dontrun{
+
+authorize("github")
+metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+}
 \dontrun{
 
 authorize("github")
