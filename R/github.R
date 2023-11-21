@@ -209,11 +209,4 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
     num_clones = ifelse(repo_metric_list$clones[1] != "No results", repo_metric_list$clones$count, "No results"),
     unique_views = ifelse(repo_metric_list$views[1] != "No results", repo_metric_list$views$count, "No results")
   )
-
-  views <- gh::gh("GET /repos/{owner}/{repo}/traffic/views",
-    owner = owner,
-    repo = repo,
-    .params = list("per" = "day"),
-    .token = token
-  )
 }
