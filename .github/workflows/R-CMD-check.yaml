@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 name: R-CMD-check
 
@@ -69,6 +67,14 @@ jobs:
           remotes::install_deps(dependencies = TRUE)
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
+
+      - name: Provide authorization
+        run: |
+          Rscript "tests/auth_from_secret.R" \
+            --calendly_api METRICMINER_CALENDLY \
+            --git_pat METRICMINER_GITHUB_PAT \
+            --google_access secrets.METRICMINER_GOOGLE_ACCESS \
+            --google_refresh secrets.METRICMINER_GOOGLE_REFRESH
 
       - name: Check
         env:
