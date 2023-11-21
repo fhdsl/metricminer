@@ -4,6 +4,11 @@ if (!("optparse" %in% installed.packages())){
   install.packages("optparse")
 }
 
+# Find .git root directory
+root_dir <- rprojroot::find_root(rprojroot::has_dir(".git"))
+
+devtools::load_all(root_dir)
+
 library(optparse)
 
 option_list <- list(
