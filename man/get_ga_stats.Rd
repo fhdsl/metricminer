@@ -7,8 +7,9 @@
 get_ga_stats(
   property_id,
   start_date = "2015-08-14",
+  body_params = NULL,
   end_date = NULL,
-  type = "metrics"
+  stats_type = "metrics"
 )
 }
 \arguments{
@@ -16,7 +17,11 @@ get_ga_stats(
 
 \item{start_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.}
 
+\item{body_params}{The body parameters for the request}
+
 \item{end_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.}
+
+\item{stats_type}{Do you want to retrieve metrics or dimensions?}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
@@ -30,7 +35,7 @@ accounts <- get_ga_user()
 properties_list <- get_ga_properties(account_id = accounts$id[1])
 
 property_id <- gsub("properties/", "", properties_list$properties$name[1])
-metrics <- get_ga_stats(property_id, type = "metrics")
-dimensions <- get_ga_stats(property_id, type = "dimensions")
+metrics <- get_ga_stats(property_id, stats_type = "metrics")
+dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 }
 }

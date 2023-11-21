@@ -6,3 +6,4 @@
 .secrets/*
 .httr-oauth
 docs
+inst/extdata/cached-secrets/*

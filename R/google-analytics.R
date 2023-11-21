@@ -8,12 +8,12 @@
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
 #' @param query A list to be passed to query
-#' @param type Is this a GET or a POST?
+#' @param request_type Is this a GET or a POST?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
+request_ga <- function(token, url, query = NULL, body_params = NULL, request_type) {
 
   if (is.null(token)) {
     # Get auth token
@@ -21,10 +21,10 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
   }
   config <- httr::config(token = token)
 
-  if (type == "GET") {
+  if (request_type == "GET") {
     result <- httr::GET(
       url  = url,
-      body = body,
+      body = body_params,
       query = query,
       config = config,
       httr::accept_json(),
@@ -32,7 +32,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
     )
   }
 
-  if (type == "POST") {
+  if (request_type == "POST") {
     result <- httr::POST(
       url  = url,
       body = body_params,
@@ -55,6 +55,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 
 #' Get Google Analytics Accounts
 #' @description This is a function to get the Google Analytics accounts that this user has access to
+#' @param request_type Is this a GET or a POST?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -64,14 +65,14 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, type) {
 #' authorize("google")
 #' get_ga_user()
 #' }
-get_ga_user <- function() {
+get_ga_user <- function(request_type = "GET") {
   # Get auth token
   token <- get_token(app_name = "google")
 
   results <- request_ga(
     token = token,
     url = "https://analytics.googleapis.com/analytics/v3/management/accountSummaries",
-    type = "GET"
+    request_type = "GET"
   )
 
   return(results$items)
@@ -99,7 +100,7 @@ get_ga_properties <- function(account_id) {
     token = token,
     url = "https://analyticsadmin.googleapis.com/v1alpha/properties",
     query = list(filter = paste0("parent:accounts/", account_id)),
-    type = "GET"
+    request_type = "GET"
   )
 
   return(results)
@@ -133,7 +134,7 @@ get_ga_metadata <- function(property_id) {
   results <- request_ga(
     token = token,
     url = url,
-    type = "GET"
+    request_type = "GET"
   )
 
   return(results)
@@ -144,7 +145,8 @@ get_ga_metadata <- function(property_id) {
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
-#'
+#' @param body_params The body parameters for the request
+#' @param stats_type Do you want to retrieve metrics or dimensions?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -158,10 +160,10 @@ get_ga_metadata <- function(property_id) {
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #'
 #' property_id <- gsub("properties/", "", properties_list$properties$name[1])
-#' metrics <- get_ga_stats(property_id, type = "metrics")
-#' dimensions <- get_ga_stats(property_id, type = "dimensions")
+#' metrics <- get_ga_stats(property_id, stats_type = "metrics")
+#' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
-get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL, type = "metrics") {
+get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = NULL, end_date = NULL, stats_type = "metrics") {
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -172,7 +174,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
   # Get auth token
   token <- get_token(app_name = "google")
 
-  if (type == "metrics") {
+  if (stats_type == "metrics") {
     body_params <- list(
       dateRanges = list(
           "startDate" = start_date,
@@ -180,7 +182,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
       metrics = metrics_list()
     )
   }
-  if (type == "dimensions") {
+  if (stats_type == "dimensions") {
     body_params <- list(
       dateRanges = list(
           "startDate" = start_date,
@@ -192,8 +194,8 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", end_date = NULL
   results <- request_ga(
     token = token,
     url = url,
-    body = body_params,
-    type = "POST"
+    body_params = body_params,
+    request_type = "POST"
   )
 
   return(results)
@@ -249,8 +251,8 @@ all_ga_metrics <- function(account_id) {
   # Now loop through all the properties
   all_google_analytics_data <- lapply(property_names,  function(property_id) {
 
-    metrics <- get_ga_stats(property_id, type = "metrics")
-    dimensions <- get_ga_stats(property_id, type = "dimensions")
+    metrics <- get_ga_stats(property_id, stats_type = "metrics")
+    dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 
     return(list(metrics = metrics, dimensions = dimensions))
   })
