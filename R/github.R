@@ -14,7 +14,7 @@ get_github <- function(token = NULL, url) {
     token <- get_token(app_name = "github")
   }
 
-    # Github api get
+  # Github api get
   result <- httr::GET(
     url,
     httr::add_headers(Authorization = paste0("Bearer ", token)),
@@ -68,7 +68,6 @@ get_github_user <- function(token = NULL) {
 #' }
 #'
 get_repo_list <- function(owner, count = "all", token = NULL) {
-
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
@@ -78,9 +77,9 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
   }
 
   repo_list <- gh::gh("GET /orgs/{owner}/repos",
-                      owner = owner,
-                      .token = token,
-                      .limit = count
+    owner = owner,
+    .token = token,
+    .limit = count
   )
 
   return(repo_list)
@@ -102,7 +101,6 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
 #' metrics <- get_github_metrics(repo = "fhdsl/metricminer")
 #' }
 get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
-
   if (count == "all") count <- Inf
 
   # Split it up
@@ -121,13 +119,14 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
   )
   # Put gh_repo_wrapper inside function
   gh_repo_wrapper_fn <- function(api_call) {
-    gh_repo_wrapper(api_call = api_call,
-                    owner = owner,
-                    repo = repo,
-                    token = token,
-                    count = count,
-                    data_format = data_format
-                   )
+    gh_repo_wrapper(
+      api_call = api_call,
+      owner = owner,
+      repo = repo,
+      token = token,
+      count = count,
+      data_format = data_format
+    )
   }
   # Run gh_repo_wrapper_fn() on api_calls
   # when error occurs, set value to "Not Found"
@@ -165,11 +164,9 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #'
 #' repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 #' some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
-#'
 #' }
 #'
 get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, data_format = "dataframe") {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
@@ -182,15 +179,17 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
       count = "all"
     )
 
-  # Extra repo names from the repo list
-  repo_names <- unlist(purrr::map(repo_list, "full_name"))
+    # Extra repo names from the repo list
+    repo_names <- unlist(purrr::map(repo_list, "full_name"))
   }
 
   # Now run get_github_metrics on all repos
   repo_metrics <- lapply(repo_names, function(repo) {
-    get_github_metrics(token = token,
-                       repo = repo,
-                       data_format = data_format)
+    get_github_metrics(
+      token = token,
+      repo = repo,
+      data_format = data_format
+    )
   })
 
   # Keep names
@@ -216,7 +215,6 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
 #' @export
 #'
 gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, data_format = "dataframe") {
-
   message(paste("Trying", api_call, "for", repo))
 
   if (is.null(token)) {
@@ -234,9 +232,9 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
   ), silent = TRUE)
 
   # Some handlers because not all repos have all stats
-  if (length(result) == 0) result <-  "No results"
-  if (grepl("404", result[1])) result <-  "No results"
-  if (grepl("Error", result[1])) result <-  "No results"
+  if (length(result) == 0) result <- "No results"
+  if (grepl("404", result[1])) result <- "No results"
+  if (grepl("Error", result[1])) result <- "No results"
 
   return(result)
 }
@@ -253,14 +251,14 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 #' @export
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
-
   if (repo_metric_list$contributors[1] != "No results") {
     contributors <-
-     lapply(repo_metric_list$contributors, function(contributor) {
-      data.frame(
-        contributor = contributor$login,
-        num_contributors = contributor$contributions)
-    }) %>%
+      lapply(repo_metric_list$contributors, function(contributor) {
+        data.frame(
+          contributor = contributor$login,
+          num_contributors = contributor$contributions
+        )
+      }) %>%
       dplyr::bind_rows() %>%
       dplyr::distinct()
 
@@ -280,7 +278,7 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
   metrics <- data.frame(
     repo_name,
     num_forks = num_forks,
-    num_contributors =  num_contributors,
+    num_contributors = num_contributors,
     total_contributions = total_contributors,
     num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
     health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), NA),

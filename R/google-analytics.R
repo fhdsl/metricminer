@@ -14,7 +14,6 @@ library(magrittr)
 #' @importFrom assertthat assert_that is.string
 #' @export
 request_ga <- function(token, url, query = NULL, body_params = NULL, request_type) {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -23,7 +22,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 
   if (request_type == "GET") {
     result <- httr::GET(
-      url  = url,
+      url = url,
       body = body_params,
       query = query,
       config = config,
@@ -34,7 +33,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 
   if (request_type == "POST") {
     result <- httr::POST(
-      url  = url,
+      url = url,
       body = body_params,
       query = query,
       config = config,
@@ -56,6 +55,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 #' Get Google Analytics Accounts
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param request_type Is this a GET or a POST?
+#' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -66,7 +66,6 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 #' get_ga_user()
 #' }
 get_ga_user <- function(token = NULL, request_type = "GET") {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -143,7 +142,7 @@ get_ga_metadata <- function(property_id) {
   return(results)
 }
 
-#' Get stats for an associated google analytics property
+#' Get stats for an associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
@@ -195,7 +194,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
       dimensions = dimensions_list()
     )
   }
-  if (type == "link_clicks") {
+  if (stats_type == "link_clicks") {
     body_params <- list(
       dateRanges = list(
         "startDate" = start_date,
@@ -272,7 +271,7 @@ all_ga_metrics <- function(account_id, format = "dataframe") {
     # Be vocal about it
     message(paste("Retrieving", property_id, "metrics"))
     # Get the stats
-    metrics <- get_ga_stats(property_id, type = "metrics")
+    metrics <- get_ga_stats(property_id, stats_type = "metrics")
     return(metrics)
   })
 
@@ -284,7 +283,7 @@ all_ga_metrics <- function(account_id, format = "dataframe") {
     # Be vocal about it
     message(paste("Retrieving", property_id, "dimensions"))
     # Get the stats
-    dimensions <- get_ga_stats(property_id, type = "dimensions")
+    dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 
     return(dimensions)
   })
@@ -297,7 +296,7 @@ all_ga_metrics <- function(account_id, format = "dataframe") {
     # Be vocal about it
     message(paste("Retrieving", property_id, "link clicks"))
     # Get the stats
-    links <- get_ga_stats(property_id, type = "link_clicks")
+    links <- get_ga_stats(property_id, stats_type = "link_clicks")
 
     return(links)
   })
@@ -320,12 +319,14 @@ all_ga_metrics <- function(account_id, format = "dataframe") {
 }
 
 #' Handle Google Analytics Lists
-#' @description This is a function to gets metrics and dimensions for all properties associated with an account
-#' @param account_id the account id of the properties you are trying to retrieve
-#' @importFrom dplyr %>%
+#' @description These functions are to clean metric and dimension data from Google Analytics `get_ga_stats()` function
+#' @param metrics a metrics object from `get_ga_stats()` function
+#' @importFrom dplyr %>% mutate_all mutate_at bind_rows
+#' @importFrom purrr map
+#' @importFrom tidyr separate
 #' @export
 
-clean_metric_data <- function(metrics) {
+clean_metric_data <- function(metrics = NULL) {
   stat_names <- metrics[[1]]$metricHeaders$name
 
   clean_df <- purrr::map(metrics, "rows") %>%
@@ -337,15 +338,14 @@ clean_metric_data <- function(metrics) {
   return(clean_df)
 }
 
-clean_dimension_data <- function(dimensions) {
+clean_dimension_data <- function(dimensions = NULL) {
   all_website_dims <- lapply(dimensions, wrangle_dimensions) %>%
     dplyr::bind_rows(.id = "website")
 
   return(all_website_dims)
 }
 
-clean_link_data <- function(link_clicks) {
-
+clean_link_data <- function(link_clicks = NULL) {
   all_website_links <- lapply(link_clicks, wrangle_dimensions) %>%
     dplyr::bind_rows(.id = "website")
 

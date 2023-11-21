@@ -26,21 +26,19 @@ remove_cache <- function(app_name) {
 # Default is to try to retrieve credentials but if credentials are not necessary
 # and you just want to attempt to grab credentials and see if you can then set try = TRUE
 get_token <- function(app_name, try = FALSE) {
-
   # If there's none in the current environment, attempt to grab a stored credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
-
-      .Env$metricminer_tokens[[app_name]] <- get_stored_token(app_name)
-      # only print this message if we are successful
-      if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied token stored using authorize(\"", app_name, "\")")
+    .Env$metricminer_tokens[[app_name]] <- get_stored_token(app_name)
+    # only print this message if we are successful
+    if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied token stored using authorize(\"", app_name, "\")")
   }
   # Attempt to grab a cached credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
-      .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
+    .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
 
-      # only print this message if we are successful
-      if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
-    }
+    # only print this message if we are successful
+    if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
+  }
 
   # If we don't get authorization, check if we said it was required or not
   if (is.null(.Env$metricminer_tokens[[app_name]])) {

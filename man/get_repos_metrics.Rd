@@ -32,10 +32,10 @@ particular organization, or you can provide a character vector of repos like "
 
 authorize("github")
 all_repos_metrics <- get_repos_metrics(owner = "fhdsl")
+readr::write_tsv(all_repos_metrics, "fhdsl_github_metrics.tsv")
 
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
-
 }
 
 }

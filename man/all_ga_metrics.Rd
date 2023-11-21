@@ -24,5 +24,6 @@ authorize("google")
 accounts <- get_ga_user()
 
 stats_list <- all_ga_metrics(account_id = accounts$id[5])
+saveRDS(stats_list, "itcr_website_data.rds")
 }
 }

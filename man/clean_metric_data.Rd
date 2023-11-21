@@ -4,11 +4,11 @@
 \alias{clean_metric_data}
 \title{Handle Google Analytics Lists}
 \usage{
-clean_metric_data(metrics)
+clean_metric_data(metrics = NULL)
 }
 \arguments{
-\item{account_id}{the account id of the properties you are trying to retrieve}
+\item{metrics}{a metrics object from `get_ga_stats()` function}
 }
 \description{
-This is a function to gets metrics and dimensions for all properties associated with an account
+These functions are to clean metric and dimension data from Google Analytics `get_ga_stats()` function
 }
