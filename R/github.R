@@ -167,7 +167,7 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
 
   if (is.null(token)) {
     # Get auth token
-    token <- get_token(app_name = "github")
+    token <- get_token(app_name = "github", try = TRUE)
   }
 
   if (is.null(repo_names) && !is.null(owner)) {
@@ -216,7 +216,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 
   if (is.null(token)) {
     # Get auth token
-    token <- get_token(app_name = "github")
+    token <- get_token(app_name = "github", try = TRUE)
   }
 
   # Not all repos have all stats so we have to try it.
