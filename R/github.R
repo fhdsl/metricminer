@@ -14,7 +14,7 @@ get_github <- function(token = NULL, url) {
     token <- get_token(app_name = "github")
   }
 
-    # Github api get
+  # Github api get
   result <- httr::GET(
     url,
     httr::add_headers(Authorization = paste0("Bearer ", token)),
@@ -127,7 +127,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
                     token = token,
                     count = count,
                     data_format = data_format
-                   )
+    )
   }
   # Run gh_repo_wrapper_fn() on api_calls
   # when error occurs, set value to "Not Found"
@@ -181,9 +181,8 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
       owner = owner,
       count = "all"
     )
-
-  # Extra repo names from the repo list
-  repo_names <- unlist(purrr::map(repo_list, "full_name"))
+    # Extra repo names from the repo list
+    repo_names <- unlist(purrr::map(repo_list, "full_name"))
   }
 
   # Now run get_github_metrics on all repos
@@ -227,10 +226,10 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 
   # Not all repos have all stats so we have to try it.
   result <- try(gh::gh(api_call,
-    owner = owner,
-    repo = repo,
-    .token = token,
-    .limit = count
+                       owner = owner,
+                       repo = repo,
+                       .token = token,
+                       .limit = count
   ), silent = TRUE)
 
   # Some handlers because not all repos have all stats
@@ -256,11 +255,11 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
 
   if (repo_metric_list$contributors[1] != "No results") {
     contributors <-
-     lapply(repo_metric_list$contributors, function(contributor) {
-      data.frame(
-        contributor = contributor$login,
-        num_contributors = contributor$contributions)
-    }) %>%
+      lapply(repo_metric_list$contributors, function(contributor) {
+        data.frame(
+          contributor = contributor$login,
+          num_contributors = contributor$contributions)
+      }) %>%
       dplyr::bind_rows() %>%
       dplyr::distinct()
 
