@@ -1,9 +1,9 @@
 
 # Test if this is
-github_actions <- system("echo '${{ secrets.CI }}'", intern = TRUE)
-github_actions <- ifelse(github_actions == "${{ secrets.CI }}", FALSE, TRUE)
+#github_actions <- system("echo '${{ secrets.CI }} > out.'", intern = TRUE)
+#github_actions <- ifelse(github_actions == "${{ secrets.CI }}", FALSE, TRUE)
 
-if (github_actions) {
+# if (github_actions) {
   test_that("Set Tokens ", {
     message("Running with GitHub secrets")
 
@@ -25,14 +25,6 @@ if (github_actions) {
     message(Sys.getenv("METRICMINER_GOOGLE_ACCESS"))
     message(Sys.getenv("METRICMINER_GOOGLE_REFRESH"))
   })
-} else {
-
-  auth_from_secret("calendly", token = get_token("calendly"))
-
-  # Authorize GitHub
-  auth_from_secret("github", token = get_token("github"))
-
-  }
 
 test_that("Test Calendly Auth", {
   calendly_user <- get_calendly_user()

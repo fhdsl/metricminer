@@ -30,6 +30,7 @@ Imports:
     devtools,
     rprojroot, 
     optparse,
+    testthat,
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true
