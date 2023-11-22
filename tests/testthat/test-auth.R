@@ -5,19 +5,34 @@ github_actions <- ifelse(github_actions == "${{ secrets.CI }}", FALSE, TRUE)
 
 if (github_actions) {
   test_that("Set Tokens ", {
+    message("Running with GitHub secrets")
+
     # Authorize Calendly
     auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
+    message(Sys.getenv("METRICMINER_CALENDLY"))
+    message(getOption("calendly"))
 
     # Authorize GitHub
     auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
+    message(Sys.getenv("METRICMINER_GITHUB_PAT"))
+    message(getOption("github"))
 
     # Authorize Google
     auth_from_secret("google",
       refresh_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
       access_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH")
     )
+    message(Sys.getenv("METRICMINER_GOOGLE_ACCESS"))
+    message(Sys.getenv("METRICMINER_GOOGLE_REFRESH"))
   })
-}
+} else {
+
+  auth_from_secret("calendly", token = get_token("calendly"))
+
+  # Authorize GitHub
+  auth_from_secret("github", token = get_token("github"))
+
+  }
 
 test_that("Test Calendly Auth", {
   calendly_user <- get_calendly_user()
