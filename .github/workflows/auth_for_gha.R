@@ -1,10 +1,10 @@
 # Authorize metricminer
 
-if (!("optparse" %in% installed.packages())){
-  install.packages("optparse", repos='http://cran.us.r-project.org')
+if (!("optparse" %in% installed.packages())) {
+  install.packages("optparse", repos = "http://cran.us.r-project.org")
 }
-if (!("devtools" %in% installed.packages())){
-  install.packages("devtools", repos='http://cran.us.r-project.org')
+if (!("devtools" %in% installed.packages())) {
+  install.packages("devtools", repos = "http://cran.us.r-project.org")
 }
 
 # Find .git root directory
@@ -55,5 +55,5 @@ auth_from_secret("github", token = opt$git_pat)
 # Authorize Google
 auth_from_secret("google",
   refresh_token = opt$google_refresh,
-  access_token = opt$google_access)
-
+  access_token = opt$google_access
+)
