@@ -77,7 +77,7 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
     request_type = request_type
   )
 
-  return(results$items)
+  return(results)
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
