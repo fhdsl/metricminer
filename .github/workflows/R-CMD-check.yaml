@@ -68,6 +68,10 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
+      - name: Leave clue that this is running on GitHub actions
+        run: |
+          echo TRUE > "yes_github.txt"
+
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false

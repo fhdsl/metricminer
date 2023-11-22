@@ -68,7 +68,10 @@ get_token <- function(app_name, try = FALSE) {
 get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly")
   if (app_name == "github") token <- getOption("github")
-  if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
+  if (app_name == "google") {
+    token <- try(readRDS(".httr-oauth"), silent = TRUE)
+    if (length(token) == 1) token <- token[[1]]
+  }
   return(token)
 }
 
@@ -76,7 +79,10 @@ get_stored_token <- function(app_name) {
 get_cached_token <- function(app_name) {
   if (app_name == "calendly") token <- try(readRDS(file.path(cache_secrets_folder(), "calendly.RDS")), silent = TRUE)
   if (app_name == "github") token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
-  if (app_name == "google") token <- try(readRDS(".httr-oauth"), silent = TRUE)
+  if (app_name == "google") {
+    token <- try(readRDS(".httr-oauth"), silent = TRUE)
+    if (length(token) == 1) token <- token[[1]]
+  }
 
   if (class(token)[1] == "try-error") {
     token <- NULL
