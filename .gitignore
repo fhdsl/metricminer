@@ -7,3 +7,4 @@
 .httr-oauth
 docs
 inst/extdata/cached-secrets/*
+.Rprofile
