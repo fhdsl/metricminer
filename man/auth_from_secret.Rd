@@ -4,7 +4,14 @@
 \alias{auth_from_secret}
 \title{Use secrets to Authorize R package to access endpoints}
 \usage{
-auth_from_secret(app_name, token, access_token, refresh_token, cache = FALSE)
+auth_from_secret(
+  app_name,
+  token,
+  access_token,
+  refresh_token,
+  cache = FALSE,
+  ...
+)
 }
 \arguments{
 \item{app_name}{Which app are you trying to authorize? 'google', 'calendly' or 'github'?}

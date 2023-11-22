@@ -26,11 +26,7 @@ Imports:
     dplyr,
     lubridate, 
     purrr, 
-    tidyr, 
-    devtools,
-    rprojroot, 
-    optparse,
-    testthat,
+    tidyr
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true

@@ -68,10 +68,6 @@ jobs:
           remotes::install_cran("rcmdcheck")
         shell: Rscript {0}
 
-      - name: Leave clue that this is running on GitHub actions
-        run: |
-          echo TRUE > "yes_github.txt"
-
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
@@ -90,17 +86,3 @@ jobs:
         with:
           name: ${{ runner.os }}-r${{ matrix.config.r }}-results
           path: check
-
-      - name: Show testthat output
-        if: always()
-        run: |
-          ## --------------------------------------------------------------------
-          find ${{ runner.temp }}/package -name 'testthat.Rout*' -exec cat '{}' \; || true
-        shell: bash
-
-      - name: Upload test results
-        if: failure()
-        uses: actions/upload-artifact@v3
-        with:
-          name: coverage-test-failures
-          path: ${{ runner.temp }}/package
