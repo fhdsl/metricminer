@@ -80,6 +80,16 @@ jobs:
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), check_dir = "check")
         shell: Rscript {0}
 
+      - name: Check URLs
+        id: check_check
+        run: |
+          error_num=$(Rscript -e "check_check()")
+          echo "error_num=$error_num" >> $GITHUB_OUTPUT
+
+      - name: There are errors!
+        if: ${{ steps.check_check.outputs.error_num > 0 }}
+        run: exit 1
+
       - name: Upload check results
         if: failure()
         uses: actions/upload-artifact@main

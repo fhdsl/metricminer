@@ -31,7 +31,6 @@ encrypt_creds_path <- function(app_name) {
     full.names = TRUE
   )
 }
-
 #' Get file path to an key encryption RDS
 key_encrypt_creds_path <- function() {
   list.files(
@@ -64,3 +63,40 @@ cache_secrets_folder <- function() {
     include.dirs = TRUE,
   )
 }
+
+
+#' Check the testthat check log file and print out how many errors
+#' @description if testthat's tests have been run, this will look for the check to see if anything truly broke
+#' It will return a TRUE/FALSE for whether or not there were errors based on the check/testthat.Rout file produced.
+#' @param report_warnings Should the number include warnings in addition errors? Default is both will be reported
+#' but if you'd like to ignore warnings set this to FALSE.
+#' @importFrom tidyr separate
+#' @importFrom dplyr filter
+#' @return a how many errors/warnings were found
+check_check <- function(report_warning = TRUE) {
+
+  out_file <- list.files(pattern = "testthat.Rout$", "check", recursive = TRUE, full.names = TRUE)
+  check_content <- readLines(out_file)
+  test_result <- grep("\\[ FAIL",check_content, value = TRUE)
+  test_result <- unlist(strsplit(test_result, "\\||\\[|\\]"))
+
+  test_result_df <- data.frame(result = trimws(test_result)) %>%
+    dplyr::filter(result != "") %>%
+    tidyr::separate(result, sep = " ", into = c("test_name", "num")) %>%
+    dplyr::mutate(num = as.numeric(num))
+
+  if (report_warning) {
+    fail_num <- test_result_df %>%
+      dplyr::filter(test_name %in% c("FAIL", "WARN"))
+  } else {
+    fail_num <- test_result_df %>%
+      dplyr::filter(test_name == "FAIL")
+  }
+
+  fail_num <- as.character(sum(fail_num$fail_num))
+
+  # Spit the number out
+  writeLines(fail_num, con = stdout())
+
+  return(fail_num)
+  }

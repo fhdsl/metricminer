@@ -1,3 +1,5 @@
+library(testthat)
+
 # Authorize Calendly
 auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 
