@@ -2,7 +2,6 @@
 #' @description This is a function to authorize the R package to access APIs interactively.
 #' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
 #' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
-#' @param introducing a warning on purpose
 #' @param ... additional arguments to send to \code{\link{oauth2.0_token}}
 #' @return OAuth token saved to the environment so the package can use the users' Google data
 #' @importFrom utils menu installed.packages browseURL
