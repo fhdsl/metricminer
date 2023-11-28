@@ -74,10 +74,9 @@ cache_secrets_folder <- function() {
 #' @importFrom dplyr filter
 #' @return a how many errors/warnings were found
 check_check <- function(report_warning = TRUE) {
-
   out_file <- list.files(pattern = "testthat.Rout$", "check", recursive = TRUE, full.names = TRUE)
   check_content <- readLines(out_file)
-  test_result <- grep("\\[ FAIL",check_content, value = TRUE)
+  test_result <- grep("\\[ FAIL", check_content, value = TRUE)
   test_result <- unlist(strsplit(test_result, "\\||\\[|\\]"))
 
   # Format the data into a dataframe
@@ -100,4 +99,4 @@ check_check <- function(report_warning = TRUE) {
   writeLines(fail_num, con = stdout())
 
   return(fail_num)
-  }
+}

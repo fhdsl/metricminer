@@ -78,13 +78,12 @@ jobs:
         run: |
           options(crayon.enabled = TRUE)
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), check_dir = "check")
-          devtools::load_all()
         shell: Rscript {0}
 
       - name: Check testthat
         id: check_check
         run: |
-          error_num=$(Rscript -e "metricminer::check_check()")
+          error_num=$(Rscript check_testthat.R)
           echo "error_num=$error_num" >> $GITHUB_OUTPUT
 
       - name: Stop if there are errors!

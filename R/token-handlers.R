@@ -19,7 +19,6 @@ set_token <- function(token, app_name) {
 }
 
 cache_token <- function(token, app_name) {
-
   saveRDS(token, file.path(cache_secrets_folder(), paste0(app_name, ".RDS")))
 }
 

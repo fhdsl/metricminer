@@ -20,7 +20,7 @@ test_that("Test Calendly Auth", {
 
 test_that("Test Google Analytics Auth", {
   ga_user <- get_ga_user()
-  expect_named(ga_user, c('kind', 'username', 'totalResults', 'startIndex', 'itemsPerPage', 'items'))
+  expect_named(ga_user, c("kind", "username", "totalResults", "startIndex", "itemsPerPage", "items"))
 })
 
 test_that("Test GitHub Auth", {
