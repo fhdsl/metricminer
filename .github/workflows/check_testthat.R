@@ -1,4 +1,8 @@
 # Check up on the testthat results
+# C. Savonen
+# Nov 2023
+
+library(magirttr)
 
 # Find .git root directory
 root_dir <- rprojroot::find_root(rprojroot::has_dir(".git"))
