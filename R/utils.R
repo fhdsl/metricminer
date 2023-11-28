@@ -80,6 +80,7 @@ check_check <- function(report_warning = TRUE) {
   test_result <- grep("\\[ FAIL",check_content, value = TRUE)
   test_result <- unlist(strsplit(test_result, "\\||\\[|\\]"))
 
+  # Format the data into a dataframe
   test_result_df <- data.frame(result = trimws(test_result)) %>%
     dplyr::filter(result != "") %>%
     tidyr::separate(result, sep = " ", into = c("test_name", "num")) %>%
