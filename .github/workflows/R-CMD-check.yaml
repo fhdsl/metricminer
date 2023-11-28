@@ -87,7 +87,7 @@ jobs:
           echo "error_num=$error_num" >> $GITHUB_OUTPUT
 
       - name: Stop if there are errors!
-        if: ${{ steps.check_check.outputs.error_num > 0 }}
+        if: ${{ steps.check_check.outputs.error_num == "0" }}
         run: exit 1
 
       - name: Upload check results

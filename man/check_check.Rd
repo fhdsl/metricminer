@@ -7,7 +7,7 @@
 check_check(report_warning = TRUE)
 }
 \arguments{
-\item{report_warnings}{Should the number include warnings in addition errors? Default is both will be reported
+\item{report_warning}{Should the number include warnings in addition errors? Default is both will be reported
 but if you'd like to ignore warnings set this to FALSE.}
 }
 \value{

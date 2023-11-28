@@ -1,5 +1,5 @@
 utils::globalVariables(c(
-  "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%"
+   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%"
 ))
 #' Supported endpoints
 #' @description This is function stores endpoints and supported app names
@@ -68,7 +68,7 @@ cache_secrets_folder <- function() {
 #' Check the testthat check log file and print out how many errors
 #' @description if testthat's tests have been run, this will look for the check to see if anything truly broke
 #' It will return a TRUE/FALSE for whether or not there were errors based on the check/testthat.Rout file produced.
-#' @param report_warnings Should the number include warnings in addition errors? Default is both will be reported
+#' @param report_warning Should the number include warnings in addition errors? Default is both will be reported
 #' but if you'd like to ignore warnings set this to FALSE.
 #' @importFrom tidyr separate
 #' @importFrom dplyr filter
