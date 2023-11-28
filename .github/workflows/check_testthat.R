@@ -34,5 +34,3 @@ fail_num <- as.character(sum(fail_num$fail_num))
 
 # Spit the number out
 writeLines(fail_num, con = stdout())
-
-return(fail_num)
