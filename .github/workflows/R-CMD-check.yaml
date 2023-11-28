@@ -83,11 +83,11 @@ jobs:
       - name: Check testthat
         id: check_check
         run: |
-          error_num=$(Rscript .github/workflows/check_testthat.R)
+          error_num=$(Rscript --vanilla '.github/workflows/check_testthat.R')
           echo "error_num=$error_num" >> $GITHUB_OUTPUT
 
       - name: Stop if there are errors!
-        if: ${{ steps.check_check.outputs.error_num != 0 }}
+        if: ${{ steps.check_check.outputs.error_num != '0' }}
         run: exit 1
 
       - name: Upload check results

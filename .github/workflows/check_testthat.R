@@ -4,16 +4,15 @@
 
 library(magrittr)
 
-report_warning <- TRUE
 
 # Find .git root directory
 root_dir <- rprojroot::find_root(rprojroot::has_dir(".git"))
 
-out_file <- list.files(pattern = "testthat.Rout$", file.path(root_dir, "check"),
+out_file <- list.files(pattern = "testthat.Rout$|Rout.fail$", file.path(root_dir, "check"),
  recursive = TRUE, full.names = TRUE)
 
 check_content <- readLines(out_file)
-test_result <- grep("\\[ FAIL", check_content, value = TRUE)
+test_result <- grep("\\[ FAIL", check_content, value = TRUE)[1]
 test_result <- unlist(strsplit(test_result, "\\||\\[|\\]"))
 
 # Format the data into a dataframe
@@ -22,15 +21,11 @@ test_result_df <- data.frame(result = trimws(test_result)) %>%
   tidyr::separate(result, sep = " ", into = c("test_name", "num")) %>%
   dplyr::mutate(num = as.numeric(num))
 
-if (report_warning) {
-  fail_num <- test_result_df %>%
-    dplyr::filter(test_name %in% c("FAIL", "WARN"))
-} else {
-  fail_num <- test_result_df %>%
-    dplyr::filter(test_name == "FAIL")
-}
+fail_num <- test_result_df %>%
+  dplyr::filter(test_name %in% c("FAIL", "WARN")) %>%
+  dplyr::summarize(total = sum(num))
 
-fail_num <- as.character(sum(fail_num$fail_num))
+fail_num <- as.character(fail_num$total)
 
 # Spit the number out
 writeLines(fail_num, con = stdout())
