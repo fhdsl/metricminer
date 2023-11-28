@@ -83,7 +83,7 @@ jobs:
       - name: Check testthat
         id: check_check
         run: |
-          error_num=$(Rscript -e "check_check()")
+          error_num=$(Rscript -e "metricminer::check_check()")
           echo "error_num=$error_num" >> $GITHUB_OUTPUT
 
       - name: Stop if there are errors!
