@@ -78,6 +78,7 @@ jobs:
         run: |
           options(crayon.enabled = TRUE)
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), check_dir = "check")
+          devtools::load_all()
         shell: Rscript {0}
 
       - name: Check testthat
