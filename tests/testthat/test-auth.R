@@ -35,8 +35,3 @@ test_that("Test GitHub Auth", {
     "public_gists", "followers", "following", "created_at", "updated_at"
   ))
 })
-
-test_that("failed action ", {
-  calendly_user <- get_calendly_user()
-  expect_named(calendly_user, "something else")
-})

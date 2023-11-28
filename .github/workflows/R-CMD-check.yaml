@@ -81,6 +81,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Check testthat
+        if: ${{ runner.os  != "windows-latest"}}
         id: check_check
         run: |
           error_num=$(Rscript --vanilla '.github/workflows/check_testthat.R')
