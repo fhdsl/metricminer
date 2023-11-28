@@ -21,6 +21,6 @@ test_that("Google Analytics Metadata", {
   property_id <- gsub("properties/", "", properties_list$properties$name[1])
   property_metadata <- get_ga_metadata(property_id = property_id)
 
-  expect_named(properties_list$properties, c("dimensions", "metrics", "name"))
+  expect_named(property_metadata, c("dimensions", "metrics", "name"))
 
 })
