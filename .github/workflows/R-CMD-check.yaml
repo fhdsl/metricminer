@@ -81,13 +81,14 @@ jobs:
         shell: Rscript {0}
 
       - name: Check testthat
-        if: ${{ runner.os  != "windows-latest"}}
+        if: ${{ "$RUNNER_OS" != "Windows" }}
         id: check_check
         run: |
-          error_num=$(Rscript --vanilla '.github/workflows/check_testthat.R')
-          echo "error_num=$error_num" >> $GITHUB_OUTPUT
+            error_num=$(Rscript --vanilla '.github/workflows/check_testthat.R')
+            echo "error_num=$error_num" >> $GITHUB_OUTPUT
 
       - name: Stop if there are errors!
+        if: ${{ "$RUNNER_OS" != "Windows" }}
         if: ${{ steps.check_check.outputs.error_num != '0' }}
         run: exit 1
 
