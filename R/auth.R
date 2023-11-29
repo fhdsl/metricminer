@@ -187,7 +187,8 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
   }
 
   if (cache) {
-    message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \n Be careful not to push .httr-oauth or RDS files to GitHub or share it anywhere.")
+    message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds().
+            \n Be careful not to push .httr-oauth or RDS files to GitHub or share it anywhere.")
     cache_token(token, app_name = app_name)
   }
   # Store the token in the environment
