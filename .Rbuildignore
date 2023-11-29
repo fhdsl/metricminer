@@ -10,3 +10,4 @@
 ^docs$
 ^pkgdown$
 ^inst/extdata/cached-secrets/*
+.Rprofile

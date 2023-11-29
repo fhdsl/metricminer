@@ -1,14 +1,19 @@
 Type: Package
 Package: metricminer
-Title: Mine metrics from common places on the web
+Title: Mine Metrics from Common Places on the Web
 Version: 0.1.0
 Authors@R: c(
     person("Candace", "Savonen", , 
     c("cansav09@gmail.com","csavonen@fredhutch.org"), 
-    role = c("aut", "cre"))
+    role = c("aut", "cre")), 
+    person("Howard", "Baek", , 
+    c("howardbaek@fredhutch.org","howardbaek.fh@gmail.com"), 
+    role = c("aut"))
     )
-Description: metricminer helps you mine places on the web through the power of their APIs. 
+Description: Mine metrics on common places on the web through the power of their APIs. 
     It also helps make the data in a format that is easily used for a dashboard or other purposes.
+    There is an associated dashboard template and tutorials that are underdevelopment that help you  
+    fully utilize metricminer.
 License: GPL-3
 URL: https://github.com/fhdsl/metricminer
 BugReports: https://github.com/fhdsl/metricminer/issues
@@ -21,7 +26,9 @@ Imports:
     dplyr,
     lubridate, 
     purrr, 
-    tidyr
+    tidyr,
+Suggests: testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true

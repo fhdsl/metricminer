@@ -42,13 +42,8 @@ authorize <- function(app_name = NULL,
     # Store api key here
     token <- readline(prompt = "Paste token here and press enter: ")
 
-    options(calendly_api = token)
-
-
     # If they chose to cache it, we'll store it in rds file format
-    if (cache_it == 1) {
-      saveRDS(token, file.path(cache_secrets_folder(), "calendly.RDS"))
-    }
+    if (cache_it == 1) cache_token(token, "calendly")
   }
 
   if (app_name == "github") {
@@ -63,7 +58,7 @@ authorize <- function(app_name = NULL,
     if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
 
     # If they chose to cache it, we'll store it in rds file format
-    if (cache_it == 1) saveRDS(token, file.path(cache_secrets_folder(), "github.RDS"))
+    if (cache_it == 1) cache_token(token, "github")
   }
 
   if (app_name == "google") {
@@ -109,7 +104,6 @@ delete_creds <- function(app_name = "all") {
   } else {
     if (app_name == "all" | app_name == "calendly") {
       if (calendly_creds_exist) {
-        options(calendly_api = NULL)
         remove_token("calendly")
         remove_cache("calendly")
         message("Calendly creds deleted from cache and environment")
@@ -118,7 +112,6 @@ delete_creds <- function(app_name = "all") {
 
     if (app_name == "all" | app_name == "github") {
       if (github_creds_exist) {
-        options(github_api = NULL)
         remove_token("github")
         remove_cache("github")
         message("GitHub creds deleted from cache and environment")
@@ -127,8 +120,8 @@ delete_creds <- function(app_name = "all") {
 
     if (app_name == "all" | app_name == "google") {
       if (google_creds_exist) {
-        file.remove(oauth_file)
         remove_token("google")
+        remove_cache("google")
         message("Cached Google .httr-oauth file deleted and token removed from environment")
       }
     }
@@ -174,35 +167,29 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
     if (is.null(access_token) || is.null(refresh_token)) {
       stop("For Google auth, need access_token and refresh_token cannot be NULL")
     }
+    scopes_list <- unlist(find_scopes(app_name))
 
     credentials <- list(
       access_token = access_token,
       expires_in = 3599L,
       refresh_token = refresh_token,
-      scope = scopes,
+      scope = scopes_list,
       token_type = "Bearer"
     )
 
     token <- httr::oauth2.0_token(
       endpoint = app_set_up(app_name)$endpoint,
       app = app_set_up(app_name)$app,
-      scope = scopes,
-      credentials = credentials,
-      cache = cache
+      cache = cache,
+      scope = scopes_list,
+      credentials = credentials
     )
   }
 
-  # If they chose to cache it, we'll store it in the .Rprofile
-  if (app_name == "calendly" && cache) {
-    options(calendly = token)
+  if (cache) {
+    message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \n Be careful not to push .httr-oauth or RDS files to GitHub or share it anywhere.")
+    cache_token(token, app_name = app_name)
   }
-
-  if (app_name == "github" && cache) {
-    options(github_api = token)
-  }
-
-  if (cache) message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \n Be careful not to push .httr-oauth or .Rprofile files to GitHub or share it anywhere.")
-
   # Store the token in the environment
   set_token(app_name = app_name, token)
 

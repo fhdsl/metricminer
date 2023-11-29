@@ -4,11 +4,9 @@ on:
   push:
     branches:
       - main
-      - master
   pull_request:
     branches:
       - main
-      - master
 
 name: R-CMD-check
 
@@ -39,7 +37,7 @@ jobs:
         with:
           r-version: ${{ matrix.config.r }}
 
-      - uses: r-lib/actions/setup-pandoc@v1
+      - uses: r-lib/actions/setup-pandoc@v2
 
       - name: Query dependencies
         run: |
@@ -73,10 +71,25 @@ jobs:
       - name: Check
         env:
           _R_CHECK_CRAN_INCOMING_REMOTE_: false
+          METRICMINER_CALENDLY: ${{ secrets.METRICMINER_CALENDLY }}
+          METRICMINER_GITHUB_PAT: ${{ secrets.METRICMINER_GITHUB_PAT }}
+          METRICMINER_GOOGLE_ACCESS: ${{ secrets.METRICMINER_GOOGLE_ACCESS }}
+          METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
         run: |
           options(crayon.enabled = TRUE)
           rcmdcheck::rcmdcheck(args = c("--no-manual", "--as-cran"), check_dir = "check")
         shell: Rscript {0}
+
+      - name: Check testthat
+        if: runner.os != 'Windows'
+        id: check_check
+        run: |
+            error_num=$(Rscript --vanilla '.github/workflows/check_testthat.R')
+            echo "error_num=$error_num" >> $GITHUB_OUTPUT
+
+      - name: Stop if there are errors!
+        if: ${{ steps.check_check.outputs.error_num != '0' }}
+        run: exit 1
 
       - name: Upload check results
         if: failure()
