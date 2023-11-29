@@ -1,4 +1,3 @@
-
 test_that("GitHub: get repo list", {
 
   repo_list <- get_repo_list(owner = "fhdsl")

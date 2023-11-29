@@ -1,4 +1,3 @@
-
 test_that("Calendly: Events", {
   user <- get_calendly_user()
   events <- list_calendly_events(user = user$resource$uri)

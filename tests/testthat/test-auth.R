@@ -1,4 +1,3 @@
-
 test_that("Test Calendly Auth", {
   calendly_user <- get_calendly_user()
   expect_named(calendly_user, "resource")

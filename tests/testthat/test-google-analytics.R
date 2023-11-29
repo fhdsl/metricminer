@@ -1,4 +1,3 @@
-
 test_that("Google Analytics: Properties", {
   ga_user <- get_ga_user()
 
