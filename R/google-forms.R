@@ -84,7 +84,6 @@ get_google_form <- function(form_id, token = NULL) {
 #' Get multiple Google forms
 #' @description This is a function to get the Calendly API user info
 #' @param form_ids a vector of form ids you'd like to retrieve information for
-#' @param folder_id A google folder that you'd like to collect the forms from
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
@@ -92,8 +91,11 @@ get_google_form <- function(form_id, token = NULL) {
 #' @examples \dontrun{
 #'
 #' authorize("google")
+
+#' googledrive::drive_auth(token = get_token("google"))
+#' form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
 #'
-#' multiple_forms <- get_folder_of_forms(folder_id = "https://drive.google.com/drive/folders/1v21z53eoBRV_AwYumg3l0NORatG3T3Vd")
+#' multiple_forms <- get_folder_of_forms(form_ids = form_list$id)
 #'
 #' }
 
@@ -144,8 +146,10 @@ get_question_metadata <- function(form_info) {
 
 clean_up_responses <- function(form_info) {
 
-  metadata <- lapply(form_info, get_question_metadata)
+  metadata <- get_question_metadata(form_info)
 
+
+  lapply(form_info)
   # row bind all question data together.
   question_info <- dplyr::bind_rows(responses, .id = "question_id")
 
@@ -178,3 +182,6 @@ extract_text_question <- function(question) {
     return(answers_df)
 }
 
+extract_mc_question <- function(question) {
+
+}
