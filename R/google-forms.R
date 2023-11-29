@@ -97,7 +97,7 @@ get_google_form <- function(form_id, token = NULL) {
 #'
 #' }
 
-get_folder_of_forms <- function(form_ids = NULL, folder_id = NULL, token) {
+get_folder_of_forms <- function(form_ids = NULL, folder_id = NULL, token = NULL) {
 
   if (is.null(folder_id) && is.null(form_ids)) {
     stop("Neither a vector of form_ids nor a Google Drive folder Id where to look for forms was supplied. Stopping.")
