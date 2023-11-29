@@ -26,14 +26,26 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL) {
       encode = "json"
     )
 
+  request_info <- list(url = url,
+                       token = token,
+                       body_params = body_params,
+                       query_params = query_params)
+
   if (httr::status_code(result) != 200) {
-    return(httr::content(result, "text"))
+    httr::stop_for_status(result)
+    return(result)
   }
 
   # Process and return results
   result_content <- httr::content(result, "text")
   result_list <- jsonlite::fromJSON(result_content)
-  return(result_list)
+
+  if (return_request) {
+    return(list(result = result_list, request_info = request_info))
+  } else {
+    return(result_list)
+  }
+
 }
 
 
@@ -56,13 +68,15 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL) {
 get_google_form <- function(form_id, token = NULL) {
 
   # If a URL is supplied, only take the ID from it.
-  if (grepl("https:", form_id)) {
+  if (grepl("https:", form_id[1])) {
     form_id <- gsub("\\/viewform$|\\/edit$", "", form_id)
     form_id <- gsub("https://docs.google.com/forms/d/e/|https://docs.google.com/forms/d/", "", form_id)
   }
 
   form_info_url <- gsub("\\{formId\\}", form_id, "https://forms.googleapis.com/v1/forms/{formId}")
   form_response_url <- gsub("\\{formId\\}", form_id, "https://forms.googleapis.com/v1/forms/{formId}/responses")
+
+  message(paste0("Trying to grab form: ", form_id))
 
   form_info <- request_google_forms(
     url = form_info_url,
@@ -73,6 +87,7 @@ get_google_form <- function(form_id, token = NULL) {
     url = form_response_url,
     token = token
   )
+
 
   result <- list(form_metadata = form_info,
                  response_info = response_info)
@@ -95,71 +110,48 @@ get_google_form <- function(form_id, token = NULL) {
 #' googledrive::drive_auth(token = get_token("google"))
 #' form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
 #'
-#' multiple_forms <- get_folder_of_forms(form_ids = form_list$id)
+#' multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 #'
 #' }
 
-get_folder_of_forms <- function(form_ids = NULL, folder_id = NULL, token = NULL) {
-
-  if (is.null(folder_id) && is.null(form_ids)) {
-    stop("Neither a vector of form_ids nor a Google Drive folder Id where to look for forms was supplied. Stopping.")
-  }
-
-  if (is.null(folder_id)) {
-    form_ids <- get_google_files(
-      drive_id = folder_id,
-      token = token,
-      type = "forms")
-
-    form_ids <- form_ids$id
-
-    if (length(form_ids) == 0) stop("No forms were found in the folder provided")
-  }
+get_multiple_forms <- function(form_ids = NULL, token = NULL) {
 
   all_form_info <- lapply(form_ids, function(form_id) {
+
     form_info <- get_google_form(
       form_id = form_id,
       token = token)
 
-    return(list(form_metadata = form_info, form_name = form_info$form_info$info$documentTitle))
+    if (length(form_info$response_info) > 0 ) {
+
+      metadata <- get_question_metadata(form_info)
+
+      answers_df <- extract_text_question(form_info$response_info$responses)
+
+      answers_df <- tidyr::pivot_wider(answers_df,
+                                     names_from = question,
+                                     values_from = answer)
+      return(answers_df)
+    } else {
+      return("No responses to this form yet.")
+    }
   })
 
-  form_names <- unlist(purrr::map(all_form_info, "form_name"))
-  all_form_info <- purrr::map(all_form_info, "form_info")
-  names(all_form_info) <- form_names
+  all_form_info
 
+  return(all_form_info)
 }
 
 
 get_question_metadata <- function(form_info) {
 
   data.frame(
+    question_id = form_info$form_metadata$items$itemId,
     title = form_info$form_metadata$items$title,
     paragraph = form_info$form_metadata$items$questionItem$question$textQuestion,
     choice_question = form_info$form_metadata$items$questionItem$question$choiceQuestion$type,
-    required = form_info$form_metadata$items$questionItem$question$required
+    text_question = is.na(form_info$form_metadata$items$questionItem$question$choiceQuestion$type)
     )
-
-}
-
-
-
-clean_up_responses <- function(form_info) {
-
-  metadata <- get_question_metadata(form_info)
-
-
-  lapply(form_info)
-  # row bind all question data together.
-  question_info <- dplyr::bind_rows(responses, .id = "question_id")
-
-
-  tmp <- tidyr::pivot_wider(question_info,
-                            names_from = question_id,
-                            values_from = answers)
-
-}
-clean_up_form_info <- function() {
 
 }
 
@@ -173,15 +165,53 @@ extract_text_question <- function(question) {
                                                     .x) )
     answers <- lapply(answers, purrr::map, -1)
 
+    question_ids <- rep(names(answers), lapply(answers, length))
+
     answers <- unlist(answers)
 
-    answers_df <- data.frame(response_id = question$responseId,
-                             answer = answers,
-                             question_id = names(answers))
+    answers_df <- data.frame(
+      reponse_id = rep(question$responseId, length(question$answers)),
+      answer = unlist(answers),
+      question = as.factor(question_ids)
+    )
 
     return(answers_df)
 }
 
 extract_mc_question <- function(question) {
 
+}
+
+google_pagination <- function(first_page_result) {
+  # Set up a while loop for us to store the multiple page requests in
+  cummulative_pages <- first_page_result$result$files
+  page <- 1
+
+  next_pg <- try(next_google(first_page_result), silent = TRUE)
+
+  while (!grepl("Error", next_pg$result[1])) {
+    cummulative_pages <- dplyr::bind_rows(cummulative_pages, next_pg$result$files)
+    next_pg <- try(next_google(first_page_result), silent = TRUE)
+    page <- page + 1
+  }
+  return(cummulative_pages)
+}
+
+
+next_google <- function(page_result) {
+
+  ## TODO: Next page request is not working! Not sure why. It doesn't throw an error,
+  ## but it just gives the same result everytime!
+  body_params <- c(page_result$request_info$body_params,
+                   pageToken = page_result$result$nextPageToken)
+
+  result <- request_google_forms(
+    token = token,
+    url = url,
+    body_params = body_params,
+    query_params = query_params,
+    return_request = TRUE
+  )
+
+  return(result)
 }
