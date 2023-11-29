@@ -1,4 +1,6 @@
 test_that("Test Calendly Auth", {
+  withr::local_options(calendly = Sys.getenv("METRICMINER_CALENDLY"))
+
   calendly_user <- get_calendly_user()
   expect_named(calendly_user, "resource")
 })
@@ -9,6 +11,8 @@ test_that("Test Google Analytics Auth", {
 })
 
 test_that("Test GitHub Auth", {
+  withr::local_options(calendly = Sys.getenv("METRICMINER_GITHUB_PAT"))
+
   gh_user <- get_github_user()
   expect_named(gh_user, c(
     "login", "id", "node_id", "avatar_url", "gravatar_id",
