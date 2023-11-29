@@ -1,4 +1,3 @@
-library(testthat)
 
 test_that("Calendly: Events", {
   user <- get_calendly_user()

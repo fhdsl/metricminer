@@ -1,7 +1,4 @@
 
-library(testthat)
-
-
 test_that("GitHub: get repo list", {
 
   repo_list <- get_repo_list(owner = "fhdsl")
@@ -26,5 +23,3 @@ test_that("GitHub: Repo metrics", {
                                      "num_stars", "health_percentage", "num_clones", "unique_views"))
 
 })
-
-

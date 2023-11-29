@@ -8,3 +8,5 @@
 docs
 inst/extdata/cached-secrets/*
 .Rprofile
+.Rapp.history
+testthat-problems.rds
