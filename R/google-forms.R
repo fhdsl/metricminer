@@ -20,18 +20,20 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
   config <- httr::config(token = token)
 
   result <- httr::GET(
-      url = url,
-      body = body_params,
-      query = query,
-      config = config,
-      httr::accept_json(),
-      encode = "json"
-    )
+    url = url,
+    body = body_params,
+    query = query,
+    config = config,
+    httr::accept_json(),
+    encode = "json"
+  )
 
-  request_info <- list(url = url,
-                       token = token,
-                       body_params = body_params,
-                       query_params = query_params)
+  request_info <- list(
+    url = url,
+    token = token,
+    body_params = body_params,
+    query_params = query_params
+  )
 
   if (httr::status_code(result) != 200) {
     httr::stop_for_status(result)
@@ -47,7 +49,6 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
   } else {
     return(result_list)
   }
-
 }
 
 
@@ -65,10 +66,8 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
 #'
 #' ### OR You can give it a direct form id
 #' form_info <- get_google_form("1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo")
-#'
 #' }
 get_google_form <- function(form_id, token = NULL) {
-
   # If a URL is supplied, only take the ID from it.
   if (grepl("https:", form_id[1])) {
     form_id <- gsub("\\/viewform$|\\/edit$", "", form_id)
@@ -91,8 +90,10 @@ get_google_form <- function(form_id, token = NULL) {
   )
 
 
-  result <- list(form_metadata = form_info,
-                 response_info = response_info)
+  result <- list(
+    form_metadata = form_info,
+    response_info = response_info
+  )
 
   return(result)
 }
@@ -112,20 +113,16 @@ get_google_form <- function(form_id, token = NULL) {
 #' form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
 #'
 #' multiple_forms <- get_multiple_forms(form_ids = form_list$id)
-#'
 #' }
-
 get_multiple_forms <- function(form_ids = NULL, token = NULL) {
-
   all_form_info <- lapply(form_ids, function(form_id) {
-    form_id <- "13XGFFvVdOkIs2RjpkMWVsh9DEV0MsPalk9Fevu8IyOg"
+    form_id <- "10ZCgw4n6qrEoteDWXpNQwJhrjTkvMTC6H91ddeNBUJs"
     form_info <- get_google_form(
       form_id = form_id,
       token = token
-      )
+    )
 
-    if (length(form_info$response_info) > 0 ) {
-
+    if (length(form_info$response_info) > 0) {
       metadata <- get_question_metadata(form_info)
 
       answers_df <- extract_answers(form_info)
@@ -142,18 +139,22 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
 }
 
 get_question_metadata <- function(form_info) {
-
   metadata <- data.frame(
     question_id = form_info$form_metadata$result$items$itemId,
     title = form_info$form_metadata$result$items$title
-    )
+  )
 
-  if (length(form_info$form_metadata$result$items$questionItem$question) > 0 ) {
-  metadata <- data.frame(
-    metadata,
-    paragraph = form_info$form_metadata$result$items$questionItem$question$textQuestion,
-    choice_question = form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type,
-    text_question = form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type
+  if (length(form_info$form_metadata$result$items$questionItem$question$textQuestion) > 0) {
+    metadata <- data.frame(
+      metadata,
+      paragraph = form_info$form_metadata$result$items$questionItem$question$textQuestion
+    )
+  }
+  if (length(form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type) > 0) {
+    metadata <- data.frame(
+      metadata,
+      choice_question = form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type,
+      text_question = is.na(form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type)
     )
   }
 
@@ -161,24 +162,30 @@ get_question_metadata <- function(form_info) {
 }
 
 extract_answers <- function(form_info) {
+  questions <- form_info$response_info$result$responses$answers
 
-    questions <- form_info$response_info$result$responses$answers
-
+  if (length(questions) > 0) {
     # Extract the bits we want
-    answers <- purrr::map(questions,
-                          ~.x$textAnswers$answers)
+    answers <- purrr::map(
+      questions,
+      ~ .x$textAnswers$answers
+    )
 
-    question_id <- purrr::map(questions,
-                              ~.x$questionId)
+    question_id <- purrr::map(
+      questions,
+      ~ .x$questionId
+    )
 
     # Reformat the answer info
-    answers <- purrr::map_depth(answers, 2, ~ifelse(is.null(.x),
-                                                    data.frame(value = "NA"),
-                                                    .x) )
+    answers <- purrr::map_depth(answers, 2, ~ ifelse(is.null(.x),
+      data.frame(value = "NA"),
+      .x
+    ))
 
-    answers <- purrr::map_depth(answers, -1, ~ifelse(length(.x) > 1,
-                                                    paste0(.x, collapse = "|"),
-                                                    .x) )
+    answers <- purrr::map_depth(answers, -1, ~ ifelse(length(.x) > 1,
+      paste0(.x, collapse = "|"),
+      .x
+    ))
     answers <- lapply(answers, purrr::map, -1)
 
     # Turn into data frames
@@ -194,8 +201,11 @@ extract_answers <- function(form_info) {
       answers_df,
       question_df
     )
+  } else {
+    info_df <- data.frame(value = "no responses yet")
+  }
 
-    return(info_df)
+  return(info_df)
 }
 
 
@@ -216,11 +226,11 @@ google_pagination <- function(first_page_result) {
 
 
 next_google <- function(page_result) {
-
   ## TODO: Next page request is not working! Not sure why. It doesn't throw an error,
   ## but it just gives the same result everytime!
   body_params <- c(page_result$request_info$body_params,
-                   pageToken = page_result$result$nextPageToken)
+    pageToken = page_result$result$nextPageToken
+  )
 
   result <- request_google_forms(
     token = token,
