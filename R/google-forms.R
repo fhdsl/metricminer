@@ -5,12 +5,14 @@
 #' @param url The endpoint URL for the request
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
-#' @param query A list to be passed to query
+#' @param query_params The body parameters for the request
+#' @param return_request Should a list of the request be returned as well?
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_google_forms <- function(token, url, query = NULL, body_params = NULL) {
+request_google_forms <- function(token, url, query = NULL, body_params = NULL, query_params = NULL,
+                                 return_request = TRUE) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -106,7 +108,6 @@ get_google_form <- function(form_id, token = NULL) {
 #' @examples \dontrun{
 #'
 #' authorize("google")
-
 #' googledrive::drive_auth(token = get_token("google"))
 #' form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
 #'
@@ -117,20 +118,18 @@ get_google_form <- function(form_id, token = NULL) {
 get_multiple_forms <- function(form_ids = NULL, token = NULL) {
 
   all_form_info <- lapply(form_ids, function(form_id) {
-
+    form_id <- "13XGFFvVdOkIs2RjpkMWVsh9DEV0MsPalk9Fevu8IyOg"
     form_info <- get_google_form(
       form_id = form_id,
-      token = token)
+      token = token
+      )
 
     if (length(form_info$response_info) > 0 ) {
 
       metadata <- get_question_metadata(form_info)
 
-      answers_df <- extract_text_question(form_info$response_info$responses)
+      answers_df <- extract_answers(form_info)
 
-      answers_df <- tidyr::pivot_wider(answers_df,
-                                     names_from = question,
-                                     values_from = answer)
       return(answers_df)
     } else {
       return("No responses to this form yet.")
@@ -142,45 +141,63 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
   return(all_form_info)
 }
 
-
 get_question_metadata <- function(form_info) {
 
-  data.frame(
-    question_id = form_info$form_metadata$items$itemId,
-    title = form_info$form_metadata$items$title,
-    paragraph = form_info$form_metadata$items$questionItem$question$textQuestion,
-    choice_question = form_info$form_metadata$items$questionItem$question$choiceQuestion$type,
-    text_question = is.na(form_info$form_metadata$items$questionItem$question$choiceQuestion$type)
+  metadata <- data.frame(
+    question_id = form_info$form_metadata$result$items$itemId,
+    title = form_info$form_metadata$result$items$title
     )
 
+  if (length(form_info$form_metadata$result$items$questionItem$question) > 0 ) {
+  metadata <- data.frame(
+    metadata,
+    paragraph = form_info$form_metadata$result$items$questionItem$question$textQuestion,
+    choice_question = form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type,
+    text_question = form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type
+    )
+  }
+
+  return(metadata)
 }
 
+extract_answers <- function(form_info) {
 
-extract_text_question <- function(question) {
+    questions <- form_info$response_info$result$responses$answers
 
-    answers <- purrr::map(question$answers, ~.x$textAnswers$answers)
+    # Extract the bits we want
+    answers <- purrr::map(questions,
+                          ~.x$textAnswers$answers)
 
+    question_id <- purrr::map(questions,
+                              ~.x$questionId)
+
+    # Reformat the answer info
     answers <- purrr::map_depth(answers, 2, ~ifelse(is.null(.x),
                                                     data.frame(value = "NA"),
                                                     .x) )
+
+    answers <- purrr::map_depth(answers, -1, ~ifelse(length(.x) > 1,
+                                                    paste0(.x, collapse = "|"),
+                                                    .x) )
     answers <- lapply(answers, purrr::map, -1)
 
-    question_ids <- rep(names(answers), lapply(answers, length))
+    # Turn into data frames
+    answers_df <- lapply(answers, paste0) %>% dplyr::bind_cols()
+    question_df <- lapply(question_id, paste0) %>% dplyr::bind_cols()
 
-    answers <- unlist(answers)
+    colnames(answers_df) <- paste0(colnames(answers_df), "_answers")
+    colnames(question_df) <- paste0(colnames(question_df), "_question")
 
-    answers_df <- data.frame(
-      reponse_id = rep(question$responseId, length(question$answers)),
-      answer = unlist(answers),
-      question = as.factor(question_ids)
+    # Put it all in a data.frame we will keep
+    info_df <- data.frame(
+      reponse_id = rep(form_info$response_info$result$responses$responseId, length(questions)),
+      answers_df,
+      question_df
     )
 
-    return(answers_df)
+    return(info_df)
 }
 
-extract_mc_question <- function(question) {
-
-}
 
 google_pagination <- function(first_page_result) {
   # Set up a while loop for us to store the multiple page requests in
