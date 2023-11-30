@@ -68,7 +68,8 @@ get_token <- function(app_name, try = FALSE) {
 get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly")
   if (app_name == "github") token <- getOption("github")
-  if (app_name == "google") token <- try(readRDS(file.path(cache_secrets_folder(), "google.RDS")), silent = TRUE)
+  if (app_name == "google") token <- getOption("google")
+
   return(token)
 }
 

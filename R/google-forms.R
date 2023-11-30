@@ -56,6 +56,7 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
 #' @description This is a function to get the Calendly API user info
 #' @param form_id The form ID we need to get
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
+#' @param dataformat What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -67,7 +68,7 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
 #' ### OR You can give it a direct form id
 #' form_info <- get_google_form("1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo")
 #' }
-get_google_form <- function(form_id, token = NULL) {
+get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
   # If a URL is supplied, only take the ID from it.
   if (grepl("https:", form_id[1])) {
     form_id <- gsub("\\/viewform$|\\/edit$", "", form_id)
@@ -89,12 +90,24 @@ get_google_form <- function(form_id, token = NULL) {
     token = token
   )
 
-
   result <- list(
     form_metadata = form_info,
     response_info = response_info
   )
 
+  if (dataformat == "dataframe") {
+
+    metadata <- get_question_metadata(form_info)
+
+    if (length(result$response_info$result) > 0) {
+      answers_df <- extract_answers(result)
+    } else {
+      answers_df <- "no responses yet"
+    }
+    return(list(title = result$form_metadata$result$info$title,
+                metadata = metadata,
+                answers = answers_df))
+  }
   return(result)
 }
 
@@ -103,58 +116,53 @@ get_google_form <- function(form_id, token = NULL) {
 #' @description This is a function to get the Calendly API user info
 #' @param form_ids a vector of form ids you'd like to retrieve information for
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
+#' @importFrom purrr map
+#' @importFrom janitor make_clean_names
 #' @examples \dontrun{
 #'
 #' authorize("google")
-#' googledrive::drive_auth(token = get_token("google"))
 #' form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
 #'
 #' multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 #' }
 get_multiple_forms <- function(form_ids = NULL, token = NULL) {
-  all_form_info <- lapply(form_ids, function(form_id) {
-    form_id <- "10ZCgw4n6qrEoteDWXpNQwJhrjTkvMTC6H91ddeNBUJs"
-    form_info <- get_google_form(
+
+  # Get all the forms info
+  all_form_info <- sapply(form_ids, function(form_id) {
+    get_google_form(
       form_id = form_id,
       token = token
     )
+  }, simplify = FALSE, USE.NAMES = TRUE)
 
-    if (length(form_info$response_info) > 0) {
-      metadata <- get_question_metadata(form_info)
 
-      answers_df <- extract_answers(form_info)
+  # Set up the names
+  titles <- purrr::map(all_form_info, ~ .x$title)
+  titles <- janitor::make_clean_names(titles)
 
-      return(answers_df)
-    } else {
-      return("No responses to this form yet.")
-    }
-  })
+  # Set as names
+  names(all_form_info) <- titles
 
   all_form_info
-
-  return(all_form_info)
 }
 
 get_question_metadata <- function(form_info) {
   metadata <- data.frame(
-    question_id = form_info$form_metadata$result$items$itemId,
-    title = form_info$form_metadata$result$items$title
+    question_id = form_info$result$items$itemId,
+    title = form_info$result$items$title
   )
 
-  if (length(form_info$form_metadata$result$items$questionItem$question$textQuestion) > 0) {
+  if (length(form_info$result$items$questionItem$question$textQuestion) > 0) {
     metadata <- data.frame(
       metadata,
-      paragraph = form_info$form_metadata$result$items$questionItem$question$textQuestion
+      paragraph = form_info$result$items$questionItem$question$textQuestion
     )
   }
-  if (length(form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type) > 0) {
+  if (length(form_info$result$items$questionItem$question$choiceQuestion$type) > 0) {
     metadata <- data.frame(
       metadata,
-      choice_question = form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type,
-      text_question = is.na(form_info$form_metadata$result$items$questionItem$question$choiceQuestion$type)
+      choice_question = form_info$result$items$questionItem$question$choiceQuestion$type,
+      text_question = is.na(form_info$result$items$questionItem$question$choiceQuestion$type)
     )
   }
 
