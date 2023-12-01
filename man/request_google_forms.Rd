@@ -23,6 +23,9 @@ request_google_forms(
 
 \item{return_request}{Should a list of the request be returned as well?}
 }
+\value{
+This function returns a list from a API response JSON file
+}
 \description{
 This is a function to get the Calendly API user info
 }

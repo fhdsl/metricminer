@@ -11,8 +11,11 @@ get_multiple_forms(form_ids = NULL, token = NULL)
 
 \item{token}{credentials for access to Google using OAuth. `authorize("google")`}
 }
+\value{
+This returns a list of API information for google forms
+}
 \description{
-This is a function to get the Calendly API user info
+This is a wrapper function for returning google form info and responses for multiple forms at once
 }
 \examples{
 \dontrun{
