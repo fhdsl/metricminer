@@ -77,7 +77,12 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
     request_type = request_type
   )
 
-  return(results)
+  if (results$totalResults == 0 ){
+    message(paste0("No accounts found underneath this ID: ", accounts$username,"\n",
+            "Are you sure you have Google Analytics properties underneath THIS google account?"))
+  }
+
+  return(results$items)
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
@@ -92,9 +97,10 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' properties_list <- get_ga_properties(account_id = 209776907)
+#' properties_list <- get_ga_properties(account_id = accounts$items$id[1])
 #' }
 get_ga_properties <- function(account_id) {
+
   # Get auth token
   token <- get_token(app_name = "google")
 
@@ -104,6 +110,11 @@ get_ga_properties <- function(account_id) {
     query = list(filter = paste0("parent:accounts/", account_id)),
     request_type = "GET"
   )
+
+  if (length(results$items$id) == 0 ){
+    message(paste0("No accounts found underneath this ID: ", accounts$username,"\n",
+                   "Are you sure you have Google Analytics properties underneath THIS google account?"))
+  }
 
   return(results)
 }
@@ -211,6 +222,8 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
     request_type = "POST"
   )
 
+
+
   return(results)
 }
 
@@ -257,10 +270,10 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
+#' stats_list <- all_ga_metrics(account_id = accounts$id[1])
 #' saveRDS(stats_list, "itcr_website_data.rds")
 #' }
-all_ga_metrics <- function(account_id, format = "dataframe") {
+all_ga_metrics <- function(account_id, dataformat = "dataframe") {
   properties_list <- get_ga_properties(account_id = account_id)
 
   # This is the code for one website/property
