@@ -7,7 +7,6 @@
 request_google_forms(
   token,
   url,
-  query = NULL,
   body_params = NULL,
   query_params = NULL,
   return_request = TRUE

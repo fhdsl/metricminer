@@ -12,7 +12,6 @@
 #' @importFrom assertthat assert_that is.string
 #' @export
 request_google_forms <- function(token, url,
-                                 query = NULL,
                                  body_params = NULL,
                                  query_params = NULL,
                                  return_request = TRUE) {
