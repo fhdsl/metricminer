@@ -4,16 +4,27 @@
 \alias{request_google_forms}
 \title{Get Google Forms}
 \usage{
-request_google_forms(token, url, query = NULL, body_params = NULL)
+request_google_forms(
+  token,
+  url,
+  body_params = NULL,
+  query_params = NULL,
+  return_request = TRUE
+)
 }
 \arguments{
 \item{token}{credentials for access to Google using OAuth. `authorize("google")`}
 
 \item{url}{The endpoint URL for the request}
 
-\item{query}{A list to be passed to query}
-
 \item{body_params}{The body parameters for the request}
+
+\item{query_params}{The body parameters for the request}
+
+\item{return_request}{Should a list of the request be returned as well?}
+}
+\value{
+This function returns a list from a API response JSON file
 }
 \description{
 This is a function to get the Calendly API user info

@@ -7,6 +7,7 @@
 #' @param body_params The body parameters for the request
 #' @param query_params The body parameters for the request
 #' @param return_request Should a list of the request be returned as well?
+#' @returns This function returns a list from a API response JSON file
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -53,10 +54,11 @@ request_google_forms <- function(token, url, body_params = NULL, query_params = 
 
 
 #' Get Google Forms
-#' @description This is a function to get the Calendly API user info
+#' @description This is a function to get Google Form info and responses from the API
 #' @param form_id The form ID we need to get
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param dataformat What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.
+#' @returns This returns a list of the form info and responses to the google form. Default is to make this a list of nicely formatted dataframes.
 #' @examples \dontrun{
 #'
 #' authorize("google")
@@ -111,9 +113,10 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 
 
 #' Get multiple Google forms
-#' @description This is a function to get the Calendly API user info
+#' @description This is a wrapper function for returning google form info and responses for multiple forms at once
 #' @param form_ids a vector of form ids you'd like to retrieve information for
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
+#' @returns This returns a list of API information for google forms
 #' @importFrom purrr map
 #' @importFrom janitor make_clean_names
 #' @examples \dontrun{
@@ -144,6 +147,9 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
   all_form_info
 }
 
+#' Google Form handling functions
+#' @description This is a function to get metadata about a Google Form. It is
+#'  used by the `get_google_form()` function if dataformat = "dataframe"
 get_question_metadata <- function(form_info) {
   metadata <- data.frame(
     question_id = form_info$result$items$itemId,
@@ -167,6 +173,9 @@ get_question_metadata <- function(form_info) {
   return(metadata)
 }
 
+#' Google Form handling functions -- extracting answers
+#' @description This is a function to get extract answers from a Google Form. It is
+#'  used by the `get_google_form()` function if dataformat = "dataframe"
 extract_answers <- function(form_info) {
   questions <- form_info$response_info$result$responses$answers
 
