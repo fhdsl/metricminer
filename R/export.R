@@ -11,7 +11,8 @@
 #'
 #' authorize("google")
 #'
-#' ss <- googlesheets4::gs4_create("metricminer_data", sheets =)
+#' google
+#' ss <- googlesheets4::gs4_create("metricminer_data", sheets = )
 #'
 #'
 #' }

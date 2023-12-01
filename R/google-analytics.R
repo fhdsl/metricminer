@@ -269,7 +269,8 @@ link_clicks <- function() {
 
 #' Get all metrics for all properties associated with an account
 #' @description This is a function to gets metrics and dimensions for all properties associated with an account
-#' @param account_id the account id of the properties you are trying to retrieve
+#' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
+#' @param property_names a vector of property names for stats to be retrieved for. Note you can only provide one or the other.
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
 #' @export
@@ -278,52 +279,72 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
-#' saveRDS(stats_list, "itcr_website_data.rds")
+#' stats_list <- all_ga_metrics(account_id = accounts$id[1])
+#'
+#' property_names <- c("358228687", "377543643", "377952717")
+#'
+#' some_stats_list <- all_ga_metrics(property_names = property_names)
 #' }
-all_ga_metrics <- function(account_id, dataformat = "dataframe") {
-  properties_list <- get_ga_properties(account_id = account_id)
+all_ga_metrics <- function(account_id = NULL, property_names = NULL, dataformat = "dataframe") {
 
-  # This is the code for one website/property
-  property_names <- gsub("properties/", "", properties_list$properties$name)
+  if (!is.null(account_id)) {
+    message("Retrieving all properties underneath this account")
+
+    properties_list <- get_ga_properties(account_id = account_id)
+    # This is the code for one website/property
+    property_names <- gsub("properties/", "", properties_list$properties$name)
+  }
+
+  if (is.null(property_names) && is.null(account_id)) {
+    stop("need to provide either an account_id or vector of property_names to retrieve")
+  }
+
+  if (!is.null(property_names) && !is.null(account_id)) {
+    stop("You can only provide an account_id OR a property_names argument. ")
+  }
+
+  if (is.null(property_names) && is.null(account_id)) {
+    stop("Neither an account_id nor a property_names argument provided.",
+         "Not sure what properties to retrieve stats for ")
+  }
 
   # Now loop through all the properties
   all_google_analytics_metrics <- lapply(property_names, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "metrics"))
     # Get the stats
-    metrics <- get_ga_stats(property_id, stats_type = "metrics")
+    metrics <- get_ga_stats(property_id, stats_type = "metrics", dataformat = "raw")
     return(metrics)
   })
 
   # Save the names
-  names(all_google_analytics_metrics) <- properties_list$properties$displayName
+  names(all_google_analytics_metrics) <- property_names
 
   # Now loop through all the properties
-  all_google_analytics_dimensions <- lapply(property_names, function(property_id) {
+  all_google_analytics_dimensions <- sapply(property_names, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "dimensions"))
     # Get the stats
-    dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
+    dimensions <- get_ga_stats(property_id, stats_type = "dimensions", dataformat = "raw")
 
     return(dimensions)
   })
 
   # Save the names
-  names(all_google_analytics_dimensions) <- properties_list$properties$displayName
+  names(all_google_analytics_dimensions) <- property_names
 
   # Now loop through all the properties
   all_google_analytics_links <- lapply(property_names, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "link clicks"))
     # Get the stats
-    links <- get_ga_stats(property_id, stats_type = "link_clicks")
+    links <- get_ga_stats(property_id, stats_type = "link_clicks", dataformat = "raw")
 
     return(links)
   })
 
   # Save the names
-  names(all_google_analytics_links) <- properties_list$properties$displayName
+  names(all_google_analytics_links) <- property_names
 
   if (dataformat == "dataframe") {
     all_google_analytics_metrics <- clean_metric_data(all_google_analytics_metrics)
