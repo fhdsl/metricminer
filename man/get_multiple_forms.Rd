@@ -4,7 +4,7 @@
 \alias{get_multiple_forms}
 \title{Get multiple Google forms}
 \usage{
-get_multiple_forms(form_ids = NULL, folder_id = NULL, token = NULL)
+get_multiple_forms(form_ids = NULL, token = NULL)
 }
 \arguments{
 \item{form_ids}{a vector of form ids you'd like to retrieve information for}
@@ -18,10 +18,10 @@ This is a function to get the Calendly API user info
 \dontrun{
 
 authorize("google")
-googledrive::drive_auth(token = get_token("google"))
-form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
+form_list <- googledrive::drive_find(
+shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
+type = "form")
 
 multiple_forms <- get_multiple_forms(form_ids = form_list$id)
-
 }
 }

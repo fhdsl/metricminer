@@ -4,12 +4,14 @@
 \alias{get_google_form}
 \title{Get Google Forms}
 \usage{
-get_google_form(form_id, token = NULL)
+get_google_form(form_id, token = NULL, dataformat = "dataframe")
 }
 \arguments{
 \item{form_id}{The form ID we need to get}
 
 \item{token}{credentials for access to Google using OAuth. `authorize("google")`}
+
+\item{dataformat}{What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.}
 }
 \description{
 This is a function to get the Calendly API user info
@@ -18,10 +20,11 @@ This is a function to get the Calendly API user info
 \dontrun{
 
 authorize("google")
-form_info <- get_google_form("https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit")
+form_info <- get_google_form(
+"https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"
+)
 
 ### OR You can give it a direct form id
 form_info <- get_google_form("1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo")
-
 }
 }
