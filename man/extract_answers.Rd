@@ -9,4 +9,5 @@ extract_answers(form_info)
 \description{
 This is a function to get extract answers from a Google Form. It is
  used by the `get_google_form()` function if dataformat = "dataframe"
+ @param form_info The return form_info list that is extracted in `get_google_form()`
 }
