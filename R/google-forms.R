@@ -11,7 +11,7 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_google_forms <- function(token, url, query = NULL, body_params = NULL, query_params = NULL,
+request_google_forms <- function(token, url, body_params = NULL, query_params = NULL,
                                  return_request = TRUE) {
   if (is.null(token)) {
     # Get auth token
@@ -22,7 +22,7 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
   result <- httr::GET(
     url = url,
     body = body_params,
-    query = query,
+    query = query_params,
     config = config,
     httr::accept_json(),
     encode = "json"
@@ -57,9 +57,6 @@ request_google_forms <- function(token, url, query = NULL, body_params = NULL, q
 #' @param form_id The form ID we need to get
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param dataformat What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
 #' @examples \dontrun{
 #'
 #' authorize("google")
@@ -87,7 +84,8 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 
   response_info <- request_google_forms(
     url = form_response_url,
-    token = token
+    token = token,
+    return_request = TRUE
   )
 
   result <- list(
@@ -234,8 +232,6 @@ google_pagination <- function(first_page_result) {
 
 
 next_google <- function(page_result) {
-  ## TODO: Next page request is not working! Not sure why. It doesn't throw an error,
-  ## but it just gives the same result everytime!
   body_params <- c(page_result$request_info$body_params,
     pageToken = page_result$result$nextPageToken
   )
