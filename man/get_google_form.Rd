@@ -23,7 +23,9 @@ This is a function to get Google Form info and responses from the API
 \dontrun{
 
 authorize("google")
-form_info <- get_google_form("https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit")
+form_info <- get_google_form(
+"https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"
+)
 
 ### OR You can give it a direct form id
 form_info <- get_google_form("1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo")

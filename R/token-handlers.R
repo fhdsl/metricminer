@@ -24,6 +24,8 @@ cache_token <- function(token, app_name) {
 
 remove_token <- function(app_name) {
   .Env$metricminer_tokens[[app_name]] <- NULL
+  googledrive::drive_deauth()
+  googlesheets4::gs4_deauth()
 }
 
 remove_cache <- function(app_name) {
@@ -68,7 +70,11 @@ get_token <- function(app_name, try = FALSE) {
 get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly")
   if (app_name == "github") token <- getOption("github")
-  if (app_name == "google") token <- getOption("google")
+  if (app_name == "google") {
+    token <- getOption("google")
+    googledrive::drive_auth(token = token)
+    googlesheets4::gs4_auth(token = token)
+  }
 
   return(token)
 }
@@ -77,7 +83,11 @@ get_stored_token <- function(app_name) {
 get_cached_token <- function(app_name) {
   if (app_name == "calendly") token <- try(readRDS(file.path(cache_secrets_folder(), "calendly.RDS")), silent = TRUE)
   if (app_name == "github") token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
-  if (app_name == "google") token <- try(readRDS(file.path(cache_secrets_folder(), "google.RDS")), silent = TRUE)
+  if (app_name == "google") {
+    token <- try(readRDS(file.path(cache_secrets_folder(), "google.RDS")), silent = TRUE)
+    googledrive::drive_auth(token = token)
+    googlesheets4::gs4_auth(token = token)
+  }
 
   if (class(token)[1] == "try-error") {
     token <- NULL
