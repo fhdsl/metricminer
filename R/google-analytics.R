@@ -97,12 +97,14 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' properties_list <- get_ga_properties(account_id = accounts$items$id[1])
+#' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #' }
 get_ga_properties <- function(account_id) {
 
-  # Get auth token
-  token <- get_token(app_name = "google")
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   results <- request_ga(
     token = token,
@@ -111,9 +113,9 @@ get_ga_properties <- function(account_id) {
     request_type = "GET"
   )
 
-  if (length(results$items$id) == 0 ){
-    message(paste0("No accounts found underneath this ID: ", accounts$username,"\n",
-                   "Are you sure you have Google Analytics properties underneath THIS google account?"))
+  if (length(results$properties) == 0 ){
+    message(paste0("No properties found underneath this account: ", account_id,"\n",
+                   "Are you sure you have Google Analytics properties underneath THIS account id?"))
   }
 
   return(results)
@@ -141,8 +143,10 @@ get_ga_metadata <- function(property_id) {
   url <- "https://analyticsdata.googleapis.com/v1beta/properties/property_id/metadata"
   url <- gsub("property_id", property_id, url)
 
-  # Get auth token
-  token <- get_token(app_name = "google")
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   results <- request_ga(
     token = token,
@@ -160,9 +164,7 @@ get_ga_metadata <- function(property_id) {
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
 #' @param body_params The body parameters for the request
 #' @param stats_type Do you want to retrieve metrics or dimensions?
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
+#' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @importFrom lubridate today
 #' @export
 #' @examples \dontrun{
@@ -176,7 +178,8 @@ get_ga_metadata <- function(property_id) {
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
 #' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
-get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = NULL, end_date = NULL, stats_type = "metrics") {
+get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = NULL, end_date = NULL, stats_type = "metrics",
+                         dataformat = "dataframe") {
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -184,8 +187,10 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
   url <- "https://analyticsdata.googleapis.com/v1beta/properties/property_id:runReport"
   url <- gsub("property_id", property_id, url)
 
-  # Get auth token
-  token <- get_token(app_name = "google")
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   if (stats_type == "metrics") {
     body_params <- list(
@@ -222,7 +227,10 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
     request_type = "POST"
   )
 
-
+  if (dataformat == "dataframe") {
+    if (stats_type == "metrics")  results <- clean_metric_data(results)
+    if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_dimensions(results)
+  }
 
   return(results)
 }
@@ -262,7 +270,7 @@ link_clicks <- function() {
 #' Get all metrics for all properties associated with an account
 #' @description This is a function to gets metrics and dimensions for all properties associated with an account
 #' @param account_id the account id of the properties you are trying to retrieve
-#' @param format How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
+#' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
 #' @export
 #' @examples \dontrun{
@@ -270,7 +278,7 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' stats_list <- all_ga_metrics(account_id = accounts$id[1])
+#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
 #' saveRDS(stats_list, "itcr_website_data.rds")
 #' }
 all_ga_metrics <- function(account_id, dataformat = "dataframe") {
@@ -317,7 +325,7 @@ all_ga_metrics <- function(account_id, dataformat = "dataframe") {
   # Save the names
   names(all_google_analytics_links) <- properties_list$properties$displayName
 
-  if (format == "dataframe") {
+  if (dataformat == "dataframe") {
     all_google_analytics_metrics <- clean_metric_data(all_google_analytics_metrics)
     all_google_analytics_dimensions <- clean_dimension_data(all_google_analytics_dimensions)
     all_google_analytics_links <- clean_link_data(all_google_analytics_links)
@@ -340,9 +348,17 @@ all_ga_metrics <- function(account_id, dataformat = "dataframe") {
 #' @export
 
 clean_metric_data <- function(metrics = NULL) {
-  stat_names <- metrics[[1]]$metricHeaders$name
 
-  clean_df <- purrr::map(metrics, "rows") %>%
+  # This is if we are running it with all the data at once
+  if (length(metrics$metricHeaders$name) == 0 ){
+    stat_names <- metrics[[1]]$metricHeaders$name
+    clean_df <- purrr::map(metrics, "rows")
+  } else {
+    # this is for if we only are given one property
+    stat_names <- metrics$metricHeaders$name
+    clean_df <- metrics$rows
+  }
+  clean_df <- clean_df %>%
     dplyr::bind_rows(.id = "website") %>%
     tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
     dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
