@@ -1,3 +1,26 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [metricminer](#metricminer)
+  - [Apps supported](#apps-supported)
+  - [Data format options](#data-format-options)
+  - [How to install](#how-to-install)
+  - [Basic Usage](#basic-usage)
+    - [GitHub](#github)
+    - [Calendly](#calendly)
+    - [Google Analytics](#google-analytics)
+    - [Google Forms](#google-forms)
+    - [Slido](#slido)
+    - [Youtube](#youtube)
+  - [Bulk Retrievals](#bulk-retrievals)
+    - [GitHub bulk](#github-bulk)
+    - [Google Analytics bulk](#google-analytics-bulk)
+    - [Google Forms](#google-forms-1)
+  - [Contributions](#contributions)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # metricminer
@@ -8,7 +31,7 @@ It also helps format the data so that it can easily be used for a dashboard or o
 It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully use the data you retrieve with `metricminer`  (but these are still under development!)
 
 - You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
-- And you can read more about metric collection in our [associated manuscript -- currently a preprint](https://arxiv.org/abs/2306.03255). 
+- And you can read more about metric collection in our [associated manuscript -- currently a preprint](https://arxiv.org/abs/2306.03255).
 
 ## Apps supported
 
@@ -133,6 +156,16 @@ If you have used Slido for interactive slide sessions and collected that info an
 ```
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
 slido_data <- get_slido_files(drive_id)
+```
+
+### Youtube
+
+If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
+
+Then you can extract stats for the videos on that youtube channel using that URL.
+```
+authorize("google")
+youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")
 ```
 
 ## Bulk Retrievals
