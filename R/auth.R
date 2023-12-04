@@ -75,7 +75,8 @@ authorize <- function(app_name = NULL,
     googlesheets4::gs4_auth(token = token)
   }
   set_token(token = token, app_name = app_name)
-  return(invisible(token))
+
+  invisible(token)
 }
 
 ################################################################################
@@ -195,7 +196,7 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
   # Store the token in the environment
   set_token(app_name = app_name, token)
 
-  return(invisible(token))
+  invisible(token)
 }
 
 #' App Set Up
