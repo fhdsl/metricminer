@@ -1,3 +1,23 @@
+# metricminer
+
+`metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
+
+It also helps format the data so that it can easily be used for a dashboard or other purposes.
+It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully use the data you retrieve with `metricminer`  (but these are still under development!)
+
+- You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
+- And you can read more about metric collection in our [associated manuscript -- currently a preprint](https://arxiv.org/abs/2306.03255).
+
+## Apps supported
+
+Currently `metricminer` supports mining data from:
+
+- [Calendly](https://calendly.com/)
+- [GitHub](https://github.com/)
+- [Google Analytics](https://analytics.google.com/analytics/academy/course/6)
+- [Google Forms](https://www.google.com/forms/about/)
+- [Slido](https://admin.sli.do/events) export files stored on Googledrive
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -22,26 +42,6 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-
-# metricminer
-
-`metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
-
-It also helps format the data so that it can easily be used for a dashboard or other purposes.
-It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully use the data you retrieve with `metricminer`  (but these are still under development!)
-
-- You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
-- And you can read more about metric collection in our [associated manuscript -- currently a preprint](https://arxiv.org/abs/2306.03255).
-
-## Apps supported
-
-Currently `metricminer` supports mining data from:
-
-- [Calendly](https://calendly.com/)
-- [GitHub](https://github.com/)
-- [Google Analytics](https://analytics.google.com/analytics/academy/course/6)
-- [Google Forms](https://www.google.com/forms/about/)
-- [Slido](https://admin.sli.do/events) export files stored on Googledrive
 
 ## Data format options
 
