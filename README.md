@@ -16,6 +16,7 @@ Currently `metricminer` supports mining data from:
 - [GitHub](https://github.com/)
 - [Google Analytics](https://analytics.google.com/analytics/academy/course/6)
 - [Google Forms](https://www.google.com/forms/about/)
+- [Youtube](https://www.youtube.com/)
 - [Slido](https://admin.sli.do/events) export files stored on Googledrive
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
@@ -156,6 +157,15 @@ If you have used Slido for interactive slide sessions and collected that info an
 ```
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
 slido_data <- get_slido_files(drive_id)
+```
+### Youtube 
+
+If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
+
+Then you can extract stats for the videos on that youtube channel using that URL. 
+```
+authorize("google")
+youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")
 ```
 
 ### Youtube
