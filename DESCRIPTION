@@ -27,6 +27,8 @@ Imports:
     lubridate, 
     purrr, 
     tidyr,
+    janitor,
+    googledrive,
 Suggests: 
     testthat (>= 3.0.0),
     withr

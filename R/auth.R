@@ -71,6 +71,7 @@ authorize <- function(app_name = NULL,
       scope = scopes_list,
       ...
     )
+    googledrive::drive_auth(token = token)
   }
   set_token(token = token, app_name = app_name)
   return(invisible(token))
