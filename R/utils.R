@@ -45,21 +45,21 @@ cache_secrets_folder <- function() {
   file_path <- list.files(
     pattern = "cached-secrets",
     recursive = TRUE,
-    system.file("extdata", package = "metricminer"),
+    tools::R_user_dir("metricminer", which="cache"),
     full.names = TRUE,
     include.dirs = TRUE,
   )
 
   if (length(file_path) == 0) {
     dir.create(file.path(
-      system.file("extdata", package = "metricminer"),
+      tools::R_user_dir("metricminer", which="cache"),
       "cached-secrets"
     ), recursive = TRUE, showWarnings = FALSE)
   }
   list.files(
     pattern = "cached-secrets",
     recursive = TRUE,
-    system.file("extdata", package = "metricminer"),
+    tools::R_user_dir("metricminer", which="cache"),
     full.names = TRUE,
     include.dirs = TRUE,
   )
