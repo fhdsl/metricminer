@@ -18,6 +18,7 @@ Currently `metricminer` supports mining data from:
 - [GitHub](https://github.com/)
 - [Google Analytics](https://analytics.google.com/analytics/academy/course/6)
 - [Google Forms](https://www.google.com/forms/about/)
+- [Youtube](https://www.youtube.com/)
 - [Slido](https://admin.sli.do/events) export files stored on Googledrive
 
 ## Data format options
