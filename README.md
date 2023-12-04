@@ -7,7 +7,8 @@
 It also helps format the data so that it can easily be used for a dashboard or other purposes.
 It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully use the data you retrieve with `metricminer`  (but these are still under development!)
 
-You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
+- You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
+- And you can read more about metric collection in our [associated manuscript -- currently a preprint](https://arxiv.org/abs/2306.03255). 
 
 ## Apps supported
 
