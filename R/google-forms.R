@@ -12,7 +12,9 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_google_forms <- function(token, url, body_params = NULL, query_params = NULL,
+request_google_forms <- function(token, url,
+                                 body_params = NULL,
+                                 query_params = NULL,
                                  return_request = TRUE) {
   if (is.null(token)) {
     # Get auth token
@@ -62,7 +64,9 @@ request_google_forms <- function(token, url, body_params = NULL, query_params = 
 #' @examples \dontrun{
 #'
 #' authorize("google")
-#' form_info <- get_google_form("https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit")
+#' form_info <- get_google_form(
+#' "https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"
+#' )
 #'
 #' ### OR You can give it a direct form id
 #' form_info <- get_google_form("1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo")
@@ -96,7 +100,6 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
   )
 
   if (dataformat == "dataframe") {
-
     metadata <- get_question_metadata(form_info)
 
     if (length(result$response_info$result) > 0) {
@@ -104,9 +107,11 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
     } else {
       answers_df <- "no responses yet"
     }
-    return(list(title = result$form_metadata$result$info$title,
-                metadata = metadata,
-                answers = answers_df))
+    return(list(
+      title = result$form_metadata$result$info$title,
+      metadata = metadata,
+      answers = answers_df
+    ))
   }
   return(result)
 }
@@ -122,12 +127,13 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 #' @examples \dontrun{
 #'
 #' authorize("google")
-#' form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
+#' form_list <- googledrive::drive_find(
+#' shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
+#' type = "form")
 #'
 #' multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 #' }
 get_multiple_forms <- function(form_ids = NULL, token = NULL) {
-
   # Get all the forms info
   all_form_info <- sapply(form_ids, function(form_id) {
     get_google_form(

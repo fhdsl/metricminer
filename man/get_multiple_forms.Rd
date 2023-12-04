@@ -21,7 +21,9 @@ This is a wrapper function for returning google form info and responses for mult
 \dontrun{
 
 authorize("google")
-form_list <- googledrive::drive_find(shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"), type = "form")
+form_list <- googledrive::drive_find(
+shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
+type = "form")
 
 multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 }

@@ -72,6 +72,7 @@ authorize <- function(app_name = NULL,
       ...
     )
     googledrive::drive_auth(token = token)
+    googlesheets4::gs4_auth(token = token)
   }
   set_token(token = token, app_name = app_name)
   return(invisible(token))
