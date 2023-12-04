@@ -46,6 +46,9 @@
     <loc>/reference/encrypt_creds_path.html</loc>
   </url>
   <url>
+    <loc>/reference/extract_answers.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_calendly_user.html</loc>
   </url>
   <url>
@@ -70,7 +73,13 @@
     <loc>/reference/get_github_user.html</loc>
   </url>
   <url>
-    <loc>/reference/get_google_files.html</loc>
+    <loc>/reference/get_google_form.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_multiple_forms.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_question_metadata.html</loc>
   </url>
   <url>
     <loc>/reference/get_repo_list.html</loc>
@@ -95,6 +104,9 @@
   </url>
   <url>
     <loc>/reference/request_ga.html</loc>
+  </url>
+  <url>
+    <loc>/reference/request_google_forms.html</loc>
   </url>
   <url>
     <loc>/reference/supported_endpoints.html</loc>
