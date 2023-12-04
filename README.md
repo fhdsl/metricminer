@@ -4,7 +4,7 @@
 
 `metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
 
-It also helps make the data in a format that is easily used for a dashboard or other purposes.
+It also helps format the data so that it can easily be used for a dashboard or other purposes.
 It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully use the data you retrieve with `metricminer`  (but these are still under development!)
 
 You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
@@ -21,13 +21,13 @@ Currently `metricminer` supports mining data from:
 
 ## Data format options
 
-`metricminer` attempts to retrieve API data for you and give you it to you in a format that is a tidy data.frame.
-this means metricminer has to be opinionated about what metrics it returns so it fits in a useful and human ready to read data frame.
+`metricminer`  retrieves API data for you and gives it to you in a format that is a tidy data.frame.
+this means metricminer has to be opinionated about what metrics it returns so it fits in a useful data frame easily read by humans.
 
 If you find that the data returned is not what you need you have two options (these options can be pursued concurrently):
 
 1. You can set the `dataformat` argument to `"raw"` to see the original, unedited JSON formatted data as it was returned from the API. Then you can personally look for the data that you want and extract it.
-2. You can post a GitHub issue to explain why the metric missing from the data frame formatted data should be included. And if possible and reasonable, we can work on including that data in the next version of `metricminer`.
+2. You can post a GitHub issue to explain why the metric missing from the data frame of formatted data should be included. And if possible and reasonable, we can work on including that data in the next version of `metricminer`.
 
 ## How to install
 
@@ -111,7 +111,7 @@ Whereas `dimensions` are more  a list of events that have happened. So here's a 
 ```
 dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 ```
-Lastly, we have a third option of collecting `link_clicks` and the links they have clicked. This is also known as a dimension according to Google analytics, but often it isn't compatible for us to download link click data at the same time as other dimension data so in `metricminer` we collect them separately.
+Lastly, we have a third option of collecting `link_clicks` and the links they have clicked. This is also known as a dimension according to Google Analytics. However it often isn't compatible for us to download data about link clicks at the same time as other dimension data so in `metricminer` we collect them separately.
 ```
 link_clicks <- get_ga_stats(property_id, stats_type = "link_clicks")
 ```
@@ -136,7 +136,7 @@ slido_data <- get_slido_files(drive_id)
 
 ## Bulk Retrievals
 
-Maybe you just want to retrieval it ALL. We have som wrapper functions that will attempt to do this for you.
+Maybe you just want to retrieve it ALL. We have some wrapper functions that will attempt to do this for you.
 These functions are a bit more precarious/risky in that there may be reasons certain websites/repos/events/data may not be able to be collected. So collecting repositories one by one will allow you more insight into what is happening.
 
 However, these bulk retrieval functions may help you if you want to grab ALL of your accounts data in one swoop. Just make sure to carefully look over and curate that data after it is attempted to be collected. You may find some retrievals are empty for potentially good reasons (for example if a google form has no responses to collect it will show up with "no responses" in the respective part of the list).
