@@ -183,7 +183,7 @@ stats_list <- all_ga_metrics(account_id = accounts$id[5])
 ```
 
 
-### Google Forms
+### Google Forms bulk
 
 As always, we need to authorize the app.
 ```
@@ -202,11 +202,11 @@ Now we can provide this vector of form ids to `get_multiple_forms`
 multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 ```
 
-### Non-interactive authorizing from secrets
+## Non-interactive authorizing from secrets
 
 If you'd like to authorize non-interactively (whether on GitHub actions or locally) you can set your tokens using `Sys.setenv()` 
 
-#### Setting Calendly auth from secret 
+### Setting Calendly auth from secret 
 
 You can [go here to get an API key](https://calendly.com/integrations/api_webhooks). You likely will have to login first. 
 
@@ -220,7 +220,7 @@ Now in your script if you run the following, you will have authorization to Cale
 auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 ```
 
-#### Setting GitHub auth from secret 
+### Setting GitHub auth from secret 
 
 Similar steps can be done for the GitHub personal access token. 
 
@@ -238,7 +238,7 @@ Now in your script if you run the following, you will have authorization to GitH
 auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
 ```
 
-#### Setting Google auth from secret 
+### Setting Google auth from secret 
 
 For Google you can authorize from secret by doing the normal interactive way using `authorize("google")` but storing the result like this: 
 
