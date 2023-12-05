@@ -68,7 +68,7 @@ authorize <- function(app_name = NULL,
       endpoint = app_set_up(app_name)$endpoint,
       app = app_set_up(app_name)$app,
       scope = scopes_list,
-      cache = FALSE,
+      cache = cache_it == 1,
       ...
     )
     googledrive::drive_auth(token = token)

@@ -59,15 +59,15 @@ get_token <- function(app_name, try = FALSE) {
   # Attempt to grab a cached credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
     .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
-
+  }
     # only print this message if we are successful
-    if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
-  }
-
-  if (app_name == "google") {
-    googledrive::drive_auth(token = token)
-    googlesheets4::gs4_auth(token = token)
-  }
+    if (!is.null(.Env$metricminer_tokens[[app_name]])) {
+      message("Using user-supplied cached token using authorize(\"", app_name, "\")")
+      if (app_name == "google") {
+        googledrive::drive_auth(token = .Env$metricminer_tokens[[app_name]])
+        googlesheets4::gs4_auth(token = .Env$metricminer_tokens[[app_name]])
+      }
+    }
 
   # If we don't get authorization, check if we said it was required or not
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
