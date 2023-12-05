@@ -182,8 +182,10 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
 #' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
+
 get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, body_params = NULL, end_date = NULL, stats_type = "metrics",
                          dataformat = "dataframe") {
+
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -297,6 +299,9 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
 
     properties_list <- get_ga_properties(account_id = account_id)
     # This is the code for one website/property
+    if (length(properties_list$properties$name) == 0) {
+    stop("No properties retrieved from account id:", account_id)
+  }
     property_names <- gsub("properties/", "", properties_list$properties$name)
   }
 

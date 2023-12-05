@@ -10,4 +10,5 @@ inst/extdata/cached-secrets/*
 .Rprofile
 .Rapp.history
 testthat-problems.rds
+.Renviron
 inst/doc

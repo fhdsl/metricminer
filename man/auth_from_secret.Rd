@@ -4,7 +4,14 @@
 \alias{auth_from_secret}
 \title{Use secrets to Authorize R package to access endpoints}
 \usage{
-auth_from_secret(app_name, token, access_token, refresh_token, cache = FALSE)
+auth_from_secret(
+  app_name,
+  token,
+  access_token,
+  refresh_token,
+  cache = FALSE,
+  in_test = TRUE
+)
 }
 \arguments{
 \item{app_name}{Which app are you trying to authorize? 'google', 'calendly' or 'github'?}
@@ -16,6 +23,8 @@ auth_from_secret(app_name, token, access_token, refresh_token, cache = FALSE)
 \item{refresh_token}{For Google, refresh token can be obtained from running authorize interactively: token <-authorize(); token$credentials$refresh_token}
 
 \item{cache}{Should the credentials be cached? TRUE or FALSE?}
+
+\item{in_test}{If setting up auth in a test, set to TRUE so that way the authorization doesn't stick}
 }
 \value{
 OAuth token saved to the environment so the package can use the users' Google data
