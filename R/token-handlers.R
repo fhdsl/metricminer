@@ -63,7 +63,8 @@ get_token <- function(app_name, try = FALSE) {
       stop("Authorization required for the called function. Quitting.")
     }
   }
-  return(invisible(.Env$metricminer_tokens[[app_name]]))
+
+  invisible(.Env$metricminer_tokens[[app_name]])
 }
 
 # A function that attempts to grab stored credentials
