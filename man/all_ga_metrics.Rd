@@ -4,10 +4,12 @@
 \alias{all_ga_metrics}
 \title{Get all metrics for all properties associated with an account}
 \usage{
-all_ga_metrics(account_id, format = "dataframe")
+all_ga_metrics(account_id, token = NULL, format = "dataframe")
 }
 \arguments{
 \item{account_id}{the account id of the properties you are trying to retrieve}
+
+\item{token}{credentials for access to Google using OAuth. `authorize("google")`}
 
 \item{format}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 }
@@ -25,5 +27,7 @@ accounts <- get_ga_user()
 
 stats_list <- all_ga_metrics(account_id = accounts$id[5])
 saveRDS(stats_list, "itcr_website_data.rds")
+
+saveRDS(itcr_data, "itcr_website_data.rds")
 }
 }

@@ -1,6 +1,12 @@
 test_that("Google Analytics: Properties", {
-  ga_user <- get_ga_user()
+  # Interactively create google token
+  auth_from_secret("google",
+                   refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+                   access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+                   cache = FALSE,
+                   in_test = TRUE)
 
+  ga_user <- get_ga_user()
   properties_list <- get_ga_properties(account_id = 209776907)
 
   expect_named(properties_list$properties, c(
@@ -12,6 +18,13 @@ test_that("Google Analytics: Properties", {
 
 
 test_that("Google Analytics: Stats", {
+  # Interactively create google token
+  auth_from_secret("google",
+                   refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+                   access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+                   cache = FALSE,
+                   in_test = TRUE)
+
   properties_list <- get_ga_properties(account_id = 209776907)
 
   property_id <- gsub("properties/", "", properties_list$properties$name[1])
@@ -27,6 +40,13 @@ test_that("Google Analytics: Stats", {
 })
 
 test_that("Google Analytics: All Stats", {
+  # Interactively create google token
+  auth_from_secret("google",
+                   refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+                   access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+                   cache = FALSE,
+                   in_test = TRUE)
+
   stats_list <- all_ga_metrics(account_id = 209776907)
 
   expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))

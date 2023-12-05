@@ -156,7 +156,8 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
 #' Google Form handling functions
 #' @description This is a function to get metadata about a Google Form. It is
 #'  used by the `get_google_form()` function if dataformat = "dataframe"
-#'  @param form_info The return form_info list that is extracted in `get_google_form()`
+#' @param form_info The return form_info list that is extracted in `get_google_form()`
+#' @returns This returns metadata from a google form
 get_question_metadata <- function(form_info) {
   metadata <- data.frame(
     question_id = form_info$result$items$itemId,
@@ -183,7 +184,8 @@ get_question_metadata <- function(form_info) {
 #' Google Form handling functions -- extracting answers
 #' @description This is a function to get extract answers from a Google Form. It is
 #'  used by the `get_google_form()` function if dataformat = "dataframe"
-#'  @param form_info The return form_info list that is extracted in `get_google_form()`
+#' @param form_info The return form_info list that is extracted in `get_google_form()`
+#' @returns This returns answers from a google form
 extract_answers <- function(form_info) {
   questions <- form_info$response_info$result$responses$answers
 
