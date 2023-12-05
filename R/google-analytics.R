@@ -259,10 +259,8 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
+#' stats_list <- all_ga_metrics(account_id = accounts$items$id[5])
 #' saveRDS(stats_list, "itcr_website_data.rds")
-#'
-#' saveRDS(itcr_data, "itcr_website_data.rds")
 #' }
 all_ga_metrics <- function(account_id, token = NULL, format = "dataframe") {
   properties_list <- get_ga_properties(account_id = account_id)
