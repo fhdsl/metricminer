@@ -9,6 +9,7 @@ get_ga_stats(
   start_date = "2015-08-14",
   body_params = NULL,
   end_date = NULL,
+  token = NULL,
   stats_type = "metrics"
 )
 }
@@ -21,9 +22,9 @@ get_ga_stats(
 
 \item{end_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.}
 
-\item{stats_type}{Do you want to retrieve metrics or dimensions?}
-
 \item{token}{credentials for access to Google using OAuth. `authorize("google")`}
+
+\item{stats_type}{Do you want to retrieve metrics or dimensions?}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
