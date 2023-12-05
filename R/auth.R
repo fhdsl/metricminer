@@ -137,6 +137,7 @@ delete_creds <- function(app_name = "all") {
 #' @param cache Should the credentials be cached? TRUE or FALSE?
 #' @param access_token For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token
 #' @param refresh_token For Google, refresh token can be obtained from running authorize interactively: token <-authorize(); token$credentials$refresh_token
+#' @param in_test If setting up auth in a test, set to TRUE so that way the authorization doesn't stick
 #' @return OAuth token saved to the environment so the package can use the users' Google data
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
@@ -160,7 +161,8 @@ delete_creds <- function(app_name = "all") {
 #' )
 #' }
 #'
-auth_from_secret <- function(app_name, token, access_token, refresh_token, cache = FALSE) {
+auth_from_secret <- function(app_name, token, access_token, refresh_token, cache = FALSE,
+                             in_test = TRUE) {
   if (app_name %in% c("github", "calendly") && is.null(token)) {
     stop("For GitHub and Calendly, token cannot be NULL")
   }
@@ -194,7 +196,7 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
     cache_token(token, app_name = app_name)
   }
   # Store the token in the environment
-  set_token(app_name = app_name, token)
+  set_token(app_name = app_name, token, in_test = in_test)
 
   return(invisible(token))
 }
