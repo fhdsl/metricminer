@@ -3,7 +3,7 @@
 # library("ggplot2")
 # library("dlstats")
 
-# download_stats <- cran_stats(c("ottrpal", "githubr", "rgoogleclassroom"))
+# download_stats <- cran_stats(c("ottrpal", "metricminer", "loqui", "loquiAPI"))
 
 # if (!is.null(download_stats)) {
 #  print(head(download_stats))
