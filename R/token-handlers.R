@@ -8,13 +8,20 @@
 )
 
 # Set token to environment
-set_token <- function(token, app_name) {
+set_token <- function(token, app_name, in_test = FALSE) {
   .Env$metricminer_tokens[[app_name]] <- token
 
-  # Store it
-  if (app_name == "calendly") options(calendly = token)
-  if (app_name == "github") options(github = token)
-  if (app_name == "google") options(google = token)
+  if (in_test) {
+    # Store it
+    if (app_name == "calendly") withr::local_option(calendly = token)
+    if (app_name == "github") withr::local_option(github = token)
+    if (app_name == "google") withr::local_option(google = token)
+  } else {
+    # Store it
+    if (app_name == "calendly") options(calendly = token)
+    if (app_name == "github") options(github = token)
+    if (app_name == "google") options(google = token)
+  }
   return(token)
 }
 

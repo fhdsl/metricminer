@@ -1,5 +1,7 @@
 test_that("GitHub: get repo list", {
-  withr::local_options(github = Sys.getenv("METRICMINER_GITHUB_PAT"))
+  # Authorize GitHub
+  auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"),
+                   in_test = TRUE)
 
   repo_list <- get_repo_list(owner = "fhdsl")
 
@@ -10,7 +12,9 @@ test_that("GitHub: get repo list", {
 
 
 test_that("GitHub: Repo metrics", {
-  withr::local_options(github = Sys.getenv("METRICMINER_GITHUB_PAT"))
+  # Authorize GitHub
+  auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"),
+                   in_test = TRUE)
 
   metrics <- get_github_metrics(repo = "fhdsl/metricminer")
 

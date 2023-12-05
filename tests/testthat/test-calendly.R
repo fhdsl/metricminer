@@ -1,5 +1,7 @@
 test_that("Calendly: Events", {
-  withr::local_options(calendly = Sys.getenv("METRICMINER_CALENDLY"))
+  # Authorize Calendly
+  auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"),
+                   in_test = TRUE)
 
   user <- get_calendly_user()
   events <- list_calendly_events(user = user$resource$uri)
