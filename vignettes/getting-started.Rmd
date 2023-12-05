@@ -146,6 +146,16 @@ drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
 slido_data <- get_slido_files(drive_id)
 ```
 
+### Youtube
+
+If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
+
+Then you can extract stats for the videos on that youtube channel using that URL.
+```
+authorize("google")
+youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")
+```
+
 ## Bulk Retrievals
 
 Maybe you just want to retrieval it ALL. We have som wrapper functions that will attempt to do this for you.
@@ -183,7 +193,7 @@ stats_list <- all_ga_metrics(account_id = accounts$id[5])
 ```
 
 
-### Google Forms
+### Google Forms bulk
 
 As always, we need to authorize the app.
 ```
@@ -202,45 +212,45 @@ Now we can provide this vector of form ids to `get_multiple_forms`
 multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 ```
 
-### Non-interactive authorizing from secrets
+## Non-interactive authorizing from secrets
 
-If you'd like to authorize non-interactively (whether on GitHub actions or locally) you can set your tokens using `Sys.setenv()` 
+If you'd like to authorize non-interactively (whether on GitHub actions or locally) you can set your tokens using `Sys.setenv()`
 
-#### Setting Calendly auth from secret 
+### Setting Calendly auth from secret
 
-You can [go here to get an API key](https://calendly.com/integrations/api_webhooks). You likely will have to login first. 
+You can [go here to get an API key](https://calendly.com/integrations/api_webhooks). You likely will have to login first.
 
-Then you can store this by putting your API key in this type of command: 
+Then you can store this by putting your API key in this type of command:
 ```
 Sys.setenv(METRICMINER_CALENDLY = "Put calendly token here")
 ```
 
-Now in your script if you run the following, you will have authorization to Calendly. 
+Now in your script if you run the following, you will have authorization to Calendly.
 ```
 auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 ```
 
-#### Setting GitHub auth from secret 
+### Setting GitHub auth from secret
 
-Similar steps can be done for the GitHub personal access token. 
+Similar steps can be done for the GitHub personal access token.
 
-First [go here to get a GitHub PAT](https://github.com/settings/tokens/new?description=metricminer&scopes=repo,read:packages,read:org). You will likely have to login first. 
+First [go here to get a GitHub PAT](https://github.com/settings/tokens/new?description=metricminer&scopes=repo,read:packages,read:org). You will likely have to login first.
 
-Then you can run this command but put your GitHub PAT there. 
+Then you can run this command but put your GitHub PAT there.
 ```
 Sys.setenv(METRICMINER_GITHUB_PAT = "Put GitHub PAT here")
 ```
 
-Now in your script if you run the following, you will have authorization to GitHub. 
+Now in your script if you run the following, you will have authorization to GitHub.
 
 ```
 # Authorize GitHub
 auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
 ```
 
-#### Setting Google auth from secret 
+### Setting Google auth from secret
 
-For Google you can authorize from secret by doing the normal interactive way using `authorize("google")` but storing the result like this: 
+For Google you can authorize from secret by doing the normal interactive way using `authorize("google")` but storing the result like this:
 
 ```
 token <- authorize("google")
@@ -251,14 +261,14 @@ Then you can use this object to extract two secrets by printing them out like th
 `token$credentials$access_token`
 `token$credentials$refresh_token`
 
-Then you can set these in your environment doing the same steps as before: 
+Then you can set these in your environment doing the same steps as before:
 
 ```
 Sys.setenv(METRICMINER_GOOGLE_ACCESS = "Google access token here")
 
 Sys.setenv(METRICMINER_GOOGLE_REFRESH = "Google refresh token here")
 ```
-Now in your script if you run the following you will have authorization to Google Apps. 
+Now in your script if you run the following you will have authorization to Google Apps.
 
 ```
 # Authorize Google
@@ -269,14 +279,14 @@ auth_from_secret("google",
 )
 ```
 
-## Authorizing on GitHub Actions 
+## Authorizing on GitHub Actions
 
 
-In GitHub you can run `metricminer` using authorization if you use the above steps to retrieve the necessary keys but then store them each as GitHub Secrets. 
+In GitHub you can run `metricminer` using authorization if you use the above steps to retrieve the necessary keys but then store them each as GitHub Secrets.
 
 [Read here about how to store GitHub secrets](https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository)
 
-You'll need the secrets to be stored as the respective key name we've referenced above: 
+You'll need the secrets to be stored as the respective key name we've referenced above:
 ```
 METRICMINER_CALENDLY
 METRICMINER_GITHUB_PAT
@@ -285,7 +295,7 @@ METRICMINER_GOOGLE_ACCESS
 ```
 
 Then in your GitHub action yaml you'll need something like this to extract and authorize these secrets in the
-environment. 
+environment.
 
 ```
       - name: Authorize metricminer
@@ -307,13 +317,13 @@ environment.
                  access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
                  cache = TRUE
           )
-          
-          ### Now run the R commands you want here or call an R script in a later step. 
+
+          ### Now run the R commands you want here or call an R script in a later step.
         shell: Rscript {0}
-        
+
 ```
 
-### Session info 
+### Session info
 
 ```{r}
 sessionInfo()

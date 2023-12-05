@@ -161,6 +161,7 @@ get_ga_metadata <- function(property_id, token = NULL) {
 
 #' Get stats for an associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
+#' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
