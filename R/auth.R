@@ -71,6 +71,8 @@ authorize <- function(app_name = NULL,
       cache = FALSE,
       ...
     )
+    googledrive::drive_auth(token = token)
+    googlesheets4::gs4_auth(token = token)
 
     # If they chose to cache it, we'll store it in rds file format
     if (cache_it == 1) cache_token(token, "google")
@@ -129,7 +131,7 @@ delete_creds <- function(app_name = "all") {
       if (google_creds_exist) {
         remove_token("google")
         remove_cache("google")
-        message("Cached Google .httr-oauth and RDS file deleted and token removed from environment")
+        message("Cached Google RDS file deleted and token removed from environment")
       }
     }
   }
@@ -191,6 +193,8 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
       scope = scopes_list,
       credentials = credentials
     )
+    googledrive::drive_auth(token = token)
+    googlesheets4::gs4_auth(token = token)
   }
 
   if (cache) {

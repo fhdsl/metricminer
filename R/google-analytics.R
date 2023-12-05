@@ -43,7 +43,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
   }
 
   if (httr::status_code(result) != 200) {
-    return(httr::content(result, "text"))
+    stop("API request failed:", httr::content(result, "text"))
   }
 
   # Process and return results
@@ -284,7 +284,7 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' stats_list <- all_ga_metrics(account_id = accounts$id[1])
+#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
 #'
 #' property_names <- c("358228687", "377543643", "377952717")
 #'
@@ -300,12 +300,8 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
     property_names <- gsub("properties/", "", properties_list$properties$name)
   }
 
-  if (is.null(property_names) && is.null(account_id)) {
+  if (is.null(property_names) & is.null(account_id)) {
     stop("need to provide either an account_id or vector of property_names to retrieve")
-  }
-
-  if (!is.null(property_names) && !is.null(account_id)) {
-    stop("You can only provide an account_id OR a property_names argument. ")
   }
 
   if (is.null(property_names) && is.null(account_id)) {
