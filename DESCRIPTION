@@ -27,12 +27,17 @@ Imports:
     lubridate, 
     purrr, 
     tidyr,
-    janitor,
     googledrive,
+    googlesheets4,
+    janitor,
+    stringr,
 Suggests: 
-    testthat (>= 3.0.0),
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
     withr
 Config/testthat/edition: 3
 Encoding: UTF-8
 RoxygenNote: 7.2.3
 LazyData: true
+VignetteBuilder: knitr
