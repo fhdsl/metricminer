@@ -1,4 +1,4 @@
-# metricminer
+# metricminer 🔨
 
 `metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
 
