@@ -44,6 +44,12 @@
 <li class="nav-item">
   <a class="nav-link" href="reference/index.html">Reference</a>
 </li>
+<li class="nav-item dropdown">
+  <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
+  <div class="dropdown-menu" aria-labelledby="dropdown-articles">
+    <a class="dropdown-item" href="articles/getting-started.html">getting-started</a>
+  </div>
+</li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
         <input type="search" class="form-control me-sm-2" aria-label="Toggle navigation" name="search-input" data-search-index="search.json" id="search-input" placeholder="Search for" autocomplete="off">
@@ -63,11 +69,200 @@
   </div>
 </nav><div class="container template-home">
 <div class="row">
-  <main id="main" class="col-md-9">
-Mine metrics on common places on the web through the power of their APIs. 
-    It also helps make the data in a format that is easily used for a dashboard or other purposes.
-    There is an associated dashboard template and tutorials that are underdevelopment that help you  
-    fully utilize metricminer.
+  <main id="main" class="col-md-9"><div class="section level1">
+<div class="page-header"><h1 id="metricminer">metricminer<a class="anchor" aria-label="anchor" href="#metricminer"></a>
+</h1></div>
+<p><code>metricminer</code> is an R package that helps you mine metrics on common places on the web through the power of their APIs.</p>
+<p>It also helps format the data so that it can easily be used for a dashboard or other purposes. It will have an associated <a href="https://github.com/fhdsl/metricminer-dashboard" class="external-link">dashboard template</a> and tutorials to help you fully use the data you retrieve with <code>metricminer</code> (but these are still under development!)</p>
+<ul>
+<li>You can <a href="https://hutchdatascience.org/metricminer/" class="external-link">read the metricminer package documentation here</a>.</li>
+<li>And you can read more about metric collection in our <a href="https://arxiv.org/abs/2306.03255" class="external-link">associated manuscript – currently a preprint</a>.</li>
+</ul>
+<div class="section level2">
+<h2 id="apps-supported">Apps supported<a class="anchor" aria-label="anchor" href="#apps-supported"></a>
+</h2>
+<p>Currently <code>metricminer</code> supports mining data from:</p>
+<ul>
+<li><a href="https://calendly.com/" class="external-link">Calendly</a></li>
+<li><a href="https://github.com/" class="external-link">GitHub</a></li>
+<li><a href="https://analytics.google.com/analytics/academy/course/6" class="external-link">Google Analytics</a></li>
+<li><a href="https://www.google.com/forms/about/" class="external-link">Google Forms</a></li>
+<li><a href="https://www.youtube.com/" class="external-link">Youtube</a></li>
+<li>
+<a href="https://admin.sli.do/events" class="external-link">Slido</a> export files stored on Googledrive</li>
+</ul>
+<!-- START doctoc generated TOC please keep comment here to allow auto update --><!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE --><p><strong>Table of Contents</strong> <em>generated with <a href="https://github.com/thlorenz/doctoc" class="external-link">DocToc</a></em></p>
+<ul>
+<li>
+<a href="#metricminer">metricminer</a>
+<ul>
+<li><a href="#apps-supported">Apps supported</a></li>
+<li><a href="#data-format-options">Data format options</a></li>
+<li><a href="#how-to-install">How to install</a></li>
+<li>
+<a href="#basic-usage">Basic Usage</a>
+<ul>
+<li><a href="#github">GitHub</a></li>
+<li><a href="#calendly">Calendly</a></li>
+<li><a href="#google-analytics">Google Analytics</a></li>
+<li><a href="#google-forms">Google Forms</a></li>
+<li><a href="#slido">Slido</a></li>
+<li><a href="#youtube">Youtube</a></li>
+</ul>
+</li>
+<li>
+<a href="#bulk-retrievals">Bulk Retrievals</a>
+<ul>
+<li><a href="#github-bulk">GitHub bulk</a></li>
+<li><a href="#google-analytics-bulk">Google Analytics bulk</a></li>
+<li><a href="#google-forms-1">Google Forms</a></li>
+</ul>
+</li>
+<li><a href="#contributions">Contributions</a></li>
+</ul>
+</li>
+</ul>
+<!-- END doctoc generated TOC please keep comment here to allow auto update --><!-- README.md is generated from README.Rmd. Please edit that file -->
+</div>
+<div class="section level2">
+<h2 id="data-format-options">Data format options<a class="anchor" aria-label="anchor" href="#data-format-options"></a>
+</h2>
+<p><code>metricminer</code> retrieves API data for you and gives it to you in a format that is a tidy data.frame. this means metricminer has to be opinionated about what metrics it returns so it fits in a useful data frame easily read by humans.</p>
+<p>If you find that the data returned is not what you need you have two options (these options can be pursued concurrently):</p>
+<ol style="list-style-type: decimal">
+<li>You can set the <code>dataformat</code> argument to <code>"raw"</code> to see the original, unedited JSON formatted data as it was returned from the API. Then you can personally look for the data that you want and extract it.</li>
+<li>You can post a GitHub issue to explain why the metric missing from the data frame of formatted data should be included. And if possible and reasonable, we can work on including that data in the next version of <code>metricminer</code>.</li>
+</ol>
+</div>
+<div class="section level2">
+<h2 id="how-to-install">How to install<a class="anchor" aria-label="anchor" href="#how-to-install"></a>
+</h2>
+<p>If you want the development version (not advised) you can install using the <code>remotes</code> package to install from GitHub.</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw">if</span> <span class="op">(</span><span class="op">!</span><span class="op">(</span><span class="st">"remotes"</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="fu"><a href="https://rdrr.io/r/utils/installed.packages.html" class="external-link">installed.packages</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span><span class="op">)</span> <span class="op">{</span></span>
+<span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
+<span><span class="op">}</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fhdsl/metricminer"</span><span class="op">)</span></span></code></pre></div>
+<p>Attach the library or use decide to use <code>metricminer::</code> notation. <code>{r setup} library(metricminer)</code></p>
+</div>
+<div class="section level2">
+<h2 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
+</h2>
+<p>To start, you need to <code><a href="reference/authorize.html">authorize()</a></code> the package to access your data. If you run <code><a href="reference/authorize.html">authorize()</a></code> you will be asked which app you’d like to authorize and whether you’d like to cache that auth information. If you already know which app you’d like to authorize, like <code>google</code> for example, you can run <code>authorize("google")</code>.</p>
+<p>Then follow the instructions on the upcoming screens and select the scopes you feel comfortable sharing (you generally just need read permissions for metricminer to be able to collect data).</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>If you want to clear out authorizations and caches stored by <code>metricminer</code> you can run:</p>
+<pre><code><span><span class="fu"><a href="reference/delete_creds.html">delete_creds</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<div class="section level3">
+<h3 id="github">GitHub<a class="anchor" aria-label="anchor" href="#github"></a>
+</h3>
+<p>You can retrieve metrics from a repository on GitHub doing this:</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span>
+<span><span class="va">metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_github_metrics.html">get_github_metrics</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"fhdsl/metricminer"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="calendly">Calendly<a class="anchor" aria-label="anchor" href="#calendly"></a>
+</h3>
+<p>You can retrieve calendly events information using this type of workflow:</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"calendly"</span><span class="op">)</span></span>
+<span><span class="va">user</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_calendly_user.html">get_calendly_user</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="va">events</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/list_calendly_events.html">list_calendly_events</a></span><span class="op">(</span>user <span class="op">=</span> <span class="va">user</span><span class="op">$</span><span class="va">resource</span><span class="op">$</span><span class="va">uri</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="google-analytics">Google Analytics<a class="anchor" aria-label="anchor" href="#google-analytics"></a>
+</h3>
+<p>You can retrieve Google Analytics data for websites like this.</p>
+<p>First you have to retrieve your account information after you’ve authorized.</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
+<span><span class="va">accounts</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_user.html">get_ga_user</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<p>Then you need to retrieve the properties (aka usually the websites you are tracking) underneath that account.</p>
+<pre><code><span><span class="va">properties_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_properties.html">get_ga_properties</a></span><span class="op">(</span>account_id <span class="op">=</span> <span class="va">accounts</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre>
+<p>Just need to shave off the <code>properties/</code> bit from this string.</p>
+<pre><code><span><span class="va">property_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"properties/"</span>, <span class="st">""</span>, <span class="va">properties_list</span><span class="op">$</span><span class="va">properties</span><span class="op">$</span><span class="va">name</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre>
+<p>Now we can collect some stats.</p>
+<p>In Google Analytics <code>metrics</code> are your basic numbers (how many visits to your website, etc.).</p>
+<pre><code><span><span class="va">metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_stats.html">get_ga_stats</a></span><span class="op">(</span><span class="va">property_id</span>, stats_type <span class="op">=</span> <span class="st">"metrics"</span><span class="op">)</span></span></code></pre>
+<p>Whereas <code>dimensions</code> are more a list of events that have happened. So here’s a list of people that have logged on.</p>
+<pre><code><span><span class="va">dimensions</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_stats.html">get_ga_stats</a></span><span class="op">(</span><span class="va">property_id</span>, stats_type <span class="op">=</span> <span class="st">"dimensions"</span><span class="op">)</span></span></code></pre>
+<p>Lastly, we have a third option of collecting <code>link_clicks</code> and the links they have clicked. This is also known as a dimension according to Google Analytics. However it often isn’t compatible for us to download data about link clicks at the same time as other dimension data so in <code>metricminer</code> we collect them separately.</p>
+<pre><code><span><span class="va">link_clicks</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_stats.html">get_ga_stats</a></span><span class="op">(</span><span class="va">property_id</span>, stats_type <span class="op">=</span> <span class="st">"link_clicks"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="google-forms">Google Forms<a class="anchor" aria-label="anchor" href="#google-forms"></a>
+</h3>
+<p>You can retrieve Google form information and responses like this:</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
+<span><span class="va">form_url</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"</span></span>
+<span><span class="va">form_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_google_form.html">get_google_form</a></span><span class="op">(</span><span class="va">form_url</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="slido">Slido<a class="anchor" aria-label="anchor" href="#slido"></a>
+</h3>
+<p>If you have used Slido for interactive slide sessions and collected that info and exported it to your googledrive you can use <code>metricminer</code> to collect that data as well.</p>
+<pre><code><span><span class="va">drive_id</span> <span class="op">&lt;-</span> <span class="st">"https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"</span></span>
+<span><span class="va">slido_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_slido_files.html">get_slido_files</a></span><span class="op">(</span><span class="va">drive_id</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="youtube">Youtube<a class="anchor" aria-label="anchor" href="#youtube"></a>
+</h3>
+<p>If you have a channel and the URL is <a href="https://www.youtube.com/channel/a_bunch_of_letters_here" class="external-link uri">https://www.youtube.com/channel/a_bunch_of_letters_here</a></p>
+<p>Then you can extract stats for the videos on that youtube channel using that URL.</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
+<span><span class="va">youtube_stats</span> <span class="op">&lt;-</span> <span class="fu">get_get_youtube_stats</span><span class="op">(</span><span class="st">"a_bunch_of_letters_here"</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="youtube-1">Youtube<a class="anchor" aria-label="anchor" href="#youtube-1"></a>
+</h3>
+<p>If you have a channel and the URL is <a href="https://www.youtube.com/channel/a_bunch_of_letters_here" class="external-link uri">https://www.youtube.com/channel/a_bunch_of_letters_here</a></p>
+<p>Then you can extract stats for the videos on that youtube channel using that URL.</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
+<span><span class="va">youtube_stats</span> <span class="op">&lt;-</span> <span class="fu">get_get_youtube_stats</span><span class="op">(</span><span class="st">"a_bunch_of_letters_here"</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="bulk-retrievals">Bulk Retrievals<a class="anchor" aria-label="anchor" href="#bulk-retrievals"></a>
+</h2>
+<p>Maybe you just want to retrieve it ALL. We have some wrapper functions that will attempt to do this for you. These functions are a bit more precarious/risky in that there may be reasons certain websites/repos/events/data may not be able to be collected. So collecting repositories one by one will allow you more insight into what is happening.</p>
+<p>However, these bulk retrieval functions may help you if you want to grab ALL of your accounts data in one swoop. Just make sure to carefully look over and curate that data after it is attempted to be collected. You may find some retrievals are empty for potentially good reasons (for example if a google form has no responses to collect it will show up with “no responses” in the respective part of the list).</p>
+<div class="section level3">
+<h3 id="github-bulk">GitHub bulk<a class="anchor" aria-label="anchor" href="#github-bulk"></a>
+</h3>
+<p>From GitHub you can attempt to collect repository metrics from all repositories from an account.</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span>
+<span><span class="va">all_repos_metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_repos_metrics.html">get_repos_metrics</a></span><span class="op">(</span>owner <span class="op">=</span> <span class="st">"fhdsl"</span><span class="op">)</span></span></code></pre>
+<p>If you want to do this by giving a list of specific repositories you want data from you can just provide a vector of those repository’s names like this:</p>
+<pre><code><span><span class="va">repo_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fhdsl/metricminer"</span>, <span class="st">"jhudsl/OTTR_Template"</span><span class="op">)</span></span>
+<span><span class="va">some_repos_metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_repos_metrics.html">get_repos_metrics</a></span><span class="op">(</span>repo_names <span class="op">=</span> <span class="va">repo_names</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="google-analytics-bulk">Google Analytics bulk<a class="anchor" aria-label="anchor" href="#google-analytics-bulk"></a>
+</h3>
+<p>Similar to single website retrieval we need to authorize the package.</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
+<span><span class="va">accounts</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_user.html">get_ga_user</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
+<p>Then we can provide the account id to <code>all_ga_metrics</code> and it will attempt to grab all stats for all website properties underneath the provided account.</p>
+<pre><code><span><span class="va">stats_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/all_ga_metrics.html">all_ga_metrics</a></span><span class="op">(</span>account_id <span class="op">=</span> <span class="va">accounts</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></code></pre>
+</div>
+<div class="section level3">
+<h3 id="google-forms-1">Google Forms<a class="anchor" aria-label="anchor" href="#google-forms-1"></a>
+</h3>
+<p>As always, we need to authorize the app.</p>
+<pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span></code></pre>
+<p>We can retrieve a list of form ids using <code>googledrive</code> R package.</p>
+<pre><code><span><span class="va">form_list</span> <span class="op">&lt;-</span> <span class="fu">googledrive</span><span class="fu">::</span><span class="fu"><a href="https://googledrive.tidyverse.org/reference/drive_find.html" class="external-link">drive_find</a></span><span class="op">(</span></span>
+<span>  shared_drive <span class="op">=</span> <span class="fu">googledrive</span><span class="fu">::</span><span class="fu"><a href="https://googledrive.tidyverse.org/reference/drive_id.html" class="external-link">as_id</a></span><span class="op">(</span><span class="st">"0AJb5Zemj0AAkUk9PVA"</span><span class="op">)</span>,</span>
+<span>  type <span class="op">=</span> <span class="st">"form"</span><span class="op">)</span></span></code></pre>
+<p>Now we can provide this vector of form ids to <code>get_multiple_forms</code></p>
+<pre><code><span><span class="va">multiple_forms</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_multiple_forms.html">get_multiple_forms</a></span><span class="op">(</span>form_ids <span class="op">=</span> <span class="va">form_list</span><span class="op">$</span><span class="va">id</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+<div class="section level2">
+<h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
+</h2>
+<p>This is an ever developing package. contact <a href="mailto:csavonen@fredhutch.org" class="email">csavonen@fredhutch.org</a> if you are interested in helping us develop <code>metricminer</code> Or just file a pull request or issue!</p>
+</div>
+</div>
   </main><aside class="col-md-3"><div class="links">
 <h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
