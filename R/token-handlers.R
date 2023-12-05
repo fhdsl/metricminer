@@ -13,9 +13,9 @@ set_token <- function(token, app_name, in_test = FALSE) {
 
   if (in_test) {
     # Store it
-    if (app_name == "calendly") withr::local_option(calendly = token)
-    if (app_name == "github") withr::local_option(github = token)
-    if (app_name == "google") withr::local_option(google = token)
+    if (app_name == "calendly") withr::local_options(calendly = token)
+    if (app_name == "github") withr::local_options(github = token)
+    if (app_name == "google") withr::local_options(google = token)
   } else {
     # Store it
     if (app_name == "calendly") options(calendly = token)
