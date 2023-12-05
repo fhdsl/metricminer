@@ -144,6 +144,7 @@ get_ga_metadata <- function(property_id) {
 
 #' Get stats for an associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
+#' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
@@ -249,6 +250,7 @@ link_clicks <- function() {
 #' Get all metrics for all properties associated with an account
 #' @description This is a function to gets metrics and dimensions for all properties associated with an account
 #' @param account_id the account id of the properties you are trying to retrieve
+#' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param format How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
 #' @export
@@ -259,8 +261,10 @@ link_clicks <- function() {
 #'
 #' stats_list <- all_ga_metrics(account_id = accounts$id[5])
 #' saveRDS(stats_list, "itcr_website_data.rds")
+#'
+#' saveRDS(itcr_data, "itcr_website_data.rds")
 #' }
-all_ga_metrics <- function(account_id, format = "dataframe") {
+all_ga_metrics <- function(account_id, token = NULL, format = "dataframe") {
   properties_list <- get_ga_properties(account_id = account_id)
 
   # This is the code for one website/property
