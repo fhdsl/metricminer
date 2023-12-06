@@ -54,13 +54,17 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ga_metadata</span><span class="op">(</span><span class="va">property_id</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">get_ga_metadata</span><span class="op">(</span><span class="va">property_id</span>, token <span class="op">=</span> <span class="cn">NULL</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>property_id</dt>
 <dd><p>a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`</p></dd>
+
+
+<dt>token</dt>
+<dd><p>credentials for access to Google using OAuth.  `authorize("google")`</p></dd>
 
 </dl></div>
 

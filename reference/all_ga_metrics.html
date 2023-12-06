@@ -54,20 +54,29 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">all_ga_metrics</span><span class="op">(</span><span class="va">account_id</span>, token <span class="op">=</span> <span class="cn">NULL</span>, format <span class="op">=</span> <span class="st">"dataframe"</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">all_ga_metrics</span><span class="op">(</span></span>
+<span>  account_id <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  property_names <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  token <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  dataformat <span class="op">=</span> <span class="st">"dataframe"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>account_id</dt>
-<dd><p>the account id of the properties you are trying to retrieve</p></dd>
+<dd><p>the account id that you'd like to retrieve stats for all properties associated with it.</p></dd>
+
+
+<dt>property_names</dt>
+<dd><p>a vector of property names for stats to be retrieved for. Note you can only provide one or the other.</p></dd>
 
 
 <dt>token</dt>
-<dd><p>credentials for access to Google using OAuth. `authorize("google")`</p></dd>
+<dd><p>credentials for access to Google using OAuth.  `authorize("google")`</p></dd>
 
 
-<dt>format</dt>
+<dt>dataformat</dt>
 <dd><p>How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".</p></dd>
 
 </dl></div>
@@ -86,9 +95,10 @@
 <span class="r-in"><span><span class="va">accounts</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_ga_user.html">get_ga_user</a></span><span class="op">(</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">stats_list</span> <span class="op">&lt;-</span> <span class="fu">all_ga_metrics</span><span class="op">(</span>account_id <span class="op">=</span> <span class="va">accounts</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">5</span><span class="op">]</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">stats_list</span>, <span class="st">"itcr_website_data.rds"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html" class="external-link">saveRDS</a></span><span class="op">(</span><span class="va">itcr_data</span>, <span class="st">"itcr_website_data.rds"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">property_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"358228687"</span>, <span class="st">"377543643"</span>, <span class="st">"377952717"</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">some_stats_list</span> <span class="op">&lt;-</span> <span class="fu">all_ga_metrics</span><span class="op">(</span>property_names <span class="op">=</span> <span class="va">property_names</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
