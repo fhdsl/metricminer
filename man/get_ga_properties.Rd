@@ -4,10 +4,12 @@
 \alias{get_ga_properties}
 \title{Get all property ids for all Google Analytics associated with an account id}
 \usage{
-get_ga_properties(account_id)
+get_ga_properties(account_id, token = NULL)
 }
 \arguments{
 \item{account_id}{the account id of the properties you are trying to retrieve}
+
+\item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
@@ -18,6 +20,6 @@ This is a function to get the Google Analytics accounts that this user has acces
 authorize("google")
 accounts <- get_ga_user()
 
-properties_list <- get_ga_properties(account_id = 209776907)
+properties_list <- get_ga_properties(account_id = accounts$id[1])
 }
 }

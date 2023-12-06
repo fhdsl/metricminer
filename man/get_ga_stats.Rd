@@ -7,10 +7,11 @@
 get_ga_stats(
   property_id,
   start_date = "2015-08-14",
+  token = NULL,
   body_params = NULL,
   end_date = NULL,
-  token = NULL,
-  stats_type = "metrics"
+  stats_type = "metrics",
+  dataformat = "dataframe"
 )
 }
 \arguments{
@@ -18,13 +19,15 @@ get_ga_stats(
 
 \item{start_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.}
 
+\item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
+
 \item{body_params}{The body parameters for the request}
 
 \item{end_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.}
 
-\item{token}{credentials for access to Google using OAuth. `authorize("google")`}
-
 \item{stats_type}{Do you want to retrieve metrics or dimensions?}
+
+\item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to

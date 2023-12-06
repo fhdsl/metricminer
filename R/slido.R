@@ -19,6 +19,11 @@
 #' }
 get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_duplicates = FALSE) {
 
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
+
   spreadsheet_list <- googledrive::drive_ls(
     googledrive::as_id(drive_id),
     type = "spreadsheet",
@@ -55,11 +60,11 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
     dplyr::filter(file_name %in% slido_file_names) %>%
     dplyr::mutate(slido_event_name,
                   slido_type) %>%
-    dplyr::arrange(slido_type) %>%
+    dplyr::arrange(slido_type)
 
     if (!keep_duplicates) {
       slido_files <-
-        dplyr::distinct(slido_event_name, slido_type, .keep_all = TRUE)
+        dplyr::distinct(slido_files, slido_event_name, slido_type, .keep_all = TRUE)
     }
 
   # Now read in the data
@@ -68,12 +73,16 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
     files <- slido_files %>%
       dplyr::filter(slido_type == slido_type_name)
 
-    slido_data <- sapply(files$id, googlesheets4::read_sheet, USE.NAMES = TRUE)
+    if (length(files) > 0) {
 
-    names(slido_data) <- files$slido_event_name
+      slido_data <- lapply(files$id, googlesheets4::read_sheet)
 
-    slido_data_df <-dplyr::bind_rows(slido_data, .id = "event_name")
+      names(slido_data) <- files$slido_event_name
 
+      slido_data_length <- sapply(slido_data, length)
+
+      slido_data_df <- dplyr::bind_rows(slido_data, .id = "event_name")
+    }
     return(slido_data_df)
   }, USE.NAMES = TRUE)
 

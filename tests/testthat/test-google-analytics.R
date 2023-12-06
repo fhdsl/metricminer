@@ -33,10 +33,12 @@ test_that("Google Analytics: Stats", {
   expect_named(property_metadata, c("dimensions", "metrics", "name"))
 
   metrics <- get_ga_stats(property_id, stats_type = "metrics")
-  expect_named(metrics, c("metricHeaders", "rows", "rowCount", "metadata", "kind"))
+  expect_named(metrics, c("website", "activeUsers", "newUsers", "totalUsers",
+                          "eventCountPerUser", "screenPageViewsPerUser", "sessions",
+                          "averageSessionDuration", "screenPageViews",  "engagementRate"))
 
   dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
-  expect_named(dimensions, c("dimensionHeaders", "rows", "rowCount", "metadata", "kind"))
+  expect_named(dimensions, c("day", "month", "year", "country", "fullPageUrl"))
 })
 
 test_that("Google Analytics: All Stats", {
