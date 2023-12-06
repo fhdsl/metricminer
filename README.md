@@ -1,5 +1,7 @@
 # metricminer <img src="resources/metricminer-gnome.png" width = "100">
 
+Digging up data that matters, making it dashboard-ready.
+
 `metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
 
 It also helps format the data so that it can easily be used for a dashboard or other purposes.
