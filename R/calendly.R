@@ -58,7 +58,6 @@ get_calendly_user <- function(token = NULL) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "calendly")
-    message("Using user-supplied token stored using authorize(\"calendly\")")
   }
 
   # Declare URL
@@ -86,10 +85,10 @@ get_calendly_user <- function(token = NULL) {
 #' }
 #'
 list_calendly_events <- function(token = NULL, user, count = 100) {
+
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "calendly")
-    message("Using user-supplied token stored using authorize(\"calendly\")")
   }
   # Only can handle requests with 100 at a time
   request_count <- ifelse(count > 100, 100, count)
