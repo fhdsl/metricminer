@@ -4,14 +4,21 @@
 \alias{all_ga_metrics}
 \title{Get all metrics for all properties associated with an account}
 \usage{
-all_ga_metrics(account_id, token = NULL, format = "dataframe")
+all_ga_metrics(
+  account_id = NULL,
+  property_names = NULL,
+  token = NULL,
+  dataformat = "dataframe"
+)
 }
 \arguments{
-\item{account_id}{the account id of the properties you are trying to retrieve}
+\item{account_id}{the account id that you'd like to retrieve stats for all properties associated with it.}
 
-\item{token}{credentials for access to Google using OAuth. `authorize("google")`}
+\item{property_names}{a vector of property names for stats to be retrieved for. Note you can only provide one or the other.}
 
-\item{format}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
+\item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
+
+\item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 }
 \value{
 Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
@@ -26,8 +33,9 @@ authorize("google")
 accounts <- get_ga_user()
 
 stats_list <- all_ga_metrics(account_id = accounts$id[5])
-saveRDS(stats_list, "itcr_website_data.rds")
 
-saveRDS(itcr_data, "itcr_website_data.rds")
+property_names <- c("358228687", "377543643", "377952717")
+
+some_stats_list <- all_ga_metrics(property_names = property_names)
 }
 }

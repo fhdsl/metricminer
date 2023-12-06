@@ -33,14 +33,21 @@ remove_token <- function(app_name) {
   .Env$metricminer_tokens[[app_name]] <- NULL
   googledrive::drive_deauth()
   googlesheets4::gs4_deauth()
+  if (app_name == "calendly") options(calendly = NULL)
+  if (app_name == "github") options(github = NULL)
+  if (app_name == "google") options(google = NULL)
 }
 
 remove_cache <- function(app_name) {
-  if (app_name == "calendly" || app_name == "github") cache_file <- file.path(cache_secrets_folder(), paste0(".RDS"))
+  if (app_name == "calendly" || app_name == "github" || app_name == "google") {
+    cache_file <- file.path(cache_secrets_folder(), paste0(app_name, ".RDS"))
+    try(file.remove(cache_file), silent = TRUE)
+  }
 
-  if (app_name == "google") cache_file <- list.files(pattern = ".httr-oauth", all.files = TRUE, recursive = TRUE, full.names = TRUE)
-
-  file.remove(cache_file)
+  if (app_name == "google") {
+    cache_file <- list.files(pattern = ".httr-oauth", all.files = TRUE, recursive = TRUE, full.names = TRUE)
+    try(file.remove(cache_file), silent = TRUE)
+  }
 }
 
 # Get token from environment
@@ -58,10 +65,15 @@ get_token <- function(app_name, try = FALSE) {
   # Attempt to grab a cached credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
     .Env$metricminer_tokens[[app_name]] <- get_cached_token(app_name)
-
-    # only print this message if we are successful
-    if (!is.null(.Env$metricminer_tokens[[app_name]])) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
   }
+    # only print this message if we are successful
+    if (!is.null(.Env$metricminer_tokens[[app_name]])) {
+      message("Using user-supplied cached token using authorize(\"", app_name, "\")")
+      if (app_name == "google") {
+        googledrive::drive_auth(token = .Env$metricminer_tokens[[app_name]])
+        googlesheets4::gs4_auth(token = .Env$metricminer_tokens[[app_name]])
+      }
+    }
 
   # If we don't get authorization, check if we said it was required or not
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
@@ -71,6 +83,7 @@ get_token <- function(app_name, try = FALSE) {
     }
   }
 
+
   invisible(.Env$metricminer_tokens[[app_name]])
 }
 
@@ -78,23 +91,21 @@ get_token <- function(app_name, try = FALSE) {
 get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly")
   if (app_name == "github") token <- getOption("github")
-  if (app_name == "google") {
-    token <- getOption("google")
-    googledrive::drive_auth(token = token)
-    googlesheets4::gs4_auth(token = token)
-  }
+  if (app_name == "google") token <- getOption("google")
 
   return(token)
 }
 
 # A function that attempts to grab cached credentials
 get_cached_token <- function(app_name) {
-  if (app_name == "calendly") token <- try(readRDS(file.path(cache_secrets_folder(), "calendly.RDS")), silent = TRUE)
-  if (app_name == "github") token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
+  if (app_name == "calendly") {
+    token <- try(readRDS(file.path(cache_secrets_folder(), "calendly.RDS")), silent = TRUE)
+  }
+  if (app_name == "github") {
+    token <- try(readRDS(file.path(cache_secrets_folder(), "github.RDS")), silent = TRUE)
+  }
   if (app_name == "google") {
     token <- try(readRDS(file.path(cache_secrets_folder(), "google.RDS")), silent = TRUE)
-    googledrive::drive_auth(token = token)
-    googlesheets4::gs4_auth(token = token)
   }
 
   if (class(token)[1] == "try-error") {

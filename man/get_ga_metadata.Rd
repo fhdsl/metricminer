@@ -4,10 +4,12 @@
 \alias{get_ga_metadata}
 \title{Get metadata associated Google Analytics property}
 \usage{
-get_ga_metadata(property_id)
+get_ga_metadata(property_id, token = NULL)
 }
 \arguments{
 \item{property_id}{a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`}
+
+\item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to

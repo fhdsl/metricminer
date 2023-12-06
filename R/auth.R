@@ -67,12 +67,15 @@ authorize <- function(app_name = NULL,
     token <- httr::oauth2.0_token(
       endpoint = app_set_up(app_name)$endpoint,
       app = app_set_up(app_name)$app,
-      cache = cache_it == 1,
       scope = scopes_list,
+      cache = cache_it == 1,
       ...
     )
     googledrive::drive_auth(token = token)
     googlesheets4::gs4_auth(token = token)
+
+    # If they chose to cache it, we'll store it in rds file format
+    if (cache_it == 1) cache_token(token, "google")
   }
   set_token(token = token, app_name = app_name)
 
@@ -94,13 +97,17 @@ delete_creds <- function(app_name = "all") {
   if (!(app_name %in% c("all", supported))) stop("That is not a supported app or endpoint")
 
   ## Checking for the existence of cached creds
-  calendly_creds_exist <- !is.null(getOption("calendly_api"))
-  github_creds_exist <- !is.null(getOption("github_api"))
-  oauth_file <- list.files(pattern = ".httr-oauth", all.files = TRUE, recursive = TRUE, full.names = TRUE)
-  google_creds_exist <- length(oauth_file) != 0
+  calendly_creds_exist <- !is.null(getOption("calendly"))
+  github_creds_exist <- !is.null(getOption("github"))
+  google_creds_exist <- !is.null(getOption("google"))
+
+  calendly_cache_exist <- file.exists(file.path(cache_secrets_folder(), "calendly.RDS"))
+  github_cache_exist <-  file.exists(file.path(cache_secrets_folder(), "github.RDS"))
+  google_cache_exist <-  file.exists(file.path(cache_secrets_folder(), "google.RDS"))
 
   # Do any exist?
-  none_exist <- all(!calendly_creds_exist, !github_creds_exist, !google_creds_exist)
+  none_exist <- all(!calendly_creds_exist, !github_creds_exist, !google_creds_exist,
+                    !calendly_cache_exist, !github_cache_exist, !google_cache_exist)
 
   if (none_exist) {
     message("No cached creds to delete (from metricminer anyway). Done")
@@ -125,7 +132,7 @@ delete_creds <- function(app_name = "all") {
       if (google_creds_exist) {
         remove_token("google")
         remove_cache("google")
-        message("Cached Google .httr-oauth file deleted and token removed from environment")
+        message("Cached Google RDS file deleted and token removed from environment")
       }
     }
   }
@@ -189,6 +196,8 @@ auth_from_secret <- function(app_name, token, access_token, refresh_token, cache
       scope = scopes_list,
       credentials = credentials
     )
+    googledrive::drive_auth(token = token)
+    googlesheets4::gs4_auth(token = token)
   }
 
   if (cache) {

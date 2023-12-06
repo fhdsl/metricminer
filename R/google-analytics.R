@@ -43,7 +43,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
   }
 
   if (httr::status_code(result) != 200) {
-    return(httr::content(result, "text"))
+    stop("API request failed:", httr::content(result, "text"))
   }
 
   # Process and return results
@@ -77,12 +77,18 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
     request_type = request_type
   )
 
-  return(results)
+  if (results$totalResults == 0 ){
+    message(paste0("No accounts found underneath this ID: ", accounts$username,"\n",
+            "Are you sure you have Google Analytics properties underneath THIS google account?"))
+  }
+
+  return(results$items)
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param account_id the account id of the properties you are trying to retrieve
+#' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -92,11 +98,14 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' properties_list <- get_ga_properties(account_id = 209776907)
+#' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #' }
-get_ga_properties <- function(account_id) {
-  # Get auth token
-  token <- get_token(app_name = "google")
+get_ga_properties <- function(account_id, token = NULL) {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   results <- request_ga(
     token = token,
@@ -105,12 +114,18 @@ get_ga_properties <- function(account_id) {
     request_type = "GET"
   )
 
+  if (length(results$properties) == 0 ){
+    message(paste0("No properties found underneath this account: ", account_id,"\n",
+                   "Are you sure you have Google Analytics properties underneath THIS account id?"))
+  }
+
   return(results)
 }
 
 #' Get metadata associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
+#' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -125,13 +140,15 @@ get_ga_properties <- function(account_id) {
 #' property_id <- gsub("properties/", "", properties_list$properties$name[1])
 #' property_metadata <- get_ga_metadata(property_id = property_id)
 #' }
-get_ga_metadata <- function(property_id) {
+get_ga_metadata <- function(property_id, token = NULL) {
   # Declare URL
   url <- "https://analyticsdata.googleapis.com/v1beta/properties/property_id/metadata"
   url <- gsub("property_id", property_id, url)
 
-  # Get auth token
-  token <- get_token(app_name = "google")
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   results <- request_ga(
     token = token,
@@ -146,13 +163,12 @@ get_ga_metadata <- function(property_id) {
 #' @description This is a function to get the Google Analytics accounts that this user has access to
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
+#' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
 #' @param body_params The body parameters for the request
 #' @param stats_type Do you want to retrieve metrics or dimensions?
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
+#' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @importFrom lubridate today
 #' @export
 #' @examples \dontrun{
@@ -166,7 +182,10 @@ get_ga_metadata <- function(property_id) {
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
 #' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
-get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = NULL, end_date = NULL, token = NULL, stats_type = "metrics") {
+
+get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, body_params = NULL, end_date = NULL, stats_type = "metrics",
+                         dataformat = "dataframe") {
+
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -174,8 +193,10 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
   url <- "https://analyticsdata.googleapis.com/v1beta/properties/property_id:runReport"
   url <- gsub("property_id", property_id, url)
 
-  # Get auth token
-  token <- get_token(app_name = "google")
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
 
   if (stats_type == "metrics") {
     body_params <- list(
@@ -211,6 +232,11 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", body_params = N
     body_params = body_params,
     request_type = "POST"
   )
+
+  if (dataformat == "dataframe") {
+    if (stats_type == "metrics")  results <- clean_metric_data(results)
+    if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_dimensions(results)
+  }
 
   return(results)
 }
@@ -249,9 +275,10 @@ link_clicks <- function() {
 
 #' Get all metrics for all properties associated with an account
 #' @description This is a function to gets metrics and dimensions for all properties associated with an account
-#' @param account_id the account id of the properties you are trying to retrieve
-#' @param token credentials for access to Google using OAuth. `authorize("google")`
-#' @param format How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
+#' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
+#' @param property_names a vector of property names for stats to be retrieved for. Note you can only provide one or the other.
+#' @param token credentials for access to Google using OAuth.  `authorize("google")`
+#' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
 #' @export
 #' @examples \dontrun{
@@ -260,58 +287,77 @@ link_clicks <- function() {
 #' accounts <- get_ga_user()
 #'
 #' stats_list <- all_ga_metrics(account_id = accounts$id[5])
-#' saveRDS(stats_list, "itcr_website_data.rds")
 #'
-#' saveRDS(itcr_data, "itcr_website_data.rds")
+#' property_names <- c("358228687", "377543643", "377952717")
+#'
+#' some_stats_list <- all_ga_metrics(property_names = property_names)
 #' }
-all_ga_metrics <- function(account_id, token = NULL, format = "dataframe") {
-  properties_list <- get_ga_properties(account_id = account_id)
+all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NULL, dataformat = "dataframe") {
 
-  if (length(properties_list$properties$name) == 0) {
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
+
+  if (!is.null(account_id)) {
+    message("Retrieving all properties underneath this account")
+
+    properties_list <- get_ga_properties(account_id = account_id)
+    # This is the code for one website/property
+    if (length(properties_list$properties$name) == 0) {
     stop("No properties retrieved from account id:", account_id)
   }
-  # This is the code for one website/property
-  property_names <- gsub("properties/", "", properties_list$properties$name)
+    property_names <- gsub("properties/", "", properties_list$properties$name)
+  }
+
+  if (is.null(property_names) & is.null(account_id)) {
+    stop("need to provide either an account_id or vector of property_names to retrieve")
+  }
+
+  if (is.null(property_names) && is.null(account_id)) {
+    stop("Neither an account_id nor a property_names argument provided.",
+         "Not sure what properties to retrieve stats for ")
+  }
 
   # Now loop through all the properties
   all_google_analytics_metrics <- lapply(property_names, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "metrics"))
     # Get the stats
-    metrics <- get_ga_stats(property_id, stats_type = "metrics")
+    metrics <- get_ga_stats(token = token, property_id, stats_type = "metrics", dataformat = "raw")
     return(metrics)
   })
 
   # Save the names
-  names(all_google_analytics_metrics) <- properties_list$properties$displayName
+  names(all_google_analytics_metrics) <- property_names
 
   # Now loop through all the properties
-  all_google_analytics_dimensions <- lapply(property_names, function(property_id) {
+  all_google_analytics_dimensions <- sapply(property_names, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "dimensions"))
     # Get the stats
-    dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
+    dimensions <- get_ga_stats(token = token, property_id, stats_type = "dimensions", dataformat = "raw")
 
     return(dimensions)
   })
 
   # Save the names
-  names(all_google_analytics_dimensions) <- properties_list$properties$displayName
+  names(all_google_analytics_dimensions) <- property_names
 
   # Now loop through all the properties
   all_google_analytics_links <- lapply(property_names, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "link clicks"))
     # Get the stats
-    links <- get_ga_stats(property_id, stats_type = "link_clicks")
+    links <- get_ga_stats(token = token, property_id, stats_type = "link_clicks", dataformat = "raw")
 
     return(links)
   })
 
   # Save the names
-  names(all_google_analytics_links) <- properties_list$properties$displayName
+  names(all_google_analytics_links) <- property_names
 
-  if (format == "dataframe") {
+  if (dataformat == "dataframe") {
     all_google_analytics_metrics <- clean_metric_data(all_google_analytics_metrics)
     all_google_analytics_dimensions <- clean_dimension_data(all_google_analytics_dimensions)
     all_google_analytics_links <- clean_link_data(all_google_analytics_links)
@@ -334,9 +380,17 @@ all_ga_metrics <- function(account_id, token = NULL, format = "dataframe") {
 #' @export
 
 clean_metric_data <- function(metrics = NULL) {
-  stat_names <- metrics[[1]]$metricHeaders$name
 
-  clean_df <- purrr::map(metrics, "rows") %>%
+  # This is if we are running it with all the data at once
+  if (length(metrics$metricHeaders$name) == 0 ){
+    stat_names <- metrics[[1]]$metricHeaders$name
+    clean_df <- purrr::map(metrics, "rows")
+  } else {
+    # this is for if we only are given one property
+    stat_names <- metrics$metricHeaders$name
+    clean_df <- metrics$rows
+  }
+  clean_df <- clean_df %>%
     dplyr::bind_rows(.id = "website") %>%
     tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
     dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
@@ -360,6 +414,7 @@ clean_link_data <- function(link_clicks = NULL) {
 }
 
 wrangle_dimensions <- function(dims_for_website) {
+
   stat_names <- dims_for_website$dimensionHeaders
 
   values_list <- lapply(dims_for_website$rows$dimensionValues, t)
