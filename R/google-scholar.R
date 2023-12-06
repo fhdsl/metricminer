@@ -1,34 +1,23 @@
 
 
 
-#' Google Scholar web scraping
-#' @description This is a function to get the Calendly API user info
+#' Google Scholar Citation number
+#' @description This is a function to get how many times a paper has been cited on Google Scholar
 #' @param url The endpoint URL for the request
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
 #' @param query_params The body parameters for the request
 #' @param return_request Should a list of the request be returned as well?
 #' @returns This function returns a list from a API response JSON file
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
+#' @importFrom httr GET add_headers
 #' @export
 #'
+#'
+doi <- "10.1080/26939169.2022.2118646"
 
-library(httr)
-library(rvest)
+headers = c("User-Agent" = "Safari/537.36")
+r <- httr::GET(url = "https://scholar.google.com/scholar?cites=6140457238337460780
+               &as_sdt=20000005&sciodt=0,21&hl=en",
+               httr::add_headers(.headers=headers))
 
-url_i_want <- "https://www.researchgate.net/publication/363147205_Open-source_Tools_for_Training_Resources_-_OTTR"
-
-log_in_page <- html_session("https://www.researchgate.net/login")
-
-form <- html_form(read_html(log_in_page))[[1]]
-
-filled_form <- set_values(form,
-                          username = "notmyrealemail",
-                          password = "notmyrealpassword")
-
-submit_form(log_in_page, filled_form)
-
-my_session <- rvest::html_session(url_i_want)
-
+r |> content() |> html_element('form[method=post] + div div > div:contains("results")') |> html_text()
