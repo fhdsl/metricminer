@@ -294,6 +294,11 @@ link_clicks <- function() {
 #' }
 all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NULL, dataformat = "dataframe") {
 
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
+
   if (!is.null(account_id)) {
     message("Retrieving all properties underneath this account")
 
