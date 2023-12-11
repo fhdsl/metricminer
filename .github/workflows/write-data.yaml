@@ -3,7 +3,7 @@ on:
     - cron: '*/2 * * * *'
 
 jobs:
-  import-data:
+  write-data:
     runs-on: ubuntu-latest
     steps:
       - name: Set up R
