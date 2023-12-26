@@ -1,4 +1,4 @@
-library(metricminer)
+# library(metricminer)
 library(googlesheets4)
 
 # The data is publicly available so we don't need to authenticate
