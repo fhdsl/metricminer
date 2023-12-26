@@ -8,7 +8,7 @@ sheet_url <- "https://docs.google.com/spreadsheets/d/13x8lD9SeuPGCs8SbtbRRK_q6o1
 
 # Google Analytics----
 accounts <- get_ga_user()
-stats_list <- all_ga_metrics(account_id = accounts$items$id[5])
+stats_list <- all_ga_metrics(account_id = accounts$id[5])
 
 # Save the 3 elements of list as data frames
 metrics <- stats_list$metrics
@@ -19,6 +19,5 @@ link_clicks <- stats_list$link_clicks
 metrics %>% sheet_write(ss = sheet_url, sheet = "metrics")
 dimensions %>% sheet_write(ss = sheet_url, sheet = "dimensions")
 link_clicks %>% sheet_write(ss = sheet_url, sheet = "link_clicks")
-
 
 # GitHub----
