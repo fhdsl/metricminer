@@ -19,5 +19,25 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v3
 
-      - name: Import data
+      - name: Authorize metricminer
+        env:
+          METRICMINER_CALENDLY: ${{ secrets.METRICMINER_CALENDLY }}
+          METRICMINER_GITHUB_PAT: ${{ secrets.METRICMINER_GITHUB_PAT }}
+          METRICMINER_GOOGLE_ACCESS: ${{ secrets.METRICMINER_GOOGLE_ACCESS }}
+          METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
+        run: |
+          # Authorize Calendly
+          auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
+
+          # Authorize GitHub
+          auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
+
+          # Authorize Google
+          auth_from_secret("google",
+                 refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+                 access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+                 cache = TRUE
+          )
+
+      - name: Write data
         run: Rscript -e 'source("R/write-data.R")'

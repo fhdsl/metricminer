@@ -7,8 +7,6 @@ gs4_deauth()
 sheet_url <- "https://docs.google.com/spreadsheets/d/13x8lD9SeuPGCs8SbtbRRK_q6o1V_rd3B07JuhebT-vk/edit?usp=sharing"
 
 # Google Analytics----
-authorize("google")
-
 accounts <- get_ga_user()
 stats_list <- all_ga_metrics(account_id = accounts$items$id[5])
 
