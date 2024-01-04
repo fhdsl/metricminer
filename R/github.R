@@ -203,11 +203,11 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
   # Keep names
   names(repo_metrics) <- repo_names
 
-  class(results) <- "multi_api_response"
+  class(repo_metrics) <- "multi_api_response"
 
   if (data_format == "dataframe") {
     repo_metrics <- dplyr::bind_rows(repo_metrics)
-    class(results) <- "gh_metric_dataframe"
+    class(repo_metrics) <- "gh_metric_dataframe"
   }
 
   return(repo_metrics)
