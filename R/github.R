@@ -28,6 +28,9 @@ get_github <- function(token = NULL, url) {
   # Process and return results
   result_content <- httr::content(result, "text")
   result_list <- jsonlite::fromJSON(result_content)
+
+  class(result_list) <- "api_response"
+
   return(result_list)
 }
 
@@ -82,6 +85,8 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
     .limit = count
   )
 
+  class(repo_list) <- "api_response"
+
   return(repo_list)
 }
 
@@ -134,11 +139,14 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   names(results) <- names(api_calls)
 
+  class(results) <- "multi_api_response"
+
   if (data_format == "dataframe") {
     results <- clean_repo_metrics(
       repo_name = paste0(c(owner, repo), collapse = "/"),
       repo_metric_list = results
     )
+    class(results) <- "gh_metric_dataframe"
   }
   return(results)
 }
@@ -195,8 +203,11 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
   # Keep names
   names(repo_metrics) <- repo_names
 
+  class(results) <- "multi_api_response"
+
   if (data_format == "dataframe") {
     repo_metrics <- dplyr::bind_rows(repo_metrics)
+    class(results) <- "gh_metric_dataframe"
   }
 
   return(repo_metrics)
@@ -236,6 +247,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
   if (grepl("404", result[1])) result <- "No results"
   if (grepl("Error", result[1])) result <- "No results"
 
+  class(result) <- "api_response"
   return(result)
 }
 
