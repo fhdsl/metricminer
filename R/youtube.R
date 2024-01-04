@@ -44,5 +44,8 @@ get_youtube_stats <- function(channel_id) {
   # Process and return results
   result_content <- httr::content(result, "text")
   result_list <- jsonlite::fromJSON(result_content)
+
+  class(result_list) <- "api_response"
+
   return(result_list)
 }
