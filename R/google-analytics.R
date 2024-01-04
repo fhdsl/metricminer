@@ -49,6 +49,8 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
   # Process and return results
   result_content <- httr::content(result, "text")
   result_list <- jsonlite::fromJSON(result_content)
+
+  class(result_list) <- "api_response"
   return(result_list)
 }
 
@@ -82,7 +84,9 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
             "Are you sure you have Google Analytics properties underneath THIS google account?"))
   }
 
-  return(results$items)
+  result <- results$items
+  class(result) <- "api_response"
+  return(result)
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
@@ -119,6 +123,7 @@ get_ga_properties <- function(account_id, token = NULL) {
                    "Are you sure you have Google Analytics properties underneath THIS account id?"))
   }
 
+  class(results) <- "api_response"
   return(results)
 }
 
@@ -156,6 +161,7 @@ get_ga_metadata <- function(property_id, token = NULL) {
     request_type = "GET"
   )
 
+  class(results) <- "api_response"
   return(results)
 }
 
@@ -233,9 +239,12 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
     request_type = "POST"
   )
 
+  class(results) <- c("api_response")
+
   if (dataformat == "dataframe") {
     if (stats_type == "metrics")  results <- clean_metric_data(results)
     if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_dimensions(results)
+    class(results) <- c("ga_df", "list")
   }
 
   return(results)
