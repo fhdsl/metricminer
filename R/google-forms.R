@@ -50,7 +50,6 @@ request_google_forms <- function(token, url,
   if (return_request) {
     return(list(result = result_list, request_info = request_info))
   } else {
-    class(result_list) <- c("api_response")
     return(result_list)
   }
 }
@@ -106,7 +105,6 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
     form_metadata = form_info,
     response_info = response_info
   )
-  class(result) <- "google_form__response"
 
   if (dataformat == "dataframe") {
     metadata <- get_question_metadata(form_info)
@@ -116,13 +114,11 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
     } else {
       answers_df <- "no responses yet"
     }
-    result <- list(
+    return(list(
       title = result$form_metadata$result$info$title,
       metadata = metadata,
       answers = answers_df
-    )
-    class(result) <- "google_form_df_result"
-    return(result)
+    ))
   }
   return(result)
 }
