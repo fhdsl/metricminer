@@ -317,6 +317,7 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
     stop("No properties retrieved from account id:", account_id)
   }
     property_names <- gsub("properties/", "", properties_list$properties$name)
+    display_names <- properties_list$properties$displayName
   }
 
   if (is.null(property_names) & is.null(account_id)) {
@@ -338,7 +339,7 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
   })
 
   # Save the names
-  names(all_google_analytics_metrics) <- property_names
+  names(all_google_analytics_metrics) <- display_names
 
   # Now loop through all the properties
   all_google_analytics_dimensions <- sapply(property_names, function(property_id) {
@@ -351,7 +352,7 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
   })
 
   # Save the names
-  names(all_google_analytics_dimensions) <- property_names
+  names(all_google_analytics_dimensions) <- display_names
 
   # Now loop through all the properties
   all_google_analytics_links <- lapply(property_names, function(property_id) {
@@ -364,7 +365,7 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
   })
 
   # Save the names
-  names(all_google_analytics_links) <- property_names
+  names(all_google_analytics_links) <- display_names
 
   if (dataformat == "dataframe") {
     all_google_analytics_metrics <- clean_metric_data(all_google_analytics_metrics)

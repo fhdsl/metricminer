@@ -118,7 +118,8 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
       title = result$form_metadata$result$info$title,
       metadata = metadata,
       answers = answers_df
-    ))
+    )
+    return(result)
   }
   return(result)
 }
