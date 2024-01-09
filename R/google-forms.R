@@ -161,8 +161,6 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
   # Set as names
   names(all_form_info) <- titles
 
-  class(all_form_info) <- "multi_api_response"
-
   all_form_info
 }
 

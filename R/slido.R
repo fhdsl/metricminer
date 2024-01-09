@@ -86,8 +86,6 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
     return(slido_data_df)
   }, USE.NAMES = TRUE)
 
-  class(slido_data) <- c("list", "slido_df")
-
   return(slido_data)
 }
 
