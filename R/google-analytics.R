@@ -113,7 +113,7 @@ get_ga_properties <- function(account_id, token = NULL) {
                    "Are you sure you have Google Analytics properties underneath THIS account id?"))
   }
 
-  return(results)
+  return(results$properties)
 }
 
 #' Get metadata associated Google Analytics property
@@ -298,10 +298,10 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
 
     properties_list <- get_ga_properties(account_id = account_id)
     # This is the code for one website/property
-    if (length(properties_list$properties$name) == 0) {
+    if (length(properties_list$name) == 0) {
     stop("No properties retrieved from account id:", account_id)
   }
-    property_names <- gsub("properties/", "", properties_list$properties$name)
+    property_names <- gsub("properties/", "", properties_list$name)
     display_names <- properties_list$properties$displayName
   }
 

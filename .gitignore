@@ -12,3 +12,4 @@ inst/extdata/cached-secrets/*
 testthat-problems.rds
 .Renviron
 inst/doc
+local_auth.R
