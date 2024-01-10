@@ -389,7 +389,6 @@ clean_ga_metrics <- function(metrics = NULL) {
 
 clean_ga_dimensions <- function(dimensions = NULL) {
 
-  if ()
   all_website_dims <- lapply(dimensions, wrangle_ga_dimensions) %>%
     dplyr::bind_rows(.id = "website")
 

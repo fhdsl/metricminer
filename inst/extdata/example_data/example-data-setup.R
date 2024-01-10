@@ -70,4 +70,19 @@ all_ga_metric_list <- get_all_ga_metrics(account_id = ga_user$id[1])
 save_example_data(all_ga_metric_list)
 class(all_ga_metric_list)
 
-## google
+####### Google Form Examples
+
+# Grab a single form and its responses
+gform_info <- get_google_form("https://docs.google.com/forms/d/1JjmsiuVoGSxvl-1M_oWittcftO955tijzeNc-cgJlo8/edit")
+save_example_data(gform_info)
+class(gform_info)
+
+# Get ids for google forms we want info about
+gform_list <- googledrive::drive_find(
+  #If using a shared_drive you'll do this argument: shared_drive = googledrive::as_id("id_to_drive_folder"),
+  type = "form")
+
+# Now grab the info and responses from these forms
+multiple_gforms <- get_multiple_forms(gform_list$id)
+save_example_data(multiple_gforms)
+class(multiple_gforms)
