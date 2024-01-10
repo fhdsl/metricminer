@@ -114,14 +114,14 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
     } else {
       answers_df <- "no responses yet"
     }
-    return(list(
+    result <- list(
       title = result$form_metadata$result$info$title,
       metadata = metadata,
       answers = answers_df
     )
-    return(result)
-  }
   return(result)
+  }
+
 }
 
 
