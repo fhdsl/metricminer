@@ -54,12 +54,12 @@ get_github_user <- function(token = NULL) {
   )
 }
 
-#' Retrieve list of repositories for an owner
+#' Retrieve list of repositories for an organization
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
-#' @return Information regarding a github account
+#' @return a list of repos that an organization has
 #' @importFrom gh gh
 #' @export
 #' @examples \dontrun{
@@ -68,7 +68,7 @@ get_github_user <- function(token = NULL) {
 #' get_repo_list(owner = "fhdsl")
 #' }
 #'
-get_repo_list <- function(owner, count = "all", token = NULL) {
+get_org_repo_list <- function(owner, count = "all", token = NULL) {
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
@@ -81,6 +81,38 @@ get_repo_list <- function(owner, count = "all", token = NULL) {
     owner = owner,
     .token = token,
     .limit = count
+  )
+
+  return(repo_list)
+}
+
+#' Retrieve list of repositories for an organization
+#' @description This is a function to get the information about a repository
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
+#' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
+#' @return a list of repos that an organization has
+#' @importFrom gh gh
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("github")
+#' get_user_list(owner = "metricminer")
+#' }
+#'
+get_user_repo_list <- function(owner, count = "all", token = NULL) {
+  if (count == "all") count <- "Inf"
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "github", try = TRUE)
+    if (is.null(token)) warning("No token found. Only public repositories will be retrieved.")
+  }
+
+  repo_list <- gh::gh("GET /users/{owner}/repos",
+                      owner = owner,
+                      .token = token,
+                      .limit = count
   )
 
   return(repo_list)

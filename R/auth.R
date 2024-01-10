@@ -164,8 +164,8 @@ delete_creds <- function(app_name = "all") {
 #' token <- authorize("google")
 #' auth_from_secret(
 #'   app_name = "google",
-#'   refresh_token = token$credentials$access_token,
-#'   access_token = token$credentials$refresh_token
+#'   access_token = token$credentials$access_token,
+#'   refresh_token = token$credentials$refresh_token
 #' )
 #' }
 #'

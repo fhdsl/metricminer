@@ -20,5 +20,6 @@ This is a function to get the Calendly API user info
 
 authorize("calendly")
 get_calendly_user()
+
 }
 }

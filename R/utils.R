@@ -2,6 +2,24 @@ utils::globalVariables(c(
   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%",
   "token", "query_params", "file_name", "accounts"
 ))
+
+save_example_data <- function(data) {
+  data_name <- deparse(substitute(data))
+
+  saveRDS(data, file.path(example_data_folder(), paste0(data_name, ".RDS")))
+}
+
+#' Get file path to an key encryption RDS
+example_data_folder <- function() {
+  file <- list.files(
+    pattern = "example_data.md",
+    recursive = TRUE,
+    system.file("extdata", package = "metricminer"),
+    full.names = TRUE
+  )
+  dirname(file)
+}
+
 #' Supported endpoints
 #' @description This is function stores endpoints and supported app names
 supported_endpoints <- function() {
