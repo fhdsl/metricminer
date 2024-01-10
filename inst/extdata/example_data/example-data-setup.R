@@ -43,3 +43,31 @@ class(ga_user)
 ga_properties <- get_ga_properties(account_id = ga_user$id[1])
 save_example_data(ga_properties)
 class(ga_properties)
+
+# GA property metadata
+ga_property_id <- gsub("properties/", "", ga_properties$name[1])
+ga_property_metadata <- get_ga_metadata(property_id = ga_property_id)
+save_example_data(ga_property_metadata)
+class(ga_property_metadata)
+
+# GA property metrics
+ga_metrics <- get_ga_stats(ga_property_id, stats_type = "metrics")
+save_example_data(ga_metrics)
+class(ga_metrics)
+
+# GA property dimensions
+ga_dimensions <- get_ga_stats(ga_property_id, stats_type = "dimensions")
+save_example_data(ga_dimensions)
+class(ga_dimensions)
+
+# GA property link clicks
+ga_link_clicks <- get_ga_stats(ga_property_id, stats_type = "link_clicks")
+save_example_data(ga_link_clicks)
+class(ga_link_clicks)
+
+# Bulk retrieval of GA property metrics/dims/link clicks
+all_ga_metric_list <- get_all_ga_metrics(account_id = ga_user$id[1])
+save_example_data(all_ga_metric_list)
+class(all_ga_metric_list)
+
+## google
