@@ -2,10 +2,14 @@
 % Please edit documentation in R/utils.R
 \name{example_data_folder}
 \alias{example_data_folder}
-\title{Get file path to an key encryption RDS}
+\title{Default creds path}
 \usage{
 example_data_folder()
 }
+\arguments{
+\item{app_name}{What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
+Get file path to an default credentials RDS}
+}
 \description{
-Get file path to an key encryption RDS
+Default creds path
 }

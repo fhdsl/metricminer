@@ -4,7 +4,7 @@
 \alias{get_youtube_channel_stats}
 \title{Get Youtube channel stats}
 \usage{
-get_youtube_channel_stats(channel_id)
+get_youtube_channel_stats(channel_id, dataformat = "dataframe")
 }
 \arguments{
 \item{channel_id}{ID of the youtube channel to retrieve stats from.
