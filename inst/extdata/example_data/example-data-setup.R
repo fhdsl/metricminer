@@ -97,10 +97,12 @@ class(slido_data)
 
 ####### Youtube Examples
 
+# Channels
 youtube_channel_stats <- get_youtube_channel_stats("UCr73I9ZEPbn-3_1CBM57QgQ")
 save_example_data(youtube_channel_stats)
 class(youtube_channel_stats)
 
+# Videos
 youtube_video_stats <- get_youtube_video_stats("YkYnni-WuaQ")
 save_example_data(youtube_video_stats)
 class(youtube_video_stats)
