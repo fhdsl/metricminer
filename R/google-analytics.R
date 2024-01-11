@@ -373,16 +373,11 @@ clean_ga_metrics <- function(metrics = NULL) {
     stat_names <- metrics$metricHeaders$name
     clean_df <- metrics$rows
   }
-
-  if (is.null(clean_df$metricValues)) {
-    clean_df <- data.frame(metrics = "No data collected yet")
-  } else{
     clean_df <- clean_df %>%
       dplyr::bind_rows(.id = "website") %>%
       tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
       dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
       dplyr::mutate_at(stat_names, as.numeric)
-  }
 
   return(clean_df)
 }
