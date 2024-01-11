@@ -9,11 +9,13 @@ source(file.path(example_data_folder(), "local_auth.R"))
 calendly_user <- get_calendly_user()
 save_example_data(calendly_user)
 class(calendly_user)
+str(calendly_user)
 
 # Events
 calendly_events <- list_calendly_events(user = calendly_user$resource$uri)
 save_example_data(calendly_events)
 class(calendly_events)
+str(calendly_events)
 
 ####### GitHub Data Examples
 gh_user <- get_github_user()

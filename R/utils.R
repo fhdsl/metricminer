@@ -3,12 +3,57 @@ utils::globalVariables(c(
   "token", "query_params", "file_name", "accounts"
 ))
 
+#' Get list of example datasets
+#' @description This is a function to retrieve a list of the example datasets included with metricminer
+#' @export
+#' @examples \dontrun{
+#'
+#' list_example_data()
+#'
+#' }
+list_example_data <- function() {
+  data_list <-
+    list.files(example_data_folder(),
+             pattern = ".RDS")
+
+  gsub("\\.RDS$", "", data_list)
+}
+
+#' Get retrieve an example dataset
+#' @description This is a function to retrieve a list of the example datasets included with metricminer
+#' @return an object in the environment of the same example dataset name that was requested.
+#' @export
+#' @examples \dontrun{
+#'
+#' # You can see the list of example datasets by running:
+#' list_example_data()
+#'
+#' # Then use the datasetes of your interest by calling it with this function
+#' get_example_data("gform_info")
+#'
+#' # Then if you check your global environment you will see "gform_info" included
+#' ls()
+#'
+#' }
+get_example_data <- function(dataset_name) {
+  file_path <- file.path(example_data_folder(), paste0(dataset_name, ".RDS"))
+
+  if (!file.exists(file_path)) {
+    stop(paste(dataset_name, "does not exist in this package, run list_example_data() to see the available example datasets. Be sure to check for typos."))
+  }
+  assign(dataset_name, readRDS(file_path))
+}
+
 save_example_data <- function(data) {
   data_name <- deparse(substitute(data))
 
   saveRDS(data, file.path(example_data_folder(), paste0(data_name, ".RDS")))
 }
 
+#' Default creds path
+#' @param app_name What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
+#' Get file path to an default credentials RDS
+#' @export
 #' Get file path to an key encryption RDS
 example_data_folder <- function() {
   file <- list.files(

@@ -228,7 +228,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
   )
 
   if (dataformat == "dataframe") {
-    if (stats_type == "metrics")  results <- wrangle_ga_metrics(results)
+    if (stats_type == "metrics")  results <- clean_ga_metrics(results)
     if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_ga_dimensions(results)
   }
 
