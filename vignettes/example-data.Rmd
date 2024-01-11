@@ -9,11 +9,13 @@ vignette: >
 
 # Example metricminer data
 
-```
+```{r}
 library("metricminer")
 ```
 
 ## Calendly Data Examples
+
+[Read more about the calendly API docs here](https://developer.calendly.com/api-docs).
 
 ### User
 
@@ -36,6 +38,8 @@ str(calendly_events)
 ```
 
 ## GitHub Data Examples
+
+[Read more about the GitHub API here](https://docs.github.com/en/rest).
 
 ### Github user
 
@@ -153,6 +157,8 @@ str(all_ga_metric_list)
 
 ## Google Form Examples
 
+[Read more about the Google Form API here](https://developers.google.com/forms/api/reference/rest).
+
 ### Single google form
 
 `get_google_form()` returns this kind of data.
@@ -175,6 +181,8 @@ str(multiple_gforms)
 
 ## Slido
 
+[You can read more about Slido data here](https://community.slido.com/analytics-and-exports-44).
+
 `get_slido_files()` returns this kind of data.
 
 ```{r}
@@ -184,6 +192,8 @@ str(slido_data)
 ```
 
 ## Youtube
+
+[You can read more about the Youtube API here](https://developers.google.com/youtube/v3).
 
 ### Channels
 
