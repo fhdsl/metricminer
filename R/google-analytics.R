@@ -335,9 +335,9 @@ get_all_ga_metrics <- function(account_id = NULL, token = NULL, dataformat = "da
 
   if (length(display_names) > 1) {
       # Save the names
-      names(all_google_analytics_metrics) <- display_names
-      names(all_google_analytics_dimensions) <- display_names
-      names(all_google_analytics_links) <- display_names
+      names(all_ga_metrics) <- display_names
+      names(all_ga_dimensions) <- display_names
+      names(all_ga_links) <- display_names
   }
 
   if (dataformat == "dataframe") {

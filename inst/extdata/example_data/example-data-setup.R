@@ -86,3 +86,10 @@ gform_list <- googledrive::drive_find(
 multiple_gforms <- get_multiple_forms(gform_list$id)
 save_example_data(multiple_gforms)
 class(multiple_gforms)
+
+####### Slido Results Examples
+
+drive_id <- "https://drive.google.com/drive/u/0/folders/1XWXHHyj32Uw_UyaUJrqp6S--hHnM0-7l"
+slido_data <- get_slido_files(drive_id)
+save_example_data(slido_data)
+class(slido_data)

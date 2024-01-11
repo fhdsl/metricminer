@@ -2,7 +2,7 @@
 
 
 #' Get Slido Files
-#' @description This is a function to get slido response output files.
+#' @description This is a function to get slido response output files. The slido files must be saved as googlesheets and cannot be xlsx.
 #' @param drive_id a URL or drive id that has the slido response output files you are looking to get (will recursively search for files by default).
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param recursive Should slido files be looked for recursively in this folder? default is TRUE.
@@ -15,6 +15,7 @@
 #' @examples \dontrun{
 #'
 #' drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
+#' drive_id <-"https://drive.google.com/drive/u/0/folders/1XWXHHyj32Uw_UyaUJrqp6S--hHnM0-7l"
 #' slido_data <- get_slido_files(drive_id)
 #' }
 get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_duplicates = FALSE) {
@@ -30,6 +31,10 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
     recursive = recursive
   )
 
+  if (length(spreadsheet_list)== 0 ){
+    stop("No spreadsheets found in this drive Id provided")
+  }
+
   file_info <- data.frame(
     file_name = spreadsheet_list$name,
     id = spreadsheet_list$id
@@ -40,7 +45,8 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
     "^Leaderboard-",
     "^Polls-overall-",
     "^Replies-",
-    "^Polls-per-user-"
+    "^Polls-per-user-",
+    "^Questions-"
   )
 
   # Extract slido file names
