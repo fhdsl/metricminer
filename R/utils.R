@@ -54,7 +54,6 @@ save_example_data <- function(data) {
 #' @param app_name What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
 #' Get file path to an default credentials RDS
 #' @export
-#' Get file path to an key encryption RDS
 example_data_folder <- function() {
   file <- list.files(
     pattern = "example_data.md",

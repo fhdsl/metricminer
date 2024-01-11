@@ -1,16 +1,15 @@
 ---
-title: "R Notebook"
-output: html_notebook
+title: "Example metricminer data"
+output: 
+  html_notebook:
     toc: true
-    toc_depth: 2
+    toc_depth: 3
     toc_float: true
 ---
 
-# Data example creations
+# Example metricminer data 
 
-Authorize from secrets
-
-```{r}
+```
 library("metricminer")
 ```
 
