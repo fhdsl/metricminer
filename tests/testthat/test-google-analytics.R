@@ -9,7 +9,7 @@ test_that("Google Analytics: Properties", {
   ga_user <- get_ga_user()
   properties_list <- get_ga_properties(account_id = 209776907)
 
-  expect_named(properties_list$properties, c(
+  expect_named(properties_list, c(
     "name", "parent", "createTime",
     "updateTime", "displayName", "timeZone", "currencyCode", "serviceLevel",
     "account", "propertyType", "industryCategory"

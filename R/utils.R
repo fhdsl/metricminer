@@ -22,6 +22,7 @@ list_example_data <- function() {
 #' Get retrieve an example dataset
 #' @description This is a function to retrieve a list of the example datasets included with metricminer
 #' @param dataset_name the name of the example dataset to be retrieved from the metricminer package.
+#' @param envir By default the example data is saved in the global environment but this parameter allows you to change that if desired.
 #' @return an object in the environment of the same example dataset name that was requested.
 #' @export
 #' @examples \dontrun{
@@ -36,13 +37,14 @@ list_example_data <- function() {
 #' ls()
 #'
 #' }
-get_example_data <- function(dataset_name) {
+get_example_data <- function(dataset_name, envir = 1) {
   file_path <- file.path(example_data_folder(), paste0(dataset_name, ".RDS"))
 
   if (!file.exists(file_path)) {
     stop(paste(dataset_name, "does not exist in this package, run list_example_data() to see the available example datasets. Be sure to check for typos."))
   }
-  assign(dataset_name, readRDS(file_path), envir = .GlobalEnv)
+  assign(dataset_name, readRDS(file_path), envir = as.environment(envir))
+
 }
 
 save_example_data <- function(data) {

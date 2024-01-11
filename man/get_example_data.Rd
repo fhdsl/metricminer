@@ -4,10 +4,12 @@
 \alias{get_example_data}
 \title{Get retrieve an example dataset}
 \usage{
-get_example_data(dataset_name)
+get_example_data(dataset_name, envir = 1)
 }
 \arguments{
 \item{dataset_name}{the name of the example dataset to be retrieved from the metricminer package.}
+
+\item{envir}{By default the example data is saved in the global environment but this parameter allows you to change that if desired.}
 }
 \value{
 an object in the environment of the same example dataset name that was requested.
