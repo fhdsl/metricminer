@@ -7,10 +7,10 @@
 get_youtube_video_stats(video_id, dataformat = "dataframe")
 }
 \arguments{
-\item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
-
-\item{channel_id}{ID of the youtube video to retrieve stats from.
+\item{video_id}{ID of the youtube video to retrieve stats from.
 https://www.youtube.com/watch?v=YkYnni-WuaQor just the  "YkYnni-WuaQor" part that comes after the `v=` bit.}
+
+\item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 }
 \description{
 This is a function to get a statistics on a Youtube video

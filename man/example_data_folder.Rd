@@ -2,14 +2,12 @@
 % Please edit documentation in R/utils.R
 \name{example_data_folder}
 \alias{example_data_folder}
-\title{Default creds path}
+\title{Default creds path
+Get file path to an default credentials RDS}
 \usage{
 example_data_folder()
 }
-\arguments{
-\item{app_name}{What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
-Get file path to an default credentials RDS}
-}
 \description{
 Default creds path
+Get file path to an default credentials RDS
 }

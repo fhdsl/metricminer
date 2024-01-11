@@ -42,7 +42,7 @@ get_example_data <- function(dataset_name) {
   if (!file.exists(file_path)) {
     stop(paste(dataset_name, "does not exist in this package, run list_example_data() to see the available example datasets. Be sure to check for typos."))
   }
-  assign(dataset_name, readRDS(file_path))
+  assign(dataset_name, readRDS(file_path), envir = .GlobalEnv)
 }
 
 save_example_data <- function(data) {

@@ -6,6 +6,9 @@
 \usage{
 get_example_data(dataset_name)
 }
+\arguments{
+\item{dataset_name}{the name of the example dataset to be retrieved from the metricminer package.}
+}
 \value{
 an object in the environment of the same example dataset name that was requested.
 }

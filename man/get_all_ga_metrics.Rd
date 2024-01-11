@@ -12,8 +12,6 @@ get_all_ga_metrics(account_id = NULL, token = NULL, dataformat = "dataframe")
 \item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
 
 \item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
-
-\item{property_ids}{a vector of property ids for stats to be retrieved for. Note you can only provide one or the other.}
 }
 \value{
 Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
