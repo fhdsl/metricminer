@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: '*/2 * * * *'
+    # - cron: '*/2 * * * *'
 
 jobs:
   write-data:
@@ -47,4 +47,4 @@ jobs:
           )
 
       - name: Write data
-        run: Rscript -e 'source("R/write-data.R")'
+        run: # Rscript -e 'source("R/write-data.R")'
