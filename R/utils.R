@@ -1,6 +1,6 @@
 utils::globalVariables(c(
   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%",
-  "token", "query_params", "file_name", "accounts"
+  "token", "query_params", "file_name", "accounts", "get_repo_list"
 ))
 
 #' Get list of example datasets
@@ -21,6 +21,7 @@ list_example_data <- function() {
 
 #' Get retrieve an example dataset
 #' @description This is a function to retrieve a list of the example datasets included with metricminer
+#' @param dataset_name the name of the example dataset to be retrieved from the metricminer package.
 #' @return an object in the environment of the same example dataset name that was requested.
 #' @export
 #' @examples \dontrun{
@@ -51,7 +52,6 @@ save_example_data <- function(data) {
 }
 
 #' Default creds path
-#' @param app_name What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
 #' Get file path to an default credentials RDS
 #' @export
 example_data_folder <- function() {

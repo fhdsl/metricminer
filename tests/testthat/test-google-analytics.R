@@ -27,7 +27,7 @@ test_that("Google Analytics: Stats", {
 
   properties_list <- get_ga_properties(account_id = 209776907)
 
-  property_id <- gsub("properties/", "", properties_list$properties$name[1])
+  property_id <- gsub("properties/", "", properties_list$name[1])
   property_metadata <- get_ga_metadata(property_id = property_id)
 
   expect_named(property_metadata, c("dimensions", "metrics", "name"))
@@ -49,7 +49,7 @@ test_that("Google Analytics: All Stats", {
                    cache = FALSE,
                    in_test = TRUE)
 
-  stats_list <- all_ga_metrics(account_id = 209776907)
+  stats_list <- get_all_ga_metrics(account_id = 209776907)
 
   expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
 })

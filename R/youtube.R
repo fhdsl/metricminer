@@ -3,6 +3,7 @@
 #' Get Youtube channel stats
 #' @description This is a function to retrieve statistics for a Youtube channel
 #' @param channel_id ID of the youtube channel to retrieve stats from.
+#' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' https://www.youtube.com/channel/UCBbHCj7kUogAMFyBAzzzfUw or just the  "UCBbHCj7kUogAMFyBAzzzfUw" part
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
@@ -56,7 +57,7 @@ get_youtube_channel_stats <- function(channel_id, dataformat = "dataframe") {
 
 #' Get Youtube video stats
 #' @description This is a function to get a statistics on a Youtube video
-#' @param channel_id ID of the youtube video to retrieve stats from.
+#' @param video_id ID of the youtube video to retrieve stats from.
 #' https://www.youtube.com/watch?v=YkYnni-WuaQor just the  "YkYnni-WuaQor" part that comes after the `v=` bit.
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @importFrom httr config accept_json content
