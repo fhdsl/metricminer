@@ -4,7 +4,7 @@
 \alias{write_to_gsheet}
 \title{Writes data to a Googlesheet}
 \usage{
-write_to_gsheet()
+write_to_gsheet(input, gsheet, overwrite = FALSE)
 }
 \arguments{
 \item{input}{input data to write to a googlesheet}

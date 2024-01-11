@@ -16,7 +16,7 @@
 #' }
 #'
 
-write_to_gsheet <- function() {
+write_to_gsheet <- function(input, gsheet, overwrite = FALSE) {
 
 }
 
@@ -38,6 +38,6 @@ write_to_gsheet <- function() {
 #'
 #' write_to_table(repo_list)
 #' }
-write_to_table <- function() {
+write_to_table <- function(input, file_path, overwrite, table_type) {
 
 }

@@ -4,7 +4,7 @@
 \alias{write_to_table}
 \title{Writes data to a tabular file}
 \usage{
-write_to_table()
+write_to_table(input, file_path, overwrite, table_type)
 }
 \arguments{
 \item{input}{input data to write to a googlesheet}
