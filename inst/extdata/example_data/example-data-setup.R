@@ -68,9 +68,9 @@ save_example_data(ga_link_clicks)
 class(ga_link_clicks)
 
 # Bulk retrieval of GA property metrics/dims/link clicks
-all_ga_metric_list <- get_all_ga_metrics(account_id = ga_user$id[1])
-save_example_data(all_ga_metric_list)
-class(all_ga_metric_list)
+ga_all_metrics <- get_all_ga_metrics(account_id = ga_user$id[1])
+save_example_data(ga_all_metrics )
+class(ga_all_metrics )
 
 ####### Google Form Examples
 
@@ -85,9 +85,9 @@ gform_list <- googledrive::drive_find(
   type = "form")
 
 # Now grab the info and responses from these forms
-multiple_gforms <- get_multiple_forms(gform_list$id)
-save_example_data(multiple_gforms)
-class(multiple_gforms)
+gforms_multiple <- get_multiple_forms(gform_list$id)
+save_example_data(gforms_multiple)
+class(gforms_multiple)
 
 ####### Slido Results Examples
 

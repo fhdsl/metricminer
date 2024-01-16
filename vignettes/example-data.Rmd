@@ -157,9 +157,9 @@ str(ga_link_clicks)
 `get_all_ga_metrics()` returns this kind of data.
 
 ```{r}
-get_example_data("all_ga_metric_list")
-class(all_ga_metric_list)
-str(all_ga_metric_list)
+get_example_data("ga_all_metrics")
+class(ga_all_metrics )
+str(ga_all_metrics)
 ```
 
 ## Google Form Examples
@@ -181,9 +181,9 @@ str(gform_info)
 `get_multiple_forms()` returns this kind of data.
 
 ```{r}
-get_example_data("multiple_gforms")
-class(multiple_gforms)
-str(multiple_gforms)
+get_example_data("gforms_multiple")
+class(gforms_multiple)
+str(gforms_multiple)
 ```
 
 ## Slido
