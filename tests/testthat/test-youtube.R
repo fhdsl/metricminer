@@ -7,7 +7,12 @@ test_that("Youtube", {
                    cache = FALSE,
                    in_test = TRUE)
 
-  youtube <- get_youtube_stats("UCBbHCj7kUogAMFyBAzzzfUw")
+  youtube_channel <- get_youtube_channel_stats("UCr73I9ZEPbn-3_1CBM57QgQ")
 
-  expect_named(youtube, c("kind", "etag", "pageInfo", "items"))
+  expect_named(youtube_channel, c("viewCount", "subscriberCount", "hiddenSubscriberCount", "videoCount"))
+
+  youtube_vid <- get_youtube_video_stats("XN_QPRrJZAw")
+
+  expect_named(youtube_vid, c("viewCount", "likeCount", "dislikeCount", "favoriteCount", "commentCount"))
+
 })
