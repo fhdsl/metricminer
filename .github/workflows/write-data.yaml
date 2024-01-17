@@ -1,0 +1,50 @@
+on:
+  schedule:
+    # - cron: '*/2 * * * *'
+
+jobs:
+  write-data:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+
+      - name: Install googlesheets4
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::googlesheets4
+
+      - name: Install remotes
+        run: |
+          Rscript -e "install.packages('remotes')"
+
+      - name: Install metricminer from Github
+        run: |
+          Rscript -e "remotes::install_github("fhdsl/metricminer")"
+
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Authorize metricminer
+        env:
+          METRICMINER_CALENDLY: ${{ secrets.METRICMINER_CALENDLY }}
+          METRICMINER_GITHUB_PAT: ${{ secrets.METRICMINER_GITHUB_PAT }}
+          METRICMINER_GOOGLE_ACCESS: ${{ secrets.METRICMINER_GOOGLE_ACCESS }}
+          METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
+        run: |
+          # Authorize Calendly
+          auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
+
+          # Authorize GitHub
+          auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
+
+          # Authorize Google
+          auth_from_secret("google",
+                 refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+                 access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+                 cache = TRUE
+          )
+
+      - name: Write data
+        run: # Rscript -e 'source("R/write-data.R")'

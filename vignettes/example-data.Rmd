@@ -1,0 +1,229 @@
+---
+title: "example-data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{example-data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Example metricminer data
+
+```{r}
+library("metricminer")
+```
+
+## Calendly Data Examples
+
+[Read more about the calendly API docs here](https://developer.calendly.com/api-docs).
+
+### User
+
+`get_calendly_user()` returns this type of data.
+
+```{r}
+get_example_data("calendly_user")
+class(calendly_user)
+str(calendly_user)
+```
+
+### Events
+
+`list_calendly_events()` returns this type of data.
+
+```{r}
+get_example_data("calendly_events")
+class(calendly_events)
+str(calendly_events)
+```
+
+## GitHub Data Examples
+
+[Read more about the GitHub API here](https://docs.github.com/en/rest).
+
+### Github user
+
+`get_github_user()` returns this type of data.
+
+```{r}
+get_example_data("gh_user")
+class(gh_user)
+str(gh_user)
+```
+
+### Github repository list
+
+`get_user_repo_list()` returns this type of data.
+
+```{r}
+get_example_data("gh_repo_list")
+class(gh_repo_list)
+str(gh_repo_list)
+```
+
+### GitHub repository metrics
+
+`get_github_metrics()` returns this kind of data.
+
+```{r}
+get_example_data("gh_repo_metrics")
+class(gh_repo_metrics)
+str(gh_repo_metrics)
+```
+
+### Multiple GitHub repositories metrics
+
+`get_repos_metrics()` returns this kind of data.
+
+```{r}
+get_example_data("gh_repos_metrics")
+class(gh_repos_metrics)
+str(gh_repos_metrics)
+```
+
+## Google Analytics Examples
+
+[Read more about the Google Analytics API here](https://developers.google.com/analytics/devguides/reporting/data/v1).
+
+### GA user info
+
+`get_ga_user()` returns this kind of data.
+
+```{r}
+get_example_data("ga_user")
+class(ga_user)
+str(ga_user)
+```
+
+### GA properties
+
+`get_ga_properties()` returns this kind of data.
+
+```{r}
+get_example_data("ga_properties")
+class(ga_properties)
+str(ga_properties)
+```
+
+### GA property metadata
+
+`get_ga_metadata()` returns this kind of data.
+
+```{r}
+get_example_data("ga_property_metadata")
+class(ga_property_metadata)
+str(ga_property_metadata)
+```
+
+### GA property metrics
+
+`get_ga_stats()` when `stats_type = "metrics"` returns this kind of data.
+
+```{r}
+get_example_data("ga_metrics")
+class(ga_metrics)
+str(ga_metrics)
+```
+
+### GA property dimensions
+
+`get_ga_stats()` when `stats_type = "dimensions"` returns this kind of data.
+
+```{r}
+get_example_data("ga_dimensions")
+class(ga_dimensions)
+str(ga_dimensions)
+```
+
+### GA property link clicks
+
+`get_ga_stats()` when `stats_type = "link_clicks"` returns this kind of data.
+
+```{r}
+get_example_data("ga_link_clicks")
+class(ga_link_clicks)
+str(ga_link_clicks)
+```
+
+### Bulk retrieval of GA property metrics/dims/link clicks
+
+`get_all_ga_metrics()` returns this kind of data.
+
+```{r}
+get_example_data("ga_all_metrics")
+class(ga_all_metrics )
+str(ga_all_metrics)
+```
+
+## Google Form Examples
+
+[Read more about the Google Form API here](https://developers.google.com/forms/api/reference/rest).
+
+### Single google form
+
+`get_google_form()` returns this kind of data.
+
+```{r}
+get_example_data("gform_info")
+class(gform_info)
+str(gform_info)
+```
+
+### Multiple forms info and responses
+
+`get_multiple_forms()` returns this kind of data.
+
+```{r}
+get_example_data("gforms_multiple")
+class(gforms_multiple)
+str(gforms_multiple)
+```
+
+## Slido
+
+[You can read more about Slido data here](https://community.slido.com/analytics-and-exports-44).
+
+`get_slido_files()` returns this kind of data.
+
+```{r}
+get_example_data("slido_data")
+class(slido_data)
+str(slido_data)
+```
+
+## Youtube
+
+[You can read more about the Youtube API here](https://developers.google.com/youtube/v3).
+
+### Channels
+
+`get_youtube_channel_stats()` returns this kind of data.
+
+```{r}
+get_example_data("youtube_channel_stats")
+class(youtube_channel_stats)
+str(youtube_channel_stats)
+```
+
+### Videos
+
+`get_youtube_video_stats()` returns this kind of data.
+
+```{r}
+get_example_data("youtube_video_stats")
+class(youtube_video_stats)
+str(youtube_video_stats)
+```
+
+### Session Info
+
+```{r}
+sessionInfo()
+```

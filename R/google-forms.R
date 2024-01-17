@@ -65,13 +65,20 @@ request_google_forms <- function(token, url,
 #'
 #' authorize("google")
 #' form_info <- get_google_form(
-#' "https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"
+#' "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
 #' )
+#' form_id <- "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
 #'
 #' ### OR You can give it a direct form id
-#' form_info <- get_google_form("1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo")
+#'
+#' form_info <- get_google_form("1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY")
 #' }
 get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
   # If a URL is supplied, only take the ID from it.
   if (grepl("https:", form_id[1])) {
     form_id <- gsub("\\/viewform$|\\/edit$", "", form_id)
@@ -107,13 +114,14 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
     } else {
       answers_df <- "no responses yet"
     }
-    return(list(
+    result <- list(
       title = result$form_metadata$result$info$title,
       metadata = metadata,
       answers = answers_df
-    ))
-  }
+    )
   return(result)
+  }
+
 }
 
 
@@ -215,16 +223,13 @@ extract_answers <- function(form_info) {
 
     # Turn into data frames
     answers_df <- lapply(answers, paste0) %>% dplyr::bind_cols()
-    question_df <- lapply(question_id, paste0) %>% dplyr::bind_cols()
 
     colnames(answers_df) <- paste0(colnames(answers_df), "_answers")
-    colnames(question_df) <- paste0(colnames(question_df), "_question")
 
     # Put it all in a data.frame we will keep
     info_df <- data.frame(
       reponse_id = rep(form_info$response_info$result$responses$responseId, length(questions)),
-      answers_df,
-      question_df
+      answers_df
     )
   } else {
     info_df <- data.frame(value = "no responses yet")

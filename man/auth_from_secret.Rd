@@ -47,8 +47,8 @@ auth_from_secret("github", token = "ghp_a_github_pat_here")
 token <- authorize("google")
 auth_from_secret(
   app_name = "google",
-  refresh_token = token$credentials$access_token,
-  access_token = token$credentials$refresh_token
+  access_token = token$credentials$access_token,
+  refresh_token = token$credentials$refresh_token
 )
 }
 

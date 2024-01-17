@@ -21,12 +21,13 @@ get_slido_files(
 \item{keep_duplicates}{By default we won't keep duplicated files if a two files have the same name. But if you set this to true, duplicates will be returned.}
 }
 \description{
-This is a function to get slido response output files.
+This is a function to get slido response output files. The slido files must be saved as googlesheets and cannot be xlsx.
 }
 \examples{
 \dontrun{
 
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
+drive_id <-"https://drive.google.com/drive/u/0/folders/1XWXHHyj32Uw_UyaUJrqp6S--hHnM0-7l"
 slido_data <- get_slido_files(drive_id)
 }
 }

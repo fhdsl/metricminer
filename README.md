@@ -1,4 +1,6 @@
-# metricminer 🔨
+# metricminer <img src="resources/metricminer-gnome.png" width = "100">
+
+Digging up data that matters, making it dashboard-ready.
 
 `metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
 
@@ -158,11 +160,11 @@ If you have used Slido for interactive slide sessions and collected that info an
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
 slido_data <- get_slido_files(drive_id)
 ```
-### Youtube 
+### Youtube
 
 If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
 
-Then you can extract stats for the videos on that youtube channel using that URL. 
+Then you can extract stats for the videos on that youtube channel using that URL.
 ```
 authorize("google")
 youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")

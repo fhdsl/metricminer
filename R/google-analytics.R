@@ -49,6 +49,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
   # Process and return results
   result_content <- httr::content(result, "text")
   result_list <- jsonlite::fromJSON(result_content)
+
   return(result_list)
 }
 
@@ -66,10 +67,6 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 #' get_ga_user()
 #' }
 get_ga_user <- function(token = NULL, request_type = "GET") {
-  if (is.null(token)) {
-    # Get auth token
-    token <- get_token(app_name = "google")
-  }
 
   results <- request_ga(
     token = token,
@@ -82,7 +79,9 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
             "Are you sure you have Google Analytics properties underneath THIS google account?"))
   }
 
-  return(results$items)
+  result <- results$items
+
+  return(result)
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
@@ -102,11 +101,6 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 #' }
 get_ga_properties <- function(account_id, token = NULL) {
 
-  if (is.null(token)) {
-    # Get auth token
-    token <- get_token(app_name = "google")
-  }
-
   results <- request_ga(
     token = token,
     url = "https://analyticsadmin.googleapis.com/v1alpha/properties",
@@ -119,7 +113,7 @@ get_ga_properties <- function(account_id, token = NULL) {
                    "Are you sure you have Google Analytics properties underneath THIS account id?"))
   }
 
-  return(results)
+  return(results$properties)
 }
 
 #' Get metadata associated Google Analytics property
@@ -137,7 +131,7 @@ get_ga_properties <- function(account_id, token = NULL) {
 #'
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #'
-#' property_id <- gsub("properties/", "", properties_list$properties$name[1])
+#' property_id <- gsub("properties/", "", properties_list$name[1])
 #' property_metadata <- get_ga_metadata(property_id = property_id)
 #' }
 get_ga_metadata <- function(property_id, token = NULL) {
@@ -178,7 +172,7 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #'
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #'
-#' property_id <- gsub("properties/", "", properties_list$properties$name[1])
+#' property_id <- gsub("properties/", "", properties_list$name[1])
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
 #' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
@@ -234,8 +228,8 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
   )
 
   if (dataformat == "dataframe") {
-    if (stats_type == "metrics")  results <- clean_metric_data(results)
-    if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_dimensions(results)
+    if (stats_type == "metrics")  results <- clean_ga_metrics(results)
+    if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_ga_dimensions(results)
   }
 
   return(results)
@@ -276,7 +270,6 @@ link_clicks <- function() {
 #' Get all metrics for all properties associated with an account
 #' @description This is a function to gets metrics and dimensions for all properties associated with an account
 #' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
-#' @param property_names a vector of property names for stats to be retrieved for. Note you can only provide one or the other.
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
@@ -286,13 +279,9 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' stats_list <- all_ga_metrics(account_id = accounts$id[5])
-#'
-#' property_names <- c("358228687", "377543643", "377952717")
-#'
-#' some_stats_list <- all_ga_metrics(property_names = property_names)
+#' some_stats_list <- get_all_ga_metrics(property_ids = property_ids)
 #' }
-all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NULL, dataformat = "dataframe") {
+get_all_ga_metrics <- function(account_id = NULL, token = NULL, dataformat = "dataframe") {
 
   if (is.null(token)) {
     # Get auth token
@@ -303,24 +292,19 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
     message("Retrieving all properties underneath this account")
 
     properties_list <- get_ga_properties(account_id = account_id)
+
     # This is the code for one website/property
-    if (length(properties_list$properties$name) == 0) {
-    stop("No properties retrieved from account id:", account_id)
-  }
-    property_names <- gsub("properties/", "", properties_list$properties$name)
-  }
-
-  if (is.null(property_names) & is.null(account_id)) {
-    stop("need to provide either an account_id or vector of property_names to retrieve")
-  }
-
-  if (is.null(property_names) && is.null(account_id)) {
-    stop("Neither an account_id nor a property_names argument provided.",
-         "Not sure what properties to retrieve stats for ")
+    if (length(properties_list$name) == 0) {
+      stop("No properties retrieved from account id:", account_id)
+    }
+    property_ids <- gsub("properties/", "", properties_list$name)
+    display_names <- properties_list$displayName
+  } else {
+    stop("Must provide an account id for the property ids you wish to retrieve")
   }
 
   # Now loop through all the properties
-  all_google_analytics_metrics <- lapply(property_names, function(property_id) {
+  all_ga_metrics <- lapply(property_ids, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "metrics"))
     # Get the stats
@@ -328,11 +312,8 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
     return(metrics)
   })
 
-  # Save the names
-  names(all_google_analytics_metrics) <- property_names
-
   # Now loop through all the properties
-  all_google_analytics_dimensions <- sapply(property_names, function(property_id) {
+  all_ga_dimensions <- sapply(property_ids, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "dimensions"))
     # Get the stats
@@ -341,11 +322,8 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
     return(dimensions)
   })
 
-  # Save the names
-  names(all_google_analytics_dimensions) <- property_names
-
   # Now loop through all the properties
-  all_google_analytics_links <- lapply(property_names, function(property_id) {
+  all_ga_links <- lapply(property_ids, function(property_id) {
     # Be vocal about it
     message(paste("Retrieving", property_id, "link clicks"))
     # Get the stats
@@ -354,20 +332,24 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
     return(links)
   })
 
-  # Save the names
-  names(all_google_analytics_links) <- property_names
+  if (length(display_names) > 1) {
+      # Save the names
+      names(all_ga_metrics) <- display_names
+      names(all_ga_dimensions) <- display_names
+      names(all_ga_links) <- display_names
+  }
 
   if (dataformat == "dataframe") {
-    all_google_analytics_metrics <- clean_metric_data(all_google_analytics_metrics)
-    all_google_analytics_dimensions <- clean_dimension_data(all_google_analytics_dimensions)
-    all_google_analytics_links <- clean_link_data(all_google_analytics_links)
+    all_ga_metrics <- clean_ga_metrics(all_ga_metrics)
+    all_ga_dimensions <- clean_ga_dimensions(all_ga_dimensions)
+    all_ga_links <- clean_ga_dimensions(all_ga_links)
   }
 
 
   return(list(
-    metrics = all_google_analytics_metrics,
-    dimensions = all_google_analytics_dimensions,
-    link_clicks = all_google_analytics_links
+    metrics = all_ga_metrics,
+    dimensions = all_ga_dimensions,
+    link_clicks = all_ga_links
   ))
 }
 
@@ -379,7 +361,7 @@ all_ga_metrics <- function(account_id = NULL, property_names = NULL, token = NUL
 #' @importFrom tidyr separate
 #' @export
 
-clean_metric_data <- function(metrics = NULL) {
+clean_ga_metrics <- function(metrics = NULL) {
 
   # This is if we are running it with all the data at once
   if (length(metrics$metricHeaders$name) == 0 ){
@@ -390,31 +372,26 @@ clean_metric_data <- function(metrics = NULL) {
     stat_names <- metrics$metricHeaders$name
     clean_df <- metrics$rows
   }
-  clean_df <- clean_df %>%
-    dplyr::bind_rows(.id = "website") %>%
-    tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
-    dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
-    dplyr::mutate_at(stat_names, as.numeric)
+    clean_df <- clean_df %>%
+      dplyr::bind_rows(.id = "website") %>%
+      tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
+      dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
+      dplyr::mutate_at(stat_names, as.numeric)
 
   return(clean_df)
 }
 
-clean_dimension_data <- function(dimensions = NULL) {
-  all_website_dims <- lapply(dimensions, wrangle_dimensions) %>%
+clean_ga_dimensions <- function(dimensions = NULL) {
+
+  all_website_dims <- lapply(dimensions, wrangle_ga_dimensions) %>%
     dplyr::bind_rows(.id = "website")
 
   return(all_website_dims)
 }
 
-clean_link_data <- function(link_clicks = NULL) {
-  all_website_links <- lapply(link_clicks, wrangle_dimensions) %>%
-    dplyr::bind_rows(.id = "website")
+wrangle_ga_dimensions <- function(dims_for_website) {
 
-  return(all_website_links)
-}
-
-wrangle_dimensions <- function(dims_for_website) {
-
+  if ("dimensionHeaders" %in% names(dims_for_website))  {
   stat_names <- dims_for_website$dimensionHeaders
 
   values_list <- lapply(dims_for_website$rows$dimensionValues, t)
@@ -424,6 +401,8 @@ wrangle_dimensions <- function(dims_for_website) {
 
   colnames(clean_df) <- dims_for_website$dimensionHeaders$name
   rownames(clean_df) <- NULL
-
+  } else {
+    clean_df <- data.frame(dims = "No data collected yet")
+  }
   return(clean_df)
 }
