@@ -7,8 +7,13 @@ test_that("Writing gsheets", {
                    cache = TRUE,
                    in_test = TRUE)
 
+  form_info <- get_google_form(
+    "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
+  )
+  forms_df <- form_info$metadata
+
   # Don't provide a googlsheet -- this should fail if we arent running this interactively.
-  datasheet <- try(write_to_gsheet(input = repo_list), silent = TRUE)
+  datasheet <- try(write_to_gsheet(input = forms_df), silent = TRUE)
 
   gsheet <- "https://docs.google.com/spreadsheets/d/166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"
   expect_s3_class(datasheet, "try-error")
@@ -16,14 +21,14 @@ test_that("Writing gsheets", {
   # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
   datasheet <- try(write_to_gsheet(
     gsheet = gsheet,
-    input = repo_list), silent = TRUE)
+    input = forms_df), silent = TRUE)
 
-  expect_s3_class(datasheet, "try-error")
+  expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
 
   # This should work now that we said to overwrite it
   datasheet <- write_to_gsheet(
     gsheet = gsheet,
-    input = repo_list,
+    input = forms_df,
     overwrite = TRUE)
 
   expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
@@ -31,23 +36,23 @@ test_that("Writing gsheets", {
   # Appending rows should also work
   datasheet <- write_to_gsheet(
     gsheet = gsheet,
-    input = repo_list,
+    input = forms_df,
     append_rows = TRUE)
 
   expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
 
   # Check that we successfully appended
   datasheet <- googlesheets4::read_sheet(gsheet)
-  expect_length(datasheet$name, 4)
+  expect_length(datasheet$title, 16)
 
   # Let's figure out how many sheets we have
-  gsheet_info <- googlesheets4::gs4_get(datasheet)
+  gsheet_info <- googlesheets4::gs4_get(gsheet)
   num_sheets <- nrow(gsheet_info$sheets)
 
   # Making a new sheet
   datasheet <- write_to_gsheet(
     gsheet = gsheet,
-    input = repo_list,
+    input = forms_df,
     new_sheet = "new sheet")
 
   # Make sure we have an extra sheet now

@@ -66,7 +66,7 @@ get_github_user <- function(token = NULL) {
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_repo_list(owner = "fhdsl")
+#' get_org_repo_list(owner = "fhdsl")
 #' }
 #'
 get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
@@ -92,7 +92,7 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
       visibility = unlist(purrr::map(repo_list, ~ .x$visibility)),
       stargazers_count = unlist(purrr::map(repo_list, ~ .x$stargazers_count)),
       watchers_count = unlist(purrr::map(repo_list, ~ .x$watchers_count))
-    )
+    ) %>% as.data.frame()
   }
   return(repo_list)
 }
@@ -134,7 +134,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
       visibility = unlist(purrr::map(repo_list, ~ .x$visibility)),
       stargazers_count = unlist(purrr::map(repo_list, ~ .x$stargazers_count)),
       watchers_count = unlist(purrr::map(repo_list, ~ .x$watchers_count))
-    )
+    ) %>% as.data.frame()
   }
 
   return(repo_list)

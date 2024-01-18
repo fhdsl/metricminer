@@ -30,7 +30,7 @@ This is a function to get the information about a repository
 \dontrun{
 
 authorize("github")
-get_repo_list(owner = "fhdsl")
+get_org_repo_list(owner = "fhdsl")
 }
 
 }
