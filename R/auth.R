@@ -102,12 +102,14 @@ delete_creds <- function(app_name = "all") {
   google_creds_exist <- !is.null(getOption("google"))
 
   calendly_cache_exist <- file.exists(file.path(cache_secrets_folder(), "calendly.RDS"))
-  github_cache_exist <-  file.exists(file.path(cache_secrets_folder(), "github.RDS"))
-  google_cache_exist <-  file.exists(file.path(cache_secrets_folder(), "google.RDS"))
+  github_cache_exist <- file.exists(file.path(cache_secrets_folder(), "github.RDS"))
+  google_cache_exist <- file.exists(file.path(cache_secrets_folder(), "google.RDS"))
 
   # Do any exist?
-  none_exist <- all(!calendly_creds_exist, !github_creds_exist, !google_creds_exist,
-                    !calendly_cache_exist, !github_cache_exist, !google_cache_exist)
+  none_exist <- all(
+    !calendly_creds_exist, !github_creds_exist, !google_creds_exist,
+    !calendly_cache_exist, !github_cache_exist, !google_cache_exist
+  )
 
   if (none_exist) {
     message("No cached creds to delete (from metricminer anyway). Done")

@@ -67,16 +67,17 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 #' get_ga_user()
 #' }
 get_ga_user <- function(token = NULL, request_type = "GET") {
-
   results <- request_ga(
     token = token,
     url = "https://analytics.googleapis.com/analytics/v3/management/accountSummaries",
     request_type = request_type
   )
 
-  if (results$totalResults == 0 ){
-    message(paste0("No accounts found underneath this ID: ", accounts$username,"\n",
-            "Are you sure you have Google Analytics properties underneath THIS google account?"))
+  if (results$totalResults == 0) {
+    message(paste0(
+      "No accounts found underneath this ID: ", accounts$username, "\n",
+      "Are you sure you have Google Analytics properties underneath THIS google account?"
+    ))
   }
 
   result <- results$items
@@ -100,7 +101,6 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
 #' }
 get_ga_properties <- function(account_id, token = NULL) {
-
   results <- request_ga(
     token = token,
     url = "https://analyticsadmin.googleapis.com/v1alpha/properties",
@@ -108,9 +108,11 @@ get_ga_properties <- function(account_id, token = NULL) {
     request_type = "GET"
   )
 
-  if (length(results$properties) == 0 ){
-    message(paste0("No properties found underneath this account: ", account_id,"\n",
-                   "Are you sure you have Google Analytics properties underneath THIS account id?"))
+  if (length(results$properties) == 0) {
+    message(paste0(
+      "No properties found underneath this account: ", account_id, "\n",
+      "Are you sure you have Google Analytics properties underneath THIS account id?"
+    ))
   }
 
   return(results$properties)
@@ -176,10 +178,8 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
 #' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
 #' }
-
 get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, body_params = NULL, end_date = NULL, stats_type = "metrics",
                          dataformat = "dataframe") {
-
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -228,7 +228,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
   )
 
   if (dataformat == "dataframe") {
-    if (stats_type == "metrics")  results <- clean_ga_metrics(results)
+    if (stats_type == "metrics") results <- clean_ga_metrics(results)
     if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_ga_dimensions(results)
   }
 
@@ -282,7 +282,6 @@ link_clicks <- function() {
 #' some_stats_list <- get_all_ga_metrics(property_ids = property_ids)
 #' }
 get_all_ga_metrics <- function(account_id = NULL, token = NULL, dataformat = "dataframe") {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -333,10 +332,10 @@ get_all_ga_metrics <- function(account_id = NULL, token = NULL, dataformat = "da
   })
 
   if (length(display_names) > 1) {
-      # Save the names
-      names(all_ga_metrics) <- display_names
-      names(all_ga_dimensions) <- display_names
-      names(all_ga_links) <- display_names
+    # Save the names
+    names(all_ga_metrics) <- display_names
+    names(all_ga_dimensions) <- display_names
+    names(all_ga_links) <- display_names
   }
 
   if (dataformat == "dataframe") {
@@ -362,9 +361,8 @@ get_all_ga_metrics <- function(account_id = NULL, token = NULL, dataformat = "da
 #' @export
 
 clean_ga_metrics <- function(metrics = NULL) {
-
   # This is if we are running it with all the data at once
-  if (length(metrics$metricHeaders$name) == 0 ){
+  if (length(metrics$metricHeaders$name) == 0) {
     stat_names <- metrics[[1]]$metricHeaders$name
     clean_df <- purrr::map(metrics, "rows")
   } else {
@@ -372,17 +370,16 @@ clean_ga_metrics <- function(metrics = NULL) {
     stat_names <- metrics$metricHeaders$name
     clean_df <- metrics$rows
   }
-    clean_df <- clean_df %>%
-      dplyr::bind_rows(.id = "website") %>%
-      tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
-      dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
-      dplyr::mutate_at(stat_names, as.numeric)
+  clean_df <- clean_df %>%
+    dplyr::bind_rows(.id = "website") %>%
+    tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
+    dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
+    dplyr::mutate_at(stat_names, as.numeric)
 
   return(clean_df)
 }
 
 clean_ga_dimensions <- function(dimensions = NULL) {
-
   all_website_dims <- lapply(dimensions, wrangle_ga_dimensions) %>%
     dplyr::bind_rows(.id = "website")
 
@@ -390,17 +387,16 @@ clean_ga_dimensions <- function(dimensions = NULL) {
 }
 
 wrangle_ga_dimensions <- function(dims_for_website) {
+  if ("dimensionHeaders" %in% names(dims_for_website)) {
+    stat_names <- dims_for_website$dimensionHeaders
 
-  if ("dimensionHeaders" %in% names(dims_for_website))  {
-  stat_names <- dims_for_website$dimensionHeaders
+    values_list <- lapply(dims_for_website$rows$dimensionValues, t)
 
-  values_list <- lapply(dims_for_website$rows$dimensionValues, t)
+    clean_df <- lapply(values_list, as.data.frame) %>%
+      dplyr::bind_rows()
 
-  clean_df <- lapply(values_list, as.data.frame) %>%
-    dplyr::bind_rows()
-
-  colnames(clean_df) <- dims_for_website$dimensionHeaders$name
-  rownames(clean_df) <- NULL
+    colnames(clean_df) <- dims_for_website$dimensionHeaders$name
+    rownames(clean_df) <- NULL
   } else {
     clean_df <- data.frame(dims = "No data collected yet")
   }

@@ -86,12 +86,12 @@ get_org_repo_list <- function(owner, count = "all", token = NULL) {
 
   if (data_format == "dataframe") {
     repo_list <- data.frame(
-      name = unlist(purrr::map(repo_list, ~.x$full_name)),
-      url = unlist(purrr::map(repo_list, ~.x$url)),
-      open_issues = unlist(purrr::map(repo_list, ~.x$open_issues)),
-      visibility = unlist(purrr::map(repo_list, ~.x$visibility)),
-      stargazers_count = unlist(purrr::map(repo_list, ~.x$stargazers_count)),
-      watchers_count = unlist(purrr::map(repo_list, ~.x$watchers_count))
+      name = unlist(purrr::map(repo_list, ~ .x$full_name)),
+      url = unlist(purrr::map(repo_list, ~ .x$url)),
+      open_issues = unlist(purrr::map(repo_list, ~ .x$open_issues)),
+      visibility = unlist(purrr::map(repo_list, ~ .x$visibility)),
+      stargazers_count = unlist(purrr::map(repo_list, ~ .x$stargazers_count)),
+      watchers_count = unlist(purrr::map(repo_list, ~ .x$watchers_count))
     )
   }
   return(repo_list)
@@ -112,7 +112,7 @@ get_org_repo_list <- function(owner, count = "all", token = NULL) {
 #' get_user_list(owner = "metricminer")
 #' }
 #'
-get_user_repo_list <- function(owner, count = "all", token = NULL) {
+get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
@@ -122,19 +122,19 @@ get_user_repo_list <- function(owner, count = "all", token = NULL) {
   }
 
   repo_list <- gh::gh("GET /users/{owner}/repos",
-                      owner = owner,
-                      .token = token,
-                      .limit = count
+    owner = owner,
+    .token = token,
+    .limit = count
   )
   if (data_format == "dataframe") {
     repo_list <- data.frame(
-      name = unlist(purrr::map(repo_list, ~.x$full_name)),
-      url = unlist(purrr::map(repo_list, ~.x$url)),
-      open_issues = unlist(purrr::map(repo_list, ~.x$open_issues)),
-      visibility = unlist(purrr::map(repo_list, ~.x$visibility)),
-      stargazers_count = unlist(purrr::map(repo_list, ~.x$stargazers_count)),
-      watchers_count = unlist(purrr::map(repo_list, ~.x$watchers_count))
-      )
+      name = unlist(purrr::map(repo_list, ~ .x$full_name)),
+      url = unlist(purrr::map(repo_list, ~ .x$url)),
+      open_issues = unlist(purrr::map(repo_list, ~ .x$open_issues)),
+      visibility = unlist(purrr::map(repo_list, ~ .x$visibility)),
+      stargazers_count = unlist(purrr::map(repo_list, ~ .x$stargazers_count)),
+      watchers_count = unlist(purrr::map(repo_list, ~ .x$watchers_count))
+    )
   }
 
   return(repo_list)

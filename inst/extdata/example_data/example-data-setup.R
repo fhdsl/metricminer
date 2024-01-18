@@ -23,8 +23,6 @@ save_example_data(gh_user)
 class(gh_user)
 
 gh_repo_list <- get_user_repo_list(owner = "metricminer")
-attr(gh_repo_list, ".send_headers")$Authorization <- "some_token_here"
-attr(gh_repo_list, "request")$headers <- "Some authorization info here"
 save_example_data(gh_repo_list)
 class(gh_repo_list)
 

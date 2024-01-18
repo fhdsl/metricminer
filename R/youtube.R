@@ -15,7 +15,6 @@
 #'
 #' authorize("google")
 #' youtube_channel_stats <- get_youtube_channel_stats("UCr73I9ZEPbn-3_1CBM57QgQ")
-#'
 #' }
 get_youtube_channel_stats <- function(channel_id, token = NULL, dataformat = "dataframe") {
   # Get endpoint url
@@ -73,7 +72,6 @@ get_youtube_channel_stats <- function(channel_id, token = NULL, dataformat = "da
 #'
 #' authorize("google")
 #' youtube_video_stats <- get_youtube_video_stats("YkYnni-WuaQ")
-#'
 #' }
 get_youtube_video_stats <- function(video_id, token = NULL, dataformat = "dataframe") {
   # Get endpoint url
@@ -129,7 +127,6 @@ get_youtube_video_stats <- function(video_id, token = NULL, dataformat = "datafr
 #' write_playlist_details(playlist_id = shorts_playlist_id, outfile = "youtube_shorts_data.tsv")
 #' write_playlist_details(playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio", outfile = "youtube_shorts_data.tsv")
 write_playlist_details <- function(playlist_id, token = NULL) {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -144,7 +141,6 @@ write_playlist_details <- function(playlist_id, token = NULL) {
 
   # --------- Loop through the playlist while there is still a next page ---------
   while (!is.null(nextPageToken)) {
-
     # Request results from the particular playlist
     url <- paste0(
       base_api,
