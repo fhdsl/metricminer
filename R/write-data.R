@@ -4,9 +4,10 @@
 #' @param token OAuth token from Google login.
 #' @param gsheet Optionally a googlesheet to write to
 #' @param overwrite TRUE/FALSE overwrite if there is data at the destination
-#' @param sheet Index or name of the worksheet you want to write to. Forwarded to \code{\link{googlesheets4::write_sheet}} or \code{\link{googlesheets4::append_sheet}} to indicate what sheet it should be written to.
+#' @param append_rows TRUE/FALSE should the data be appended to the data?
+#' @param sheet Index or name of the worksheet you want to write to. Forwarded to googlesheets4::write_sheet or googlesheets4::append_sheet to indicate what sheet it should be written to.
 #' @param new_sheet default is FALSE. But if it is anything else will be used as the name for a new worksheet that will be made and written to.
-#' @param ... these parameters are sent to \code{\link{googlesheets4::write_sheet}}
+#' @param ... these parameters are sent to googlesheets4::write_sheet.
 #' @return The googlesheet URL where the data has been written
 #' @importFrom googlesheets4 read_sheet sheet_add write_sheet
 #' @export
@@ -75,7 +76,7 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
 
   #### Writing things depending on the situation
   # There's no rows of data there, we can write freely
-  gsheet_output <- googlesheets4::write_sheet(data = input, ss = gsheet, sheet = sheet, ...)
+  if (append_rows == FALSE) gsheet_output <- googlesheets4::write_sheet(data = input, ss = gsheet, sheet = sheet, ...)
 
   # We've been told to append
   if (append_rows == TRUE) gsheet_output <- googlesheets4::sheet_append(data = input, ss = gsheet, sheet = sheet, ...)

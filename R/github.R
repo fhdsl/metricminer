@@ -69,7 +69,7 @@ get_github_user <- function(token = NULL) {
 #' get_repo_list(owner = "fhdsl")
 #' }
 #'
-get_org_repo_list <- function(owner, count = "all", token = NULL) {
+get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
