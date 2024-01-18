@@ -8,14 +8,15 @@ test_that("Writing gsheets", {
                    in_test = TRUE)
 
   form_info <- get_google_form(
-    "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
+    "https://docs.google.com/forms/d/1pbFfgUPYH2w9zEoCDjCa4HFOxzEhGOseufw28Xxmd-o/edit"
   )
   forms_df <- form_info$metadata
 
-  # Don't provide a googlsheet -- this should fail if we arent running this interactively.
+  # Don't provide a googlesheet -- this should fail if we arent running this interactively.
   datasheet <- try(write_to_gsheet(input = forms_df), silent = TRUE)
 
-  gsheet <- "https://docs.google.com/spreadsheets/d/166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"
+  gsheet <- "https://docs.google.com/spreadsheets/d/1aTryGXUId7fGf332oa78zyqoHuuGAgTB5WQ1SVoNGeg/edit#gid=0"
+
   expect_s3_class(datasheet, "try-error")
 
   # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
@@ -23,7 +24,7 @@ test_that("Writing gsheets", {
     gsheet = gsheet,
     input = forms_df), silent = TRUE)
 
-  expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
+  expect_s3_class(datasheet, "try-error")
 
   # This should work now that we said to overwrite it
   datasheet <- write_to_gsheet(
@@ -42,8 +43,8 @@ test_that("Writing gsheets", {
   expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
 
   # Check that we successfully appended
-  datasheet <- googlesheets4::read_sheet(gsheet)
-  expect_length(datasheet$title, 16)
+  datasheet_reread <- googlesheets4::read_sheet(gsheet)
+  expect_length(datasheet_reread$title, 4)
 
   # Let's figure out how many sheets we have
   gsheet_info <- googlesheets4::gs4_get(gsheet)
@@ -56,7 +57,7 @@ test_that("Writing gsheets", {
     new_sheet = "new sheet")
 
   # Make sure we have an extra sheet now
-  gsheet_info <- googlesheets4::gs4_get(datasheet)
+  gsheet_info <- googlesheets4::gs4_get(gsheet)
   expect_true(nrow(gsheet_info$sheets) > num_sheets)
 
   # Now cleanup after ourselves
