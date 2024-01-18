@@ -61,7 +61,16 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">write_to_gsheet</span><span class="op">(</span><span class="va">input</span>, <span class="va">gsheet</span>, overwrite <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">write_to_gsheet</span><span class="op">(</span></span>
+<span>  <span class="va">input</span>,</span>
+<span>  token <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  gsheet <span class="op">=</span> <span class="cn">NULL</span>,</span>
+<span>  overwrite <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  append_rows <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  sheet <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  new_sheet <span class="op">=</span> <span class="cn">FALSE</span>,</span>
+<span>  <span class="va">...</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -70,12 +79,32 @@
 <dd><p>input data to write to a googlesheet</p></dd>
 
 
+<dt>token</dt>
+<dd><p>OAuth token from Google login.</p></dd>
+
+
 <dt>gsheet</dt>
 <dd><p>Optionally a googlesheet to write to</p></dd>
 
 
 <dt>overwrite</dt>
 <dd><p>TRUE/FALSE overwrite if there is data at the destination</p></dd>
+
+
+<dt>append_rows</dt>
+<dd><p>TRUE/FALSE should the data be appended to the data?</p></dd>
+
+
+<dt>sheet</dt>
+<dd><p>Index or name of the worksheet you want to write to. Forwarded to googlesheets4::write_sheet or googlesheets4::append_sheet to indicate what sheet it should be written to.</p></dd>
+
+
+<dt>new_sheet</dt>
+<dd><p>default is FALSE. But if it is anything else will be used as the name for a new worksheet that will be made and written to.</p></dd>
+
+
+<dt>...</dt>
+<dd><p>these parameters are sent to googlesheets4::write_sheet.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -93,6 +122,16 @@
 <span class="r-in"><span><span class="va">repo_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_user_repo_list.html">get_user_repo_list</a></span><span class="op">(</span>owner <span class="op">=</span> <span class="st">"metricminer"</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu">write_to_gsheet</span><span class="op">(</span><span class="va">repo_list</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">datasheet</span> <span class="op">&lt;-</span> <span class="fu">write_to_gsheet</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  gsheet <span class="op">=</span> <span class="st">"https://docs.google.com/spreadsheets/d/166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"</span>,</span></span>
+<span class="r-in"><span>  input <span class="op">=</span> <span class="va">repo_list</span>, append_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
+<span class="r-in"><span>  sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="va">datasheet</span> <span class="op">&lt;-</span> <span class="fu">write_to_gsheet</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  gsheet <span class="op">=</span> <span class="st">"https://docs.google.com/spreadsheets/d/166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"</span>,</span></span>
+<span class="r-in"><span>  input <span class="op">=</span> <span class="va">repo_list</span>,</span></span>
+<span class="r-in"><span>  new_sheet <span class="op">=</span> <span class="st">"github_data"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
