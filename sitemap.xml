@@ -7,6 +7,9 @@
     <loc>/PULL_REQUEST_TEMPLATE.html</loc>
   </url>
   <url>
+    <loc>/articles/example-data.html</loc>
+  </url>
+  <url>
     <loc>/articles/getting-started.html</loc>
   </url>
   <url>
@@ -17,9 +20,6 @@
   </url>
   <url>
     <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/all_ga_metrics.html</loc>
   </url>
   <url>
     <loc>/reference/app_set_up.html</loc>
@@ -37,7 +37,7 @@
     <loc>/reference/check_check.html</loc>
   </url>
   <url>
-    <loc>/reference/clean_metric_data.html</loc>
+    <loc>/reference/clean_ga_metrics.html</loc>
   </url>
   <url>
     <loc>/reference/clean_repo_metrics.html</loc>
@@ -52,10 +52,19 @@
     <loc>/reference/encrypt_creds_path.html</loc>
   </url>
   <url>
+    <loc>/reference/example_data_folder.html</loc>
+  </url>
+  <url>
     <loc>/reference/extract_answers.html</loc>
   </url>
   <url>
+    <loc>/reference/get_all_ga_metrics.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_calendly_user.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_example_data.html</loc>
   </url>
   <url>
     <loc>/reference/get_ga_metadata.html</loc>
@@ -85,10 +94,10 @@
     <loc>/reference/get_multiple_forms.html</loc>
   </url>
   <url>
-    <loc>/reference/get_question_metadata.html</loc>
+    <loc>/reference/get_org_repo_list.html</loc>
   </url>
   <url>
-    <loc>/reference/get_repo_list.html</loc>
+    <loc>/reference/get_question_metadata.html</loc>
   </url>
   <url>
     <loc>/reference/get_repos_metrics.html</loc>
@@ -97,7 +106,13 @@
     <loc>/reference/get_slido_files.html</loc>
   </url>
   <url>
-    <loc>/reference/get_youtube_stats.html</loc>
+    <loc>/reference/get_user_repo_list.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_youtube_channel_stats.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_youtube_video_stats.html</loc>
   </url>
   <url>
     <loc>/reference/gh_repo_wrapper.html</loc>
@@ -112,6 +127,9 @@
     <loc>/reference/list_calendly_events.html</loc>
   </url>
   <url>
+    <loc>/reference/list_example_data.html</loc>
+  </url>
+  <url>
     <loc>/reference/request_ga.html</loc>
   </url>
   <url>
@@ -119,5 +137,14 @@
   </url>
   <url>
     <loc>/reference/supported_endpoints.html</loc>
+  </url>
+  <url>
+    <loc>/reference/write_playlist_details.html</loc>
+  </url>
+  <url>
+    <loc>/reference/write_to_gsheet.html</loc>
+  </url>
+  <url>
+    <loc>/reference/write_to_table.html</loc>
   </url>
 </urlset>
