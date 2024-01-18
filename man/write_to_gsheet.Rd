@@ -24,11 +24,13 @@ write_to_gsheet(
 
 \item{overwrite}{TRUE/FALSE overwrite if there is data at the destination}
 
-\item{sheet}{Index or name of the worksheet you want to write to. Forwarded to \code{\link{googlesheets4::write_sheet}} or \code{\link{googlesheets4::append_sheet}} to indicate what sheet it should be written to.}
+\item{append_rows}{TRUE/FALSE should the data be appended to the data?}
+
+\item{sheet}{Index or name of the worksheet you want to write to. Forwarded to googlesheets4::write_sheet or googlesheets4::append_sheet to indicate what sheet it should be written to.}
 
 \item{new_sheet}{default is FALSE. But if it is anything else will be used as the name for a new worksheet that will be made and written to.}
 
-\item{...}{these parameters are sent to \code{\link{googlesheets4::write_sheet}}}
+\item{...}{these parameters are sent to googlesheets4::write_sheet.}
 }
 \value{
 The googlesheet URL where the data has been written
