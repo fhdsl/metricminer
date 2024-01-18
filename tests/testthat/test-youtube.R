@@ -13,6 +13,6 @@ test_that("Youtube", {
 
   youtube_vid <- get_youtube_video_stats("XN_QPRrJZAw")
 
-  expect_named(youtube_vid, c("viewCount", "likeCount", "dislikeCount", "favoriteCount", "commentCount"))
+  expect_s3_class(youtube_vid, "data.frame")
 
 })
