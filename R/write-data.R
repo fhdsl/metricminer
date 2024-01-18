@@ -2,6 +2,7 @@
 #' Writes data to a Googlesheet
 #' @description This is a function to write metricminer data to a GoogleSheet
 #' @param input input data to write to a googlesheet
+#' @param token OAuth token from Google login.
 #' @param gsheet Optionally a googlesheet to write to
 #' @param overwrite TRUE/FALSE overwrite if there is data at the destination
 #' @return The googlesheet URL where the data has been written
@@ -16,7 +17,17 @@
 #' }
 #'
 
-write_to_gsheet <- function(input, gsheet, overwrite = FALSE) {
+write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALSE) {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "google")
+  }
+
+  if (is.null(gsheet)) {
+    gsheet <- googlesheets4::gs4_create()
+  }
+
 
 }
 

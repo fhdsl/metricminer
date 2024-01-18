@@ -12,6 +12,8 @@ get_org_repo_list(owner, count = "all", token = NULL)
 \item{count}{The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.}
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+
+\item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
 a list of repos that an organization has

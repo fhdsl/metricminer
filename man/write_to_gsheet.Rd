@@ -4,10 +4,12 @@
 \alias{write_to_gsheet}
 \title{Writes data to a Googlesheet}
 \usage{
-write_to_gsheet(input, gsheet, overwrite = FALSE)
+write_to_gsheet(input, token = NULL, gsheet = NULL, overwrite = FALSE)
 }
 \arguments{
 \item{input}{input data to write to a googlesheet}
+
+\item{token}{OAuth token from Google login.}
 
 \item{gsheet}{Optionally a googlesheet to write to}
 

@@ -10,8 +10,7 @@ test_that("GitHub: get repo list", {
 
   repo_list <- get_user_repo_list(owner = "cansavvy")
 
-  expect_type(repo_list[[1]]$id, "integer")
-  expect_type(repo_list[[1]]$name, "character")
+  expect_type(repo_list, "data.frame")
 
 })
 
