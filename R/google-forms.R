@@ -65,7 +65,7 @@ request_google_forms <- function(token, url,
 #'
 #' authorize("google")
 #' form_info <- get_google_form(
-#' "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
+#'   "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
 #' )
 #' form_id <- "https://docs.google.com/forms/d/1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY/edit"
 #'
@@ -74,7 +74,6 @@ request_google_forms <- function(token, url,
 #' form_info <- get_google_form("1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY")
 #' }
 get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -119,9 +118,8 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
       metadata = metadata,
       answers = answers_df
     )
-  return(result)
+    return(result)
   }
-
 }
 
 
@@ -136,8 +134,9 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 #'
 #' authorize("google")
 #' form_list <- googledrive::drive_find(
-#' shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
-#' type = "form")
+#'   shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
+#'   type = "form"
+#' )
 #'
 #' multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 #' }

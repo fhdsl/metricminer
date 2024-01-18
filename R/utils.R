@@ -9,12 +9,12 @@ utils::globalVariables(c(
 #' @examples \dontrun{
 #'
 #' list_example_data()
-#'
 #' }
 list_example_data <- function() {
   data_list <-
     list.files(example_data_folder(),
-             pattern = ".RDS")
+      pattern = ".RDS"
+    )
 
   gsub("\\.RDS$", "", data_list)
 }
@@ -35,7 +35,6 @@ list_example_data <- function() {
 #'
 #' # Then if you check your global environment you will see "gform_info" included
 #' ls()
-#'
 #' }
 get_example_data <- function(dataset_name, envir = 1) {
   file_path <- file.path(example_data_folder(), paste0(dataset_name, ".RDS"))
@@ -44,7 +43,6 @@ get_example_data <- function(dataset_name, envir = 1) {
     stop(paste(dataset_name, "does not exist in this package, run list_example_data() to see the available example datasets. Be sure to check for typos."))
   }
   assign(dataset_name, readRDS(file_path), envir = as.environment(envir))
-
 }
 
 save_example_data <- function(data) {
@@ -109,21 +107,21 @@ cache_secrets_folder <- function() {
   file_path <- list.files(
     pattern = "cached-secrets",
     recursive = TRUE,
-    tools::R_user_dir("metricminer", which="cache"),
+    tools::R_user_dir("metricminer", which = "cache"),
     full.names = TRUE,
     include.dirs = TRUE,
   )
 
   if (length(file_path) == 0) {
     dir.create(file.path(
-      tools::R_user_dir("metricminer", which="cache"),
+      tools::R_user_dir("metricminer", which = "cache"),
       "cached-secrets"
     ), recursive = TRUE, showWarnings = FALSE)
   }
   list.files(
     pattern = "cached-secrets",
     recursive = TRUE,
-    tools::R_user_dir("metricminer", which="cache"),
+    tools::R_user_dir("metricminer", which = "cache"),
     full.names = TRUE,
     include.dirs = TRUE,
   )

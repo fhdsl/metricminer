@@ -59,16 +59,17 @@ get_github_user <- function(token = NULL) {
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return a list of repos that an organization has
 #' @importFrom gh gh
 #' @export
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_repo_list(owner = "fhdsl")
+#' get_org_repo_list(owner = "fhdsl")
 #' }
 #'
-get_org_repo_list <- function(owner, count = "all", token = NULL) {
+get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
@@ -83,6 +84,16 @@ get_org_repo_list <- function(owner, count = "all", token = NULL) {
     .limit = count
   )
 
+  if (data_format == "dataframe") {
+    repo_list <- data.frame(
+      name = unlist(purrr::map(repo_list, ~ .x$full_name)),
+      url = unlist(purrr::map(repo_list, ~ .x$url)),
+      open_issues = unlist(purrr::map(repo_list, ~ .x$open_issues)),
+      visibility = unlist(purrr::map(repo_list, ~ .x$visibility)),
+      stargazers_count = unlist(purrr::map(repo_list, ~ .x$stargazers_count)),
+      watchers_count = unlist(purrr::map(repo_list, ~ .x$watchers_count))
+    ) %>% as.data.frame()
+  }
   return(repo_list)
 }
 
@@ -91,6 +102,7 @@ get_org_repo_list <- function(owner, count = "all", token = NULL) {
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return a list of repos that an organization has
 #' @importFrom gh gh
 #' @export
@@ -100,7 +112,7 @@ get_org_repo_list <- function(owner, count = "all", token = NULL) {
 #' get_user_list(owner = "metricminer")
 #' }
 #'
-get_user_repo_list <- function(owner, count = "all", token = NULL) {
+get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
   if (count == "all") count <- "Inf"
 
   if (is.null(token)) {
@@ -110,10 +122,20 @@ get_user_repo_list <- function(owner, count = "all", token = NULL) {
   }
 
   repo_list <- gh::gh("GET /users/{owner}/repos",
-                      owner = owner,
-                      .token = token,
-                      .limit = count
+    owner = owner,
+    .token = token,
+    .limit = count
   )
+  if (data_format == "dataframe") {
+    repo_list <- data.frame(
+      name = unlist(purrr::map(repo_list, ~ .x$full_name)),
+      url = unlist(purrr::map(repo_list, ~ .x$url)),
+      open_issues = unlist(purrr::map(repo_list, ~ .x$open_issues)),
+      visibility = unlist(purrr::map(repo_list, ~ .x$visibility)),
+      stargazers_count = unlist(purrr::map(repo_list, ~ .x$stargazers_count)),
+      watchers_count = unlist(purrr::map(repo_list, ~ .x$watchers_count))
+    ) %>% as.data.frame()
+  }
 
   return(repo_list)
 }

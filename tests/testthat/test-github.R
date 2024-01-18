@@ -5,13 +5,11 @@ test_that("GitHub: get repo list", {
 
   repo_list <- get_org_repo_list(owner = "fhdsl")
 
-  expect_type(repo_list[[1]]$id, "integer")
-  expect_type(repo_list[[1]]$name, "character")
+  expect_named(repo_list, c("name", "url", "open_issues", "visibility", "stargazers_count", "watchers_count"))
 
   repo_list <- get_user_repo_list(owner = "cansavvy")
 
-  expect_type(repo_list[[1]]$id, "integer")
-  expect_type(repo_list[[1]]$name, "character")
+  expect_named(repo_list, c("name", "url", "open_issues", "visibility", "stargazers_count", "watchers_count"))
 
 })
 

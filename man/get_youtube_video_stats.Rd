@@ -22,6 +22,5 @@ This is a function to get a statistics on a Youtube video
 
 authorize("google")
 youtube_video_stats <- get_youtube_video_stats("YkYnni-WuaQ")
-
 }
 }

@@ -53,7 +53,6 @@ calendly_get <- function(url, token = NULL, user = NULL, count = NULL, page_toke
 #'
 #' authorize("calendly")
 #' get_calendly_user()
-#'
 #' }
 get_calendly_user <- function(token = NULL) {
   if (is.null(token)) {
@@ -86,7 +85,6 @@ get_calendly_user <- function(token = NULL) {
 #' }
 #'
 list_calendly_events <- function(token = NULL, user, count = 100) {
-
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "calendly")
