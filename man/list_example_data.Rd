@@ -13,6 +13,5 @@ This is a function to retrieve a list of the example datasets included with metr
 \dontrun{
 
 list_example_data()
-
 }
 }

@@ -22,8 +22,9 @@ This is a wrapper function for returning google form info and responses for mult
 
 authorize("google")
 form_list <- googledrive::drive_find(
-shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
-type = "form")
+  shared_drive = googledrive::as_id("0AJb5Zemj0AAkUk9PVA"),
+  type = "form"
+)
 
 multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 }

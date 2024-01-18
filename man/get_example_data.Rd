@@ -28,6 +28,5 @@ get_example_data("gform_info")
 
 # Then if you check your global environment you will see "gform_info" included
 ls()
-
 }
 }

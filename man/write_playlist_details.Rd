@@ -18,7 +18,9 @@ writes a file containing the dataframe of cleaned results
 Write playlist details from YouTube
 }
 \examples{
-# Not run
-write_playlist_details(playlist_id = shorts_playlist_id, outfile = "youtube_shorts_data.tsv")
-write_playlist_details(playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio", outfile = "youtube_shorts_data.tsv")
+ \dontrun{
+  # Not run
+  write_playlist_details(playlist_id = shorts_playlist_id, outfile = "youtube_shorts_data.tsv")
+  write_playlist_details(playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio", outfile = "youtube_shorts_data.tsv")
+}
 }

@@ -21,6 +21,5 @@ This is a function to retrieve statistics for a Youtube channel
 
 authorize("google")
 youtube_channel_stats <- get_youtube_channel_stats("UCr73I9ZEPbn-3_1CBM57QgQ")
-
 }
 }

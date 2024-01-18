@@ -27,7 +27,7 @@ This is a function to get slido response output files. The slido files must be s
 \dontrun{
 
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
-drive_id <-"https://drive.google.com/drive/u/0/folders/1XWXHHyj32Uw_UyaUJrqp6S--hHnM0-7l"
+drive_id <- "https://drive.google.com/drive/u/0/folders/1XWXHHyj32Uw_UyaUJrqp6S--hHnM0-7l"
 slido_data <- get_slido_files(drive_id)
 }
 }
