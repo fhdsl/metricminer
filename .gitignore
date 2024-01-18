@@ -14,3 +14,5 @@ testthat-problems.rds
 inst/doc
 local_auth.R
 local_auth_2.R
+/doc/
+/Meta/
