@@ -117,6 +117,7 @@ get_youtube_video_stats <- function(video_id, token = NULL, dataformat = "datafr
 #' Write playlist details from YouTube
 #'
 #' @param playlist_id string, playlist ID on YouTube
+#' @param token OAuth token from Google login.
 #' @param outfile string, a filename to which to write results in the 'resources' folder
 #'
 #' @return writes a file containing the dataframe of cleaned results
@@ -127,7 +128,7 @@ get_youtube_video_stats <- function(video_id, token = NULL, dataformat = "datafr
 #'   write_playlist_details(playlist_id = shorts_playlist_id, outfile = "youtube_shorts_data.tsv")
 #'   write_playlist_details(playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio", outfile = "youtube_shorts_data.tsv")
 #' }
-write_playlist_details <- function(playlist_id, token = NULL) {
+write_playlist_details <- function(playlist_id, token = NULL, outfile = NULL) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")

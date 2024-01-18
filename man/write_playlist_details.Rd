@@ -4,10 +4,12 @@
 \alias{write_playlist_details}
 \title{Write playlist details from YouTube}
 \usage{
-write_playlist_details(playlist_id, token = NULL)
+write_playlist_details(playlist_id, token = NULL, outfile = NULL)
 }
 \arguments{
 \item{playlist_id}{string, playlist ID on YouTube}
+
+\item{token}{OAuth token from Google login.}
 
 \item{outfile}{string, a filename to which to write results in the 'resources' folder}
 }
