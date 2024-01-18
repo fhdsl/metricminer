@@ -56,19 +56,15 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
     }
   }
 
-  # Handling for adding a new sheet
-  if (new_sheet != FALSE) {
-    sheet <- googlesheets4::sheet_add(ss = gsheet, sheet = new_sheet)
-    sheet <- new_sheet
-  }
-
   # Checking that the sheet exists
-  gsheet_test <- try(suppressMessages(read_sheet(gsheet, range = "Sheet1!A1:F1", sheet = sheet)), silent = TRUE)
+  gsheet_test <- try(suppressMessages(read_sheet(gsheet, range = "Sheet1!A1:F20", sheet = sheet)), silent = TRUE)
 
   if (class(gsheet_test)[1] == "try-error") {
     stop("Can't find the provided gsheet")
 
-  } else if (nrow(gsheet_test) > 0 && overwrite == FALSE && append_rows == FALSE) {
+  }
+
+  if (all(c(nrow(gsheet_test) > 0, overwrite == FALSE, append_rows == FALSE, new_sheet == FALSE))) {
     stop(paste0(
       "There's data in this gsheet that is provided and overwrite and append_rows are set to FALSE. \n",
       "Not sure where to put these data. Set either overwrite or append_rows to TRUE and re-run"
@@ -76,6 +72,12 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
   }
 
   #### Writing things depending on the situation
+  # Handling for adding a new sheet
+  if (new_sheet != FALSE) {
+    sheet <- googlesheets4::sheet_add(ss = gsheet, sheet = new_sheet)
+    sheet <- new_sheet
+  }
+
   # There's no rows of data there, we can write freely
   if (append_rows == FALSE) gsheet_output <- googlesheets4::write_sheet(data = input, ss = gsheet, sheet = sheet, ...)
 
