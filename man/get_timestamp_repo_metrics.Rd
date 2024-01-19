@@ -6,14 +6,6 @@
 \usage{
 get_timestamp_repo_metrics(results, column)
 }
-\arguments{
-\item{repo_name}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
-
-\item{repo_metric_list}{a list containing the metrics}
-}
-\value{
-Metrics with timestamps for a repo on GitHub
-}
 \description{
-This is a function to get timestamp metrics for a single repos api call response
+Get timestamp repo metrics
 }
