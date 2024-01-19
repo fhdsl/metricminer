@@ -1,3 +1,5 @@
+
+name: Writing GitHub Metrics to Googlesheet
 on:
   workflow_dispatch:
   pull_request:
@@ -20,13 +22,7 @@ jobs:
       - name: Install remotes
         run: |
           Rscript -e "install.packages('remotes')"
-
-      - name: Install metricminer from Github
-        run: |
-          Rscript -e "remotes::install_github("fhdsl/metricminer")"
-
-      - name: Check out repository
-        uses: actions/checkout@v3
+          Rscript -e "remotes::install_github('fhdsl/metricminer')"
 
       - name: Authorize metricminer
         env:
