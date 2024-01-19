@@ -1,4 +1,4 @@
-# metricminer <img src="https://raw.githubusercontent.com/fhdsl/metricminer/main/metricminer-gnome.png" width = "100">
+# metricminer <img src="https://raw.githubusercontent.com/fhdsl/metricminer/main/resources/metricminer-gnome.png" width = "100">
 
 Digging up data that matters, making it dashboard-ready.
 
