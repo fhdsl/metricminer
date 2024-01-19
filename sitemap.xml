@@ -31,6 +31,9 @@
     <loc>/reference/authorize.html</loc>
   </url>
   <url>
+    <loc>/reference/automate_storage.html</loc>
+  </url>
+  <url>
     <loc>/reference/calendly_get.html</loc>
   </url>
   <url>
@@ -152,8 +155,5 @@
   </url>
   <url>
     <loc>/reference/write_to_gsheet.html</loc>
-  </url>
-  <url>
-    <loc>/reference/write_to_table.html</loc>
   </url>
 </urlset>
