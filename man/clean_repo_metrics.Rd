@@ -2,14 +2,14 @@
 % Please edit documentation in R/github.R
 \name{clean_repo_metrics}
 \alias{clean_repo_metrics}
-\title{Cleaning metrics from GitHub}
+\title{Summarizing metrics from GitHub}
 \usage{
 clean_repo_metrics(repo_name, repo_metric_list)
 }
 \arguments{
 \item{repo_name}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
 
-\item{repo_metric_list}{a list containing the metrics c}
+\item{repo_metric_list}{a list containing the metrics}
 }
 \value{
 Metrics for a repo on GitHub

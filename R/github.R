@@ -140,7 +140,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
   return(repo_list)
 }
 
-#' Get the repository metrics
+#' Get the repository summary or time course metrics
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
@@ -154,9 +154,12 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #'
 #' authorize("github")
 #' metrics <- get_github_metrics(repo = "fhdsl/metricminer")
-#' repo <- "jhudsl/ari"
+#'
+#' summary_metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
+#' timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
 #' }
-get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
+get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe", time_course = FALSE) {
+
   if (count == "all") count <- Inf
 
   if (is.null(token)) {
@@ -170,15 +173,20 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
   owner <- split_it[[1]][1]
   repo <- split_it[[1]][2]
 
-  api_calls <- list(
-    repo_activity = "GET /repos/{owner}/{repo}/activity",
-    stars = "GET /repos/{owner}/{repo}/stargazers",
-    forks = "GET /repos/{owner}/{repo}/forks",
-    contributors = "GET /repos/{owner}/{repo}/contributors",
-    community = "GET /repos/{owner}/{repo}/community/profile",
+  if (time_course) {
+    api_calls <- list(
     clones = "GET /repos/{owner}/{repo}/traffic/clones",
     views = "GET /repos/{owner}/{repo}/traffic/views"
-  )
+    )
+  } else {
+    api_calls <- list(
+      repo_activity = "GET /repos/{owner}/{repo}/activity",
+      stars = "GET /repos/{owner}/{repo}/stargazers",
+      forks = "GET /repos/{owner}/{repo}/forks",
+      contributors = "GET /repos/{owner}/{repo}/contributors",
+      community = "GET /repos/{owner}/{repo}/community/profile"
+    )
+  }
   # Put gh_repo_wrapper inside function
   gh_repo_wrapper_fn <- function(api_call) {
     gh_repo_wrapper(
@@ -198,15 +206,73 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   if (data_format == "dataframe") {
 
-    results <- clean_repo_metrics(
-      repo_name = paste0(c(owner, repo), collapse = "/"),
-      repo_metric_list = results
-    )
-    # Put timestamp as option here
+    if (time_course) {
+      clones_data <- get_timestamp_repo_metrics(results, column = "clones")
+      views_data <- get_timestamp_repo_metrics(results, column = "views")
+
+      results <-
+        dplyr::full_join(clones_data, views_data, by = "timestamp",
+                       suffix = c("_clones", "_views"))
+    } else {
+
+      results <- clean_repo_metrics(
+        repo_name = paste0(c(owner, repo), collapse = "/"),
+        repo_metric_list = results
+      )
+    }
   }
   return(results)
 }
+#' Collect repo timecourse metrics
+#' @description This is a wrapper for \code{\link{get_github_metrics}} that has `time_course = TRUE` so that timecourse metrics are collected
+#' @description This is a function to get the information about a repository
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
+#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
+#' @return GitHub repository summary metrics
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("github")
+#'
+#' timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
+#' }
+get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
 
+  result <- get_github_metrics(repo = repo,
+                     token = token,
+                     count = count,
+                     data_format = data_format,
+                     time_course = TRUE)
+  return(result)
+}
+
+#' Collect repo summary metrics
+#' @description This is a wrapper for \code{\link{get_github_metrics}} that has `time_course = FALSE` so that summary metrics are collected
+#' @description This is a function to get the information about a repository
+#' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
+#' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
+#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
+#' @return GitHub repository summary metrics
+#' @export
+#' @examples \dontrun{
+#'
+#' authorize("github")
+#'
+#' summary_metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
+#' }
+get_github_repo_summary <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
+
+  result <- get_github_metrics(repo = repo,
+                     token = token,
+                     count = count,
+                     data_format = data_format,
+                     time_course = FALSE)
+
+  return(result)
+}
 
 #' Retrieve metrics for a list of repos
 #' @description This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repos from a
@@ -222,14 +288,12 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' all_repos_metrics <- get_repos_metrics(owner = "fhdsl")
-#' readr::write_tsv(all_repos_metrics, "fhdsl_github_metrics.tsv")
 #'
 #' repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
-#' some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
+#' some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
 #' }
 #'
-get_repos_metrics <- function(repo_names = NULL, token = NULL, data_format = "dataframe") {
+get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_format = "dataframe") {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
@@ -276,7 +340,6 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
-    get_github
     if (is.null(token)) warning("No GitHub token found. Only certain metrics will be able to be retrieved.")
   }
 
@@ -308,6 +371,8 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 #' @export
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
+
+  ### Summarize the rest
   if (repo_metric_list$contributors[1] != "No results") {
     contributors <-
       lapply(repo_metric_list$contributors, function(contributor) {
@@ -332,70 +397,36 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
   } else {
     num_forks <- NA
   }
+
   metrics <- data.frame(
     repo_name,
     num_forks = num_forks,
     num_contributors = num_contributors,
     total_contributions = total_contributors,
     num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
-    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), NA),
-    num_clones = ifelse(repo_metric_list$clones[1] != "No results", as.numeric(repo_metric_list$clones$count), NA),
-    unique_views = ifelse(repo_metric_list$views[1] != "No results", as.numeric(repo_metric_list$views$count), NA)
+    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), NA)
   )
 
   rownames(metrics) <- repo_name
+
   return(metrics)
 }
 
 
-#' Summarizing metrics from GitHub
-#' @description This is a function to get metrics for all the repos underneath an organization
-#' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
-#' @param repo_metric_list a list containing the metrics
-#' @return Metrics for a repo on GitHub
-#' @importFrom gh gh
-#' @importFrom dplyr bind_rows distinct %>%
-#' @importFrom purrr map
+#' Get timestamp repo metrics
 #' @export
 #'
-timestamp_repo_metrics <- function(repo_name, repo_metric_list) {
-  if (repo_metric_list$contributors[1] != "No results") {
-    contributors <-
-      lapply(repo_metric_list$contributors, function(contributor) {
-        data.frame(
-          contributor = contributor$login,
-          num_contributors = contributor$contributions
-        )
-      }) %>%
-      dplyr::bind_rows() %>%
-      dplyr::distinct()
+get_timestamp_repo_metrics <- function(results, column) {
 
-    num_contributors <- length(unique(contributors$contributor))
-    total_contributors <- sum(contributors$num_contributors)
-  } else {
-    num_contributors <- NA
-    total_contributors <- NA
-  }
+  data <- results[[column]][[column]]
+  data <- dplyr::bind_rows(data) %>%
+    dplyr::mutate(
+      timestamp = lubridate::as_date(timestamp),
+      count = as.numeric(count),
+      uniques = as.numeric(uniques)
+      )
 
-  if (repo_metric_list$forks[1] != "No results") {
-    forks <- unlist(purrr::map(repo_metric_list$forks, "full_name"))
-    num_forks <- length(forks)
-  } else {
-    num_forks <- NA
-  }
-  metrics <- data.frame(
-    repo_name,
-    num_forks = num_forks,
-    num_contributors = num_contributors,
-    total_contributions = total_contributors,
-    num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
-    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), NA),
-    num_clones = ifelse(repo_metric_list$clones[1] != "No results", as.numeric(repo_metric_list$clones$count), NA),
-    unique_views = ifelse(repo_metric_list$views[1] != "No results", as.numeric(repo_metric_list$views$count), NA)
-  )
-
-  rownames(metrics) <- repo_name
-  return(metrics)
+  return(data)
 }
 
 gh_pagination <- function(first_page_result) {

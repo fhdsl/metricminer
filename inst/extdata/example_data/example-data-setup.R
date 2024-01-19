@@ -26,9 +26,13 @@ gh_repo_list <- get_user_repo_list(owner = "metricminer")
 save_example_data(gh_repo_list)
 class(gh_repo_list)
 
-gh_repo_metrics <- get_github_metrics(repo = "metricminer/my-cool-repo")
-save_example_data(gh_repo_metrics)
-class(gh_repo_metrics)
+gh_repo_summary_metrics <- get_github_repo_summary(repo = "metricminer/my-cool-repo")
+save_example_data(gh_repo_summary_metrics)
+class(gh_repo_summary_metrics)
+
+gh_repo_timecourse_metrics <- get_github_repo_timecourse(repo = "metricminer/my-cool-repo")
+save_example_data(gh_repo_timecourse_metrics)
+class(gh_repo_timecourse_metrics)
 
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 gh_repos_metrics <- get_repos_metrics(repo_names = repo_names)
