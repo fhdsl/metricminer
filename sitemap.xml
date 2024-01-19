@@ -85,6 +85,12 @@
     <loc>/reference/get_github_metrics.html</loc>
   </url>
   <url>
+    <loc>/reference/get_github_repo_summary.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_github_repo_timecourse.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_github_user.html</loc>
   </url>
   <url>
@@ -94,16 +100,19 @@
     <loc>/reference/get_multiple_forms.html</loc>
   </url>
   <url>
+    <loc>/reference/get_multiple_repos_metrics.html</loc>
+  </url>
+  <url>
     <loc>/reference/get_org_repo_list.html</loc>
   </url>
   <url>
     <loc>/reference/get_question_metadata.html</loc>
   </url>
   <url>
-    <loc>/reference/get_repos_metrics.html</loc>
+    <loc>/reference/get_slido_files.html</loc>
   </url>
   <url>
-    <loc>/reference/get_slido_files.html</loc>
+    <loc>/reference/get_timestamp_repo_metrics.html</loc>
   </url>
   <url>
     <loc>/reference/get_user_repo_list.html</loc>
