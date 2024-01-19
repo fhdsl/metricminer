@@ -8,21 +8,10 @@ on:
 
 jobs:
   write-data:
+    name: Write data
     runs-on: ubuntu-latest
-    steps:
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
-
-      - name: Install googlesheets4
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::googlesheets4
-
-      - name: Install remotes
-        run: |
-          Rscript -e "install.packages('remotes')"
-          Rscript -e "remotes::install_github('fhdsl/metricminer')"
+    container:
+      image: cansav09/metricminer
 
       - name: Authorize metricminer
         env:
