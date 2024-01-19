@@ -88,7 +88,7 @@ str(gh_repo_timecourse_metrics)
 
 ### Multiple GitHub repositories metrics
 
-`get_repos_metrics()` returns this kind of data.
+`get_multiple_repos_metrics()` returns this kind of data.
 
 ```{r}
 get_example_data("gh_repos_metrics")

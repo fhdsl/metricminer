@@ -77,7 +77,12 @@ delete_creds()
 You can retrieve metrics from a repository on GitHub doing this:
 ```
 authorize("github")
-metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+metrics <- get_github_summary_metrics(repo = "fhdsl/metricminer")
+```
+
+```
+authorize("github")
+metrics <- get_github_timecourse_metrics(repo = "fhdsl/metricminer")
 ```
 
 ### Calendly
@@ -169,13 +174,13 @@ From GitHub you can attempt to collect repository metrics from all repositories 
 
 ```
 authorize("github")
-all_repos_metrics <- get_repos_metrics(owner = "fhdsl")
+all_repos_metrics <- get_multiple_repos_metrics(owner = "fhdsl")
 ```
 
 If you want to do this by giving a list of specific repositories you want data from you can just provide a vector of those repository's names like this:
 ```
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
-some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
+some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
 ```
 
 ### Google Analytics bulk
