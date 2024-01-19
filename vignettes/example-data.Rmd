@@ -70,12 +70,20 @@ str(gh_repo_list)
 
 ### GitHub repository metrics
 
-`get_github_metrics()` returns this kind of data.
+`get_github_repo_summary()` returns this kind of data.
 
 ```{r}
-get_example_data("gh_repo_metrics")
-class(gh_repo_metrics)
-str(gh_repo_metrics)
+get_example_data("gh_repo_summary_metrics")
+class(gh_repo_summary_metrics)
+str(gh_repo_summary_metrics)
+```
+
+`get_github_repo_timecourse()` returns this kind of data.
+
+```{r}
+get_example_data("gh_repo_timecourse_metrics")
+class(gh_repo_timecourse_metrics)
+str(gh_repo_timecourse_metrics)
 ```
 
 ### Multiple GitHub repositories metrics
