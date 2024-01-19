@@ -154,9 +154,16 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #'
 #' authorize("github")
 #' metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+#' repo <- "jhudsl/ari"
 #' }
 get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
   if (count == "all") count <- Inf
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "github", try = TRUE)
+    if (is.null(token)) warning("No token found. Only public repositories will be retrieved.")
+  }
 
   # Split it up
   split_it <- strsplit(repo, split = "\\/")
@@ -185,7 +192,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
   }
   # Run gh_repo_wrapper_fn() on api_calls
   # when error occurs, set value to "Not Found"
-  results <- purrr::map(api_calls, purrr::possibly(gh_repo_wrapper_fn, "Not Found"))
+  results <- purrr::map(api_calls, gh_repo_wrapper_fn)
 
   names(results) <- names(api_calls)
 
@@ -204,7 +211,6 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' @description This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repos from a
 #' particular organization, or you can provide a character vector of repos like "
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
-#' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param repo_names a character vector of repositories you'd like to collect metrics from.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return Information regarding a github account
@@ -222,21 +228,14 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
 #' }
 #'
-get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, data_format = "dataframe") {
+get_repos_metrics <- function(repo_names = NULL, token = NULL, data_format = "dataframe") {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
   }
 
-  if (is.null(repo_names) && !is.null(owner)) {
-    repo_list <- get_repo_list(
-      token = token,
-      owner = owner,
-      count = "all"
-    )
-
-    # Extra repo names from the repo list
-    repo_names <- unlist(purrr::map(repo_list, "full_name"))
+  if (is.null(repo_names)) {
+    stop("No repository names provided with `repo_names. Stopping`")
   }
 
   # Now run get_github_metrics on all repos
@@ -271,11 +270,12 @@ get_repos_metrics <- function(owner = NULL, repo_names = NULL, token = NULL, dat
 #' @export
 #'
 gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, data_format = "dataframe") {
-  message(paste("Trying", api_call, "for", repo))
+  message(paste0("Trying ", api_call, " for ", owner, "/", repo))
 
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
+    get_github
     if (is.null(token)) warning("No GitHub token found. Only certain metrics will be able to be retrieved.")
   }
 
@@ -290,7 +290,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
   # Some handlers because not all repos have all stats
   if (length(result) == 0) result <- "No results"
   if (grepl("404", result[1])) result <- "No results"
-  if (grepl("Error", result[1])) result <- "No results"
+  if (class(result)[1] == "try-error") stop(paste0("Failed to retrieve: ", owner, "/", repo))
 
   return(result)
 }
@@ -299,7 +299,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 #' Cleaning metrics from GitHub
 #' @description This is a function to get metrics for all the repos underneath an organization
 #' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
-#' @param repo_metric_list a list containing the metrics c
+#' @param repo_metric_list a list containing the metrics
 #' @return Metrics for a repo on GitHub
 #' @importFrom gh gh
 #' @importFrom dplyr bind_rows distinct %>%
