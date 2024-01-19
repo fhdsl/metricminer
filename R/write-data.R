@@ -102,8 +102,7 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
 #' @export
 #' @examples \dontrun{
 #'
-
-#'
+#' }
 automate_storage <- function() {
 
 }

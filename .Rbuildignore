@@ -14,3 +14,4 @@
 resources/*
 ^doc$
 ^Meta$
+inst/extdata/docker/*
