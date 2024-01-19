@@ -77,12 +77,12 @@ delete_creds()
 You can retrieve metrics from a repository on GitHub doing this:
 ```
 authorize("github")
-metrics <- get_github_summary_metrics(repo = "fhdsl/metricminer")
+metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
 ```
 
 ```
 authorize("github")
-metrics <- get_github_timecourse_metrics(repo = "fhdsl/metricminer")
+metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
 ```
 
 ### Calendly
