@@ -4,16 +4,9 @@
 \alias{get_repos_metrics}
 \title{Retrieve metrics for a list of repos}
 \usage{
-get_repos_metrics(
-  owner = NULL,
-  repo_names = NULL,
-  token = NULL,
-  data_format = "dataframe"
-)
+get_repos_metrics(repo_names = NULL, token = NULL, data_format = "dataframe")
 }
 \arguments{
-\item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
-
 \item{repo_names}{a character vector of repositories you'd like to collect metrics from.}
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}

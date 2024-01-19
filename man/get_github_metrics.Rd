@@ -2,13 +2,14 @@
 % Please edit documentation in R/github.R
 \name{get_github_metrics}
 \alias{get_github_metrics}
-\title{Get the repository metrics}
+\title{Get the repository summary or time course metrics}
 \usage{
 get_github_metrics(
   repo,
   token = NULL,
   count = "all",
-  data_format = "dataframe"
+  data_format = "dataframe",
+  time_course = FALSE
 )
 }
 \arguments{
@@ -31,5 +32,8 @@ This is a function to get the information about a repository
 
 authorize("github")
 metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+
+
+timecourse_metrics <- get_github_timecourse(repo = "fhdsl/metricminer")
 }
 }
