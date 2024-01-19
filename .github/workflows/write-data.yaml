@@ -1,6 +1,8 @@
 on:
+  workflow_dispatch:
+  pull_request:
   schedule:
-    # - cron: '*/2 * * * *'
+    - cron: '0 0 * * 0'
 
 jobs:
   write-data:
@@ -45,6 +47,48 @@ jobs:
                  access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
                  cache = TRUE
           )
+        shell: Rscript {0}
 
       - name: Write data
-        run: # Rscript -e 'source("R/write-data.R")'
+        run: |
+          gsheet <- "https://docs.google.com/spreadsheets/d/1lk3vMgE4CNuACrI1mzHrv6AsvXbdhw1zJENMkIEhrZs/edit#gid=0"
+          repos <- c(
+              "fhdsl/metricminer",
+              "fhdsl/metricminer.org",
+              "jhudsl/ottrpal",
+              "jhudsl/ari",
+              "jhudsl/cow",
+              "jhudsl/ottrproject.org",
+              "jhudsl/ottr_docker",
+              "jhudsl/ottr-reports",
+              "fhdsl/conrad",
+              "jhudsl/text2speech",
+              "jhudsl/OTTR_Quizzes",
+              "jhudsl/OTTR_Template",
+              "jhudsl/OTTR_Template_Website",
+              "jhudsl/ITCR_Tables",
+              "jhudsl/ITN_Platforms",
+              "fhdsl/Choosing_Genomics_Tools",
+              "jhudsl/Informatics_Research_Leadership",
+              "jhudsl/Documentation_and_Usability",
+              "jhudsl/Reproducibility_in_Cancer_Informatics",
+              "jhudsl/Adv_Reproducibility_in_Cancer_Informatics",
+              "fhdsl/GitHub_Automation_for_Scientists",
+              "jhudsl/Computing_for_Cancer_Informatics",
+              "fhdsl/Overleaf_and_LaTeX_for_Scientific_Articles",
+              "fhdsl/Ethical_Data_Handling_for_Cancer_Research",
+              "fhdsl/AI_for_Decision_Makers",
+              "fhdsl/AI_for_Efficient_Programming",
+              "fhdsl/NIH_Data_Sharing""
+          )
+          repo_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
+
+          combine_data <- googlesheets4::read_sheet(gsheet) %>%
+            dplyr::bind_rows(repo_metrics) %>%
+              dplyr::distinct()
+
+          datasheet <- write_to_gsheet(gsheet = gsheet,
+            input = combine_data,
+            overwrite = TRUE)
+
+        shell: Rscript {0}

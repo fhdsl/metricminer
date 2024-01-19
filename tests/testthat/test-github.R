@@ -1,6 +1,6 @@
 test_that("GitHub: Get repo list", {
   # Authorize GitHub
-  auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT")),
+  auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"),
                    in_test = TRUE)
 
   repo_list <- get_org_repo_list(owner = "fhdsl")

@@ -87,24 +87,24 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
   return(gsheet_output)
 }
 
-
-
-#' Writes data to a tabular file
-#' @description This is a function to write metricminer data to a tabular file
+#' Creates GitHub Action which automatically writes to googlesheet
+#' @description This is a function to write metricminer data to a GoogleSheet
 #' @param input input data to write to a googlesheet
-#' @param file_path A file path where the table should be saved to
+#' @param token OAuth token from Google login.
+#' @param gsheet Optionally a googlesheet to write to
 #' @param overwrite TRUE/FALSE overwrite if there is data at the destination
-#' @param table_type CSV and TSV are options. CSV is default
-#' @return The file path where the data has been written
-#' @importFrom utils menu installed.packages
+#' @param append_rows TRUE/FALSE should the data be appended to the data?
+#' @param sheet Index or name of the worksheet you want to write to. Forwarded to googlesheets4::write_sheet or googlesheets4::append_sheet to indicate what sheet it should be written to.
+#' @param new_sheet default is FALSE. But if it is anything else will be used as the name for a new worksheet that will be made and written to.
+#' @param ... these parameters are sent to googlesheets4::write_sheet.
+#' @return The googlesheet URL where the data has been written
+#' @importFrom googlesheets4 read_sheet sheet_add write_sheet
 #' @export
 #' @examples \dontrun{
 #'
-#' authorize("github")
-#' repo_list <- get_user_repo_list(owner = "metricminer")
+
 #'
-#' write_to_table(repo_list)
-#' }
-write_to_table <- function(input, file_path, overwrite, table_type) {
+automate_storage <- function() {
 
 }
+
