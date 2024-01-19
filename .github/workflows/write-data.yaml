@@ -8,11 +8,12 @@ on:
 
 jobs:
   write-data:
-    name: Write data
+    name: Write Data
     runs-on: ubuntu-latest
     container:
       image: cansav09/metricminer
-
+      
+    steps:
       - name: Authorize metricminer
         env:
           METRICMINER_CALENDLY: ${{ secrets.METRICMINER_CALENDLY }}
