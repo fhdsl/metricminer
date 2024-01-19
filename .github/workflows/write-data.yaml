@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: cansav09/metricminer
-      
+
     steps:
       - name: Authorize metricminer
         env:
@@ -22,13 +22,13 @@ jobs:
           METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
         run: |
           # Authorize Calendly
-          auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
+          metricminer::auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 
           # Authorize GitHub
-          auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
+          metricminer::auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
 
           # Authorize Google
-          auth_from_secret("google",
+          metricminer::auth_from_secret("google",
                  refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
                  access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
                  cache = TRUE
@@ -67,13 +67,13 @@ jobs:
               "fhdsl/AI_for_Efficient_Programming",
               "fhdsl/NIH_Data_Sharing""
           )
-          repo_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
+          repo_metrics <- metricminer::get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
 
           combine_data <- googlesheets4::read_sheet(gsheet) %>%
             dplyr::bind_rows(repo_metrics) %>%
               dplyr::distinct()
 
-          datasheet <- write_to_gsheet(gsheet = gsheet,
+          datasheet <- metricminer::write_to_gsheet(gsheet = gsheet,
             input = combine_data,
             overwrite = TRUE)
 
