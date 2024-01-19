@@ -1,31 +1,19 @@
+
+name: Writing GitHub Metrics to Googlesheet
 on:
+  workflow_dispatch:
+  pull_request:
   schedule:
-    # - cron: '*/2 * * * *'
+    - cron: '0 0 * * 0'
 
 jobs:
   write-data:
+    name: Write Data
     runs-on: ubuntu-latest
+    container:
+      image: cansav09/metricminer
+
     steps:
-      - name: Set up R
-        uses: r-lib/actions/setup-r@v2
-
-      - name: Install googlesheets4
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          packages: |
-            any::googlesheets4
-
-      - name: Install remotes
-        run: |
-          Rscript -e "install.packages('remotes')"
-
-      - name: Install metricminer from Github
-        run: |
-          Rscript -e "remotes::install_github("fhdsl/metricminer")"
-
-      - name: Check out repository
-        uses: actions/checkout@v3
-
       - name: Authorize metricminer
         env:
           METRICMINER_CALENDLY: ${{ secrets.METRICMINER_CALENDLY }}
@@ -34,17 +22,59 @@ jobs:
           METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
         run: |
           # Authorize Calendly
-          auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
+          metricminer::auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 
           # Authorize GitHub
-          auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
+          metricminer::auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
 
           # Authorize Google
-          auth_from_secret("google",
+          metricminer::auth_from_secret("google",
                  refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
                  access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
                  cache = TRUE
           )
+        shell: Rscript {0}
 
       - name: Write data
-        run: # Rscript -e 'source("R/write-data.R")'
+        run: |
+          gsheet <- "https://docs.google.com/spreadsheets/d/1lk3vMgE4CNuACrI1mzHrv6AsvXbdhw1zJENMkIEhrZs/edit#gid=0"
+          repos <- c(
+              "fhdsl/metricminer",
+              "fhdsl/metricminer.org",
+              "jhudsl/ottrpal",
+              "jhudsl/ari",
+              "jhudsl/cow",
+              "jhudsl/ottrproject.org",
+              "jhudsl/ottr_docker",
+              "jhudsl/ottr-reports",
+              "fhdsl/conrad",
+              "jhudsl/text2speech",
+              "jhudsl/OTTR_Quizzes",
+              "jhudsl/OTTR_Template",
+              "jhudsl/OTTR_Template_Website",
+              "jhudsl/ITCR_Tables",
+              "jhudsl/ITN_Platforms",
+              "fhdsl/Choosing_Genomics_Tools",
+              "jhudsl/Informatics_Research_Leadership",
+              "jhudsl/Documentation_and_Usability",
+              "jhudsl/Reproducibility_in_Cancer_Informatics",
+              "jhudsl/Adv_Reproducibility_in_Cancer_Informatics",
+              "fhdsl/GitHub_Automation_for_Scientists",
+              "jhudsl/Computing_for_Cancer_Informatics",
+              "fhdsl/Overleaf_and_LaTeX_for_Scientific_Articles",
+              "fhdsl/Ethical_Data_Handling_for_Cancer_Research",
+              "fhdsl/AI_for_Decision_Makers",
+              "fhdsl/AI_for_Efficient_Programming",
+              "fhdsl/NIH_Data_Sharing"
+          )
+          repo_metrics <- metricminer::get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
+
+          combine_data <- googlesheets4::read_sheet(gsheet) %>%
+            dplyr::bind_rows(repo_metrics) %>%
+              dplyr::distinct()
+
+          datasheet <- metricminer::write_to_gsheet(gsheet = gsheet,
+            input = combine_data,
+            overwrite = TRUE)
+
+        shell: Rscript {0}

@@ -16,3 +16,4 @@ local_auth.R
 local_auth_2.R
 /doc/
 /Meta/
+git_token.txt

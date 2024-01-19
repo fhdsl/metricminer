@@ -7,7 +7,8 @@
 get_multiple_repos_metrics(
   repo_names = NULL,
   token = NULL,
-  data_format = "dataframe"
+  data_format = "dataframe",
+  time_course = FALSE
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ get_multiple_repos_metrics(
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
+
+\item{time_course}{Should the time course data be collected or only the summary metrics?}
 }
 \value{
 Information regarding a github account
@@ -31,6 +34,8 @@ authorize("github")
 
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
+
+some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
 }
 
 }

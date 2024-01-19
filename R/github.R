@@ -146,6 +146,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
 #' @param count How many items would you like to recieve? Put "all" to retrieve all records.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
+#' @param time_course Should the time course data be collected or only the summary metrics?
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @importFrom purrr map
@@ -212,7 +213,9 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
       results <-
         dplyr::full_join(clones_data, views_data, by = "timestamp",
-                       suffix = c("_clones", "_views"))
+                       suffix = c("_clones", "_views")) %>%
+        dplyr::mutate(repo = paste0(c(owner, repo), collapse = "/"),
+                      .before = dplyr::everything())
     } else {
 
       results <- clean_repo_metrics(
@@ -280,6 +283,7 @@ get_github_repo_summary <- function(repo, token = NULL, count = "all", data_form
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo_names a character vector of repositories you'd like to collect metrics from.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
+#' @param time_course Should the time course data be collected or only the summary metrics?
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @importFrom purrr map
@@ -291,9 +295,11 @@ get_github_repo_summary <- function(repo, token = NULL, count = "all", data_form
 #'
 #' repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 #' some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
+#'
+#' some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
 #' }
 #'
-get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_format = "dataframe") {
+get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_format = "dataframe", time_course = FALSE) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "github", try = TRUE)
@@ -308,7 +314,8 @@ get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_for
     get_github_metrics(
       token = token,
       repo = repo,
-      data_format = data_format
+      data_format = data_format,
+      time_course = time_course
     )
   })
 
