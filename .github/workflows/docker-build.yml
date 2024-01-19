@@ -25,8 +25,8 @@ jobs:
       - name: Login as jhudsl-robot
         run: |
           git config --system --add safe.directory "$GITHUB_WORKSPACE"
-          git config --local user.email "itcrtrainingnetwork@gmail.com"
-          git config --local user.name "jhudsl-robot"
+          git config --global user.email "itcrtrainingnetwork@gmail.com"
+          git config --global user.name "jhudsl-robot"
 
       # Set up Docker build
       - name: Set up Docker Buildx
@@ -47,7 +47,7 @@ jobs:
 
       - name: Get token
         run: echo ${{ secrets.GH_PAT }} > ${{ inputs.directory }}/git_token.txt
-        
+
       # Build docker image
       - name: Build Docker image
         uses: docker/build-push-action@v2
