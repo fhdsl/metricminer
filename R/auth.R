@@ -10,6 +10,12 @@
 #' @examples \dontrun{
 #'
 #' authorize()
+#'
+#' authorize("github")
+#'
+#' authorize("google")
+#'
+#' authorize("calendly")
 #' }
 authorize <- function(app_name = NULL,
                       cache = FALSE,
@@ -25,7 +31,17 @@ authorize <- function(app_name = NULL,
     app_name <- names(endpoint)
   }
 
+  token_status <- check_for_tokens(app_name)
+
+  if (any(token_status)) {
+    message(paste0("Creds detected for: ", paste0(names(token_status)[token_status], collapse = ", ")))
+    message("Do you want to overwrite these with new credentials?")
+    use_old <- menu(c("Yes overwrite the credentials", "No I'll use these credentials"))
+    if (use_old == 2) stop("Using old credentials")
+  }
+
   if (!cache) {
+    message("Would you like to store/cache your credentials?")
     cache_it <- menu(c("Yes cache/store credentials", "No do not store credentials, I will re-run this authorize() in my next R session"))
     if (cache_it == 1) {
       message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \n Be careful not to push the cache files to GitHub or share it anywhere.")
