@@ -15,9 +15,14 @@ test_that("Writing gsheets", {
   # Don't provide a googlesheet -- this should fail if we arent running this interactively.
   datasheet <- try(write_to_gsheet(input = forms_df), silent = TRUE)
 
-  gsheet <- "https://docs.google.com/spreadsheets/d/1aTryGXUId7fGf332oa78zyqoHuuGAgTB5WQ1SVoNGeg/edit#gid=0"
-
   expect_s3_class(datasheet, "try-error")
+
+  gsheet <- googlesheets4::gs4_create()
+
+  # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
+  datasheet <- write_to_gsheet(
+    gsheet = gsheet,
+    input = forms_df)
 
   # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
   datasheet <- try(write_to_gsheet(
@@ -61,6 +66,5 @@ test_that("Writing gsheets", {
   expect_true(nrow(gsheet_info$sheets) > num_sheets)
 
   # Now cleanup after ourselves
-  googlesheets4::sheet_delete(gsheet, "new sheet")
-
+  googledrive::drive_rm(gsheet)
 })

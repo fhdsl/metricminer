@@ -196,12 +196,13 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   names(results) <- names(api_calls)
 
-
   if (data_format == "dataframe") {
-    results <- clean_repo_metrics(
+
+    results <- summarize_repo_metrics(
       repo_name = paste0(c(owner, repo), collapse = "/"),
       repo_metric_list = results
     )
+    # Put timestamp as option here
   }
   return(results)
 }
@@ -296,7 +297,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, da
 }
 
 
-#' Cleaning metrics from GitHub
+#' Summarizing metrics from GitHub
 #' @description This is a function to get metrics for all the repos underneath an organization
 #' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param repo_metric_list a list containing the metrics
@@ -346,6 +347,56 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
   return(metrics)
 }
 
+
+#' Summarizing metrics from GitHub
+#' @description This is a function to get metrics for all the repos underneath an organization
+#' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
+#' @param repo_metric_list a list containing the metrics
+#' @return Metrics for a repo on GitHub
+#' @importFrom gh gh
+#' @importFrom dplyr bind_rows distinct %>%
+#' @importFrom purrr map
+#' @export
+#'
+timestamp_repo_metrics <- function(repo_name, repo_metric_list) {
+  if (repo_metric_list$contributors[1] != "No results") {
+    contributors <-
+      lapply(repo_metric_list$contributors, function(contributor) {
+        data.frame(
+          contributor = contributor$login,
+          num_contributors = contributor$contributions
+        )
+      }) %>%
+      dplyr::bind_rows() %>%
+      dplyr::distinct()
+
+    num_contributors <- length(unique(contributors$contributor))
+    total_contributors <- sum(contributors$num_contributors)
+  } else {
+    num_contributors <- NA
+    total_contributors <- NA
+  }
+
+  if (repo_metric_list$forks[1] != "No results") {
+    forks <- unlist(purrr::map(repo_metric_list$forks, "full_name"))
+    num_forks <- length(forks)
+  } else {
+    num_forks <- NA
+  }
+  metrics <- data.frame(
+    repo_name,
+    num_forks = num_forks,
+    num_contributors = num_contributors,
+    total_contributions = total_contributors,
+    num_stars = length(unlist(purrr::map(repo_metric_list$stars, "login"))),
+    health_percentage = ifelse(repo_metric_list$community[1] != "No results", as.numeric(repo_metric_list$community$health_percentage), NA),
+    num_clones = ifelse(repo_metric_list$clones[1] != "No results", as.numeric(repo_metric_list$clones$count), NA),
+    unique_views = ifelse(repo_metric_list$views[1] != "No results", as.numeric(repo_metric_list$views$count), NA)
+  )
+
+  rownames(metrics) <- repo_name
+  return(metrics)
+}
 
 gh_pagination <- function(first_page_result) {
   # Set up a while loop for us to store the multiple page requests in
