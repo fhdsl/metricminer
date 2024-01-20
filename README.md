@@ -167,17 +167,7 @@ If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_
 Then you can extract stats for the videos on that youtube channel using that URL.
 ```
 authorize("google")
-youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")
-```
-
-### Youtube
-
-If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
-
-Then you can extract stats for the videos on that youtube channel using that URL.
-```
-authorize("google")
-youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")
+youtube_stats <- get_youtube_stats("a_bunch_of_letters_here")
 ```
 
 ## Bulk Retrievals
@@ -193,13 +183,13 @@ From GitHub you can attempt to collect repository metrics from all repositories 
 
 ```
 authorize("github")
-all_repos_metrics <- get_repos_metrics(owner = "fhdsl")
+all_repos_metrics <- get_multiple_repos_metrics(owner = "fhdsl")
 ```
 
 If you want to do this by giving a list of specific repositories you want data from you can just provide a vector of those repository's names like this:
 ```
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
-some_repos_metrics <- get_repos_metrics(repo_names = repo_names)
+some_repos_metrics <- get_mulitple_repos_metrics(repo_names = repo_names)
 ```
 
 ### Google Analytics bulk
