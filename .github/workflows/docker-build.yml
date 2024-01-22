@@ -9,10 +9,7 @@ on:
         description: 'Push to Dockerhub?'
         required: true
         default: 'false'
-      tag:
-        description: 'What tag to use?'
-        required: true
-        default: 'none'
+
 jobs:
   build-docker:
     name: Build Docker image
@@ -62,5 +59,4 @@ jobs:
       - name: Push Docker image if manual trigger set to true
         if: ${{ github.event.inputs.dockerhubpush != 'false' }}
         run: |
-          docker tag cansav09/metricminer:latest cansav09/metricminer:$github.event.inputs.tag
-          docker push cansav09/metricminer:$github.event.inputs.tag
+          docker push cansav09/metricminer
