@@ -46,7 +46,7 @@ jobs:
         with:
           push: false
           load: true
-          context: inst/extdata
+          context: inst/extdata/docker
           file: Dockerfile
           tags: cansav09/metricminer
 
