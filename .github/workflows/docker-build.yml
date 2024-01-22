@@ -39,7 +39,7 @@ jobs:
             ${{ runner.os }}-buildx-
 
       - name: Get token
-        run: echo ${{ secrets.GH_PAT }} > ${{ github.workspace }}/inst/extdata/git_token.txt
+        run: echo ${{ secrets.GH_PAT }} > ${{ github.workspace }}/inst/extdata/docker/git_token.txt
 
       # Build docker image
       - name: Build Docker image
