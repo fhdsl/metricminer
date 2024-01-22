@@ -56,7 +56,7 @@ jobs:
           load: true
           context: docker
           file: inst/extdata/Dockerfile
-          tags: hutch/gimap
+          tags: cansav09/metricminer
 
       # Login to Dockerhub
       - name: Login to DockerHub
@@ -70,5 +70,5 @@ jobs:
       - name: Push Docker image if manual trigger set to true
         if: ${{ github.event.inputs.dockerhubpush != 'false' }}
         run: |
-          docker tag jhudsl/base_ottr:latest jhudsl/base_ottr:$github.event.inputs.tag
-          docker push jhudsl/base_ottr:$github.event.inputs.tag
+          docker tag cansav09/metricminer:latest cansav09/metricminer:$github.event.inputs.tag
+          docker push cansav09/metricminer:$github.event.inputs.tag
