@@ -24,7 +24,7 @@ jobs:
         with:
           token: ${{secrets.GH_PAT}}
           fetch-depth: 0
-          
+
       # Set up Docker build
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
@@ -48,7 +48,6 @@ jobs:
           push: false
           load: true
           context: inst/extdata/docker
-          file: Dockerfile
           tags: cansav09/metricminer
 
       # Login to Dockerhub
