@@ -21,6 +21,7 @@ jobs:
     steps:
       - name: checkout repo
         uses: actions/checkout@v3
+          token: ${{secrets.GH_PAT}}
 
       # Set up Docker build
       - name: Set up Docker Buildx
