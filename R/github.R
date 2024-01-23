@@ -360,12 +360,12 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf) {
   }
 
   # Not all repos have all stats so we have to try it.
-  result <- try(gh::gh(api_call,
+  result <- gh::gh(api_call,
     owner = owner,
     repo = repo,
     .token = token,
     .limit = count
-  ), silent = TRUE)
+  )
 
   # Some handlers because not all repos have all stats
   if (length(result) == 0) result <- "No results"
