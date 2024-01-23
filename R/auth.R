@@ -6,6 +6,7 @@
 #' @return OAuth token saved to the environment so the package can use the users' Google data
 #' @importFrom utils menu installed.packages browseURL
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
+#' @importFrom stringr str_to_title
 #' @export
 #' @examples \dontrun{
 #'
@@ -22,7 +23,10 @@ authorize <- function(app_name = NULL,
                       ...) {
   if (is.null(app_name)) {
     # Ask the user what app they would like to authorize
-    endpoint_index <- menu(names(supported_endpoints()), title = "Which app would you like to authorize?")
+    app_names <- names(supported_endpoints())
+    titlecase_app_names <- stringr::str_to_title(app_names)
+
+    endpoint_index <- menu(titlecase_app_names, title = "Which app would you like to authorize?")
 
     # Extract info from supported endpoints list
     endpoint <- supported_endpoints()[endpoint_index]
@@ -36,7 +40,7 @@ authorize <- function(app_name = NULL,
   if (any(token_status)) {
     message(paste0("Creds detected for: ", paste0(names(token_status)[token_status], collapse = ", ")))
     message("Do you want to overwrite these with new credentials?")
-    use_old <- menu(c("Yes overwrite the credentials", "No I'll use these credentials"))
+    use_old <- menu(c("Yes, overwrite the credentials", "No, I'll use these credentials and stop this function."))
     if (use_old == 2) stop("Using old credentials")
   }
 
