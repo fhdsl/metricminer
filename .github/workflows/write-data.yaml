@@ -33,10 +33,6 @@ jobs:
                  access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
                  cache = TRUE
           )
-        shell: Rscript {0}
-
-      - name: Write data
-        run: |
           gsheet <- "https://docs.google.com/spreadsheets/d/1lk3vMgE4CNuACrI1mzHrv6AsvXbdhw1zJENMkIEhrZs/edit#gid=0"
           repos <- c(
               "fhdsl/metricminer",
