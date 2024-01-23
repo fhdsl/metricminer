@@ -1,5 +1,5 @@
 test_that("Writing gsheets", {
-  skip_on_cran()
+
   # Authorize Google
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),

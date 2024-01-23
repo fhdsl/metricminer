@@ -1,7 +1,5 @@
-Sys.setenv(NOT_CRAN='skip')
 
 test_that("Test Calendly Auth", {
-  skip_on_cran()
 
   # Authorize Calendly
   auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"),
@@ -26,7 +24,6 @@ test_that("Test Google Analytics Auth", {
 })
 
 test_that("Test GitHub Auth", {
-  skip_on_cran()
 
   # Authorize GitHub
   auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"),

@@ -9,4 +9,6 @@
 library(testthat)
 library(metricminer)
 
+if (!identical(Sys.getenv("NOT_CRAN"), "true")) return()
+
 test_check("metricminer")

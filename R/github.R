@@ -150,6 +150,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' @return Information regarding a github account
 #' @importFrom gh gh
 #' @importFrom purrr map
+#' @importFrom methods is
 #' @export
 #' @examples \dontrun{
 #'

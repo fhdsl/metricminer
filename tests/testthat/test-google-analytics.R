@@ -1,5 +1,5 @@
 test_that("Google Analytics: Properties", {
-  skip_on_cran()
+
   # Interactively create google token
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
@@ -19,7 +19,7 @@ test_that("Google Analytics: Properties", {
 
 
 test_that("Google Analytics: Stats", {
-  skip_on_cran()
+
   # Interactively create google token
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
@@ -44,7 +44,7 @@ test_that("Google Analytics: Stats", {
 })
 
 test_that("Google Analytics: All Stats", {
-  skip_on_cran()
+
   # Interactively create google token
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
