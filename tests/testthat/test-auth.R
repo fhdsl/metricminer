@@ -1,3 +1,4 @@
+if (!identical(Sys.getenv("NOT_CRAN"), "true")) return()
 
 test_that("Test Calendly Auth", {
 
@@ -10,7 +11,6 @@ test_that("Test Calendly Auth", {
 })
 
 test_that("Test Google Analytics Auth", {
-  skip_on_cran()
 
   # Authorize Google
   auth_from_secret("google",
