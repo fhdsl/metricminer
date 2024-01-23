@@ -2,7 +2,6 @@
 name: Writing GitHub Metrics to Googlesheet
 on:
   workflow_dispatch:
-  pull_request:
   schedule:
     - cron: '0 0 * * 0'
 
@@ -22,7 +21,7 @@ jobs:
           METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
         run: |
           library(magrittr)
-          
+
           # Authorize Calendly
           metricminer::auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 
