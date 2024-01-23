@@ -1,6 +1,6 @@
 utils::globalVariables(c(
   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%",
-  "token", "query_params", "file_name", "accounts", "get_repo_list"
+  "token", "query_params", "file_name", "accounts", "get_repo_list", "timestamp", "uniques", "req"
 ))
 
 #' Get list of example datasets

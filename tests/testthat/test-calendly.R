@@ -1,4 +1,5 @@
 test_that("Calendly: Events", {
+  skip_on_cran()
   # Authorize Calendly
   auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"),
                    in_test = TRUE)

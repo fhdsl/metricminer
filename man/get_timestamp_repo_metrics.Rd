@@ -6,6 +6,11 @@
 \usage{
 get_timestamp_repo_metrics(results, column)
 }
+\arguments{
+\item{results}{An API result from GitHub typically the views or clones for a repo}
+
+\item{column}{name of the column being extracted. Typically "views" or "clones"}
+}
 \description{
 Get timestamp repo metrics
 }

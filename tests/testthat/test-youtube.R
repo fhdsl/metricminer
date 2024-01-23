@@ -1,5 +1,6 @@
 
 test_that("Youtube", {
+  skip_on_cran()
   # Interactively create google token
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),

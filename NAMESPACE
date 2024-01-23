@@ -2,7 +2,6 @@
 
 export(auth_from_secret)
 export(authorize)
-export(automate_storage)
 export(calendly_get)
 export(clean_ga_metrics)
 export(clean_repo_metrics)

@@ -4,14 +4,7 @@
 \alias{gh_repo_wrapper}
 \title{Wrapper function for gh repo calls}
 \usage{
-gh_repo_wrapper(
-  api_call,
-  owner,
-  repo,
-  token = NULL,
-  count = Inf,
-  data_format = "dataframe"
-)
+gh_repo_wrapper(api_call, owner, repo, token = NULL, count = Inf)
 }
 \arguments{
 \item{api_call}{an API call and endpoint like "GET /repos/{owner}/{repo}/activity". That has `owner` and `user`.}
@@ -23,8 +16,6 @@ gh_repo_wrapper(
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
 \item{count}{How many items would you like to receive? Put "all" to retrieve all records.}
-
-\item{data_format}{What format should the data be returned in? Default is dataframe. But if you'd like the original raw results, saw "raw".}
 }
 \value{
 Metrics for a repo on GitHub

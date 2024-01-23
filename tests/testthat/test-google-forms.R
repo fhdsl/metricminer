@@ -1,4 +1,5 @@
 test_that("Google Forms: Get form", {
+  skip_on_cran()
   # auth from secret
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
@@ -14,6 +15,7 @@ test_that("Google Forms: Get form", {
 })
 
 test_that("Google Forms: Get multiple forms", {
+  skip_on_cran()
   # auth from secret
   auth_from_secret("google",
                    refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),

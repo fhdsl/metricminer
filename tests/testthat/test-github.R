@@ -1,4 +1,5 @@
 test_that("GitHub: Get repo list", {
+  skip_on_cran()
   # Authorize GitHub
   auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"),
                    in_test = TRUE)
@@ -15,6 +16,7 @@ test_that("GitHub: Get repo list", {
 
 
 test_that("GitHub: Repo metrics", {
+  skip_on_cran()
   # Authorize GitHub
   auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"),
                    in_test = TRUE)

@@ -210,12 +210,12 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
       clones_test <- try(results$clones$clones[[1]]$timestamp, silent = TRUE)
       views_test <- try(results$views$views[[1]]$timestamp, silent = TRUE)
 
-      if (class(clones_test) != "try-error") {
+      if (is(clones_test, "try-error")) {
         clones_data <- get_timestamp_repo_metrics(results, column = "clones")
       } else {
         clones_data <- data.frame(timestamp = NA, count = 0, uniques = 0)
       }
-      if (class(views_test) != "try-error") {
+      if (is(views_test, "try-error")) {
         views_data <- get_timestamp_repo_metrics(results, column = "views")
       } else {
         views_data <- data.frame(timestamp = NA, count = 0, uniques = 0)
@@ -430,6 +430,8 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
 
 
 #' Get timestamp repo metrics
+#' @param results An API result from GitHub typically the views or clones for a repo
+#' @param column name of the column being extracted. Typically "views" or "clones"
 #' @export
 #'
 get_timestamp_repo_metrics <- function(results, column) {
