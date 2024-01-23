@@ -63,7 +63,7 @@ jobs:
               "fhdsl/AI_for_Efficient_Programming",
               "fhdsl/NIH_Data_Sharing"
           )
-          repo_metrics <- metricminer::get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
+          repo_metrics <- metricminer::get_multiple_repos_metrics(repo_names = repos, time_course = TRUE)
 
           combine_data <- googlesheets4::read_sheet(gsheet) %>%
             dplyr::bind_rows(repo_metrics) %>%
