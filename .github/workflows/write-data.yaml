@@ -21,6 +21,8 @@ jobs:
           METRICMINER_GOOGLE_ACCESS: ${{ secrets.METRICMINER_GOOGLE_ACCESS }}
           METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
         run: |
+          library(magrittr)
+          
           # Authorize Calendly
           metricminer::auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 
