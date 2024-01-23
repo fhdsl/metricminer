@@ -172,7 +172,7 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' properties_list <- get_ga_properties(account_id = accounts$id[1])
+#' properties_list <- get_ga_properties(account_id = accounts$id[3])
 #'
 #' property_id <- gsub("properties/", "", properties_list$name[1])
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
@@ -180,6 +180,12 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' }
 get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, body_params = NULL, end_date = NULL, stats_type = "metrics",
                          dataformat = "dataframe") {
+
+  message(paste("Attempting property_id: ", property_id))
+
+  metadata <- get_ga_metadata(property_id = property_id,
+                              token = token)
+
   # If no end_date is set, use today
   end_date <- ifelse(is.null(end_date), as.character(lubridate::today()), end_date)
 
@@ -226,6 +232,10 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
     body_params = body_params,
     request_type = "POST"
   )
+
+  # Check if we've retrieved data
+  col_names <- c("metricHeaders", "dimensionHeaders")
+  if (!any(col_names %in% names(results))) stop(paste0("No data found -- is this Google Analytic Property, ", property_id,", set up to collect data properly?"))
 
   if (dataformat == "dataframe") {
     if (stats_type == "metrics") results <- clean_ga_metrics(results)
@@ -402,3 +412,5 @@ wrangle_ga_dimensions <- function(dims_for_website) {
   }
   return(clean_df)
 }
+
+

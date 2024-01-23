@@ -14,27 +14,15 @@ jobs:
       image: cansav09/metricminer
 
     steps:
-      - name: Authorize metricminer
+      - name: Get GitHub Data
         env:
-          METRICMINER_CALENDLY: ${{ secrets.METRICMINER_CALENDLY }}
           METRICMINER_GITHUB_PAT: ${{ secrets.METRICMINER_GITHUB_PAT }}
-          METRICMINER_GOOGLE_ACCESS: ${{ secrets.METRICMINER_GOOGLE_ACCESS }}
-          METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
         run: |
           library(magrittr)
-          
-          # Authorize Calendly
-          metricminer::auth_from_secret("calendly", token = Sys.getenv("METRICMINER_CALENDLY"))
 
           # Authorize GitHub
           metricminer::auth_from_secret("github", token = Sys.getenv("METRICMINER_GITHUB_PAT"))
 
-          # Authorize Google
-          metricminer::auth_from_secret("google",
-                 refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
-                 access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
-                 cache = TRUE
-          )
           gsheet <- "https://docs.google.com/spreadsheets/d/1lk3vMgE4CNuACrI1mzHrv6AsvXbdhw1zJENMkIEhrZs/edit#gid=0"
           repos <- c(
               "fhdsl/metricminer",
@@ -73,6 +61,52 @@ jobs:
 
           datasheet <- metricminer::write_to_gsheet(gsheet = gsheet,
             input = combine_data,
+            overwrite = TRUE)
+
+        shell: Rscript {0}
+
+      - name: Get Google Analytics
+        env:
+          METRICMINER_GOOGLE_ACCESS: ${{ secrets.METRICMINER_GOOGLE_ACCESS }}
+          METRICMINER_GOOGLE_REFRESH: ${{ secrets.METRICMINER_GOOGLE_REFRESH }}
+        run: |
+          library(magrittr)
+
+          # Authorize Google
+          metricminer::auth_from_secret("google",
+                 refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+                 access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+                 cache = TRUE
+          )
+          gsheet <- "https://docs.google.com/spreadsheets/d/1lk3vMgE4CNuACrI1mzHrv6AsvXbdhw1zJENMkIEhrZs/edit#gid=0"
+
+          property_ids <- c(
+            "AI for Efficient Programming" = "394586786",
+            "NIH Data Sharing" = "394728918",
+            "AI for Decision Makers" = "419135893",
+            "ITN Website" = "289307553",
+            "Leadership in Cancer Informatics" = "289320404",
+            "Documentation and Usability" = "289316473",
+            "Computing for Cancer Informatics" = "291756783",
+            "Reproducibility in Cancer Informatics" = "292114138",
+            "Advanced Reproducibility in Cancer Informatics" = "295510538",
+            "Ethical Data Handling" = "317734322",
+            "OTTR website" = "356029144",
+            "Choosing Genomics Tools" = "394589059",
+            "Overleaf and Latex for Scientific Articles" = "398085657",
+            "GitHub Automation for Scientists" = "413056614",
+            "metricminer.org" = "423445968")
+
+          ga_metrics <- lapply(property_ids, get_ga_stats)
+
+          names(ga_metrics) <- names(property_ids)
+
+          metrics_df <- ga_metrics %>%
+            dplyr::bind_rows(.id = "website")
+
+          datasheet <- metricminer::write_to_gsheet(gsheet = gsheet,
+            input = metrics_df,
+            sheet = "google_analytics_metrics",
             overwrite = TRUE)
 
         shell: Rscript {0}
