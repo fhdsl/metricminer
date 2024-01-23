@@ -57,7 +57,7 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
   }
 
   # Checking that the sheet exists
-  gsheet_test <- try(suppressMessages(read_sheet(gsheet, range = "Sheet1!A1:F20", sheet = sheet)), silent = TRUE)
+  gsheet_test <- try(suppressMessages(googlesheets4::read_sheet(gsheet, range = "A1:F20", sheet = sheet)), silent = TRUE)
 
   if (class(gsheet_test)[1] == "try-error") {
     stop("Can't find the provided gsheet")

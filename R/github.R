@@ -195,9 +195,8 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
       owner = owner,
       repo = repo,
       token = token,
-      count = count,
-      data_format = data_format
-    )
+      count = count
+      )
   }
   # Run gh_repo_wrapper_fn() on api_calls
   # when error occurs, set value to "Not Found"
@@ -208,8 +207,19 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
   if (data_format == "dataframe") {
 
     if (time_course) {
-      clones_data <- get_timestamp_repo_metrics(results, column = "clones")
-      views_data <- get_timestamp_repo_metrics(results, column = "views")
+      clones_test <- try(results$clones$clones[[1]]$timestamp, silent = TRUE)
+      views_test <- try(results$views$views[[1]]$timestamp, silent = TRUE)
+
+      if (class(clones_test) != "try-error") {
+        clones_data <- get_timestamp_repo_metrics(results, column = "clones")
+      } else {
+        clones_data <- data.frame(timestamp = NA, count = 0, uniques = 0)
+      }
+      if (class(views_test) != "try-error") {
+        views_data <- get_timestamp_repo_metrics(results, column = "views")
+      } else {
+        views_data <- data.frame(timestamp = NA, count = 0, uniques = 0)
+      }
 
       results <-
         dplyr::full_join(clones_data, views_data, by = "timestamp",
@@ -336,12 +346,11 @@ get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_for
 #' @param owner The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param count How many items would you like to receive? Put "all" to retrieve all records.
-#' @param data_format What format should the data be returned in? Default is dataframe. But if you'd like the original raw results, saw "raw".
 #' @return Metrics for a repo on GitHub
 #' @importFrom gh gh
 #' @export
 #'
-gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf, data_format = "dataframe") {
+gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf) {
   message(paste0("Trying ", api_call, " for ", owner, "/", repo))
 
   if (is.null(token)) {
