@@ -38,7 +38,7 @@ authorize <- function(app_name = NULL,
   token_status <- check_for_tokens(app_name)
 
   if (any(token_status)) {
-    message(paste0("Credentials found for ", paste0(names(token_status)[token_status], collapse = ", ")))
+    message(paste0("Credentials found for ", paste0(stringr::str_to_title(names(token_status)[token_status]), collapse = ", ")))
     message("Do you want to overwrite these with new credentials?")
     use_old <- menu(c("Yes, overwrite the credentials", "No, I'll use these credentials and stop this function."))
     if (use_old == 2) stop("Using old credentials")
