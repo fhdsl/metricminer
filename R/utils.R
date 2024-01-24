@@ -51,7 +51,7 @@ save_example_data <- function(data) {
   saveRDS(data, file.path(example_data_folder(), paste0(data_name, ".RDS")))
 }
 
-#' Default creds path
+#' Default Credentials path
 #' Get file path to an default credentials RDS
 #' @export
 example_data_folder <- function() {
@@ -73,7 +73,7 @@ supported_endpoints <- function() {
     "google" = httr::oauth_endpoints("google")
   )
 }
-#' Default creds path
+#' Default Credentials path
 #' @param app_name What app set up are you looking for? Supported apps are 'google' 'calendly' and 'github'
 #' Get file path to an default credentials RDS
 default_creds_path <- function(app_name) {
