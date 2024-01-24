@@ -1,7 +1,7 @@
 auth_tokens <-
   c(
     Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
-    Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+    Sys.getenv("METRICMINER_GOOGLE_ACCESS")
   )
 
 if (all(!(auth_tokens == ""))) {
