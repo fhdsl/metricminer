@@ -15,3 +15,6 @@ resources/*
 ^doc$
 ^Meta$
 inst/extdata/docker/*
+^CRAN-SUBMISSION$
+^cran-comments.md$
+tests/*

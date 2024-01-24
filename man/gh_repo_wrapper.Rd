@@ -7,7 +7,7 @@
 gh_repo_wrapper(api_call, owner, repo, token = NULL, count = Inf)
 }
 \arguments{
-\item{api_call}{an API call and endpoint like "GET /repos/{owner}/{repo}/activity". That has `owner` and `user`.}
+\item{api_call}{an API call and endpoint. That has `owner` and `user`.}
 
 \item{owner}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
