@@ -144,7 +144,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
-#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param count How many items would you like to receive? Put "all" to retrieve all records.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @param time_course Should the time course data be collected or only the summary metrics?
 #' @return Information regarding a github account
@@ -242,7 +242,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
-#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param count How many items would you like to receive? Put "all" to retrieve all records.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return GitHub repository summary metrics
 #' @export
@@ -267,7 +267,7 @@ get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_f
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
-#' @param count How many items would you like to recieve? Put "all" to retrieve all records.
+#' @param count How many items would you like to receive? Put "all" to retrieve all records.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return GitHub repository summary metrics
 #' @export
