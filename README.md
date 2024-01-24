@@ -48,7 +48,7 @@ Currently `metricminer` supports mining data from:
 
 ## Data Format Options
 
-`metricminer`  retrieves API data for you and gives it to you in a format that is a tidy data.frame. This means metricminer has to be selective about what metrics it returns, ensuring it fits in a useful data frame that can be easily read by humans.
+`metricminer`  retrieves API data for you and gives it to you in a format that is a tidy data frame. This means metricminer has to be selective about what metrics it returns, ensuring it fits in a useful data frame that can be easily read by humans.
 
 If you find that the data returned is not what you need, you have two options (these options can be pursued concurrently):
 
