@@ -1,4 +1,4 @@
-if (!identical(Sys.getenv("NOT_CRAN"), "true")) return()
+testthat::skip_on_cran()
 
 test_that("Test Calendly Auth", {
 
