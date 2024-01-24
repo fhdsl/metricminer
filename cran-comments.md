@@ -2,4 +2,4 @@
 
 0 errors | 0 warnings | 0 note
 
-* Things are working and building fine. 
+* Minor updates to docs and trying again to make sure test that require authentication do not run on CRAN 
