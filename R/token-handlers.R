@@ -53,10 +53,11 @@ remove_cache <- function(app_name) {
 # Get token from environment
 # Default is to try to retrieve credentials but if credentials are not necessary
 # and you just want to attempt to grab credentials and see if you can then set try = TRUE
-get_token <- function(app_name, try = FALSE) {
+get_token <- function(app_name, try = FALSE, silent = FALSE) {
+
   # If there's none in the current environment, attempt to grab a stored credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
-    # Attempt to get stored toksn
+    # Attempt to get stored token
     .Env$metricminer_tokens[[app_name]] <- get_stored_token(app_name)
 
     # only print this message if we are successful
@@ -68,7 +69,7 @@ get_token <- function(app_name, try = FALSE) {
   }
   # only print this message if we are successful
   if (!is.null(.Env$metricminer_tokens[[app_name]])) {
-    message("Using user-supplied cached token using authorize(\"", app_name, "\")")
+    if (!silent) message("Using user-supplied cached token using authorize(\"", app_name, "\")")
     if (app_name == "google") {
       googledrive::drive_auth(token = .Env$metricminer_tokens[[app_name]])
       googlesheets4::gs4_auth(token = .Env$metricminer_tokens[[app_name]])
@@ -82,11 +83,25 @@ get_token <- function(app_name, try = FALSE) {
       stop("Authorization required for the called function. Quitting.")
     }
   }
-
-
   invisible(.Env$metricminer_tokens[[app_name]])
 }
 
+check_for_tokens <- function(app_name = NULL) {
+
+  if (is.null(app_name)) {
+    app_name <- c("github", "google", "calendly")
+  }
+
+  token_tries <- sapply(app_name, function(an_app_name) {
+    token_try <- suppressWarnings(try(get_token(an_app_name, silent = TRUE), silent = TRUE))
+
+    token_status <- ifelse(class(token_try)[1] == "try-error", FALSE, TRUE)
+  })
+
+  names(token_tries) <- app_name
+
+  return(token_tries)
+}
 # A function that attempts to grab stored credentials
 get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly")
