@@ -109,7 +109,7 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
 #' @examples \dontrun{
 #'
 #' authorize("github")
-#' get_user_list(owner = "metricminer")
+#' get_user_repo_list(owner = "metricminer")
 #' }
 #'
 get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {

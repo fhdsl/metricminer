@@ -86,6 +86,7 @@ get_token <- function(app_name, try = FALSE, silent = FALSE) {
   invisible(.Env$metricminer_tokens[[app_name]])
 }
 
+# Check if token already exists
 check_for_tokens <- function(app_name = NULL) {
 
   if (is.null(app_name)) {

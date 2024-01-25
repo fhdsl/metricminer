@@ -21,8 +21,8 @@
 authorize <- function(app_name = NULL,
                       cache = FALSE,
                       ...) {
+  # Ask the user what app they would like to authorize
   if (is.null(app_name)) {
-    # Ask the user what app they would like to authorize
     app_names <- names(supported_endpoints())
     titlecase_app_names <- stringr::str_to_title(app_names)
 
@@ -35,6 +35,7 @@ authorize <- function(app_name = NULL,
     app_name <- names(endpoint)
   }
 
+  # Check if token already exists
   token_status <- check_for_tokens(app_name)
 
   if (any(token_status)) {
