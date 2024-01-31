@@ -2,15 +2,15 @@
 
 Digging up data that matters, making it dashboard-ready.
 
-`metricminer` is an R package that helps you mine metrics on common places on the web through the power of their APIs.
+`metricminer` is an R package that helps you mine metrics from common places on the web through the power of their APIs.
 
 It also helps format the data so that it can easily be used for a dashboard or other purposes.
-It will have an associated [dashboard template](https://github.com/FredHutch/metricminer-dashboard) and tutorials to help you fully use the data you retrieve with `metricminer`  (but these are still under development!)
+It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully utilize the data you retrieve with `metricminer`  (but these are still under development!)
 
 - You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
-- And you can read more about metric collection in our [associated manuscript -- currently a preprint](https://arxiv.org/abs/2306.03255).
+- Additionally, you can read more about metric collection in our [associated manuscript, which is currently a preprint](https://arxiv.org/abs/2306.03255).
 
-## Apps supported
+## Apps Supported
 
 Currently `metricminer` supports mining data from:
 
@@ -46,12 +46,11 @@ Currently `metricminer` supports mining data from:
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-## Data format options
+## Data Format Options
 
-`metricminer`  retrieves API data for you and gives it to you in a format that is a tidy data.frame.
-this means metricminer has to be opinionated about what metrics it returns so it fits in a useful data frame easily read by humans.
+`metricminer`  retrieves API data for you and gives it to you in a format that is a tidy data frame. This means metricminer has to be selective about what metrics it returns, ensuring it fits in a useful data frame that can be easily read by humans.
 
-If you find that the data returned is not what you need you have two options (these options can be pursued concurrently):
+If you find that the data returned is not what you need, you have two options (these options can be pursued concurrently):
 
 1. You can set the `dataformat` argument to `"raw"` to see the original, unedited JSON formatted data as it was returned from the API. Then you can personally look for the data that you want and extract it.
 2. You can post a GitHub issue to explain why the metric missing from the data frame of formatted data should be included. And if possible and reasonable, we can work on including that data in the next version of `metricminer`.
@@ -66,14 +65,14 @@ if (!("remotes" %in% installed.packages())) {
 remotes::install_github("fhdsl/metricminer")
 ```
 
-Attach the library or use decide to use `metricminer::` notation.
+Attach the library or decide to use the `metricminer::` notation.
 ```{r setup}
 library(metricminer)
 ```
 
 ## Basic Usage
 
-To start, you need to `authorize()` the package to access your data. If you run `authorize()` you will be asked which app you'd like to authorize and whether you'd like to cache that auth information. If you already know which app you'd like to authorize, like `google` for example, you can run `authorize("google")`.
+To start, you need to `authorize()` the package to access your data. If you run `authorize()` you will be asked which app you'd like to authorize and whether you'd like to cache that authorization information. If you already know which app you'd like to authorize, like `google` for example, you can run `authorize("google")`.
 
 Then follow the instructions on the upcoming screens and select the scopes you feel comfortable sharing (you generally just need read permissions for metricminer to be able to collect data).
 
@@ -89,7 +88,7 @@ delete_creds()
 
 ### GitHub
 
-You can retrieve metrics from a repository on GitHub doing this:
+You can retrieve metrics from a repository on GitHub by running:
 ```
 authorize("github")
 metrics <- get_github_metrics(repo = "fhdsl/metricminer")
@@ -97,7 +96,7 @@ metrics <- get_github_metrics(repo = "fhdsl/metricminer")
 
 ### Calendly
 
-You can retrieve calendly events information using this type of workflow:
+You can retrieve Calendly events information using this type of workflow:
 ```
 authorize("calendly")
 user <- get_calendly_user()
@@ -115,7 +114,7 @@ authorize("google")
 accounts <- get_ga_user()
 ```
 
-Then you need to retrieve the properties (aka usually the websites you are tracking)
+Then you need to retrieve the properties (a.k.a usually the websites you are tracking)
 underneath that account.
 
 ```
@@ -130,7 +129,7 @@ property_id <- gsub("properties/", "", properties_list$properties$name[1])
 
 Now we can collect some stats.
 
-In Google Analytics `metrics` are your basic numbers (how many visits to your website, etc.).
+In Google Analytics, `metrics` are your basic numbers (how many visits to your website, etc.).
 ```
 metrics <- get_ga_stats(property_id, stats_type = "metrics")
 ```
@@ -145,7 +144,7 @@ link_clicks <- get_ga_stats(property_id, stats_type = "link_clicks")
 
 ### Google Forms
 
-You can retrieve Google form information and responses like this:
+You can retrieve Google Forms information and responses like this:
 ```
 authorize("google")
 form_url <- "https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"
@@ -154,17 +153,17 @@ form_info <- get_google_form(form_url)
 
 ### Slido
 
-If you have used Slido for interactive slide sessions and collected that info and exported it to your Google drive you can use `metricminer` to collect that data as well.
+If you have used Slido for interactive slide sessions and collected that info and exported it to your Google Drive, you can use `metricminer` to collect that data as well.
 
 ```
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
 slido_data <- get_slido_files(drive_id)
 ```
-### Youtube
+### YouTube
 
-If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
+If you have a YouTube channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
 
-Then you can extract stats for the videos on that youtube channel using that URL.
+Then you can extract stats for the videos on that YouTube channel using that URL.
 ```
 authorize("google")
 youtube_stats <- get_youtube_stats("a_bunch_of_letters_here")
@@ -228,4 +227,4 @@ multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 
 ## Contributions
 
-This is an ever developing package. contact csavonen@fredhutch.org if you are interested in helping us develop `metricminer` Or just file a pull request or issue!
+This is an ever-evolving package. contact csavonen@fredhutch.org if you are interested in helping us develop `metricminer`, or just file a pull request or issue!
