@@ -39,7 +39,7 @@ authorize <- function(app_name = NULL,
   token_status <- check_for_tokens(app_name)
 
   if (any(token_status)) {
-    message(paste0("Creds detected for: ", paste0(names(token_status)[token_status], collapse = ", ")))
+    message(paste0("Credentials found for ", paste0(stringr::str_to_title(names(token_status)[token_status]), collapse = ", ")))
     message("Do you want to overwrite these with new credentials?")
     use_old <- menu(c("Yes, overwrite the credentials", "No, I'll use these credentials and stop this function."))
     if (use_old == 2) stop("Using old credentials")
@@ -49,7 +49,7 @@ authorize <- function(app_name = NULL,
     message("Would you like to store/cache your credentials?")
     cache_it <- menu(c("Yes cache/store credentials", "No do not store credentials, I will re-run this authorize() in my next R session"))
     if (cache_it == 1) {
-      message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \n Be careful not to push the cache files to GitHub or share it anywhere.")
+      message("You chose to cache your credentials, if you change your mind, run metricminer::delete_creds(). \nBe careful not to push the cache files to GitHub or share it anywhere. \n")
     }
   } else {
     cache_it <- 1
@@ -58,10 +58,10 @@ authorize <- function(app_name = NULL,
   if (app_name == "calendly") {
     # Open up browser to have them create a key
     browseURL("https://calendly.com/integrations/api_webhooks")
-    message("On the opened page, click 'Generate Token'. Choose a name, then click 'Create Token'.")
+    message("On the opened page, click 'Get a token now'. Choose a name for your token, then click 'Create token'.")
 
     # Store api key here
-    token <- readline(prompt = "Paste token here and press enter: ")
+    token <- getPass::getPass(msg = "Paste token here and press enter: ")
 
     # If they chose to cache it, we'll store it in rds file format
     if (cache_it == 1) cache_token(token, "calendly")
@@ -73,7 +73,7 @@ authorize <- function(app_name = NULL,
     message("On the opened page, scroll down and click 'Generate Token'.")
 
     # Store api key here
-    token <- readline(prompt = "Paste token here and press enter: ")
+    token <- getPass::getPass(msg = "Paste token here and press enter: ")
 
     # Check that token
     if (!grepl("ghp", token)) stop("This doesn't look like a GitHub Personal Access token. https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens")
@@ -104,7 +104,7 @@ authorize <- function(app_name = NULL,
 }
 
 ################################################################################
-#' Delete cached metricminer creds
+#' Delete cached metricminer credentials
 #' @description This is a function to delete cached creds and creds in the current environment that were set by metricminer
 #' @param app_name which app would you like to delete the creds for? Default is to delete the creds for all.
 #' @export

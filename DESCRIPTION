@@ -23,6 +23,7 @@ Imports:
     assertthat, 
     openssl, 
     gh, 
+    getPass,
     dplyr,
     lubridate, 
     purrr, 
