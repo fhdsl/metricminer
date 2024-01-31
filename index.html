@@ -80,14 +80,14 @@
 <div class="page-header"><h1 id="metricminer-">metricminer <img src="https://raw.githubusercontent.com/fhdsl/metricminer/main/resources/metricminer-gnome.png" width="100"><a class="anchor" aria-label="anchor" href="#metricminer-"></a>
 </h1></div>
 <p>Digging up data that matters, making it dashboard-ready.</p>
-<p><code>metricminer</code> is an R package that helps you mine metrics on common places on the web through the power of their APIs.</p>
-<p>It also helps format the data so that it can easily be used for a dashboard or other purposes. It will have an associated <a href="https://github.com/fhdsl/metricminer-dashboard" class="external-link">dashboard template</a> and tutorials to help you fully use the data you retrieve with <code>metricminer</code> (but these are still under development!)</p>
+<p><code>metricminer</code> is an R package that helps you mine metrics from common places on the web through the power of their APIs.</p>
+<p>It also helps format the data so that it can easily be used for a dashboard or other purposes. It will have an associated <a href="https://github.com/fhdsl/metricminer-dashboard" class="external-link">dashboard template</a> and tutorials to help you fully utilize the data you retrieve with <code>metricminer</code> (but these are still under development!)</p>
 <ul>
 <li>You can <a href="https://hutchdatascience.org/metricminer/" class="external-link">read the metricminer package documentation here</a>.</li>
-<li>And you can read more about metric collection in our <a href="https://arxiv.org/abs/2306.03255" class="external-link">associated manuscript – currently a preprint</a>.</li>
+<li>Additionally, you can read more about metric collection in our <a href="https://arxiv.org/abs/2306.03255" class="external-link">associated manuscript, which is currently a preprint</a>.</li>
 </ul>
 <div class="section level2">
-<h2 id="apps-supported">Apps supported<a class="anchor" aria-label="anchor" href="#apps-supported"></a>
+<h2 id="apps-supported">Apps Supported<a class="anchor" aria-label="anchor" href="#apps-supported"></a>
 </h2>
 <p>Currently <code>metricminer</code> supports mining data from:</p>
 <ul>
@@ -133,10 +133,10 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update --><!-- README.md is generated from README.Rmd. Please edit that file -->
 </div>
 <div class="section level2">
-<h2 id="data-format-options">Data format options<a class="anchor" aria-label="anchor" href="#data-format-options"></a>
+<h2 id="data-format-options">Data Format Options<a class="anchor" aria-label="anchor" href="#data-format-options"></a>
 </h2>
-<p><code>metricminer</code> retrieves API data for you and gives it to you in a format that is a tidy data.frame. this means metricminer has to be opinionated about what metrics it returns so it fits in a useful data frame easily read by humans.</p>
-<p>If you find that the data returned is not what you need you have two options (these options can be pursued concurrently):</p>
+<p><code>metricminer</code> retrieves API data for you and gives it to you in a format that is a tidy data frame. This means metricminer has to be selective about what metrics it returns, ensuring it fits in a useful data frame that can be easily read by humans.</p>
+<p>If you find that the data returned is not what you need, you have two options (these options can be pursued concurrently):</p>
 <ol style="list-style-type: decimal">
 <li>You can set the <code>dataformat</code> argument to <code>"raw"</code> to see the original, unedited JSON formatted data as it was returned from the API. Then you can personally look for the data that you want and extract it.</li>
 <li>You can post a GitHub issue to explain why the metric missing from the data frame of formatted data should be included. And if possible and reasonable, we can work on including that data in the next version of <code>metricminer</code>.</li>
@@ -151,12 +151,12 @@
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="op">}</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"fhdsl/metricminer"</span><span class="op">)</span></span></code></pre></div>
-<p>Attach the library or use decide to use <code>metricminer::</code> notation. <code>{r setup} library(metricminer)</code></p>
+<p>Attach the library or decide to use the <code>metricminer::</code> notation. <code>{r setup} library(metricminer)</code></p>
 </div>
 <div class="section level2">
 <h2 id="basic-usage">Basic Usage<a class="anchor" aria-label="anchor" href="#basic-usage"></a>
 </h2>
-<p>To start, you need to <code><a href="reference/authorize.html">authorize()</a></code> the package to access your data. If you run <code><a href="reference/authorize.html">authorize()</a></code> you will be asked which app you’d like to authorize and whether you’d like to cache that auth information. If you already know which app you’d like to authorize, like <code>google</code> for example, you can run <code>authorize("google")</code>.</p>
+<p>To start, you need to <code><a href="reference/authorize.html">authorize()</a></code> the package to access your data. If you run <code><a href="reference/authorize.html">authorize()</a></code> you will be asked which app you’d like to authorize and whether you’d like to cache that authorization information. If you already know which app you’d like to authorize, like <code>google</code> for example, you can run <code>authorize("google")</code>.</p>
 <p>Then follow the instructions on the upcoming screens and select the scopes you feel comfortable sharing (you generally just need read permissions for metricminer to be able to collect data).</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
@@ -165,14 +165,14 @@
 <div class="section level3">
 <h3 id="github">GitHub<a class="anchor" aria-label="anchor" href="#github"></a>
 </h3>
-<p>You can retrieve metrics from a repository on GitHub doing this:</p>
+<p>You can retrieve metrics from a repository on GitHub by running:</p>
 <pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span>
 <span><span class="va">metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_github_metrics.html">get_github_metrics</a></span><span class="op">(</span>repo <span class="op">=</span> <span class="st">"fhdsl/metricminer"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="calendly">Calendly<a class="anchor" aria-label="anchor" href="#calendly"></a>
 </h3>
-<p>You can retrieve calendly events information using this type of workflow:</p>
+<p>You can retrieve Calendly events information using this type of workflow:</p>
 <pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"calendly"</span><span class="op">)</span></span>
 <span><span class="va">user</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_calendly_user.html">get_calendly_user</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">events</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/list_calendly_events.html">list_calendly_events</a></span><span class="op">(</span>user <span class="op">=</span> <span class="va">user</span><span class="op">$</span><span class="va">resource</span><span class="op">$</span><span class="va">uri</span><span class="op">)</span></span></code></pre>
@@ -184,12 +184,12 @@
 <p>First you have to retrieve your account information after you’ve authorized.</p>
 <pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
 <span><span class="va">accounts</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_user.html">get_ga_user</a></span><span class="op">(</span><span class="op">)</span></span></code></pre>
-<p>Then you need to retrieve the properties (aka usually the websites you are tracking) underneath that account.</p>
+<p>Then you need to retrieve the properties (a.k.a usually the websites you are tracking) underneath that account.</p>
 <pre><code><span><span class="va">properties_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_properties.html">get_ga_properties</a></span><span class="op">(</span>account_id <span class="op">=</span> <span class="va">accounts</span><span class="op">$</span><span class="va">id</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre>
 <p>Just need to shave off the <code>properties/</code> bit from this string.</p>
 <pre><code><span><span class="va">property_id</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/grep.html" class="external-link">gsub</a></span><span class="op">(</span><span class="st">"properties/"</span>, <span class="st">""</span>, <span class="va">properties_list</span><span class="op">$</span><span class="va">properties</span><span class="op">$</span><span class="va">name</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span><span class="op">)</span></span></code></pre>
 <p>Now we can collect some stats.</p>
-<p>In Google Analytics <code>metrics</code> are your basic numbers (how many visits to your website, etc.).</p>
+<p>In Google Analytics, <code>metrics</code> are your basic numbers (how many visits to your website, etc.).</p>
 <pre><code><span><span class="va">metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_stats.html">get_ga_stats</a></span><span class="op">(</span><span class="va">property_id</span>, stats_type <span class="op">=</span> <span class="st">"metrics"</span><span class="op">)</span></span></code></pre>
 <p>Whereas <code>dimensions</code> are more a list of events that have happened. So here’s a list of people that have logged on.</p>
 <pre><code><span><span class="va">dimensions</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ga_stats.html">get_ga_stats</a></span><span class="op">(</span><span class="va">property_id</span>, stats_type <span class="op">=</span> <span class="st">"dimensions"</span><span class="op">)</span></span></code></pre>
@@ -199,7 +199,7 @@
 <div class="section level3">
 <h3 id="google-forms">Google Forms<a class="anchor" aria-label="anchor" href="#google-forms"></a>
 </h3>
-<p>You can retrieve Google form information and responses like this:</p>
+<p>You can retrieve Google Forms information and responses like this:</p>
 <pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
 <span><span class="va">form_url</span> <span class="op">&lt;-</span> <span class="st">"https://docs.google.com/forms/d/1Z-lMMdUyubUqIvaSXeDu1tlB7_QpNTzOk3kfzjP2Uuo/edit"</span></span>
 <span><span class="va">form_info</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_google_form.html">get_google_form</a></span><span class="op">(</span><span class="va">form_url</span><span class="op">)</span></span></code></pre>
@@ -207,15 +207,15 @@
 <div class="section level3">
 <h3 id="slido">Slido<a class="anchor" aria-label="anchor" href="#slido"></a>
 </h3>
-<p>If you have used Slido for interactive slide sessions and collected that info and exported it to your googledrive you can use <code>metricminer</code> to collect that data as well.</p>
+<p>If you have used Slido for interactive slide sessions and collected that info and exported it to your Google Drive, you can use <code>metricminer</code> to collect that data as well.</p>
 <pre><code><span><span class="va">drive_id</span> <span class="op">&lt;-</span> <span class="st">"https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"</span></span>
 <span><span class="va">slido_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_slido_files.html">get_slido_files</a></span><span class="op">(</span><span class="va">drive_id</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="youtube">Youtube<a class="anchor" aria-label="anchor" href="#youtube"></a>
+<h3 id="youtube">YouTube<a class="anchor" aria-label="anchor" href="#youtube"></a>
 </h3>
-<p>If you have a channel and the URL is <a href="https://www.youtube.com/channel/a_bunch_of_letters_here" class="external-link uri">https://www.youtube.com/channel/a_bunch_of_letters_here</a></p>
-<p>Then you can extract stats for the videos on that youtube channel using that URL.</p>
+<p>If you have a YouTube channel and the URL is <a href="https://www.youtube.com/channel/a_bunch_of_letters_here" class="external-link uri">https://www.youtube.com/channel/a_bunch_of_letters_here</a></p>
+<p>Then you can extract stats for the videos on that YouTube channel using that URL.</p>
 <pre><code><span><span class="fu"><a href="reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"google"</span><span class="op">)</span></span>
 <span><span class="va">youtube_stats</span> <span class="op">&lt;-</span> <span class="fu">get_youtube_stats</span><span class="op">(</span><span class="st">"a_bunch_of_letters_here"</span><span class="op">)</span></span></code></pre>
 </div>
@@ -260,7 +260,7 @@
 <div class="section level2">
 <h2 id="contributions">Contributions<a class="anchor" aria-label="anchor" href="#contributions"></a>
 </h2>
-<p>This is an ever developing package. contact <a href="mailto:csavonen@fredhutch.org" class="email">csavonen@fredhutch.org</a> if you are interested in helping us develop <code>metricminer</code> Or just file a pull request or issue!</p>
+<p>This is an ever-evolving package. contact <a href="mailto:csavonen@fredhutch.org" class="email">csavonen@fredhutch.org</a> if you are interested in helping us develop <code>metricminer</code>, or just file a pull request or issue!</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
