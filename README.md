@@ -154,7 +154,7 @@ form_info <- get_google_form(form_url)
 
 ### Slido
 
-If you have used Slido for interactive slide sessions and collected that info and exported it to your googledrive you can use `metricminer` to collect that data as well.
+If you have used Slido for interactive slide sessions and collected that info and exported it to your Google drive you can use `metricminer` to collect that data as well.
 
 ```
 drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"

@@ -4,7 +4,7 @@
 #' @description This is a function to get the GitHub user's info
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param url What is the URL endpoint we are attempting to grab here?
-#' @return Information regarding a github account
+#' @return Information regarding a Github account
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export
@@ -35,7 +35,7 @@ get_github <- function(token = NULL, url) {
 #' Get the GitHub User's info
 #' @description This is a function to get the GitHub user's info
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
-#' @return Information regarding a github account
+#' @return Information regarding a Github account
 #' @export
 #' @examples \dontrun{
 #'
@@ -60,7 +60,7 @@ get_github_user <- function(token = NULL) {
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
-#' @return a list of repos that an organization has
+#' @return a list of repositories that an organization has
 #' @importFrom gh gh
 #' @export
 #' @examples \dontrun{
@@ -103,7 +103,7 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
-#' @return a list of repos that an organization has
+#' @return a list of repositories that an organization has
 #' @importFrom gh gh
 #' @export
 #' @examples \dontrun{
@@ -147,7 +147,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' @param count How many items would you like to receive? Put "all" to retrieve all records.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @param time_course Should the time course data be collected or only the summary metrics?
-#' @return Information regarding a github account
+#' @return Repository summary or time course metrics for a particular GitHub repository as a dataframe
 #' @importFrom gh gh
 #' @importFrom purrr map
 #' @importFrom methods is
@@ -237,14 +237,14 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
   }
   return(results)
 }
-#' Collect repo timecourse metrics
+#' Collect repository timecourse metrics
 #' @description This is a wrapper for \code{\link{get_github_metrics}} that has `time_course = TRUE` so that timecourse metrics are collected
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
 #' @param count How many items would you like to receive? Put "all" to retrieve all records.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
-#' @return GitHub repository summary metrics
+#' @return GitHub repository timecourse metrics for views and clones
 #' @export
 #' @examples \dontrun{
 #'
@@ -262,7 +262,7 @@ get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_f
   return(result)
 }
 
-#' Collect repo summary metrics
+#' Collect repository summary metrics
 #' @description This is a wrapper for \code{\link{get_github_metrics}} that has `time_course = FALSE` so that summary metrics are collected
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
@@ -289,13 +289,13 @@ get_github_repo_summary <- function(repo, token = NULL, count = "all", data_form
 }
 
 #' Retrieve metrics for a list of repos
-#' @description This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repos from a
-#' particular organization, or you can provide a character vector of repos like "
+#' @description This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repositories from a
+#' particular organization, or you can provide a character vector of repositories like "
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo_names a character vector of repositories you'd like to collect metrics from.
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @param time_course Should the time course data be collected or only the summary metrics?
-#' @return Information regarding a github account
+#' @return Information regarding a Github account
 #' @importFrom gh gh
 #' @importFrom purrr map
 #' @importFrom dplyr bind_rows
@@ -340,14 +340,14 @@ get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_for
   return(repo_metrics)
 }
 
-#' Wrapper function for gh repo calls
+#' Wrapper function for gh repository calls
 #' @description This is a function that wraps up gh calls for us
 #' @param api_call an API call and endpoint. That has `owner` and `user`.
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param count How many items would you like to receive? Put "all" to retrieve all records.
-#' @return Metrics for a repo on GitHub
+#' @return Metrics for a repository on GitHub
 #' @importFrom gh gh
 #' @export
 #'
@@ -360,7 +360,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf) {
     if (is.null(token)) warning("No GitHub token found. Only certain metrics will be able to be retrieved.")
   }
 
-  # Not all repos have all stats so we have to try it.
+  # Not all repositories have all stats so we have to try it.
   result <- gh::gh(api_call,
     owner = owner,
     repo = repo,
@@ -368,7 +368,7 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf) {
     .limit = count
   )
 
-  # Some handlers because not all repos have all stats
+  # Some handlers because not all repositories have all stats
   if (length(result) == 0) result <- "No results"
   if (grepl("404", result[1])) result <- "No results"
   if (class(result)[1] == "try-error") stop(paste0("Failed to retrieve: ", owner, "/", repo))
@@ -378,10 +378,10 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf) {
 
 
 #' Summarizing metrics from GitHub
-#' @description This is a function to get metrics for all the repos underneath an organization
+#' @description This is a function to get metrics for all the repositories underneath an organization
 #' @param repo_name The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
 #' @param repo_metric_list a list containing the metrics
-#' @return Metrics for a repo on GitHub
+#' @return Metrics for a repository on GitHub
 #' @importFrom gh gh
 #' @importFrom dplyr bind_rows distinct %>%
 #' @importFrom purrr map
@@ -430,9 +430,10 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
 }
 
 
-#' Get timestamp repo metrics
+#' Get timestamp repository metrics
 #' @param results An API result from GitHub typically the views or clones for a repo
 #' @param column name of the column being extracted. Typically "views" or "clones"
+#' @return Extracted timestamp metrics from the API response
 #' @export
 #'
 get_timestamp_repo_metrics <- function(results, column) {

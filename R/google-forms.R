@@ -61,6 +61,7 @@ request_google_forms <- function(token, url,
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param dataformat What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.
 #' @returns This returns a list of the form info and responses to the google form. Default is to make this a list of nicely formatted dataframes.
+#' @export
 #' @examples \dontrun{
 #'
 #' authorize("google")
@@ -130,6 +131,7 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 #' @returns This returns a list of API information for google forms
 #' @importFrom purrr map
 #' @importFrom janitor make_clean_names
+#' @export
 #' @examples \dontrun{
 #'
 #' authorize("google")
@@ -165,6 +167,7 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
 #'  used by the `get_google_form()` function if dataformat = "dataframe"
 #' @param form_info The return form_info list that is extracted in `get_google_form()`
 #' @returns This returns metadata from a google form
+#' @export
 get_question_metadata <- function(form_info) {
   metadata <- data.frame(
     question_id = form_info$result$items$itemId,
@@ -192,6 +195,7 @@ get_question_metadata <- function(form_info) {
 #' @description This is a function to get extract answers from a Google Form. It is
 #'  used by the `get_google_form()` function if dataformat = "dataframe"
 #' @param form_info The return form_info list that is extracted in `get_google_form()`
+#' @export
 #' @returns This returns answers from a google form
 extract_answers <- function(form_info) {
   questions <- form_info$response_info$result$responses$answers

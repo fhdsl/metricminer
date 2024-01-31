@@ -12,6 +12,7 @@ library(magrittr)
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
+#' @return An API response in the form of a list
 #' @export
 request_ga <- function(token, url, query = NULL, body_params = NULL, request_type) {
   if (is.null(token)) {
@@ -60,6 +61,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
+#' @return Information about what accounts Google Analytics credentials has access to
 #' @export
 #' @examples \dontrun{
 #'
@@ -92,6 +94,7 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
+#' @return All the property ids and information about them for a Google Analytics account.
 #' @export
 #' @examples \dontrun{
 #'
@@ -125,6 +128,7 @@ get_ga_properties <- function(account_id, token = NULL) {
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
+#' @return A list showing the metadata types available for the Google Analytics property. This can be used to craft an API request.
 #' @export
 #' @examples \dontrun{
 #'
@@ -167,6 +171,7 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @importFrom lubridate today
 #' @export
+#' @return Metrics dimensions for a GA returned from the Google Analytics API. It can be returned as a curated data.frame or the raw version which is the API response as a list
 #' @examples \dontrun{
 #'
 #' authorize("google")
@@ -274,6 +279,7 @@ link_clicks <- function() {
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
 #' @export
+#' @return A list of metrics, dimensions, and link clicks for a for all properties underneath a Google Analytics account. It can be returned as a curated data.frame or the raw version which is the API response as a list
 #' @examples \dontrun{
 #'
 #' authorize("google")
@@ -358,6 +364,7 @@ get_all_ga_metrics <- function(account_id = NULL, token = NULL, dataformat = "da
 #' @importFrom dplyr %>% mutate_all mutate_at bind_rows
 #' @importFrom purrr map
 #' @importFrom tidyr separate
+#' @return a data frame of cleaned metrics from Google Analytics
 #' @export
 
 clean_ga_metrics <- function(metrics = NULL) {

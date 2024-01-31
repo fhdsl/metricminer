@@ -2,7 +2,7 @@
 % Please edit documentation in R/github.R
 \name{get_github_repo_timecourse}
 \alias{get_github_repo_timecourse}
-\title{Collect repo timecourse metrics}
+\title{Collect repository timecourse metrics}
 \usage{
 get_github_repo_timecourse(
   repo,
@@ -21,7 +21,7 @@ get_github_repo_timecourse(
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
-GitHub repository summary metrics
+GitHub repository timecourse metrics for views and clones
 }
 \description{
 This is a wrapper for \code{\link{get_github_metrics}} that has `time_course = TRUE` so that timecourse metrics are collected

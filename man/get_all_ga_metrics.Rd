@@ -15,6 +15,8 @@ get_all_ga_metrics(account_id = NULL, token = NULL, dataformat = "dataframe")
 }
 \value{
 Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
+
+A list of metrics, dimensions, and link clicks for a for all properties underneath a Google Analytics account. It can be returned as a curated data.frame or the raw version which is the API response as a list
 }
 \description{
 This is a function to gets metrics and dimensions for all properties associated with an account

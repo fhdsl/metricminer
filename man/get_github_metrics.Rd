@@ -24,7 +24,7 @@ get_github_metrics(
 \item{time_course}{Should the time course data be collected or only the summary metrics?}
 }
 \value{
-Information regarding a github account
+Repository summary or time course metrics for a particular GitHub repository as a dataframe
 }
 \description{
 This is a function to get the information about a repository

@@ -11,6 +11,9 @@ get_ga_user(token = NULL, request_type = "GET")
 
 \item{request_type}{Is this a GET or a POST?}
 }
+\value{
+Information about what accounts Google Analytics credentials has access to
+}
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
 }

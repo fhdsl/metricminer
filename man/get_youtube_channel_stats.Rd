@@ -7,11 +7,14 @@
 get_youtube_channel_stats(channel_id, token = NULL, dataformat = "dataframe")
 }
 \arguments{
-\item{channel_id}{ID of the youtube channel to retrieve stats from.}
+\item{channel_id}{ID of the Youtube channel to retrieve stats from.}
 
 \item{token}{OAuth token from Google login.}
 
 \item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
+}
+\value{
+A data frame of the channel stats from a Youtube channel.
 }
 \description{
 This is a function to retrieve statistics for a Youtube channel

@@ -29,6 +29,9 @@ get_ga_stats(
 
 \item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 }
+\value{
+Metrics dimensions for a GA returned from the Google Analytics API. It can be returned as a curated data.frame or the raw version which is the API response as a list
+}
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
 }

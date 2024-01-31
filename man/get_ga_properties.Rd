@@ -11,6 +11,9 @@ get_ga_properties(account_id, token = NULL)
 
 \item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
 }
+\value{
+All the property ids and information about them for a Google Analytics account.
+}
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
 }

@@ -21,7 +21,7 @@ get_org_repo_list(
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 }
 \value{
-a list of repos that an organization has
+a list of repositories that an organization has
 }
 \description{
 This is a function to get the information about a repository

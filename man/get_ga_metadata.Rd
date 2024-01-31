@@ -11,6 +11,9 @@ get_ga_metadata(property_id, token = NULL)
 
 \item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
 }
+\value{
+A list showing the metadata types available for the Google Analytics property. This can be used to craft an API request.
+}
 \description{
 This is a function to get the Google Analytics accounts that this user has access to
 }

@@ -27,7 +27,7 @@ auth_from_secret(
 \item{in_test}{If setting up auth in a test, set to TRUE so that way the authorization doesn't stick}
 }
 \value{
-OAuth token saved to the environment so the package can use the users' Google data
+OAuth token saved to the environment so the package access the API data
 }
 \description{
 This is a function to authorize metricminer to access calendly, github or google noninteractively from passing in a keys or tokens.

@@ -36,7 +36,7 @@ write_to_gsheet(
 The googlesheet URL where the data has been written
 }
 \description{
-This is a function to write metricminer data to a GoogleSheet
+This is a function to write metricminer data to a Googlesheet
 }
 \examples{
 \dontrun{

@@ -7,6 +7,9 @@ Get file path to an default credentials RDS}
 \usage{
 example_data_folder()
 }
+\value{
+Returns the file path to folder where the example data is stored
+}
 \description{
 Default creds path
 Get file path to an default credentials RDS

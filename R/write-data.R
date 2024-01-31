@@ -1,5 +1,5 @@
 #' Writes data to a Googlesheet
-#' @description This is a function to write metricminer data to a GoogleSheet
+#' @description This is a function to write metricminer data to a Googlesheet
 #' @param input input data to write to a googlesheet
 #' @param token OAuth token from Google login.
 #' @param gsheet Optionally a googlesheet to write to

@@ -14,7 +14,7 @@ authorize(app_name = NULL, cache = FALSE, ...)
 \item{...}{additional arguments to send to \code{\link{oauth2.0_token}}}
 }
 \value{
-OAuth token saved to the environment so the package can use the users' Google data
+API token saved to the environment or the cache so it can be grabbed by functions
 }
 \description{
 This is a function to authorize the R package to access APIs interactively.
@@ -23,5 +23,11 @@ This is a function to authorize the R package to access APIs interactively.
 \dontrun{
 
 authorize()
+
+authorize("github")
+
+authorize("google")
+
+authorize("calendly")
 }
 }

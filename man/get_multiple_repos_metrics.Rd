@@ -21,11 +21,11 @@ get_multiple_repos_metrics(
 \item{time_course}{Should the time course data be collected or only the summary metrics?}
 }
 \value{
-Information regarding a github account
+Information regarding a Github account
 }
 \description{
-This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repos from a
-particular organization, or you can provide a character vector of repos like "
+This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repositories from a
+particular organization, or you can provide a character vector of repositories like "
 }
 \examples{
 \dontrun{

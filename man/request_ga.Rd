@@ -17,6 +17,9 @@ request_ga(token, url, query = NULL, body_params = NULL, request_type)
 
 \item{request_type}{Is this a GET or a POST?}
 }
+\value{
+An API response in the form of a list
+}
 \description{
 This is a function that handles requests from Google Analytics
 }

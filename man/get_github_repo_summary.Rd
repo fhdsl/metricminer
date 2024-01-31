@@ -2,7 +2,7 @@
 % Please edit documentation in R/github.R
 \name{get_github_repo_summary}
 \alias{get_github_repo_summary}
-\title{Collect repo summary metrics}
+\title{Collect repository summary metrics}
 \usage{
 get_github_repo_summary(
   repo,
