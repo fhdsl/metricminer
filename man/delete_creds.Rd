@@ -2,7 +2,7 @@
 % Please edit documentation in R/auth.R
 \name{delete_creds}
 \alias{delete_creds}
-\title{Delete cached metricminer creds}
+\title{Delete cached metricminer credentials}
 \usage{
 delete_creds(app_name = "all")
 }

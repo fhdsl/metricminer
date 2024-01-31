@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{default_creds_path}
 \alias{default_creds_path}
-\title{Default creds path}
+\title{Default Credentials path}
 \usage{
 default_creds_path(app_name)
 }
@@ -11,5 +11,5 @@ default_creds_path(app_name)
 Get file path to an default credentials RDS}
 }
 \description{
-Default creds path
+Default Credentials path
 }
