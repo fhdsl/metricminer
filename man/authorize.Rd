@@ -23,5 +23,11 @@ This is a function to authorize the R package to access APIs interactively.
 \dontrun{
 
 authorize()
+
+authorize("github")
+
+authorize("google")
+
+authorize("calendly")
 }
 }
