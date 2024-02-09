@@ -22,6 +22,9 @@
     <loc>/index.html</loc>
   </url>
   <url>
+    <loc>/news/index.html</loc>
+  </url>
+  <url>
     <loc>/reference/app_set_up.html</loc>
   </url>
   <url>
@@ -29,9 +32,6 @@
   </url>
   <url>
     <loc>/reference/authorize.html</loc>
-  </url>
-  <url>
-    <loc>/reference/automate_storage.html</loc>
   </url>
   <url>
     <loc>/reference/calendly_get.html</loc>
