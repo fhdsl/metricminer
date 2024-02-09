@@ -2,12 +2,12 @@
 % Please edit documentation in R/github.R
 \name{gh_repo_wrapper}
 \alias{gh_repo_wrapper}
-\title{Wrapper function for gh repo calls}
+\title{Wrapper function for gh repository calls}
 \usage{
 gh_repo_wrapper(api_call, owner, repo, token = NULL, count = Inf)
 }
 \arguments{
-\item{api_call}{an API call and endpoint like "GET /repos/{owner}/{repo}/activity". That has `owner` and `user`.}
+\item{api_call}{an API call and endpoint. That has `owner` and `user`.}
 
 \item{owner}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
@@ -18,7 +18,7 @@ gh_repo_wrapper(api_call, owner, repo, token = NULL, count = Inf)
 \item{count}{How many items would you like to receive? Put "all" to retrieve all records.}
 }
 \value{
-Metrics for a repo on GitHub
+Metrics for a repository on GitHub
 }
 \description{
 This is a function that wraps up gh calls for us

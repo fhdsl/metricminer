@@ -1,70 +1,85 @@
-test_that("Writing gsheets", {
-
-  # Authorize Google
-  auth_from_secret("google",
-                   refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
-                   access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
-                   cache = TRUE,
-                   in_test = TRUE)
-
-  form_info <- get_google_form(
-    "https://docs.google.com/forms/d/1pbFfgUPYH2w9zEoCDjCa4HFOxzEhGOseufw28Xxmd-o/edit"
+auth_tokens <-
+  c(
+    Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+    Sys.getenv("METRICMINER_GOOGLE_ACCESS")
   )
-  forms_df <- form_info$metadata
 
-  # Don't provide a googlesheet -- this should fail if we arent running this interactively.
-  datasheet <- try(write_to_gsheet(input = forms_df), silent = TRUE)
+if (all(!(auth_tokens == ""))) {
+  test_that("Writing gsheets", {
+    # Authorize Google
+    auth_from_secret("google",
+      refresh_token = Sys.getenv("METRICMINER_GOOGLE_REFRESH"),
+      access_token = Sys.getenv("METRICMINER_GOOGLE_ACCESS"),
+      cache = TRUE,
+      in_test = TRUE
+    )
 
-  expect_s3_class(datasheet, "try-error")
+    form_info <- get_google_form(
+      "https://docs.google.com/forms/d/1pbFfgUPYH2w9zEoCDjCa4HFOxzEhGOseufw28Xxmd-o/edit"
+    )
+    forms_df <- form_info$metadata
 
-  gsheet <- googlesheets4::gs4_create()
+    # Don't provide a googlesheet -- this should fail if we arent running this interactively.
+    datasheet <- try(write_to_gsheet(input = forms_df), silent = TRUE)
 
-  # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
-  datasheet <- write_to_gsheet(
-    gsheet = gsheet,
-    input = forms_df)
+    expect_s3_class(datasheet, "try-error")
 
-  # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
-  datasheet <- try(write_to_gsheet(
-    gsheet = gsheet,
-    input = forms_df), silent = TRUE)
+    gsheet <- googlesheets4::gs4_create()
 
-  expect_s3_class(datasheet, "try-error")
+    # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
+    datasheet <- write_to_gsheet(
+      gsheet = gsheet,
+      input = forms_df
+    )
 
-  # This should work now that we said to overwrite it
-  datasheet <- write_to_gsheet(
-    gsheet = gsheet,
-    input = forms_df,
-    overwrite = TRUE)
+    # Try to write to a sheet that already has stuff in it without saying overwrite, this should fail
+    datasheet <- try(write_to_gsheet(
+      gsheet = gsheet,
+      input = forms_df
+    ), silent = TRUE)
 
-  expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
+    expect_s3_class(datasheet, "try-error")
 
-  # Appending rows should also work
-  datasheet <- write_to_gsheet(
-    gsheet = gsheet,
-    input = forms_df,
-    append_rows = TRUE)
+    # This should work now that we said to overwrite it
+    datasheet <- write_to_gsheet(
+      gsheet = gsheet,
+      input = forms_df,
+      overwrite = TRUE
+    )
 
-  expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
+    expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
 
-  # Check that we successfully appended
-  datasheet_reread <- googlesheets4::read_sheet(gsheet)
-  expect_length(datasheet_reread$title, 4)
+    # Appending rows should also work
+    datasheet <- write_to_gsheet(
+      gsheet = gsheet,
+      input = forms_df,
+      append_rows = TRUE
+    )
 
-  # Let's figure out how many sheets we have
-  gsheet_info <- googlesheets4::gs4_get(gsheet)
-  num_sheets <- nrow(gsheet_info$sheets)
+    expect_s3_class(datasheet, c("sheets_id", "drive_id", "vctrs_vctr", "character"))
 
-  # Making a new sheet
-  datasheet <- write_to_gsheet(
-    gsheet = gsheet,
-    input = forms_df,
-    new_sheet = "new sheet")
+    # Check that we successfully appended
+    datasheet_reread <- googlesheets4::read_sheet(gsheet)
+    expect_length(datasheet_reread$title, 4)
 
-  # Make sure we have an extra sheet now
-  gsheet_info <- googlesheets4::gs4_get(gsheet)
-  expect_true(nrow(gsheet_info$sheets) > num_sheets)
+    # Let's figure out how many sheets we have
+    gsheet_info <- googlesheets4::gs4_get(gsheet)
+    num_sheets <- nrow(gsheet_info$sheets)
 
-  # Now cleanup after ourselves
-  googledrive::drive_rm(gsheet)
-})
+    # Making a new sheet
+    datasheet <- write_to_gsheet(
+      gsheet = gsheet,
+      input = forms_df,
+      new_sheet = "new sheet"
+    )
+
+    # Make sure we have an extra sheet now
+    gsheet_info <- googlesheets4::gs4_get(gsheet)
+    expect_true(nrow(gsheet_info$sheets) > num_sheets)
+
+    # Now cleanup after ourselves
+    googledrive::drive_rm(gsheet)
+  })
+} else {
+  message("testthat tests skipped because no auth detected")
+}

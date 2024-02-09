@@ -2,10 +2,18 @@
 % Please edit documentation in R/github.R
 \name{get_timestamp_repo_metrics}
 \alias{get_timestamp_repo_metrics}
-\title{Get timestamp repo metrics}
+\title{Get timestamp repository metrics}
 \usage{
 get_timestamp_repo_metrics(results, column)
 }
+\arguments{
+\item{results}{An API result from GitHub typically the views or clones for a repo}
+
+\item{column}{name of the column being extracted. Typically "views" or "clones"}
+}
+\value{
+Extracted timestamp metrics from the API response
+}
 \description{
-Get timestamp repo metrics
+Get timestamp repository metrics
 }

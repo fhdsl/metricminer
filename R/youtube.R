@@ -2,11 +2,12 @@
 
 #' Get Youtube channel stats
 #' @description This is a function to retrieve statistics for a Youtube channel
-#' @param channel_id ID of the youtube channel to retrieve stats from.
+#' @param channel_id ID of the Youtube channel to retrieve stats from.
 #' @param token OAuth token from Google login.
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' https://www.youtube.com/channel/UCBbHCj7kUogAMFyBAzzzfUw or just the  "UCBbHCj7kUogAMFyBAzzzfUw" part
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
+#' @return A data frame of the channel stats from a Youtube channel.
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -60,10 +61,11 @@ get_youtube_channel_stats <- function(channel_id, token = NULL, dataformat = "da
 
 #' Get Youtube video stats
 #' @description This is a function to get a statistics on a Youtube video
-#' @param video_id ID of the youtube video to retrieve stats from.
+#' @param video_id ID of the Youtube video to retrieve stats from.
 #' @param token OAuth token from Google login.
 #' https://www.youtube.com/watch?v=YkYnni-WuaQor just the  "YkYnni-WuaQor" part that comes after the `v=` bit.
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
+#' @return A data frame of the Youtube video stats.
 #' @importFrom httr config accept_json content
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
@@ -125,8 +127,11 @@ get_youtube_video_stats <- function(video_id, token = NULL, dataformat = "datafr
 #'
 #' @examples  \dontrun{
 #'   # Not run
-#'   write_playlist_details(playlist_id = shorts_playlist_id, outfile = "youtube_shorts_data.tsv")
-#'   write_playlist_details(playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio", outfile = "youtube_shorts_data.tsv")
+#'   write_playlist_details(playlist_id = shorts_playlist_id,
+#'     outfile = "youtube_shorts_data.tsv")
+#'   write_playlist_details(
+#'     playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio",
+#'     outfile = "youtube_shorts_data.tsv")
 #' }
 write_playlist_details <- function(playlist_id, token = NULL, outfile = NULL) {
   if (is.null(token)) {

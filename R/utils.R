@@ -1,14 +1,20 @@
 utils::globalVariables(c(
   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%",
-  "token", "query_params", "file_name", "accounts", "get_repo_list"
+  "token", "query_params", "file_name", "accounts", "get_repo_list", "timestamp", "uniques", "req"
 ))
 
 #' Get list of example datasets
 #' @description This is a function to retrieve a list of the example datasets included with metricminer
 #' @export
+#' @return A list of the example datasets available in this package
 #' @examples \dontrun{
 #'
 #' list_example_data()
+#'
+#' # Now you could use any of these example datasets that are printed out
+#'
+#' get_example_data("calendly_events")
+#'
 #' }
 list_example_data <- function() {
   data_list <-
@@ -54,6 +60,7 @@ save_example_data <- function(data) {
 #' Default Credentials path
 #' Get file path to an default credentials RDS
 #' @export
+#' @return Returns the file path to folder where the example data is stored
 example_data_folder <- function() {
   file <- list.files(
     pattern = "example_data.md",

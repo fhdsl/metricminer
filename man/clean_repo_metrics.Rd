@@ -12,8 +12,8 @@ clean_repo_metrics(repo_name, repo_metric_list)
 \item{repo_metric_list}{a list containing the metrics}
 }
 \value{
-Metrics for a repo on GitHub
+Metrics for a repository on GitHub
 }
 \description{
-This is a function to get metrics for all the repos underneath an organization
+This is a function to get metrics for all the repositories underneath an organization
 }

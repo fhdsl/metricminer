@@ -3,7 +3,7 @@
 #' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
 #' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
 #' @param ... additional arguments to send to \code{\link{oauth2.0_token}}
-#' @return OAuth token saved to the environment so the package can use the users' Google data
+#' @return API token saved to the environment or the cache so it can be grabbed by functions
 #' @importFrom utils menu installed.packages browseURL
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @importFrom stringr str_to_title
@@ -21,8 +21,8 @@
 authorize <- function(app_name = NULL,
                       cache = FALSE,
                       ...) {
+  # Ask the user what app they would like to authorize
   if (is.null(app_name)) {
-    # Ask the user what app they would like to authorize
     app_names <- names(supported_endpoints())
     titlecase_app_names <- stringr::str_to_title(app_names)
 
@@ -35,6 +35,7 @@ authorize <- function(app_name = NULL,
     app_name <- names(endpoint)
   }
 
+  # Check if token already exists
   token_status <- check_for_tokens(app_name)
 
   if (any(token_status)) {
@@ -107,6 +108,7 @@ authorize <- function(app_name = NULL,
 #' @description This is a function to delete cached creds and creds in the current environment that were set by metricminer
 #' @param app_name which app would you like to delete the creds for? Default is to delete the creds for all.
 #' @export
+#' @return Cached credentials are deleted and report is given back
 #' @examples \dontrun{
 #'
 #' delete_creds("google")
@@ -168,7 +170,7 @@ delete_creds <- function(app_name = "all") {
 #' @param access_token For Google, access token can be obtained from running authorize interactively: token <-authorize(); token$credentials$access_token
 #' @param refresh_token For Google, refresh token can be obtained from running authorize interactively: token <-authorize(); token$credentials$refresh_token
 #' @param in_test If setting up auth in a test, set to TRUE so that way the authorization doesn't stick
-#' @return OAuth token saved to the environment so the package can use the users' Google data
+#' @return OAuth token saved to the environment so the package access the API data
 #' @importFrom utils menu installed.packages
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
 #' @export

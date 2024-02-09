@@ -1,7 +1,7 @@
 Type: Package
 Package: metricminer
 Title: Mine Metrics from Common Places on the Web
-Version: 0.1.0
+Version: 0.5.1
 Authors@R: c(
     person("Candace", "Savonen", , 
     c("cansav09@gmail.com","csavonen@fredhutch.org"), 
@@ -10,10 +10,10 @@ Authors@R: c(
     c("howardbaek@fredhutch.org","howardbaek.fh@gmail.com"), 
     role = c("aut"))
     )
-Description: Mine metrics on common places on the web through the power of their APIs. 
+Description: Mine metrics on common places on the web through the power of their APIs (application programming interfaces). 
     It also helps make the data in a format that is easily used for a dashboard or other purposes.
     There is an associated dashboard template and tutorials that are underdevelopment that help you  
-    fully utilize metricminer.
+    fully utilize 'metricminer'.
 License: GPL-3
 URL: https://github.com/fhdsl/metricminer
 BugReports: https://github.com/fhdsl/metricminer/issues
@@ -32,6 +32,7 @@ Imports:
     googlesheets4,
     janitor,
     stringr,
+    methods,
 Suggests: 
     knitr,
     rmarkdown,

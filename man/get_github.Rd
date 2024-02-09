@@ -12,7 +12,7 @@ get_github(token = NULL, url)
 \item{url}{What is the URL endpoint we are attempting to grab here?}
 }
 \value{
-Information regarding a github account
+Information regarding a Github account
 }
 \description{
 This is a function to get the GitHub user's info

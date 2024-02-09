@@ -22,7 +22,10 @@ Write playlist details from YouTube
 \examples{
  \dontrun{
   # Not run
-  write_playlist_details(playlist_id = shorts_playlist_id, outfile = "youtube_shorts_data.tsv")
-  write_playlist_details(playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio", outfile = "youtube_shorts_data.tsv")
+  write_playlist_details(playlist_id = shorts_playlist_id,
+    outfile = "youtube_shorts_data.tsv")
+  write_playlist_details(
+    playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio",
+    outfile = "youtube_shorts_data.tsv")
 }
 }

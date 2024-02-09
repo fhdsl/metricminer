@@ -20,6 +20,9 @@ get_slido_files(
 
 \item{keep_duplicates}{By default we won't keep duplicated files if a two files have the same name. But if you set this to true, duplicates will be returned.}
 }
+\value{
+A list of the slido files and their content in a Googledrive location.
+}
 \description{
 This is a function to get slido response output files. The slido files must be saved as googlesheets and cannot be xlsx.
 }

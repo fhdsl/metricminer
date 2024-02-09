@@ -10,7 +10,7 @@ get_github_user(token = NULL)
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 }
 \value{
-Information regarding a github account
+Information regarding a Github account
 }
 \description{
 This is a function to get the GitHub user's info

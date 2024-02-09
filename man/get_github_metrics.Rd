@@ -17,14 +17,14 @@ get_github_metrics(
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
-\item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
+\item{count}{How many items would you like to receive? Put "all" to retrieve all records.}
 
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 
 \item{time_course}{Should the time course data be collected or only the summary metrics?}
 }
 \value{
-Information regarding a github account
+Repository summary or time course metrics for a particular GitHub repository as a dataframe
 }
 \description{
 This is a function to get the information about a repository

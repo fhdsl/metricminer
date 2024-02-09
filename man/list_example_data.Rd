@@ -6,6 +6,9 @@
 \usage{
 list_example_data()
 }
+\value{
+A list of the example datasets available in this package
+}
 \description{
 This is a function to retrieve a list of the example datasets included with metricminer
 }
@@ -13,5 +16,10 @@ This is a function to retrieve a list of the example datasets included with metr
 \dontrun{
 
 list_example_data()
+
+# Now you could use any of these example datasets that are printed out
+
+get_example_data("calendly_events")
+
 }
 }

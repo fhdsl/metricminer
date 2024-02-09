@@ -10,7 +10,7 @@ get_calendly_user(token = NULL)
 \item{token}{You can provide the API key directly using this argument or this function will attempt to grab an API key that was stored using the `authorize("calendly")` function}
 }
 \value{
-Calendly REST API response as a list
+Calendly API user info as a list
 }
 \description{
 This is a function to get the Calendly API user info

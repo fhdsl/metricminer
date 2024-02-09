@@ -9,6 +9,9 @@ clean_ga_metrics(metrics = NULL)
 \arguments{
 \item{metrics}{a metrics object from `get_ga_stats()` function}
 }
+\value{
+a data frame of cleaned metrics from Google Analytics
+}
 \description{
 These functions are to clean metric and dimension data from Google Analytics `get_ga_stats()` function
 }

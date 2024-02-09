@@ -7,6 +7,7 @@
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param recursive Should slido files be looked for recursively in this folder? default is TRUE.
 #' @param keep_duplicates By default we won't keep duplicated files if a two files have the same name. But if you set this to true, duplicates will be returned.
+#' @return A list of the slido files and their content in a Googledrive location.
 #' @import dplyr
 #' @importFrom googledrive as_id drive_ls
 #' @importFrom googlesheets4 read_sheet

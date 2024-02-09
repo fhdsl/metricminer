@@ -2,7 +2,7 @@
 % Please edit documentation in R/github.R
 \name{get_github_repo_timecourse}
 \alias{get_github_repo_timecourse}
-\title{Collect repo timecourse metrics}
+\title{Collect repository timecourse metrics}
 \usage{
 get_github_repo_timecourse(
   repo,
@@ -16,12 +16,12 @@ get_github_repo_timecourse(
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
-\item{count}{How many items would you like to recieve? Put "all" to retrieve all records.}
+\item{count}{How many items would you like to receive? Put "all" to retrieve all records.}
 
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 }
 \value{
-GitHub repository summary metrics
+GitHub repository timecourse metrics for views and clones
 }
 \description{
 This is a wrapper for \code{\link{get_github_metrics}} that has `time_course = TRUE` so that timecourse metrics are collected
