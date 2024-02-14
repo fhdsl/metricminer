@@ -10,7 +10,7 @@ auth_from_secret(
   access_token,
   refresh_token,
   cache = FALSE,
-  in_test = TRUE
+  in_test = FALSE
 )
 }
 \arguments{
