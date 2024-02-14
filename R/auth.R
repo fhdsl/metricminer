@@ -194,7 +194,7 @@ delete_creds <- function(app_name = "all") {
 #' }
 #'
 auth_from_secret <- function(app_name, token, access_token, refresh_token, cache = FALSE,
-                             in_test = TRUE) {
+                             in_test = FALSE) {
   if (app_name %in% c("github", "calendly") && is.null(token)) {
     stop("For GitHub and Calendly, token cannot be NULL")
   }

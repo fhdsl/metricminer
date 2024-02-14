@@ -17,3 +17,4 @@ resources/*
 inst/extdata/docker/*
 ^CRAN-SUBMISSION$
 ^cran-comments.md$
+^privacypolicy.md$
