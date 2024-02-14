@@ -253,13 +253,15 @@ with “no responses” in the respective part of the list).</p>
 </h4>
 <p>From GitHub you can attempt to collect repository metrics from all
 repositories from an account.</p>
-<pre><code><span><span class="fu"><a href="../reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span>
-<span><span class="va">all_repos_metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_multiple_repos_metrics.html">get_multiple_repos_metrics</a></span><span class="op">(</span>owner <span class="op">=</span> <span class="st">"fhdsl"</span><span class="op">)</span></span></code></pre>
+<pre><code><span><span class="fu"><a href="../reference/authorize.html">authorize</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span></code></pre>
 <p>If you want to do this by giving a list of specific repositories you
 want data from you can just provide a vector of those repository’s names
 like this:</p>
 <pre><code><span><span class="va">repo_names</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"fhdsl/metricminer"</span>, <span class="st">"jhudsl/OTTR_Template"</span><span class="op">)</span></span>
 <span><span class="va">some_repos_metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_multiple_repos_metrics.html">get_multiple_repos_metrics</a></span><span class="op">(</span>repo_names <span class="op">=</span> <span class="va">repo_names</span><span class="op">)</span></span></code></pre>
+<p>If you want the time course related data, you can set
+<code>time_course = TRUE</code>.</p>
+<pre><code><span><span class="va">some_repos_metrics</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_multiple_repos_metrics.html">get_multiple_repos_metrics</a></span><span class="op">(</span>repo_names <span class="op">=</span> <span class="va">repo_names</span>, time_course <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level4">
 <h4 id="google-analytics-bulk">Google Analytics bulk<a class="anchor" aria-label="anchor" href="#google-analytics-bulk"></a>
@@ -387,7 +389,7 @@ extract and authorize these secrets in the environment.</p>
 <div class="section level4">
 <h4 id="session-info">Session info<a class="anchor" aria-label="anchor" href="#session-info"></a>
 </h4>
-<div class="sourceCode" id="cb33"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb34"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/sessionInfo.html" class="external-link">sessionInfo</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; R version 4.3.2 (2023-10-31)</span></span>
 <span><span class="co">#&gt; Platform: x86_64-pc-linux-gnu (64-bit)</span></span>
