@@ -1,4 +1,4 @@
-FROM rocker/tidyverse:4.0.2
+FROM rocker/tidyverse:4.3
 LABEL maintainer="cansav09@gmail.com"
 WORKDIR /rocker-build/
 
@@ -11,7 +11,6 @@ COPY github_package_list.tsv .
 RUN Rscript install_github.R \
   --packages github_package_list.tsv \
   --token git_token.txt
-
 
 # Set final workdir for commands
 WORKDIR /home/rstudio

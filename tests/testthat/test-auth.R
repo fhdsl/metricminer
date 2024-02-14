@@ -49,7 +49,6 @@ if (all(!(auth_tokens == ""))) {
       "email", "hireable", "bio", "twitter_username", "public_repos",
       "public_gists", "followers", "following", "created_at", "updated_at"
     ))
-    delete_creds()
   })
 } else {
   message("testthat tests skipped because no auth detected")
