@@ -25,13 +25,11 @@ Your use of Google APIs with these packages is subject to each API’s respectiv
 
 These packages access Google resources from your local machine. Your machine communicates directly with the Google APIs.
 
-The metricminer project never receives your data or the permission to access your data. The owners of the project can only see anonymous, aggregated information about usage of tokens obtained through its OAuth client, such as which APIs and endpoints are being used.
+The `metricminer` project never receives your data or the permission to access your data. The owners of the project can only see anonymous, aggregated information about usage of tokens obtained through its OAuth client, such as which APIs and endpoints are being used.
 
 Each package includes functions that you can execute in order to read or modify your own data. This can only happen after you provide a token, which requires that you authenticate yourself as a specific Google user and authorize these actions.
 
-These packages can help you get a token by guiding you through the OAuth flow in the browser. There you must consent to allow the metricminer to operate on your behalf. The OAuth consent screen will describe the scope of what is being authorized, e.g., it will name the target API(s) and whether you are authorizing “read only” or “read and write” access.
-
-There are two ways to use these packages without authorizing the Tidyverse API Packages: bring your own service account token or configure the package to use an OAuth client of your choice.
+These packages can help you get a token by guiding you through the OAuth flow in the browser. There you must consent to allow the `metricminer` to operate on your behalf. The OAuth consent screen will describe the scope of what is being authorized, e.g., it will name the target API(s) and whether you are authorizing “read only” or “read and write” access.
 
 ### Scopes
 Overview of the scopes as they are seen on the OAuth screen, requested by various metricminer and the rationale of why you may need them:
@@ -63,7 +61,7 @@ We do not collect any data about you and we do not have any access to data that 
 ## Policies for authors of packages or other applications
 Do not use an API key or client ID from the `metricminer` in an external package or tool. Per the Google User Data Policy https://developers.google.com/terms/api-services-user-data-policy, your application must accurately represent itself when authenticating to Google API services.
 
-If you use these packages inside another package or application that executes its own logic — as opposed to code in the metricminer or by the user — you must communicate this clearly to the user. Do not use credentials from the Tidyverse API Packages; instead, use credentials associated with your project or your user.
+If you use these packages inside another package or application that executes its own logic — as opposed to code in the `metricminer` or by the user — you must communicate this clearly to the user. Do not use credentials from the `metricminer`; instead, use credentials associated with your project or your user.
 
 ## Contact Us  
 
