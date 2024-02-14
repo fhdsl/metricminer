@@ -64,8 +64,10 @@ jobs:
 
       - name: Install dependencies
         run: |
-          remotes::install_deps(dependencies = TRUE)
+          remotes::install_deps(dependencies = TRUE, force = TRUE)
           remotes::install_cran("devtools")
+          packageVersion("gh")
+          packageVersion("metricminer")
         shell: Rscript {0}
 
       - name: Check
