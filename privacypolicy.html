@@ -61,7 +61,80 @@
 <div class="section level2">
 <h2 id="privacy-policy">Privacy Policy<a class="anchor" aria-label="anchor" href="#privacy-policy"></a></h2>
 <p>Last updated: February 13, 2024</p>
-<p>By using metricminer you will be interacting with other web services’ Application Programming Interfaces (APIs). The developers of metricminer at no time have any access to any data you collect with metricminer. We ask that for your own safety you collect and store your own credentials and data with care and do not share your credentials with others. That includes not pushing to GitHub your credentials or user information you’ve collected with metricminer. Keep all credentials and user data private.</p>
+<p>Adapted from <a href="https://www.tidyverse.org/google_privacy_policy/" class="external-link uri">https://www.tidyverse.org/google_privacy_policy/</a></p>
+</div>
+<div class="section level2">
+<h2 id="privacy-policy-for-packages-that-access-google-apis">Privacy policy for packages that access Google APIs<a class="anchor" aria-label="anchor" href="#privacy-policy-for-packages-that-access-google-apis"></a></h2>
+<p>metricminer is an R package wrapper for Google data as well as other web services. This includes obtaining data from the APIs from these Google products:</p>
+<ul><li>Google forms</li>
+<li>Googledrive</li>
+<li>Googlesheets</li>
+<li>Google Analytics</li>
+<li>Youtube</li>
+</ul><p>All of these packages are governed by common policies recorded here. These packages use internal resources owned by the “metricminer” project on Google Cloud Platform. That is the name you will see in a consent screen.</p>
+<p>Your use of Google APIs with these packages is subject to each API’s respective terms of service. See <a href="https://developers.google.com/terms/" class="external-link uri">https://developers.google.com/terms/</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="privacy">Privacy<a class="anchor" aria-label="anchor" href="#privacy"></a></h2>
+<div class="section level3">
+<h3 id="google-account-and-user-data">Google account and user data<a class="anchor" aria-label="anchor" href="#google-account-and-user-data"></a></h3>
+<div class="section level4">
+<h4 id="accessing-user-data">Accessing user data<a class="anchor" aria-label="anchor" href="#accessing-user-data"></a></h4>
+<p>These packages access Google resources from your local machine. Your machine communicates directly with the Google APIs.</p>
+<p>The <code>metricminer</code> project never receives your data or the permission to access your data. The owners of the project can only see anonymous, aggregated information about usage of tokens obtained through its OAuth client, such as which APIs and endpoints are being used.</p>
+<p>Each package includes functions that you can execute in order to read or modify your own data. This can only happen after you provide a token, which requires that you authenticate yourself as a specific Google user and authorize these actions.</p>
+<p>These packages can help you get a token by guiding you through the OAuth flow in the browser. There you must consent to allow the <code>metricminer</code> to operate on your behalf. The OAuth consent screen will describe the scope of what is being authorized, e.g., it will name the target API(s) and whether you are authorizing “read only” or “read and write” access.</p>
+</div>
+</div>
+<div class="section level3">
+<h3 id="scopes">Scopes<a class="anchor" aria-label="anchor" href="#scopes"></a></h3>
+<p>Overview of the scopes as they are seen on the OAuth screen, requested by various metricminer and the rationale of why you may need them:</p>
+<ul><li>
+<code>See, edit, create, and delete all of your Google Drive files.</code> This is used for if you’d like store metrics you collect with metricminer to your GoogleDrive folder. <a href="https://hutchdatascience.org/metricminer/reference/write_to_gsheet.html" class="external-link">Function that uses this scope</a>.</li>
+<li>
+<code>See and download all your Google Drive files.</code> This is used for you’d like to find and retrieve Slido data or Google Forms that are stored in your Google Drive. <a href="https://hutchdatascience.org/metricminer/#google-forms" class="external-link">Functions that use this scope</a>
+</li>
+<li>
+<code>See information about your Google Drive files.</code> This is used for you’d like to retrieve Slido data or Google Forms that are stored in your Google Drive. <a href="https://hutchdatascience.org/metricminer/#google-forms" class="external-link">Functions that use this scope</a>.</li>
+<li>
+<code>See, edit, create, and delete only the specific Google Drive files you use with this app.</code> This is used for if you’d like store metrics you collect with <code>metricminer</code> to your GoogleDrive folder. <a href="https://hutchdatascience.org/metricminer/reference/write_to_gsheet.html" class="external-link">Function that uses this scope</a>.</li>
+<li>
+<code>View your YouTube account</code> This is used for collecting metrics from Youtube videos or Youtube channels with <a href="https://hutchdatascience.org/metricminer/#youtube" class="external-link">those respective functions</a>.</li>
+<li>
+<code>See, edit, create, and delete all your Google Sheets spreadsheets.</code> <a href="https://hutchdatascience.org/metricminer/reference/write_to_gsheet.html" class="external-link">Function that uses this scope</a>.</li>
+<li>
+<code>See and download your Google Analytics data.</code> This is used for collecting data from Google Analytics. <a href="https://hutchdatascience.org/metricminer/#google-analytics" class="external-link">Functions that use this scope</a>
+</li>
+<li>
+<code>View and manage your Google Analytics data.</code> This is used for collecting data from Google Analytics. <a href="https://hutchdatascience.org/metricminer/#google-analytics" class="external-link">Functions that use this scope</a>.</li>
+<li>
+<code>See all responses to your Google Forms forms.</code> - This is used for you’d like to retrieve Google Form data that are stored in your Google Drive.<a href="https://hutchdatascience.org/metricminer/#google-forms" class="external-link">Functions that use this scope</a>
+</li>
+<li>
+<code>See all your Google Forms forms.</code> This is used for you’d like to retrieve Google Form data that are stored in your Google Drive. <a href="https://hutchdatascience.org/metricminer/#google-forms" class="external-link">Functions that use this scope</a>
+</li>
+<li>
+<code>See, edit, create, and delete all your Google Forms forms.</code> This is used for you’d like to retrieve Google Form data that are stored in your Google Drive. <a href="https://hutchdatascience.org/metricminer/#google-forms" class="external-link">Functions that use this scope</a>
+</li>
+</ul></div>
+</div>
+<div class="section level2">
+<h2 id="sharing-user-data">Sharing user data<a class="anchor" aria-label="anchor" href="#sharing-user-data"></a></h2>
+<p>metricminer only communicates with Google APIs. No user data is shared with the owners of the metricminer, RStudio, or any other servers.</p>
+</div>
+<div class="section level2">
+<h2 id="storing-user-data">Storing user data<a class="anchor" aria-label="anchor" href="#storing-user-data"></a></h2>
+<p>These packages may store your credentials on your local machine, for later reuse by you. Use caution when using these packages on a shared machine.</p>
+<p>By default, an OAuth token is stored in your local environment and if when you are authorizing a package you set <code>cache = TRUE</code> your credentials will be stored in a location like, such as ~/User/<yourusername>/Library/Caches/org.R-project.R/R/metricminer/cached-secrets. But this exact location will be specific to your computer. You can retrieve the exact file path of your cached secrets by running this in R <code>metricminer::cached_secrets_folder()</code>.</yourusername></p>
+</div>
+<div class="section level2">
+<h2 id="data-protection-policy">Data protection policy<a class="anchor" aria-label="anchor" href="#data-protection-policy"></a></h2>
+<p>We do not collect any data about you and we do not have any access to data that you retrieve by using this package. Security procedures are in place to protect the confidentiality of any that we might come across, and we use best practices, such as encryption and mandatory usage of 2FA, as a matter of course.</p>
+</div>
+<div class="section level2">
+<h2 id="policies-for-authors-of-packages-or-other-applications">Policies for authors of packages or other applications<a class="anchor" aria-label="anchor" href="#policies-for-authors-of-packages-or-other-applications"></a></h2>
+<p>Do not use an API key or client ID from the <code>metricminer</code> in an external package or tool. Per the Google User Data Policy <a href="https://developers.google.com/terms/api-services-user-data-policy" class="external-link uri">https://developers.google.com/terms/api-services-user-data-policy</a>, your application must accurately represent itself when authenticating to Google API services.</p>
+<p>If you use these packages inside another package or application that executes its own logic — as opposed to code in the <code>metricminer</code> or by the user — you must communicate this clearly to the user. Do not use credentials from the <code>metricminer</code>; instead, use credentials associated with your project or your user.</p>
 </div>
 <div class="section level2">
 <h2 id="contact-us">Contact Us<a class="anchor" aria-label="anchor" href="#contact-us"></a></h2>
