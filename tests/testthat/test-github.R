@@ -2,7 +2,8 @@ if (Sys.getenv("METRICMINER_GITHUB_PAT") != "") {
   test_that("GitHub: Get repo list", {
     # Authorize GitHub
     auth_from_secret("github",
-      token = Sys.getenv("METRICMINER_GITHUB_PAT"), in_test = FALSE
+      token = Sys.getenv("METRICMINER_GITHUB_PAT"),
+      in_test = FALSE
     )
 
     repo_list <- get_org_repo_list(owner = "fhdsl")
@@ -19,7 +20,8 @@ if (Sys.getenv("METRICMINER_GITHUB_PAT") != "") {
   test_that("GitHub: Repo metrics", {
     # Authorize GitHub
     auth_from_secret("github",
-      token = Sys.getenv("METRICMINER_GITHUB_PAT")
+      token = Sys.getenv("METRICMINER_GITHUB_PAT"),
+      in_test = FALSE
     )
 
     metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
