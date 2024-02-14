@@ -22,7 +22,7 @@ Imports:
     jsonlite, 
     assertthat, 
     openssl, 
-    gh, 
+    gh (>= 1.3.0), 
     getPass,
     dplyr,
     lubridate, 
