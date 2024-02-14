@@ -74,7 +74,7 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
 
   if (is.null(token)) {
     # Get auth token
-    token <- get_token(app_name = "github", try = TRUE)
+    token <- get_token(app_name = "github")
     if (is.null(token)) warning("No token found. Only public repositories will be retrieved.")
   }
 

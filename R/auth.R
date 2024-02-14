@@ -1,8 +1,8 @@
 #' Authorize R package to access endpoints
 #' @description This is a function to authorize the R package to access APIs interactively.
-#' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
+#' @param app_name App would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
 #' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
-#' @param ... additional arguments to send to \code{\link{oauth2.0_token}}
+#' @param ... Additional arguments to send to \code{\link{oauth2.0_token}}
 #' @return API token saved to the environment or the cache so it can be grabbed by functions
 #' @importFrom utils menu installed.packages browseURL
 #' @importFrom httr oauth_app oauth_endpoints oauth2.0_token
@@ -137,27 +137,16 @@ delete_creds <- function(app_name = "all") {
     message("No cached creds to delete (from metricminer anyway). Done")
   } else {
     if (app_name == "all" | app_name == "calendly") {
-      if (calendly_creds_exist) {
-        remove_token("calendly")
-        remove_cache("calendly")
-        message("Calendly creds deleted from cache and environment")
-      }
+      if (calendly_creds_exist) {remove_token("calendly"); message("Calendly creds deleted from environment")}
+      if (calendly_cache_exist) {remove_cache("calendly"); message("Calendly creds deleted from cache")}
     }
-
     if (app_name == "all" | app_name == "github") {
-      if (github_creds_exist) {
-        remove_token("github")
-        remove_cache("github")
-        message("GitHub creds deleted from cache and environment")
-      }
+      if (github_creds_exist) {remove_token("github"); message("GitHub creds deleted from environment")}
+      if (github_cache_exist) {remove_cache("github"); message("GitHub creds deleted from cache")}
     }
-
     if (app_name == "all" | app_name == "google") {
-      if (google_creds_exist) {
-        remove_token("google")
-        remove_cache("google")
-        message("Cached Google RDS file deleted and token removed from environment")
-      }
+      if (google_creds_exist) {remove_token("google"); message("Cached Google token removed from environment")}
+      if (google_cache_exist) {remove_cache("google"); message("Cached Google creds removed from cache")}
     }
   }
 }
@@ -194,7 +183,7 @@ delete_creds <- function(app_name = "all") {
 #' }
 #'
 auth_from_secret <- function(app_name, token, access_token, refresh_token, cache = FALSE,
-                             in_test = TRUE) {
+                             in_test = FALSE) {
   if (app_name %in% c("github", "calendly") && is.null(token)) {
     stop("For GitHub and Calendly, token cannot be NULL")
   }
