@@ -45,6 +45,11 @@ If you find that the data returned is not what you need you have two options (th
 
 ## How to install
 
+You can install metricminer from CRAN.
+```
+install.packages("metricminer")
+```
+
 If you want the development version (not advised) you can install using the `remotes` package to install from GitHub.
 ```
 if (!("remotes" %in% installed.packages())) {
@@ -174,18 +179,13 @@ From GitHub you can attempt to collect repository metrics from all repositories 
 
 ```
 authorize("github")
+all_repos_metrics <- get_multiple_repos_metrics(owner = "fhdsl")
 ```
 
 If you want to do this by giving a list of specific repositories you want data from you can just provide a vector of those repository's names like this:
 ```
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
-```
-
-If you want the time course related data, you can set `time_course = TRUE`.
-
-```
-some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
 ```
 
 ### Google Analytics bulk
