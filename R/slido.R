@@ -2,7 +2,7 @@
 
 
 #' Get Slido Files
-#' @description This is a function to get slido response output files. The slido files must be saved as googlesheets and cannot be xlsx.
+#' @description This is a function to get slido response output files. The slido files must be saved as googlesheets and cannot be xlsx.  The scope it uses is the `See, edit, create, and delete all your Google Sheets spreadsheets.` If you don't check this box on the OAuth screen this function won't work.
 #' @param drive_id a URL or drive id that has the slido response output files you are looking to get (will recursively search for files by default).
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param recursive Should slido files be looked for recursively in this folder? default is TRUE.
