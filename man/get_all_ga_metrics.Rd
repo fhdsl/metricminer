@@ -19,7 +19,7 @@ Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are 
 A list of metrics, dimensions, and link clicks for a for all properties underneath a Google Analytics account. It can be returned as a curated data.frame or the raw version which is the API response as a list
 }
 \description{
-This is a function to gets metrics and dimensions for all properties associated with an account
+This is a function to gets metrics and dimensions for all properties associated with an account. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
 }
 \examples{
 \dontrun{

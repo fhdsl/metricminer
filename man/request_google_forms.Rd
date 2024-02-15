@@ -27,5 +27,7 @@ request_google_forms(
 This function returns a list from a API response JSON file
 }
 \description{
-This is a function to get the Calendly API user info
+This is a function to get the Google Forms API requests.
+The scopes it uses are the `See all your Google Forms forms.` and `See all responses to your Google Forms forms.`
+If you don't check this box on the OAuth screen this function won't work.
 }

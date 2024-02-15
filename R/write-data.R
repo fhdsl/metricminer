@@ -1,5 +1,7 @@
 #' Writes data to a Googlesheet
-#' @description This is a function to write metricminer data to a Googlesheet
+#' @description This is a function to write metricminer data to a Googlesheet.
+#' Scope used for this function is the `See, edit, create, and delete only the specific Google Drive files you use with this app.`
+#' When you get to the OAuth consent screen. If you do not check this box, this function won't work.
 #' @param input input data to write to a googlesheet
 #' @param token OAuth token from Google login.
 #' @param gsheet Optionally a googlesheet to write to

@@ -1,6 +1,6 @@
 #' Authorize R package to access endpoints
-#' @description This is a function to authorize the R package to access APIs interactively.
-#' @param app_name App would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
+#' @description This is a function to authorize the R package to access APIs interactively. To learn more about the privacy policy for metricminer [read here](https://www.metricminer.org/privacypolicy.html)
+#' @param app_name app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'
 #' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
 #' @param ... Additional arguments to send to \code{\link{oauth2.0_token}}
 #' @return API token saved to the environment or the cache so it can be grabbed by functions

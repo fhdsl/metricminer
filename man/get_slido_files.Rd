@@ -24,7 +24,10 @@ get_slido_files(
 A list of the slido files and their content in a Googledrive location.
 }
 \description{
-This is a function to get slido response output files. The slido files must be saved as googlesheets and cannot be xlsx.
+This is a function to get slido response output files.
+The slido files must be saved as googlesheets and cannot be xlsx.
+The scope it uses is the `See, edit, create, and delete all your Google Sheets spreadsheets.`
+If you don't check this box on the OAuth screen this function won't work.
 }
 \examples{
 \dontrun{

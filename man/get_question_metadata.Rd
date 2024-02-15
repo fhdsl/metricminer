@@ -14,5 +14,5 @@ This returns metadata from a google form
 }
 \description{
 This is a function to get metadata about a Google Form. It is
- used by the `get_google_form()` function if dataformat = "dataframe"
+ used by the `get_google_form()` function if dataformat = "dataframe".
 }

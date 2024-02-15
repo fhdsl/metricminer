@@ -33,7 +33,9 @@ get_ga_stats(
 Metrics dimensions for a GA returned from the Google Analytics API. It can be returned as a curated data.frame or the raw version which is the API response as a list
 }
 \description{
-This is a function to get the Google Analytics accounts that this user has access to
+This is a function to get the Google Analytics accounts that this user has access to.
+The scope it uses is the `See and download your Google Analytics data.`
+If you don't check this box on the OAuth screen, this function will not work.
 }
 \examples{
 \dontrun{

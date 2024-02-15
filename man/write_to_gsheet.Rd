@@ -36,7 +36,9 @@ write_to_gsheet(
 The googlesheet URL where the data has been written
 }
 \description{
-This is a function to write metricminer data to a Googlesheet
+This is a function to write metricminer data to a Googlesheet.
+Scope used for this function is the `See, edit, create, and delete only the specific Google Drive files you use with this app.`
+When you get to the OAuth consent screen. If you do not check this box, this function won't work.
 }
 \examples{
 \dontrun{

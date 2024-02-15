@@ -1,7 +1,9 @@
 # Extracting data from Google Forms
 
 #' Get Google Forms
-#' @description This is a function to get the Calendly API user info
+#' @description This is a function to get the Google Forms API requests.
+#' The scopes it uses are the `See all your Google Forms forms.` and `See all responses to your Google Forms forms.`
+#' If you don't check this box on the OAuth screen this function won't work.
 #' @param url The endpoint URL for the request
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
@@ -56,7 +58,9 @@ request_google_forms <- function(token, url,
 
 
 #' Get Google Forms
-#' @description This is a function to get Google Form info and responses from the API
+#' @description This is a function to get Google Form info and responses from the API.
+#' The scopes it uses are the `See all your Google Forms forms.` and `See all responses to your Google Forms forms.`
+#' If you don't check this box on the OAuth screen this function won't work.
 #' @param form_id The form ID we need to get
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param dataformat What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.
@@ -125,7 +129,10 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 
 
 #' Get multiple Google forms
-#' @description This is a wrapper function for returning google form info and responses for multiple forms at once
+#' @description This is a wrapper function for returning google form info and
+#' responses for multiple forms at once. The scopes it uses are the `See all your Google Forms forms.`
+#' and `See all responses to your Google Forms forms.`
+#' If you don't check this box on the OAuth screen this function won't work.
 #' @param form_ids a vector of form ids you'd like to retrieve information for
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @returns This returns a list of API information for google forms
@@ -164,7 +171,7 @@ get_multiple_forms <- function(form_ids = NULL, token = NULL) {
 
 #' Google Form handling functions
 #' @description This is a function to get metadata about a Google Form. It is
-#'  used by the `get_google_form()` function if dataformat = "dataframe"
+#'  used by the `get_google_form()` function if dataformat = "dataframe".
 #' @param form_info The return form_info list that is extracted in `get_google_form()`
 #' @returns This returns metadata from a google form
 #' @export
