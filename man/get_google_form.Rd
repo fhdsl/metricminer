@@ -17,7 +17,9 @@ get_google_form(form_id, token = NULL, dataformat = "dataframe")
 This returns a list of the form info and responses to the google form. Default is to make this a list of nicely formatted dataframes.
 }
 \description{
-This is a function to get Google Form info and responses from the API
+This is a function to get Google Form info and responses from the API.
+The scopes it uses are the `See all your Google Forms forms.` and `See all responses to your Google Forms forms.`
+If you don't check this box on the OAuth screen this function won't work.
 }
 \examples{
 \dontrun{

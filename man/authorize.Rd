@@ -17,7 +17,7 @@ authorize(app_name = NULL, cache = FALSE, ...)
 API token saved to the environment or the cache so it can be grabbed by functions
 }
 \description{
-This is a function to authorize the R package to access APIs interactively.
+This is a function to authorize the R package to access APIs interactively. To learn more about the privacy policy for metricminer [read here](https://www.metricminer.org/privacypolicy.html)
 }
 \examples{
 \dontrun{

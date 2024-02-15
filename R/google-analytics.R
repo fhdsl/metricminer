@@ -3,7 +3,9 @@
 library(magrittr)
 
 #' Handler for API requests from Google Analytics
-#' @description This is a function that handles requests from Google Analytics. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+#' @description This is a function that handles requests from Google Analytics.
+#' The scope it uses is the `See and download your Google Analytics data.`
+#' If you don't check this box on the OAuth screen, this function will not work.
 #' @param url The endpoint URL for the request
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
@@ -55,7 +57,9 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 }
 
 #' Get Google Analytics Accounts
-#' @description This is a function to get the Google Analytics accounts that this user has access to. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+#' @description This is a function to get the Google Analytics accounts that
+#' this user has access to. The scope it uses is the `See and download your Google Analytics data.`
+#' If you don't check this box on the OAuth screen, this function will not work.
 #' @param request_type Is this a GET or a POST?
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -88,7 +92,9 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
-#' @description This is a function to get the Google Analytics accounts that this user has access to. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+#' @description This is a function to get the Google Analytics accounts that this user has access to.
+#' The scope it uses is the `See and download your Google Analytics data.`
+#' If you don't check this box on the OAuth screen, this function will not work.
 #' @param account_id the account id of the properties you are trying to retrieve
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -122,7 +128,9 @@ get_ga_properties <- function(account_id, token = NULL) {
 }
 
 #' Get metadata associated Google Analytics property
-#' @description This is a function to get the Google Analytics accounts that this user has access to. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+#' @description This is a function to get the Google Analytics accounts that this user has access to.
+#' The scope it uses is the `See and download your Google Analytics data.`
+#' If you don't check this box on the OAuth screen, this function will not work.
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -160,7 +168,9 @@ get_ga_metadata <- function(property_id, token = NULL) {
 }
 
 #' Get stats for an associated Google Analytics property
-#' @description This is a function to get the Google Analytics accounts that this user has access to. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+#' @description This is a function to get the Google Analytics accounts that this user has access to.
+#' The scope it uses is the `See and download your Google Analytics data.`
+#' If you don't check this box on the OAuth screen, this function will not work.
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`

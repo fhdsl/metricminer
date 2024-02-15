@@ -15,7 +15,10 @@ get_multiple_forms(form_ids = NULL, token = NULL)
 This returns a list of API information for google forms
 }
 \description{
-This is a wrapper function for returning google form info and responses for multiple forms at once
+This is a wrapper function for returning google form info and
+responses for multiple forms at once. The scopes it uses are the `See all your Google Forms forms.`
+and `See all responses to your Google Forms forms.`
+If you don't check this box on the OAuth screen this function won't work.
 }
 \examples{
 \dontrun{
