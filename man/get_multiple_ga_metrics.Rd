@@ -15,13 +15,13 @@ get_multiple_ga_metrics(
 \arguments{
 \item{account_id}{the account id that you'd like to retrieve stats for all properties associated with it.}
 
+\item{property_ids}{A vector of property ids you'd like to retrieve metrics for.}
+
 \item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
 
 \item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 
 \item{stats_type}{Do you want to retrieve metrics or dimensions? List all you want to collect as a vector}
-
-\item{property_id}{A vector of property ids you'd like to retrieve metrics for.}
 }
 \value{
 Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
