@@ -208,9 +208,6 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' If you don't check this box on the OAuth screen, this function will not work.
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
-#' @importFrom httr config accept_json content
-#' @importFrom jsonlite fromJSON
-#' @importFrom assertthat assert_that is.string
 #' @return A list showing the metadata types available for the Google Analytics property. This can be used to craft an API request.
 #' @export
 #' @examples \dontrun{
@@ -372,7 +369,9 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' property_ids <- c("422671031", "422558989")
+#' all_properties <- get_multiple_ga_metrics(account_id = accounts$id)
+#'
+#' some_properties <- get_multiple_ga_metrics(property_ids = c("422671031", "422558989"))
 #'
 #' }
 get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, token = NULL, dataformat = "dataframe",
