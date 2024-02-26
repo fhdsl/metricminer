@@ -61,7 +61,11 @@ if (all(!(auth_tokens == ""))) {
       in_test = TRUE
     )
 
-    stats_list <- get_all_ga_metrics(account_id = 209776907)
+    stats_list <- get_multiple_ga_metrics(account_id = 209776907)
+
+    expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
+
+    stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989))
 
     expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
   })

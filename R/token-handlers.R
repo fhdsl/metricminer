@@ -54,7 +54,6 @@ remove_cache <- function(app_name) {
 # Default is to try to retrieve credentials but if credentials are not necessary
 # and you just want to attempt to grab credentials and see if you can then set try = TRUE
 get_token <- function(app_name, try = FALSE, silent = FALSE) {
-
   # If there's none in the current environment, attempt to grab a stored credential
   if (is.null(.Env$metricminer_tokens[[app_name]])) {
     # Attempt to get stored token
@@ -88,7 +87,6 @@ get_token <- function(app_name, try = FALSE, silent = FALSE) {
 
 # Check if token already exists
 check_for_tokens <- function(app_name = NULL) {
-
   if (is.null(app_name)) {
     app_name <- c("github", "google", "calendly")
   }

@@ -14,7 +14,6 @@ utils::globalVariables(c(
 #' # Now you could use any of these example datasets that are printed out
 #'
 #' get_example_data("calendly_events")
-#'
 #' }
 list_example_data <- function() {
   data_list <-

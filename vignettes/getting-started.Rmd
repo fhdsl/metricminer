@@ -196,10 +196,11 @@ authorize("google")
 accounts <- get_ga_user()
 ```
 
-Then we can provide the account id to `all_ga_metrics` and it will attempt to grab all stats for all website properties underneath the provided account.
+Then we can provide the account id to `get_multiple_ga_metrics` and it will attempt to grab all stats for all website properties underneath the provided account.
 
 ```
-stats_list <- all_ga_metrics(account_id = accounts$id[5])
+account_stats_list <- get_multiple_ga_metrics(account_id = 209776907)
+stats_list <- stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989))
 ```
 
 

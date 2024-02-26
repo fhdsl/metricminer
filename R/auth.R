@@ -137,16 +137,34 @@ delete_creds <- function(app_name = "all") {
     message("No cached creds to delete (from metricminer anyway). Done")
   } else {
     if (app_name == "all" | app_name == "calendly") {
-      if (calendly_creds_exist) {remove_token("calendly"); message("Calendly creds deleted from environment")}
-      if (calendly_cache_exist) {remove_cache("calendly"); message("Calendly creds deleted from cache")}
+      if (calendly_creds_exist) {
+        remove_token("calendly")
+        message("Calendly creds deleted from environment")
+      }
+      if (calendly_cache_exist) {
+        remove_cache("calendly")
+        message("Calendly creds deleted from cache")
+      }
     }
     if (app_name == "all" | app_name == "github") {
-      if (github_creds_exist) {remove_token("github"); message("GitHub creds deleted from environment")}
-      if (github_cache_exist) {remove_cache("github"); message("GitHub creds deleted from cache")}
+      if (github_creds_exist) {
+        remove_token("github")
+        message("GitHub creds deleted from environment")
+      }
+      if (github_cache_exist) {
+        remove_cache("github")
+        message("GitHub creds deleted from cache")
+      }
     }
     if (app_name == "all" | app_name == "google") {
-      if (google_creds_exist) {remove_token("google"); message("Cached Google token removed from environment")}
-      if (google_cache_exist) {remove_cache("google"); message("Cached Google creds removed from cache")}
+      if (google_creds_exist) {
+        remove_token("google")
+        message("Cached Google token removed from environment")
+      }
+      if (google_cache_exist) {
+        remove_cache("google")
+        message("Cached Google creds removed from cache")
+      }
     }
   }
 }

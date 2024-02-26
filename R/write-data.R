@@ -17,19 +17,23 @@
 #'
 #' authorize("github")
 #' repo_list <- get_user_repo_list(owner = "metricminer")
-#' gsheet <- paste0("https://docs.google.com/spreadsheets/d/",
-#'                  "166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0")
+#' gsheet <- paste0(
+#'   "https://docs.google.com/spreadsheets/d/",
+#'   "166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"
+#' )
 #' write_to_gsheet(repo_list)
 #'
 #' datasheet <- write_to_gsheet(
 #'   gsheet = gsheet,
 #'   input = repo_list, append_rows = TRUE,
-#'   sheet = 1)
+#'   sheet = 1
+#' )
 #'
 #' datasheet <- write_to_gsheet(
 #'   gsheet = gsheet,
 #'   input = repo_list,
-#'   new_sheet = "github_data")
+#'   new_sheet = "github_data"
+#' )
 #' }
 #'
 write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALSE, append_rows = FALSE, sheet = 1, new_sheet = FALSE, ...) {
@@ -44,7 +48,6 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
 
   ## If no gsheet provided do they want us to make one?
   if (is.null(gsheet)) {
-
     if (interactive()) {
       message("No Googlesheet ID/url was provided do you want us to make one for you?")
       gsheet_new <- menu(c("Yes create a new Googlesheet for me", "No do not create a new Googlesheet, I'll try this again but give you one to write to with the `gsheet` argument."))
@@ -63,7 +66,6 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
 
   if (class(gsheet_test)[1] == "try-error") {
     stop("Can't find the provided gsheet")
-
   }
 
   if (all(c(nrow(gsheet_test) > 0, overwrite == FALSE, append_rows == FALSE, new_sheet == FALSE))) {
