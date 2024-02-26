@@ -41,6 +41,9 @@ if (all(!(auth_tokens == ""))) {
 
     expect_named(property_metadata, c("dimensions", "metrics", "name"))
 
+    property_info <- get_ga_property_info(property_id)
+    expect_length(property_info, 11)
+
     metrics <- get_ga_stats(property_id, stats_type = "metrics")
     expect_named(metrics, c(
       "website", "activeUsers", "newUsers", "totalUsers",
