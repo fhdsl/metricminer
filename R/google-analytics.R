@@ -360,6 +360,7 @@ link_clicks <- function() {
 #' Get all metrics for all properties associated with an account
 #' @description This is a function to gets metrics and dimensions for all properties associated with an account. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
 #' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
+#' @param property_id A vector of property ids you'd like to retrieve metrics for.
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @param stats_type Do you want to retrieve metrics or dimensions? List all you want to collect as a vector
@@ -424,9 +425,9 @@ get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, toke
     return(per_type)
   })
 
-  names(all_metrics ) <- stats_type
+  names(all_metrics) <- stats_type
 
-  return(all_ga_metrics)
+  return(all_metrics)
 }
 
 #' Handle Google Analytics Lists
