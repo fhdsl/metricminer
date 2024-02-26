@@ -37,7 +37,9 @@ This is a function to gets metrics and dimensions for all properties associated 
 authorize("google")
 accounts <- get_ga_user()
 
-property_ids <- c("422671031", "422558989")
+all_properties <- get_multiple_ga_metrics(account_id = accounts$id)
+
+some_properties <- get_multiple_ga_metrics(property_ids = c("422671031", "422558989"))
 
 }
 }
