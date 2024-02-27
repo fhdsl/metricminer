@@ -247,3 +247,27 @@ app_set_up <- function(app_name = "google") {
 
   return(list(app = app, endpoint = endpoint_url))
 }
+
+#' Send secrets to a GitHub repository
+#' @description This is a function to authorize the R package to access APIs interactively. To learn more about the privacy policy for metricminer [read here](https://www.metricminer.org/privacypolicy.html)
+#' @param app_name Which secrets would you like to send? Supported apps are 'google' 'calendly' and 'github'
+#' @param cache Should the token be cached as an .httr-oauth file or API keys stored as global options?
+#' @param ... Additional arguments to send to \code{\link{oauth2.0_token}}
+#' @return API token saved to the environment or the cache so it can be grabbed by functions
+#' @importFrom gh gh
+#' @export
+#' @examples \dontrun{
+#'
+#' send_secrets()
+#'
+#' }
+
+send_secrets <- function(app_name) {
+
+  if (is.null(token)) {
+    # Get auth token
+    token <- get_token(app_name = "github")
+  }
+  gh::gh()
+
+}
