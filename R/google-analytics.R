@@ -1,7 +1,5 @@
 # Extracting data from Google Analytics
 
-library(magrittr)
-
 #' Handler for API requests from Google Analytics
 #' @description This is a function that handles requests from Google Analytics.
 #' The scope it uses is the `See and download your Google Analytics data.`
