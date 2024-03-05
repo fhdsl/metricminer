@@ -41,6 +41,9 @@ if (all(!(auth_tokens == ""))) {
 
     expect_named(property_metadata, c("dimensions", "metrics", "name"))
 
+    property_info <- get_ga_property_info(property_id)
+    expect_length(property_info, 10)
+
     metrics <- get_ga_stats(property_id, stats_type = "metrics")
     expect_named(metrics, c(
       "website", "activeUsers", "newUsers", "totalUsers",
@@ -61,7 +64,11 @@ if (all(!(auth_tokens == ""))) {
       in_test = TRUE
     )
 
-    stats_list <- get_all_ga_metrics(account_id = 209776907)
+    stats_list <- get_multiple_ga_metrics(account_id = 209776907)
+
+    expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
+
+    stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989))
 
     expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
   })

@@ -45,19 +45,23 @@ When you get to the OAuth consent screen. If you do not check this box, this fun
 
 authorize("github")
 repo_list <- get_user_repo_list(owner = "metricminer")
-gsheet <- paste0("https://docs.google.com/spreadsheets/d/",
-                 "166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0")
+gsheet <- paste0(
+  "https://docs.google.com/spreadsheets/d/",
+  "166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"
+)
 write_to_gsheet(repo_list)
 
 datasheet <- write_to_gsheet(
   gsheet = gsheet,
   input = repo_list, append_rows = TRUE,
-  sheet = 1)
+  sheet = 1
+)
 
 datasheet <- write_to_gsheet(
   gsheet = gsheet,
   input = repo_list,
-  new_sheet = "github_data")
+  new_sheet = "github_data"
+)
 }
 
 }
