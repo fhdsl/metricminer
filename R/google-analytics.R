@@ -328,9 +328,9 @@ link_clicks <- function() {
 #' accounts <- get_ga_user()
 #'
 #' properties_list <- get_ga_properties(account_id = accounts$id[1])
-#' property_ids <- gsub("properties/", "", properties_list$name[1:3])
+#' property_ids <- gsub("properties/", "", properties_list$name[1:2])
 #'
-#' all_properties <- get_multiple_ga_metrics(account_id = accounts$id)
+#' all_properties <- get_multiple_ga_metrics(account_id = accounts$id[1])
 #'
 #' some_properties <- get_multiple_ga_metrics(property_ids = property_ids)
 #'
