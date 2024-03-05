@@ -9,6 +9,7 @@ find_scopes <- function(app_name) {
       "https://www.googleapis.com/auth/drive.metadata.readonly",
       "https://www.googleapis.com/auth/forms.body.readonly",
       "https://www.googleapis.com/auth/forms.responses.readonly",
+      "https://www.googleapis.com/auth/analytics",
       "https://www.googleapis.com/auth/analytics.readonly",
       "https://www.googleapis.com/auth/spreadsheets",
       "https://www.googleapis.com/auth/youtube.readonly"
