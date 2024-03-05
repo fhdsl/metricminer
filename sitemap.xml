@@ -64,9 +64,6 @@
     <loc>/reference/extract_answers.html</loc>
   </url>
   <url>
-    <loc>/reference/get_all_ga_metrics.html</loc>
-  </url>
-  <url>
     <loc>/reference/get_calendly_user.html</loc>
   </url>
   <url>
@@ -77,6 +74,9 @@
   </url>
   <url>
     <loc>/reference/get_ga_properties.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_ga_property_info.html</loc>
   </url>
   <url>
     <loc>/reference/get_ga_stats.html</loc>
@@ -104,6 +104,9 @@
   </url>
   <url>
     <loc>/reference/get_multiple_forms.html</loc>
+  </url>
+  <url>
+    <loc>/reference/get_multiple_ga_metrics.html</loc>
   </url>
   <url>
     <loc>/reference/get_multiple_repos_metrics.html</loc>
@@ -143,6 +146,9 @@
   </url>
   <url>
     <loc>/reference/list_example_data.html</loc>
+  </url>
+  <url>
+    <loc>/reference/pipe.html</loc>
   </url>
   <url>
     <loc>/reference/request_ga.html</loc>

@@ -129,19 +129,23 @@ When you get to the OAuth consent screen. If you do not check this box, this fun
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="fu"><a href="authorize.html">authorize</a></span><span class="op">(</span><span class="st">"github"</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">repo_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="get_user_repo_list.html">get_user_repo_list</a></span><span class="op">(</span>owner <span class="op">=</span> <span class="st">"metricminer"</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="va">gsheet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span><span class="st">"https://docs.google.com/spreadsheets/d/"</span>,</span></span>
-<span class="r-in"><span>                 <span class="st">"166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">gsheet</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/paste.html" class="external-link">paste0</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="st">"https://docs.google.com/spreadsheets/d/"</span>,</span></span>
+<span class="r-in"><span>  <span class="st">"166MV4_1pfATB3Hes2HbdZCpkMc8JTT3u3eJes6Wu7Rk/edit#gid=0"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="fu">write_to_gsheet</span><span class="op">(</span><span class="va">repo_list</span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">datasheet</span> <span class="op">&lt;-</span> <span class="fu">write_to_gsheet</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  gsheet <span class="op">=</span> <span class="va">gsheet</span>,</span></span>
 <span class="r-in"><span>  input <span class="op">=</span> <span class="va">repo_list</span>, append_rows <span class="op">=</span> <span class="cn">TRUE</span>,</span></span>
-<span class="r-in"><span>  sheet <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  sheet <span class="op">=</span> <span class="fl">1</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">datasheet</span> <span class="op">&lt;-</span> <span class="fu">write_to_gsheet</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  gsheet <span class="op">=</span> <span class="va">gsheet</span>,</span></span>
 <span class="r-in"><span>  input <span class="op">=</span> <span class="va">repo_list</span>,</span></span>
-<span class="r-in"><span>  new_sheet <span class="op">=</span> <span class="st">"github_data"</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  new_sheet <span class="op">=</span> <span class="st">"github_data"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 <span class="r-in"><span></span></span>
 </code></pre></div>
