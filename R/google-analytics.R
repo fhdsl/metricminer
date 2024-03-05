@@ -1,11 +1,8 @@
 # Extracting data from Google Analytics
 
-library(magrittr)
-
 #' Handler for API requests from Google Analytics
 #' @description This is a function that handles requests from Google Analytics.
-#' The scope it uses is the `See and download your Google Analytics data.`
-#' If you don't check this box on the OAuth screen, this function will not work.
+#'  The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param url The endpoint URL for the request
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param body_params The body parameters for the request
@@ -58,8 +55,7 @@ request_ga <- function(token, url, query = NULL, body_params = NULL, request_typ
 
 #' Get Google Analytics Accounts
 #' @description This is a function to get the Google Analytics accounts that
-#' this user has access to. The scope it uses is the `See and download your Google Analytics data.`
-#' If you don't check this box on the OAuth screen, this function will not work.
+#' this user has access to. The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param request_type Is this a GET or a POST?
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -92,9 +88,7 @@ get_ga_user <- function(token = NULL, request_type = "GET") {
 }
 
 #' Get all property ids for all Google Analytics associated with an account id
-#' @description This is a function to get the Google Analytics accounts that this user has access to.
-#' The scope it uses is the `See and download your Google Analytics data.`
-#' If you don't check this box on the OAuth screen, this function will not work.
+#' @description This retrieves all the property ids associated with a Google Analytics Account. The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param account_id the account id of the properties you are trying to retrieve
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -129,8 +123,7 @@ get_ga_properties <- function(account_id, token = NULL) {
 
 #' Get all property information for a particular property id
 #' @description This is a function to get the Google Analytics accounts that this user has access to.
-#' The scope it uses is the `See and download your Google Analytics data.`
-#' If you don't check this box on the OAuth screen, this function will not work.
+#' The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param property_id the property id you want information about.
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -141,8 +134,11 @@ get_ga_properties <- function(account_id, token = NULL) {
 #' @examples \dontrun{
 #'
 #' authorize("google")
+#' accounts <- get_ga_user()
+#' properties_list <- get_ga_properties(account_id = accounts$id[1])
+#' property_id <- gsub("properties\\/", "", properties_list$name[1])
 #'
-#' property_info <- get_ga_property_info(property_id = "422558989")
+#' property_info <- get_ga_property_info(property_id = property_id)
 #' }
 get_ga_property_info <- function(property_id, token = NULL) {
   results <- request_ga(
@@ -163,8 +159,7 @@ get_ga_property_info <- function(property_id, token = NULL) {
 
 #' Get metadata associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to.
-#' The scope it uses is the `See and download your Google Analytics data.`
-#' If you don't check this box on the OAuth screen, this function will not work.
+#'  The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
 #' @importFrom httr config accept_json content
@@ -203,8 +198,7 @@ get_ga_metadata <- function(property_id, token = NULL) {
 
 #' Get stats for an associated Google Analytics property
 #' @description This is a function to get the Google Analytics accounts that this user has access to.
-#' The scope it uses is the `See and download your Google Analytics data.`
-#' If you don't check this box on the OAuth screen, this function will not work.
+#'  The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
@@ -317,7 +311,8 @@ link_clicks <- function() {
 }
 
 #' Get all metrics for all properties associated with an account
-#' @description This is a function to gets metrics and dimensions for all properties associated with an account. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+#' @description This is a function to gets metrics and dimensions for all properties associated with an account.
+#'  The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
 #' @param property_ids A vector of property ids you'd like to retrieve metrics for.
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
@@ -331,9 +326,13 @@ link_clicks <- function() {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' all_properties <- get_multiple_ga_metrics(account_id = accounts$id)
+#' properties_list <- get_ga_properties(account_id = accounts$id[1])
+#' property_ids <- gsub("properties/", "", properties_list$name[1:2])
 #'
-#' some_properties <- get_multiple_ga_metrics(property_ids = c("422671031", "422558989"))
+#' all_properties <- get_multiple_ga_metrics(account_id = accounts$id[1])
+#'
+#' some_properties <- get_multiple_ga_metrics(property_ids = property_ids)
+#'
 #' }
 get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, token = NULL, dataformat = "dataframe",
                                     stats_type = c("metrics", "dimensions", "link_clicks")) {
