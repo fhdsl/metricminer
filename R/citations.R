@@ -25,6 +25,14 @@ get_citation_count <- function(paper_cite_link) {
 
   response <- httr::GET(paper_cite_link)
 
+  if (httr::status_code(response) != 200) {
+    httr::stop_for_status(response)
+  }
+
+  original_paper <- rvest::read_html(httr::content(response, "text")) %>%
+    rvest::html_nodes('h2.gs_rt') %>%
+    rvest::html_text()
+
   titles <- rvest::read_html(httr::content(response, "text")) %>%
     rvest::html_nodes('h3') %>%
     rvest::html_text()
@@ -34,6 +42,6 @@ get_citation_count <- function(paper_cite_link) {
     rvest::html_nodes("a") %>%
     rvest::html_attr("href")
 
-  df <- data.frame(titles, links)
+  df <- data.frame(original_paper, cite_titles, links)
   return(df)
 }
