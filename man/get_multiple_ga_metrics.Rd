@@ -29,7 +29,8 @@ Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are 
 A list of metrics, dimensions, and link clicks for a for all properties underneath a Google Analytics account. It can be returned as a curated data.frame or the raw version which is the API response as a list
 }
 \description{
-This is a function to gets metrics and dimensions for all properties associated with an account. The scope it uses is the `See and download your Google Analytics data.` If you don't check this box on the OAuth screen.
+This is a function to gets metrics and dimensions for all properties associated with an account.
+ The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 }
 \examples{
 \dontrun{
@@ -37,9 +38,12 @@ This is a function to gets metrics and dimensions for all properties associated 
 authorize("google")
 accounts <- get_ga_user()
 
-all_properties <- get_multiple_ga_metrics(account_id = accounts$id)
+properties_list <- get_ga_properties(account_id = accounts$id[1])
+property_ids <- gsub("properties/", "", properties_list$name[1:2])
 
-some_properties <- get_multiple_ga_metrics(property_ids = c("422671031", "422558989"))
+all_properties <- get_multiple_ga_metrics(account_id = accounts$id[1])
+
+some_properties <- get_multiple_ga_metrics(property_ids = property_ids)
 
 }
 }
