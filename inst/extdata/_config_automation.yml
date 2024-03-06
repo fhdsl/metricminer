@@ -1,0 +1,55 @@
+##### Checks run at pull request #####
+# Check that urls in the content are not broken
+url-checker: yes
+# Render preview of content with changes (Rmd's and md's are checked)
+render-preview: yes
+# Spell check Rmds and quizzes
+spell-check: yes
+# Style any R code
+style-code: yes
+
+############ Metric Collection Destination ##############
+### Options are "github" or "google"
+data_dest: github
+folder_path:
+
+###### Calendly ######
+refresh-calendly: yes
+calendly_googlesheet:
+
+###### CRAN ######
+refresh-cran: yes
+cran_packages: [ metricminer, ottrpal ]
+cran_googlesheet:
+
+###### GitHub ######
+refresh-github: yes
+github_repos: [ fhdsl/metricminer, fhdsl/metricminer.org ]
+github_googlesheet:
+
+###### Google Analytics ######
+refresh-ga: yes
+ga_property_ids: [ 422671031, 422558989 ]
+ga_googlesheet:
+
+###### Google Forms ######
+refresh-googleforms: yes
+google_forms: [
+  1pbFfgUPYH2w9zEoCDjCa4HFOxzEhGOseufw28Xxmd-o,
+  1JjmsiuVoGSxvl-1M_oWittcftO955tijzeNc-cgJlo8 ]
+googleforms_googlesheet:
+
+###### Slido ######
+refresh-slido: yes
+drive_id: 1XWXHHyj32Uw_UyaUJrqp6S--hHnM0-7l
+slido_googlesheet:
+
+###### YouTube ######
+refresh-youtube: yes
+video_ids: [ XN_QPRrJZAw, YkYnni-WuaQ ]
+youtube_googlesheet:
+
+################## DOCKER #######################
+# What docker image should be used for rendering?
+# The default is cansav09/metricminer:main
+rendering-docker-image: 'cansav09/metricminer:main'

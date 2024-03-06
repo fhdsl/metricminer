@@ -141,7 +141,6 @@ get_ga_properties <- function(account_id, token = NULL) {
 #' property_info <- get_ga_property_info(property_id = property_id)
 #' }
 get_ga_property_info <- function(property_id, token = NULL) {
-
   results <- request_ga(
     token = token,
     url = paste0("https://analyticsadmin.googleapis.com/v1alpha/properties/", property_id),
@@ -365,7 +364,6 @@ get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, toke
 
 
   all_metrics <- lapply(stats_type, function(a_stats_type) {
-
     # Now loop through all the properties
     per_type <- lapply(property_ids, function(property_id) {
       # Be vocal about it

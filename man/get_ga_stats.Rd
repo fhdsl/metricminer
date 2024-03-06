@@ -34,8 +34,7 @@ Metrics dimensions for a GA returned from the Google Analytics API. It can be re
 }
 \description{
 This is a function to get the Google Analytics accounts that this user has access to.
-The scope it uses is the `See and download your Google Analytics data.`
-If you don't check this box on the OAuth screen, this function will not work.
+ The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 }
 \examples{
 \dontrun{

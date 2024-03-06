@@ -33,7 +33,10 @@ Imports:
     janitor,
     stringr,
     methods,
-    magrittr
+    magrittr, 
+    rvest,
+    rprojroot, 
+    yaml,
 Suggests: 
     knitr,
     rmarkdown,
