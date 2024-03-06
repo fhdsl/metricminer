@@ -35,6 +35,8 @@ Imports:
     methods,
     magrittr, 
     rvest,
+    rprojroot, 
+    yaml,
 Suggests: 
     knitr,
     rmarkdown,

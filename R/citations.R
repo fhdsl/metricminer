@@ -34,5 +34,6 @@ get_citation_count <- function(paper_cite_link) {
     rvest::html_nodes("a") %>%
     rvest::html_attr("href")
 
-  return(data.frame(titles, links))
+  df <- data.frame(titles, links)
+  return(df)
 }

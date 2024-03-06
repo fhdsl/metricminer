@@ -94,9 +94,8 @@ write_to_gsheet <- function(input, token = NULL, gsheet = NULL, overwrite = FALS
 #' Setups folder structure for metricminer
 #' @description This is a function to setup a folder structure for metricminer data to be saved to. It depends on and reads
 #' Scope used for this function is the `See, edit, create, and delete only the specific Google Drive files you use with this app.`
-#' @param google_entry Must match one of the entries in the _config_automation.yml file
+#' @param config_file The file path to the _config_automation.yml file
 #' @param token OAuth token from Google login.
-#' @param gsheet Optionally a googlesheet to write to
 #' @return The googlesheet URL where the data has been written
 #' @importFrom googlesheets4 read_sheet sheet_add write_sheet
 #' @export

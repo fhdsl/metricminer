@@ -3,5 +3,5 @@ test_that("citations pulled", {
 
   papers_cited_df <- get_citation_count(paper_cite_link)
 
-  expect_type(papers_cited_df, "data.frame")
+  testthat::expect_named(papers_cited_df, c("titles", "links"))
 })
