@@ -33,7 +33,7 @@ get_citation_count <- function(paper_cite_link) {
     rvest::html_nodes('h2.gs_rt') %>%
     rvest::html_text()
 
-  titles <- rvest::read_html(httr::content(response, "text")) %>%
+  cite_titles <- rvest::read_html(httr::content(response, "text")) %>%
     rvest::html_nodes('h3') %>%
     rvest::html_text()
 
