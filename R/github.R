@@ -161,7 +161,6 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
 #' }
 get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe", time_course = FALSE) {
-
   if (count == "all") count <- Inf
 
   if (is.null(token)) {
@@ -177,8 +176,8 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 
   if (time_course) {
     api_calls <- list(
-    clones = "GET /repos/{owner}/{repo}/traffic/clones",
-    views = "GET /repos/{owner}/{repo}/traffic/views"
+      clones = "GET /repos/{owner}/{repo}/traffic/clones",
+      views = "GET /repos/{owner}/{repo}/traffic/views"
     )
   } else {
     api_calls <- list(
@@ -197,7 +196,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
       repo = repo,
       token = token,
       count = count
-      )
+    )
   }
   # Run gh_repo_wrapper_fn() on api_calls
   # when error occurs, set value to "Not Found"
@@ -206,7 +205,6 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
   names(results) <- names(api_calls)
 
   if (data_format == "dataframe") {
-
     if (time_course) {
       clones_test <- try(results$clones$clones[[1]]$timestamp, silent = TRUE)
       views_test <- try(results$views$views[[1]]$timestamp, silent = TRUE)
@@ -223,12 +221,15 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
       }
 
       results <-
-        dplyr::full_join(clones_data, views_data, by = "timestamp",
-                       suffix = c("_clones", "_views")) %>%
-        dplyr::mutate(repo = paste0(c(owner, repo), collapse = "/"),
-                      .before = dplyr::everything())
+        dplyr::full_join(clones_data, views_data,
+          by = "timestamp",
+          suffix = c("_clones", "_views")
+        ) %>%
+        dplyr::mutate(
+          repo = paste0(c(owner, repo), collapse = "/"),
+          .before = dplyr::everything()
+        )
     } else {
-
       results <- clean_repo_metrics(
         repo_name = paste0(c(owner, repo), collapse = "/"),
         repo_metric_list = results
@@ -253,12 +254,13 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
 #' }
 get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
-
-  result <- get_github_metrics(repo = repo,
-                     token = token,
-                     count = count,
-                     data_format = data_format,
-                     time_course = TRUE)
+  result <- get_github_metrics(
+    repo = repo,
+    token = token,
+    count = count,
+    data_format = data_format,
+    time_course = TRUE
+  )
   return(result)
 }
 
@@ -278,12 +280,13 @@ get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_f
 #' summary_metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
 #' }
 get_github_repo_summary <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
-
-  result <- get_github_metrics(repo = repo,
-                     token = token,
-                     count = count,
-                     data_format = data_format,
-                     time_course = FALSE)
+  result <- get_github_metrics(
+    repo = repo,
+    token = token,
+    count = count,
+    data_format = data_format,
+    time_course = FALSE
+  )
 
   return(result)
 }
@@ -388,7 +391,6 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = Inf) {
 #' @export
 #'
 clean_repo_metrics <- function(repo_name, repo_metric_list) {
-
   ### Summarize the rest
   if (repo_metric_list$contributors[1] != "No results") {
     contributors <-
@@ -437,14 +439,13 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
 #' @export
 #'
 get_timestamp_repo_metrics <- function(results, column) {
-
   data <- results[[column]][[column]]
   data <- dplyr::bind_rows(data) %>%
     dplyr::mutate(
       timestamp = lubridate::as_date(timestamp),
       count = as.numeric(count),
       uniques = as.numeric(uniques)
-      )
+    )
 
   return(data)
 }

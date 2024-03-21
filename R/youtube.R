@@ -125,13 +125,16 @@ get_youtube_video_stats <- function(video_id, token = NULL, dataformat = "datafr
 #' @return writes a file containing the dataframe of cleaned results
 #' @export
 #'
-#' @examples  \dontrun{
-#'   # Not run
-#'   write_playlist_details(playlist_id = shorts_playlist_id,
-#'     outfile = "youtube_shorts_data.tsv")
-#'   write_playlist_details(
-#'     playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio",
-#'     outfile = "youtube_shorts_data.tsv")
+#' @examples \dontrun{
+#' # Not run
+#' write_playlist_details(
+#'   playlist_id = shorts_playlist_id,
+#'   outfile = "youtube_shorts_data.tsv"
+#' )
+#' write_playlist_details(
+#'   playlist_id = "PL6aYJ_0zJ4uCABkMngSYjPo_3c-nUUmio",
+#'   outfile = "youtube_shorts_data.tsv"
+#' )
 #' }
 write_playlist_details <- function(playlist_id, token = NULL, outfile = NULL) {
   if (is.null(token)) {

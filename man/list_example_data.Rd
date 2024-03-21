@@ -20,6 +20,5 @@ list_example_data()
 # Now you could use any of these example datasets that are printed out
 
 get_example_data("calendly_events")
-
 }
 }

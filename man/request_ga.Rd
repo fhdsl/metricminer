@@ -22,6 +22,5 @@ An API response in the form of a list
 }
 \description{
 This is a function that handles requests from Google Analytics.
-The scope it uses is the `See and download your Google Analytics data.`
-If you don't check this box on the OAuth screen, this function will not work.
+ The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 }

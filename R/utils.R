@@ -1,6 +1,6 @@
 utils::globalVariables(c(
   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%",
-  "token", "query_params", "file_name", "accounts", "get_repo_list", "timestamp", "uniques", "req"
+  "token", "query_params", "file_name", "accounts", "get_repo_list", "timestamp", "uniques", "req", "cache_secrets_folder", "google_folder_locations"
 ))
 
 #' Get list of example datasets
@@ -14,7 +14,6 @@ utils::globalVariables(c(
 #' # Now you could use any of these example datasets that are printed out
 #'
 #' get_example_data("calendly_events")
-#'
 #' }
 list_example_data <- function() {
   data_list <-
@@ -111,7 +110,7 @@ key_encrypt_creds_path <- function() {
   )
 }
 
-#' see where your cached secrets are being stored
+#' See where your cached secrets are being stored
 #' @description This is a function to retrieve the file path of where your cached secrets are stored
 #' @return an file path that shows where your cached secrets are stored
 #' @export

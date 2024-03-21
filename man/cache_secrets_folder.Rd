@@ -2,7 +2,7 @@
 % Please edit documentation in R/utils.R
 \name{cache_secrets_folder}
 \alias{cache_secrets_folder}
-\title{see where your cached secrets are being stored}
+\title{See where your cached secrets are being stored}
 \usage{
 cache_secrets_folder()
 }
