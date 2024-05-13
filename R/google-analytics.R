@@ -334,7 +334,12 @@ link_clicks <- function() {
 #' some_properties <- get_multiple_ga_metrics(property_ids = property_ids)
 #'
 #' }
-get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, token = NULL, dataformat = "dataframe",
+get_multiple_ga_metrics <- function(account_id = NULL,
+                                    property_ids = NULL,
+                                    token = NULL,
+                                    start_date = "2015-08-14",
+                                    end_date = NULL,
+                                    dataformat = "dataframe",
                                     stats_type = c("metrics", "dimensions", "link_clicks")) {
   if (is.null(token)) {
     # Get auth token
@@ -370,7 +375,12 @@ get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, toke
       message(paste("Retrieving", property_id, a_stats_type))
 
       # Get the stats
-      metrics <- get_ga_stats(token = token, property_id, stats_type = a_stats_type, dataformat = "raw")
+      metrics <- get_ga_stats(token = token,
+                              start_date = start_date,
+                              end_date = end_date,
+                              property_id = property_id,
+                              stats_type = a_stats_type,
+                              dataformat = "raw")
 
       return(metrics)
     })
