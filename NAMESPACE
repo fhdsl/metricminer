@@ -3,7 +3,6 @@
 export("%>%")
 export(auth_from_secret)
 export(authorize)
-export(cache_secrets_folder)
 export(calendly_get)
 export(clean_ga_metrics)
 export(clean_repo_metrics)

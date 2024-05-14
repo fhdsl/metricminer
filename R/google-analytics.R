@@ -316,6 +316,8 @@ link_clicks <- function() {
 #' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
 #' @param property_ids A vector of property ids you'd like to retrieve metrics for.
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
+#' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
+#' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @param stats_type Do you want to retrieve metrics or dimensions? List all you want to collect as a vector
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned

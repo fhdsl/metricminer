@@ -11,11 +11,9 @@ setup_folders(
 )
 }
 \arguments{
+\item{config_file}{The file path to the _config_automation.yml file}
+
 \item{token}{OAuth token from Google login.}
-
-\item{google_entry}{Must match one of the entries in the _config_automation.yml file}
-
-\item{gsheet}{Optionally a googlesheet to write to}
 }
 \value{
 The googlesheet URL where the data has been written

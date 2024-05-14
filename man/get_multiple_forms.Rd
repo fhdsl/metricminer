@@ -4,12 +4,14 @@
 \alias{get_multiple_forms}
 \title{Get multiple Google forms}
 \usage{
-get_multiple_forms(form_ids = NULL, token = NULL)
+get_multiple_forms(form_ids = NULL, token = NULL, dataformat = "dataframe")
 }
 \arguments{
 \item{form_ids}{a vector of form ids you'd like to retrieve information for}
 
 \item{token}{credentials for access to Google using OAuth. `authorize("google")`}
+
+\item{dataformat}{What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.}
 }
 \value{
 This returns a list of API information for google forms
