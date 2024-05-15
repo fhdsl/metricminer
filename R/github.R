@@ -70,7 +70,7 @@ get_github_user <- function(token = NULL) {
 #' }
 #'
 get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
-  if (count == "all") count <- "Inf"
+  if (count == "all") count <- Inf
 
   if (is.null(token)) {
     # Get auth token
@@ -113,7 +113,7 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
 #' }
 #'
 get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
-  if (count == "all") count <- "Inf"
+  if (count == "all") count <- Inf
 
   if (is.null(token)) {
     # Get auth token
