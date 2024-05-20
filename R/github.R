@@ -58,7 +58,7 @@ get_github_user <- function(token = NULL) {
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
-#' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all. This maxes out at 100,000 though.
+#' @param count The number of responses that should be returned. default is 100000
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return a list of repositories that an organization has
 #' @importFrom gh gh
@@ -69,8 +69,7 @@ get_github_user <- function(token = NULL) {
 #' get_org_repo_list(owner = "fhdsl")
 #' }
 #'
-get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
-  if (count == "all") count <- 100000
+get_org_repo_list <- function(owner, count = 100000, data_format = "dataframe", token = NULL) {
 
   if (is.null(token)) {
     # Get auth token
@@ -101,7 +100,7 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
-#' @param count The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all. This maxes out at 100,000 though.
+#' @param count The number of responses that should be returned. default is 100000
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return a list of repositories that an organization has
 #' @importFrom gh gh
@@ -112,12 +111,11 @@ get_org_repo_list <- function(owner, count = "all", data_format = "dataframe", t
 #' get_user_repo_list(owner = "metricminer")
 #' }
 #'
-get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", token = NULL) {
-  if (count == "all") count <- 100000
+get_user_repo_list <- function(owner, count = 100000, data_format = "dataframe", token = NULL) {
 
   if (is.null(token)) {
     # Get auth token
-    token <- get_token(app_name = "github", try = TRUE)
+    token <- get_token(app_name = "github")
     if (is.null(token)) warning("No token found. Only public repositories will be retrieved.")
   }
 
@@ -144,7 +142,7 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
-#' @param count How many items would you like to receive? Put "all" to retrieve all records.
+#' @param count How many items would you like to receive? default is 100000
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @param time_course Should the time course data be collected or only the summary metrics?
 #' @return Repository summary or time course metrics for a particular GitHub repository as a dataframe
@@ -160,12 +158,11 @@ get_user_repo_list <- function(owner, count = "all", data_format = "dataframe", 
 #' summary_metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
 #' timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
 #' }
-get_github_metrics <- function(repo, token = NULL, count = "all", data_format = "dataframe", time_course = FALSE) {
-  if (count == "all") count <- 100000
+get_github_metrics <- function(repo, token = NULL, count = 100000, data_format = "dataframe", time_course = FALSE) {
 
   if (is.null(token)) {
     # Get auth token
-    token <- get_token(app_name = "github", try = TRUE)
+    token <- get_token(app_name = "github")
     if (is.null(token)) warning("No token found. Only public repositories will be retrieved.")
   }
 
@@ -243,7 +240,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
-#' @param count How many items would you like to receive? Put "all" to retrieve all records.
+#' @param count How many items would you like to receive? default is 100000
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return GitHub repository timecourse metrics for views and clones
 #' @export
@@ -253,7 +250,7 @@ get_github_metrics <- function(repo, token = NULL, count = "all", data_format = 
 #'
 #' timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
 #' }
-get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
+get_github_repo_timecourse <- function(repo, token = NULL, count = 100000, data_format = "dataframe") {
   result <- get_github_metrics(
     repo = repo,
     token = token,
@@ -269,7 +266,7 @@ get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_f
 #' @description This is a function to get the information about a repository
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl/metricminer`
-#' @param count How many items would you like to receive? Put "all" to retrieve all records.
+#' @param count How many items would you like to receive? default is 100000
 #' @param data_format Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".
 #' @return GitHub repository summary metrics
 #' @export
@@ -279,7 +276,7 @@ get_github_repo_timecourse <- function(repo, token = NULL, count = "all", data_f
 #'
 #' summary_metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
 #' }
-get_github_repo_summary <- function(repo, token = NULL, count = "all", data_format = "dataframe") {
+get_github_repo_summary <- function(repo, token = NULL, count = 100000, data_format = "dataframe") {
   result <- get_github_metrics(
     repo = repo,
     token = token,
@@ -349,13 +346,12 @@ get_multiple_repos_metrics <- function(repo_names = NULL, token = NULL, data_for
 #' @param token You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function
 #' @param owner The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`
 #' @param repo The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`
-#' @param count How many items would you like to receive? Put "all" to retrieve all records. This maxes out at 100,000 though.
+#' @param count How many items would you like to receive? default is 100000
 #' @return Metrics for a repository on GitHub
 #' @importFrom gh gh
 #' @export
 #'
-gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = "all") {
-  if (count == "all") count <- Inf
+gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = 100000) {
 
   message(paste0("Trying ", api_call, " for ", owner, "/", repo))
 
@@ -370,13 +366,8 @@ gh_repo_wrapper <- function(api_call, owner, repo, token = NULL, count = "all") 
     owner = owner,
     repo = repo,
     .token = token,
-    .limit = 100000
+    .limit = count
   )
-  config <- httr::config(token = token)
-  httr::GET("https://api.github.com/repos/jhudsl/papr/activity",
-            config = config,
-            httr::accept_json(),
-            per_page = "100")
 
   # Some handlers because not all repositories have all stats
   if (length(result) == 0) result <- "No results"
