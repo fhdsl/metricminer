@@ -6,7 +6,7 @@
 \usage{
 get_user_repo_list(
   owner,
-  count = "all",
+  count = 1e+05,
   data_format = "dataframe",
   token = NULL
 )
@@ -14,7 +14,7 @@ get_user_repo_list(
 \arguments{
 \item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
-\item{count}{The number of responses that should be returned. Default is 20 or you can say "all" to retrieve all.}
+\item{count}{The number of responses that should be returned. default is 100000}
 
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 

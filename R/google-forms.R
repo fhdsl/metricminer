@@ -123,8 +123,8 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
       metadata = metadata,
       answers = answers_df
     )
-    return(result)
   }
+  return(result)
 }
 
 
@@ -135,6 +135,7 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 #' If you don't check this box on the OAuth screen this function won't work.
 #' @param form_ids a vector of form ids you'd like to retrieve information for
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
+#' @param dataformat What format would you like the data? Options are "raw" or "dataframe". "dataframe" is the default.
 #' @returns This returns a list of API information for google forms
 #' @importFrom purrr map
 #' @importFrom janitor make_clean_names
@@ -149,22 +150,24 @@ get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
 #'
 #' multiple_forms <- get_multiple_forms(form_ids = form_list$id)
 #' }
-get_multiple_forms <- function(form_ids = NULL, token = NULL) {
+get_multiple_forms <- function(form_ids = NULL, token = NULL, dataformat = "dataframe") {
   # Get all the forms info
   all_form_info <- sapply(form_ids, function(form_id) {
     get_google_form(
       form_id = form_id,
-      token = token
+      token = token,
+      dataformat = dataformat
     )
   }, simplify = FALSE, USE.NAMES = TRUE)
 
+  if (dataformat == "dataframe") {
+    # Set up the names
+    titles <- purrr::map(all_form_info, ~ .x$title)
+    titles <- janitor::make_clean_names(titles)
 
-  # Set up the names
-  titles <- purrr::map(all_form_info, ~ .x$title)
-  titles <- janitor::make_clean_names(titles)
-
-  # Set as names
-  names(all_form_info) <- titles
+    # Set as names
+    names(all_form_info) <- titles
+    }
 
   all_form_info
 }

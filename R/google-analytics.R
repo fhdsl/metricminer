@@ -316,6 +316,8 @@ link_clicks <- function() {
 #' @param account_id the account id that you'd like to retrieve stats for all properties associated with it.
 #' @param property_ids A vector of property ids you'd like to retrieve metrics for.
 #' @param token credentials for access to Google using OAuth.  `authorize("google")`
+#' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
+#' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
 #' @param dataformat How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".
 #' @param stats_type Do you want to retrieve metrics or dimensions? List all you want to collect as a vector
 #' @returns Either a list of dataframes where `metrics`, `dimensions` and `link clicks` are reported. But if `format` is set to "raw" then the original raw API results will be returned
@@ -334,7 +336,12 @@ link_clicks <- function() {
 #' some_properties <- get_multiple_ga_metrics(property_ids = property_ids)
 #'
 #' }
-get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, token = NULL, dataformat = "dataframe",
+get_multiple_ga_metrics <- function(account_id = NULL,
+                                    property_ids = NULL,
+                                    token = NULL,
+                                    start_date = "2015-08-14",
+                                    end_date = NULL,
+                                    dataformat = "dataframe",
                                     stats_type = c("metrics", "dimensions", "link_clicks")) {
   if (is.null(token)) {
     # Get auth token
@@ -370,7 +377,12 @@ get_multiple_ga_metrics <- function(account_id = NULL, property_ids = NULL, toke
       message(paste("Retrieving", property_id, a_stats_type))
 
       # Get the stats
-      metrics <- get_ga_stats(token = token, property_id, stats_type = a_stats_type, dataformat = "raw")
+      metrics <- get_ga_stats(token = token,
+                              start_date = start_date,
+                              end_date = end_date,
+                              property_id = property_id,
+                              stats_type = a_stats_type,
+                              dataformat = "raw")
 
       return(metrics)
     })

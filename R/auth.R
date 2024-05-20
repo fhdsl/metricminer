@@ -69,7 +69,7 @@ authorize <- function(app_name = NULL,
 
   if (app_name == "github") {
     # Open up browser to have them create a key
-    browseURL("https://github.com/settings/tokens/new?description=metricminer&scopes=repo,read:packages,read:org")
+    browseURL("https://github.com/settings/tokens/new?description=METRICMINER_GITHUB_PAT&scopes=repo,read:packages,read:org")
     message("On the opened page, scroll down and click 'Generate Token'.")
 
     # Store api key here

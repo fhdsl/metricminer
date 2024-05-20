@@ -18,3 +18,7 @@ inst/extdata/docker/*
 ^CRAN-SUBMISSION$
 ^cran-comments.md$
 ^privacypolicy.md$
+CODE_OF_CONDUCT.md
+LICENSE
+^.config/*
+^.local/*

@@ -4,7 +4,7 @@
 \alias{gh_repo_wrapper}
 \title{Wrapper function for gh repository calls}
 \usage{
-gh_repo_wrapper(api_call, owner, repo, token = NULL, count = Inf)
+gh_repo_wrapper(api_call, owner, repo, token = NULL, count = 1e+05)
 }
 \arguments{
 \item{api_call}{an API call and endpoint. That has `owner` and `user`.}
@@ -15,7 +15,7 @@ gh_repo_wrapper(api_call, owner, repo, token = NULL, count = Inf)
 
 \item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
 
-\item{count}{How many items would you like to receive? Put "all" to retrieve all records.}
+\item{count}{How many items would you like to receive? default is 100000}
 }
 \value{
 Metrics for a repository on GitHub

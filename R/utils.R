@@ -1,6 +1,6 @@
 utils::globalVariables(c(
   "result", "num", "test_name", "scopes", "set_token", "browseURL", "remove_token", "get_token", "get_github", "get_calendly", "%>%",
-  "token", "query_params", "file_name", "accounts", "get_repo_list", "timestamp", "uniques", "req", "cache_secrets_folder", "google_folder_locations"
+  "token", "query_params", "file_name", "accounts", "get_repo_list", "timestamp", "uniques", "req", "cache_secrets_folder", "google_folder_locations", "google_entry"
 ))
 
 #' Get list of example datasets
@@ -109,11 +109,9 @@ key_encrypt_creds_path <- function() {
     full.names = TRUE
   )
 }
-
 #' See where your cached secrets are being stored
 #' @description This is a function to retrieve the file path of where your cached secrets are stored
 #' @return an file path that shows where your cached secrets are stored
-#' @export
 #' @examples \dontrun{
 #'
 #' # You can see where your cached secrets are being stored by running:

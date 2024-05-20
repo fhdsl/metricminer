@@ -39,7 +39,7 @@ if (all(!(auth_tokens == ""))) {
     property_id <- gsub("properties/", "", properties_list$name[1])
     property_metadata <- get_ga_metadata(property_id = property_id)
 
-    expect_named(property_metadata, c("dimensions", "metrics", "name"))
+    expect_named(property_metadata, c("dimensions", "metrics", "name", "comparisons"))
 
     property_info <- get_ga_property_info(property_id)
     expect_length(property_info, 10)

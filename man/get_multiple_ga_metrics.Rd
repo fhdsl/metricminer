@@ -8,6 +8,8 @@ get_multiple_ga_metrics(
   account_id = NULL,
   property_ids = NULL,
   token = NULL,
+  start_date = "2015-08-14",
+  end_date = NULL,
   dataformat = "dataframe",
   stats_type = c("metrics", "dimensions", "link_clicks")
 )
@@ -18,6 +20,10 @@ get_multiple_ga_metrics(
 \item{property_ids}{A vector of property ids you'd like to retrieve metrics for.}
 
 \item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
+
+\item{start_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.}
+
+\item{end_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.}
 
 \item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
 
