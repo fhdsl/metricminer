@@ -5,7 +5,7 @@ Digging up data that matters, making it dashboard-ready.
 `metricminer` is an R package that helps you mine metrics from common places on the web through the power of their APIs.
 
 It also helps format the data so that it can easily be used for a dashboard or other purposes.
-It will have an associated [dashboard template](https://github.com/FredHutch/metricminer-dashboard) and tutorials to help you fully utilize the data you retrieve with `metricminer`  (but these are still under development!)
+It will have an associated [dashboard template](https://github.com/fhdsl/metricminer-dashboard) and tutorials to help you fully utilize the data you retrieve with `metricminer`  (but these are still under development!)
 
 - You can [read the metricminer package documentation here](https://hutchdatascience.org/metricminer/).
 - Additionally, you can read more about metric collection in our [associated manuscript, which is currently a preprint](https://arxiv.org/abs/2306.03255).
