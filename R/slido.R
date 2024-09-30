@@ -49,6 +49,7 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
     "^Polls-overall-",
     "^Replies-",
     "^Polls-per-user-",
+    "^Polls-per-participant-",
     "^Questions-"
   )
 
@@ -63,6 +64,7 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
   event_names_regex <- paste0(slido_event_name, collapse = "|")
   slido_type <- stringr::word(slido_file_names, sep = event_names_regex, start = 1)
   slido_type <- gsub("-$", "", slido_type)
+  slido_type <- gsub("Polls-per-user", "Polls-per-participant", slido_type)
 
   # Set up data frame
   slido_files <- file_info %>%
