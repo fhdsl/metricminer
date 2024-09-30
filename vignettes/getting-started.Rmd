@@ -163,7 +163,7 @@ If you have a channel and the URL is https://www.youtube.com/channel/a_bunch_of_
 Then you can extract stats for the videos on that youtube channel using that URL.
 ```
 authorize("google")
-youtube_stats <- get_get_youtube_stats("a_bunch_of_letters_here")
+youtube_stats <- get_youtube_stats("a_bunch_of_letters_here")
 ```
 
 ## Bulk Retrievals
