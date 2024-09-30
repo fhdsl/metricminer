@@ -84,7 +84,14 @@ get_slido_files <- function(drive_id, token = NULL, recursive = TRUE, keep_dupli
       dplyr::filter(slido_type == slido_type_name)
 
     if (length(files) > 0) {
-      slido_data <- lapply(files$id, googlesheets4::read_sheet)
+      slido_data <- lapply(files$id, function(file) {
+        headers <- googlesheets4::read_sheet(file, n_max = 1)
+
+        if (length(colnames(headers)) > 1) {
+          return(googlesheets4::read_sheet(file, col_names = colnames(headers), skip = 2))
+        }
+      })
+
 
       names(slido_data) <- files$slido_event_name
 
