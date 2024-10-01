@@ -241,7 +241,7 @@ extract_answers <- function(form_info) {
 
     # Put it all in a data.frame we will keep
     info_df <- data.frame(
-      reponse_id = rep(form_info$response_info$result$responses$responseId, length(questions)),
+      response_id = rep(form_info$response_info$result$responses$responseId, length(questions)),
       answers_df
     )
   } else {
