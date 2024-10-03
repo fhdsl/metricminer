@@ -492,7 +492,7 @@ clean_repo_metrics <- function(repo_name, repo_metric_list) {
     stars = "num_stars",
     community = "health_percentage")
 
-  #
+  # We're going to only put the stats we collected in the data.frame
   clean_stats_names <- unlist(clean_stats_names[stats_collected], use.names = FALSE)
 
   metrics <- data.frame(
