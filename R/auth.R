@@ -265,3 +265,48 @@ app_set_up <- function(app_name = "google") {
 
   return(list(app = app, endpoint = endpoint_url))
 }
+
+#' Send secrets to a GitHub repository
+#' @description This is a function to authorize the R package to access APIs interactively. To learn more about the privacy policy for metricminer [read here](https://www.metricminer.org/privacypolicy.html)
+#' @param app_name Which secrets would you like to send? Supported apps are 'google' 'calendly' and 'github'
+#' @param repo_name Which repository should these secrets be sent to? Keep in mind you must have admin access to this repository for this to work.
+#' @param ... Additional arguments to send to \code{\link{oauth2.0_token}}
+#' @return API token saved to the environment or the cache so it can be grabbed by functions
+#' @importFrom gh gh
+#' @export
+#' @examples \dontrun{
+#'
+#' send_secrets()
+#'
+#' }
+
+send_secrets <- function(app_name, token = NULL, repo_name = "cansavvy/testing") {
+
+  if (is.null(token)) {
+    # Get auth token
+    gh_token <- get_token(app_name = "github")
+  }
+
+  token_to_store <- get_token(app_name = app_name)
+
+  # Split it up
+  split_it <- strsplit(repo_name, split = "\\/")
+  owner <- split_it[[1]][1]
+  repo <- split_it[[1]][2]
+
+  if (app_name == "google") {
+    gh::gh(endpoint = "https://api.github.com/repos/{owner}/{repo}/actions/secrets/METRICMINER_GOOGLE_REFRESH",
+           .method = "PUT",
+           owner = owner,
+           repo = repo,
+           charToRaw('{"encrypted_value":"c2VjcmV0","key_id":"012345678912345678"}'),
+           .token = gh_token
+    )
+
+    gh::gh("PUT https://api.github.com/repos/{owner}/{repo}/actions/secrets/METRICMINER_GOOGLE_ACCESS",
+           owner = owner,
+           repo = repo,
+           .params =
+           token = gh_token)
+  }
+}
