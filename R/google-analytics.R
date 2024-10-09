@@ -215,11 +215,12 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #' authorize("google")
 #' accounts <- get_ga_user()
 #'
-#' properties_list <- get_ga_properties(account_id = accounts$id[1])
+#' properties_list <- get_ga_properties(account_id = accounts$id[2])
 #'
 #' property_id <- gsub("properties/", "", properties_list$name[1])
 #' metrics <- get_ga_stats(property_id, stats_type = "metrics")
 #' dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
+#' pages <- get_ga_stats(property_id, stats_type = "pages")
 #' }
 get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, body_params = NULL, end_date = NULL, stats_type = "metrics",
                          dataformat = "dataframe") {
@@ -253,6 +254,16 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
       dimensions = dimensions_list()
     )
   }
+  if (stats_type == "pages") {
+    body_params <- list(
+      dateRanges = list(
+        "startDate" = start_date,
+        "endDate" = end_date
+      ),
+      metrics = metrics_page_list(),
+      dimensions = dimensions_page_list()
+    )
+  }
   if (stats_type == "link_clicks") {
     body_params <- list(
       dateRanges = list(
@@ -273,6 +284,9 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
   if (dataformat == "dataframe") {
     if (stats_type == "metrics") results <- clean_ga_metrics(results)
     if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_ga_dimensions(results)
+    if (stats_type %in% c("pages")) {
+      results <- clean_ga_metrics(results, type = "pages")
+    }
   }
 
   return(results)
@@ -294,6 +308,20 @@ metrics_list <- function() {
   return(metrics)
 }
 
+metrics_page_list <- function() {
+  metrics <- list(
+    list("name" = "activeUsers"),
+    list("name" = "newUsers"),
+    list("name" = "totalUsers"),
+    list("name" = "eventCountPerUser"),
+    list("name" = "sessions"),
+    list("name" = "averageSessionDuration"),
+    list("name" = "screenPageViews"),
+    list("name" = "engagementRate")
+  )
+  return(metrics)
+}
+
 dimensions_list <- function() {
   dimensions <- list(
     list("name" = "day"),
@@ -305,6 +333,15 @@ dimensions_list <- function() {
 
   return(dimensions)
 }
+
+dimensions_page_list <- function() {
+  dimensions <- list(
+    list("name" = "fullPageUrl")
+  )
+
+  return(dimensions)
+}
+
 
 link_clicks <- function() {
   list("name" = "linkUrl")
@@ -403,13 +440,14 @@ get_multiple_ga_metrics <- function(account_id = NULL,
 #' Handle Google Analytics Lists
 #' @description These functions are to clean metric and dimension data from Google Analytics `get_ga_stats()` function.
 #' @param metrics a metrics object from `get_ga_stats()` function
+#' @param type If type == "pages" then treat the data frame for in the instance that the dimensions of the subpages were collected
 #' @importFrom dplyr %>% mutate_all mutate_at bind_rows
 #' @importFrom purrr map
 #' @importFrom tidyr separate
 #' @return a data frame of cleaned metrics from Google Analytics
 #' @export
 
-clean_ga_metrics <- function(metrics = NULL) {
+clean_ga_metrics <- function(metrics = NULL, type = NULL) {
   # This is if we are running it with all the data at once
   if (length(metrics$metricHeaders$name) == 0) {
     stat_names <- metrics[[1]]$metricHeaders$name
@@ -419,11 +457,26 @@ clean_ga_metrics <- function(metrics = NULL) {
     stat_names <- metrics$metricHeaders$name
     clean_df <- metrics$rows
   }
+
+  if (type == "pages") {
+    dim_df <- clean_df$dimensionValues %>%
+      dplyr::bind_rows() %>%
+      dplyr::rename(page = value)
+
+    clean_df <- clean_df[names(clean_df) != "dimensionValues"]
+  }
+
+
   clean_df <- clean_df %>%
     dplyr::bind_rows(.id = "website") %>%
     tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
     dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
     dplyr::mutate_at(stat_names, as.numeric)
+
+  if (type == "pages") {
+    clean_df <- dim_df %>%
+     dplyr::bind_cols(clean_df)
+  }
 
   return(clean_df)
 }
