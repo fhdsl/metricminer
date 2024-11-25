@@ -58,7 +58,9 @@ jobs:
               "fhdsl/Ethical_Data_Handling_for_Cancer_Research",
               "fhdsl/AI_for_Decision_Makers",
               "fhdsl/AI_for_Efficient_Programming",
-              "fhdsl/NIH_Data_Sharing"
+              "fhdsl/NIH_Data_Sharing", 
+              "fhdsl/containers_for_scientists",
+              "fhdsl/Proactive_Data_Management_and_Sharing"
           )
           repo_metrics <- metricminer::get_multiple_repos_metrics(repo_names = repos, time_course = TRUE)
 
