@@ -282,7 +282,7 @@ get_ga_stats <- function(property_id, start_date = "2015-08-14", token = NULL, b
   )
 
   if (dataformat == "dataframe") {
-    if (stats_type == "metrics") results <- clean_ga_metrics(results)
+    if (stats_type == "metrics") results <- clean_ga_metrics(results, type == "metrics")
     if (stats_type %in% c("dimensions", "link_clicks")) results <- wrangle_ga_dimensions(results)
     if (stats_type %in% c("pages")) {
       results <- clean_ga_metrics(results, type = "pages")
@@ -425,7 +425,7 @@ get_multiple_ga_metrics <- function(account_id = NULL,
     })
     names(per_type) <- display_names
 
-    if (a_stats_type == "metrics") per_type <- clean_ga_metrics(per_type)
+    if (a_stats_type == "metrics") per_type <- clean_ga_metrics(per_type, type = "metrics")
     if (a_stats_type == "dimensions") per_type <- clean_ga_dimensions(per_type)
     if (a_stats_type == "link_clicks") per_type <- clean_ga_dimensions(per_type)
 
