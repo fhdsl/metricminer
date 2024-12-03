@@ -1,0 +1,35 @@
+# Candace Savonen May 2022
+
+name: Manual build of docker image
+
+on:
+  workflow_dispatch:
+    inputs:
+      directory:
+        description: 'File path on GitHub to Dockerfile? e.g. inst/extdata'
+        required: true
+        default: inst/extdata
+        type: string
+      tag:
+        description: 'Tag e.g. fhdsl/metricminer:main'
+        required: true
+        type: string
+      dockerhubpush:
+        description: 'Push to Dockerhub? true or false'
+        required: false
+        default: 'false'
+        type: string
+
+jobs:
+
+  build-it:
+    name: Build docker image on command
+    uses: ./.github/workflows/docker-test.yml
+    with:
+      directory: ${{github.event.inputs.directory}}
+      tag: ${{github.event.inputs.tag}}
+      dockerhubpush: ${{github.event.inputs.dockerhubpush}}
+    secrets:
+      GH_PAT: ${{ secrets.GH_PAT }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
