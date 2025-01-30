@@ -317,7 +317,9 @@ metrics_page_list <- function() {
     list("name" = "sessions"),
     list("name" = "averageSessionDuration"),
     list("name" = "screenPageViews"),
-    list("name" = "engagementRate")
+    list("name" = "engagementRate"),
+    list("name" = "screenPageViewsPerUser")
+
   )
   return(metrics)
 }

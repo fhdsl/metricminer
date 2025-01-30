@@ -17,6 +17,8 @@
 #' authorize("google")
 #'
 #' authorize("calendly")
+#'
+#' authorize("coursera")
 #' }
 authorize <- function(app_name = NULL,
                       cache = FALSE,
@@ -82,6 +84,18 @@ authorize <- function(app_name = NULL,
     if (cache_it == 1) cache_token(token, "github")
   }
 
+  if (app_name == "coursera") {
+    # Open up browser to have them create a key
+    browseURL("https://dev.coursera.com/my-apps/new-app")
+    message("On the opened page, create a new app and enable __-.")
+
+    # Store api key here
+    token <- getPass::getPass(msg = "Paste secret here and press enter: ")
+
+    # If they chose to cache it, we'll store it in rds file format
+    if (cache_it == 1) cache_token(token, "coursera")
+  }
+
   if (app_name == "google") {
     scopes_list <- unlist(find_scopes(app_name))
 
@@ -122,15 +136,17 @@ delete_creds <- function(app_name = "all") {
   calendly_creds_exist <- !is.null(getOption("calendly"))
   github_creds_exist <- !is.null(getOption("github"))
   google_creds_exist <- !is.null(getOption("google"))
+  coursera_creds_exist <- !is.null(getOption("coursera"))
 
   calendly_cache_exist <- file.exists(file.path(cache_secrets_folder(), "calendly.RDS"))
   github_cache_exist <- file.exists(file.path(cache_secrets_folder(), "github.RDS"))
   google_cache_exist <- file.exists(file.path(cache_secrets_folder(), "google.RDS"))
+  coursera_cache_exist <- file.exists(file.path(cache_secrets_folder(), "coursera.RDS"))
 
   # Do any exist?
   none_exist <- all(
-    !calendly_creds_exist, !github_creds_exist, !google_creds_exist,
-    !calendly_cache_exist, !github_cache_exist, !google_cache_exist
+    !calendly_creds_exist, !github_creds_exist, !google_creds_exist, !coursera_creds_exist,
+    !calendly_cache_exist, !github_cache_exist, !google_cache_exist, !coursera_cache_exist
   )
 
   if (none_exist) {
@@ -159,6 +175,17 @@ delete_creds <- function(app_name = "all") {
     if (app_name == "all" | app_name == "google") {
       if (google_creds_exist) {
         remove_token("google")
+        message("Cached Google token removed from environment")
+      }
+      if (google_cache_exist) {
+        remove_cache("google")
+        message("Cached Google creds removed from cache")
+      }
+    }
+
+    if (app_name == "all" | app_name == "coursera") {
+      if (google_creds_exist) {
+        remove_token("coursera")
         message("Cached Google token removed from environment")
       }
       if (google_cache_exist) {
