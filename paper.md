@@ -2,110 +2,65 @@
 title: 'Metricminer:'
 tags:
   - R
+  - API
+  - Google
+  - Calendly
+  - Slido
+  - GitHub
 authors:
   - name: Candace Savonen
-    orcid: 0000-0000-0000-0000
-    equal-contrib: true
-    affiliation: "1, 2" # (Multiple affiliations must be quoted)
-  - name: Author Without ORCID
-    equal-contrib: true # (This is how you can denote equal contributions between multiple authors)
+    orcid: 0000-0001-6331-7070
+    corresponding: true
+    affiliation: 1
+  - name: Howard Baek
     affiliation: 2
-  - name: Author with no affiliation
-    corresponding: true # (This is how to denote the corresponding author)
-    affiliation: 3
-  - given-names: Ludwig
-    dropping-particle: van
-    surname: Beethoven
-    affiliation: 3
+  - name: Kate Isaac
+    affiliation: 1
+  - name: Carrie Wright
+    affiliation: 1
+  - name: Jeff Leek
+    affiliation: 1
 affiliations:
- - name: Lyman Spitzer, Jr. Fellow, Princeton University, United States
+ - name: Fred Hutchinson Cancer Center, Seattle, WA, United States
    index: 1
-   ror: 00hx57361
- - name: Institution Name, Country
+ - name: Yale School of Public Health
    index: 2
- - name: Independent Researcher, Country
-   index: 3
 date: 12 February 2025
 bibliography: paper.bib
 ---
 
 # Summary
 
-The forces on stars, galaxies, and dark matter under external gravitational
-fields lead to the dynamical evolution of structures in the universe. The orbits
-of these bodies are therefore key to understanding the formation, history, and
-future state of galaxies. The field of "galactic dynamics," which aims to model
-the gravitating components of galaxies to study their structure and evolution,
-is now well-established, commonly taught, and frequently used in astronomy.
-Aside from toy problems and demonstrations, the majority of problems require
-efficient numerical tools, many of which require the same base code (e.g., for
-performing numerical orbit integration).
+The collection and analysis of metrics from various web services and platforms is crucial for understanding user engagement, project performance, and overall impact. Traditional methods of collecting such data often require manual extraction or writing custom scripts for each service's API. The field of "metrics mining" aims to automate and streamline this process, making it accessible to researchers, educators, and practitioners. However, the diversity of APIs and data formats presents significant challenges in creating unified, reproducible analyses.
 
 # Statement of need
 
-`Gala` is an Astropy-affiliated Python package for galactic dynamics. Python
-enables wrapping low-level languages (e.g., C) for speed without losing
-flexibility or ease-of-use in the user-interface. The API for `Gala` was
-designed to provide a class-based and user-friendly interface to fast (C or
-Cython-optimized) implementations of common operations such as gravitational
-potential and force evaluation, orbit integration, dynamical transformations,
-and chaos indicators for nonlinear dynamics. `Gala` also relies heavily on and
-interfaces well with the implementations of physical units and astronomical
-coordinate systems in the `Astropy` package [@astropy] (`astropy.units` and
-`astropy.coordinates`).
+`metricminer` is an R package designed to simplify the process of collecting metrics from common web services. R provides an ideal environment for data analysis and visualization, while allowing for reproducible research workflows. The API for `metricminer` was designed to provide a consistent and user-friendly interface to various web services including GitHub, Google Analytics, Calendly, Google Forms, and YouTube. The package handles authentication, data retrieval, and transformation of the raw API responses into tidy data frames, making it immediately useful for analysis.
 
-`Gala` was designed to be used by both astronomical researchers and by
-students in courses on gravitational dynamics or astronomy. It has already been
-used in a number of scientific publications [@Pearson:2017] and has also been
-used in graduate courses on Galactic dynamics to, e.g., provide interactive
-visualizations of textbook material [@Binney:2008]. The combination of speed,
-design, and support for Astropy functionality in `Gala` will enable exciting
-scientific explorations of forthcoming data releases from the *Gaia* mission
-[@gaia] by students and experts alike.
+`metricminer` was developed to serve both researchers and practitioners who need to collect and analyze metrics from multiple platforms. It has been specifically designed to support educational initiatives and research projects that require tracking engagement across various platforms. The combination of simplified authentication, consistent data formats, and integration with the R ecosystem makes `metricminer` particularly valuable for organizations that need to generate regular reports or maintain dashboards of their metrics.
 
-# Mathematics
+The package has been designed to support several common use cases:
 
-Single dollars ($) are required for inline mathematics e.g. $f(x) = e^{\pi/x}$
+1. **Educational Analytics**: Tracking engagement across course materials hosted on various platforms
+2. **Research Impact**: Monitoring repository activity and documentation usage
+3. **Event Management**: Analyzing registration and attendance patterns through Calendly integration
+4. **Website Performance**: Collecting and analyzing Google Analytics metrics
+5. **Community Engagement**: Measuring interaction through YouTube statistics and Google Forms responses
 
-Double dollars make self-standing equations:
+# Implementation and Features
 
-$$\Theta(x) = \left\{\begin{array}{l}
-0\textrm{ if } x < 0\cr
-1\textrm{ else}
-\end{array}\right.$$
+The package implements several key features that facilitate metrics collection:
 
-You can also use plain \LaTeX for equations
-\begin{equation}\label{eq:fourier}
-\hat f(\omega) = \int_{-\infty}^{\infty} f(x) e^{i\omega x} dx
-\end{equation}
-and refer to \autoref{eq:fourier} from text.
+1. **Unified Authentication**: Through the `authorize()` function, users can authenticate with multiple services using a consistent interface. The package supports both interactive and non-interactive authentication methods, making it suitable for both manual use and automated workflows.
 
-# Citations
+2. **Data Format Standardization**: All data is returned in tidy data frame format, making it immediately usable with popular R packages like `dplyr` and `ggplot2`. For cases where the default transformation doesn't meet specific needs, the package provides access to raw API responses.
 
-Citations to entries in paper.bib should be in
-[rMarkdown](http://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html)
-format.
+3. **Bulk Retrieval Functions**: The package includes wrapper functions for collecting data from multiple sources simultaneously, such as `get_multiple_repos_metrics()` for GitHub repositories and `get_multiple_ga_metrics()` for Google Analytics properties.
 
-If you want to cite a software repository URL (e.g. something on GitHub without a preferred
-citation) then you can do it with the example BibTeX entry below for @fidgit.
+# Future Work
 
-For a quick reference, the following citation commands can be used:
-- `@author:2001`  ->  "Author et al. (2001)"
-- `[@author:2001]` -> "(Author et al., 2001)"
-- `[@author1:2001; @author2:2001]` -> "(Author1 et al., 2001; Author2 et al., 2002)"
-
-# Figures
-
-Figures can be included like this:
-![Caption for example figure.\label{fig:example}](figure.png)
-and referenced from text using \autoref{fig:example}.
-
-Figure sizes can be customized by adding an optional second parameter:
-![Caption for example figure.](figure.png){ width=20% }
+Future development of `metricminer` will focus on further development of associated dashboard templates for automated reporting, integration with additional web services and platforms. 
 
 # Acknowledgements
-
-We acknowledge contributions from Brigitta Sipocz, Syrtis Major, and Semyeong
-Oh, and support from Kathryn Johnston during the genesis of this project.
 
 # References
