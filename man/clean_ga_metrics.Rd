@@ -4,10 +4,12 @@
 \alias{clean_ga_metrics}
 \title{Handle Google Analytics Lists}
 \usage{
-clean_ga_metrics(metrics = NULL)
+clean_ga_metrics(metrics = NULL, type = NULL)
 }
 \arguments{
 \item{metrics}{a metrics object from `get_ga_stats()` function}
+
+\item{type}{If type == "pages" then treat the data frame for in the instance that the dimensions of the subpages were collected}
 }
 \value{
 a data frame of cleaned metrics from Google Analytics

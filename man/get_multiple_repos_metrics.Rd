@@ -8,7 +8,8 @@ get_multiple_repos_metrics(
   repo_names = NULL,
   token = NULL,
   data_format = "dataframe",
-  time_course = FALSE
+  time_course = FALSE,
+  github_stats = "all"
 )
 }
 \arguments{
@@ -19,9 +20,15 @@ get_multiple_repos_metrics(
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
 
 \item{time_course}{Should the time course data be collected or only the summary metrics?}
+
+\item{github_stats}{Which stats would you like to collect from the GitHub API?
+Argument should be a vector of the names of the stats to be collected. This differs whether time_course is TRUE/FALSE.
+If time_course = FALSE should be a vector that can include: "repo_activity", "stars", "forks", "contributors", "community"
+If time_course = TRUE should be a vector that can include: "clones" and "views".
+By default "all" will be collected.}
 }
 \value{
-Information regarding a Github account
+A list of metrics for a list of repos in a dataframe format
 }
 \description{
 This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repositories from a
@@ -34,6 +41,8 @@ authorize("github")
 
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
+
+stars_and_forks <- get_multiple_repos_metrics(repo_names = repo_names, github_stats = c("stars", "forks"))
 
 some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
 }
