@@ -201,7 +201,6 @@ get_ga_metadata <- function(property_id, token = NULL) {
 #'  The scope it uses is the `See and download your Google Analytics data` If you don't this check this box on the OAuth screen this won't work.
 #' @param token credentials for access to Google using OAuth. `authorize("google")`
 #' @param property_id a GA property. Looks like '123456789' Can be obtained from running `get_ga_properties()`
-#' @param type If type == "pages" then treat the data frame for in the instance that the dimensions of the subpages were collected
 #' @param start_date YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.
 #' @param end_date YYYY-MM-DD format of what metric you'd like to collect metrics from to end. Default is today.
 #' @param body_params The body parameters for the request
