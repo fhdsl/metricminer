@@ -4,7 +4,8 @@
 .Env$metricminer_tokens <- list(
   "calendly" = NULL,
   "github" = NULL,
-  "google" = NULL
+  "google" = NULL,
+  "leanpub" = NULL
 )
 
 # Set token to environment
@@ -16,11 +17,13 @@ set_token <- function(token, app_name, in_test = FALSE) {
     if (app_name == "calendly") withr::local_options(calendly = token)
     if (app_name == "github") withr::local_options(github = token)
     if (app_name == "google") withr::local_options(google = token)
+    if (app_name == "leanpub") withr::local_options(leanpub = token)
   } else {
     # Store it
     if (app_name == "calendly") options(calendly = token)
     if (app_name == "github") options(github = token)
     if (app_name == "google") options(google = token)
+    if (app_name == "leanpub") options(leanpub = token)
   }
   return(token)
 }
@@ -36,10 +39,11 @@ remove_token <- function(app_name) {
   if (app_name == "calendly") options(calendly = NULL)
   if (app_name == "github") options(github = NULL)
   if (app_name == "google") options(google = NULL)
+  if (app_name == "leanpub") options(leanpub = NULL)
 }
 
 remove_cache <- function(app_name) {
-  if (app_name == "calendly" || app_name == "github" || app_name == "google") {
+  if (app_name == "calendly" || app_name == "github" || app_name == "google" || app_name == "leanpub") {
     cache_file <- file.path(cache_secrets_folder(), paste0(app_name, ".RDS"))
     try(file.remove(cache_file), silent = TRUE)
   }
@@ -106,7 +110,7 @@ get_stored_token <- function(app_name) {
   if (app_name == "calendly") token <- getOption("calendly")
   if (app_name == "github") token <- getOption("github")
   if (app_name == "google") token <- getOption("google")
-
+  if (app_name == "leanpub") token <- getOption("leanpub")
   return(token)
 }
 
@@ -120,6 +124,9 @@ get_cached_token <- function(app_name) {
   }
   if (app_name == "google") {
     token <- try(readRDS(file.path(cache_secrets_folder(), "google.RDS")), silent = TRUE)
+  }
+  if (app_name == "leanpub") {
+    token <- try(readRDS(file.path(cache_secrets_folder(), "leanpub.RDS")), silent = TRUE)
   }
 
   if (class(token)[1] == "try-error") {

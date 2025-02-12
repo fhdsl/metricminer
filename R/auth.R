@@ -17,6 +17,8 @@
 #' authorize("google")
 #'
 #' authorize("calendly")
+#'
+#' authorize("leanpub")
 #' }
 authorize <- function(app_name = NULL,
                       cache = FALSE,
@@ -65,6 +67,17 @@ authorize <- function(app_name = NULL,
 
     # If they chose to cache it, we'll store it in rds file format
     if (cache_it == 1) cache_token(token, "calendly")
+  }
+  if (app_name == "leanpub") {
+    # Open up browser to have them create a key
+    browseURL("https://leanpub.com/user_dashboard/api_key")
+    message("On the opened page, click 'Generate a new API key'.")
+
+    # Store api key here
+    token <- getPass::getPass(msg = "Paste token here and press enter: ")
+
+    # If they chose to cache it, we'll store it in rds file format
+    if (cache_it == 1) cache_token(token, "leanpub")
   }
 
   if (app_name == "github") {

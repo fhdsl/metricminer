@@ -76,7 +76,8 @@ supported_endpoints <- function() {
   list(
     "calendly" = "https://auth.calendly.com/oauth/token",
     "github" = httr::oauth_endpoints("github"),
-    "google" = httr::oauth_endpoints("google")
+    "google" = httr::oauth_endpoints("google"),
+    "leanpub" = "https://leanpub.com/"
   )
 }
 #' Default Credentials path
