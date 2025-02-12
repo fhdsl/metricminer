@@ -9,6 +9,7 @@ get_github_metrics(
   token = NULL,
   count = 1e+05,
   data_format = "dataframe",
+  github_stats = "all",
   time_course = FALSE
 )
 }
@@ -20,6 +21,12 @@ get_github_metrics(
 \item{count}{How many items would you like to receive? default is 100000}
 
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
+
+\item{github_stats}{Which stats would you like to collect from the GitHub API?
+Argument should be a vector of the names of the stats to be collected. This differs whether time_course is TRUE/FALSE.
+If time_course = FALSE should be a vector that can include: "repo_activity", "stars", "forks", "contributors", "community"
+If time_course = TRUE should be a vector that can include: "clones" and "views".
+By default "all" will be collected.}
 
 \item{time_course}{Should the time course data be collected or only the summary metrics?}
 }
@@ -34,6 +41,9 @@ This is a function to get the information about a repository
 
 authorize("github")
 metrics <- get_github_metrics(repo = "fhdsl/metricminer")
+
+# If you only want some of the stats you can choose which ones with the github_stats argument
+metrics <- get_github_metrics(repo = "fhdsl/metricminer", github_stats = c("repo_activity", "stars"))
 
 summary_metrics <- get_github_repo_summary(repo = "fhdsl/metricminer")
 timecourse_metrics <- get_github_repo_timecourse(repo = "fhdsl/metricminer")
