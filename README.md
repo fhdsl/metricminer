@@ -156,8 +156,8 @@ form_info <- get_google_form(form_url)
 If you have used Slido for interactive slide sessions and collected that info and exported it to your Google Drive, you can use `metricminer` to collect that data as well.
 
 ```
-drive_id <- "https://drive.google.com/drive/folders/0AJb5Zemj0AAkUk9PVA"
-slido_data <- get_slido_files(drive_id)
+drive_folder_id <- "1FvGsZ5M8E6o17K5pI6HNGM-F1xwS9ML1"
+slido_data <- get_slido_files(drive_folder_id)
 ```
 ### YouTube
 
@@ -166,7 +166,9 @@ If you have a YouTube channel and the URL is https://www.youtube.com/channel/a_b
 Then you can extract stats for the videos on that YouTube channel using that URL.
 ```
 authorize("google")
-youtube_stats <- get_youtube_stats("a_bunch_of_letters_here")
+youtube_video_stats <- get_youtube_video_stats("oMVVeZjHJ48")
+youtube_playlist_stats <- get_youtube_playlist_stats("PL9bqxQvtZgAMblZJhg7e0_ThDD-pN4UqA")
+
 ```
 
 ## Bulk Retrievals
