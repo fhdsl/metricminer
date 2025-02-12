@@ -8,7 +8,8 @@ get_github_repo_timecourse(
   repo,
   token = NULL,
   count = 1e+05,
-  data_format = "dataframe"
+  data_format = "dataframe",
+  github_stats = "all"
 )
 }
 \arguments{
@@ -19,6 +20,12 @@ get_github_repo_timecourse(
 \item{count}{How many items would you like to receive? default is 100000}
 
 \item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
+
+\item{github_stats}{Which stats would you like to collect from the GitHub API?
+Argument should be a vector of the names of the stats to be collected. This differs whether time_course is TRUE/FALSE.
+If time_course = FALSE should be a vector that can include: "repo_activity", "stars", "forks", "contributors", "community"
+If time_course = TRUE should be a vector that can include: "clones" and "views".
+By default "all" will be collected.}
 }
 \value{
 GitHub repository timecourse metrics for views and clones
