@@ -14,7 +14,8 @@
 #' @importFrom jsonlite fromJSON
 #' @importFrom assertthat assert_that is.string
 #' @export
-request_google_forms <- function(token, url,
+request_google_forms <- function(token,
+                                 url,
                                  body_params = NULL,
                                  query_params = NULL,
                                  return_request = TRUE) {
@@ -79,6 +80,7 @@ request_google_forms <- function(token, url,
 #' form_info <- get_google_form("1Neyj7wwNpn8wC7NzQND8kQ30cnbbETSpT0lKhX7uaQY")
 #' }
 get_google_form <- function(form_id, token = NULL, dataformat = "dataframe") {
+
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
