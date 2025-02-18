@@ -12,13 +12,19 @@ get_user_repo_list(
 )
 }
 \arguments{
-\item{owner}{The owner of the repository. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
+\item{owner}{The owner of the repository.
+So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
-\item{count}{The number of responses that should be returned. default is 100000}
+\item{count}{The number of responses that should be returned.
+Default is 100000}
 
-\item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
+\item{data_format}{Default is to return a curated data frame. However
+if you'd like to see the raw information returned from GitHub set format
+to "raw".}
 
-\item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+\item{token}{You can provide the Personal Access Token key directly or
+this function will attempt to grab a PAT that was stored using the
+`authorize("github")` function}
 }
 \value{
 a list of repositories that an organization has
