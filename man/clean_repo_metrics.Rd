@@ -7,7 +7,8 @@
 clean_repo_metrics(repo_name, repo_metric_list)
 }
 \arguments{
-\item{repo_name}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
+\item{repo_name}{The repository name.
+So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
 
 \item{repo_metric_list}{a list containing the metrics}
 }
@@ -15,5 +16,6 @@ clean_repo_metrics(repo_name, repo_metric_list)
 Metrics for a repository on GitHub
 }
 \description{
-This is a function to get metrics for all the repositories underneath an organization
+This is a function to get metrics for all the repositories
+underneath an organization
 }

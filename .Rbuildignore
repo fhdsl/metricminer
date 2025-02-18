@@ -22,3 +22,5 @@ CODE_OF_CONDUCT.md
 LICENSE
 ^.config/*
 ^.local/*
+CONTRIBUTING.md
+SECURITY.md

@@ -9,11 +9,15 @@ gh_repo_wrapper(api_call, owner, repo, token = NULL, count = 1e+05)
 \arguments{
 \item{api_call}{an API call and endpoint. That has `owner` and `user`.}
 
-\item{owner}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
+\item{owner}{The repository name.
+So for `https://github.com/fhdsl/metricminer`, it would be `fhdsl`}
 
-\item{repo}{The repository name. So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
+\item{repo}{The repository name.
+So for `https://github.com/fhdsl/metricminer`, it would be `metricminer`}
 
-\item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+\item{token}{You can provide the Personal Access Token key directly or this
+function will attempt to grab a PAT that was stored using the
+`authorize("github")` function}
 
 \item{count}{How many items would you like to receive? default is 100000}
 }
