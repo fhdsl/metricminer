@@ -4,3 +4,4 @@
 
 * Updating scopes.
 * Fixing NOTE from link related problem in docs
+* Also addressed some broken links
