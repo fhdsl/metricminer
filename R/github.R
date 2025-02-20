@@ -452,6 +452,9 @@ get_github_repo_summary <- function(repo,
 #'
 #' some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names,
 #'  time_course = TRUE)
+#'
+#' gh_timecourse <- get_multiple_repos_metrics(repo_names = repo_names,
+#'  github_stats = c("repo_activity", "stars", "forks", "contributors"))
 #' }
 #'
 get_multiple_repos_metrics <- function(repo_names = NULL,
@@ -483,7 +486,7 @@ get_multiple_repos_metrics <- function(repo_names = NULL,
   names(repo_metrics) <- repo_names
 
   if (data_format == "dataframe") {
-    repo_metrics <- dplyr::bind_rows(repo_metrics)
+    repo_metrics <- dplyr::bind_rows(repo_metrics, .id = "repo_name")
   }
 
   return(repo_metrics)
