@@ -38,7 +38,7 @@ if (Sys.getenv("METRICMINER_GITHUB_PAT") != "") {
     some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
 
     expect_named(some_repos_metrics, c(
-      'num_repo_activities', 'num_stars', 'num_forks', 'num_contributors',
+      'repo_name', 'num_repo_activities', 'num_stars', 'num_forks', 'num_contributors',
       'total_contributors', 'health_percentage'
     ))
   })
