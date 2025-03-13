@@ -57,8 +57,7 @@ authorize <- function(app_name = NULL,
   if (!cache) {
     message("Would you like to store/cache your credentials?")
     cache_it <- menu(c("Yes cache/store credentials",
-    "No do not store credentials, I will re-run this authorize()",
-     " in my next R session"))
+    "No do not store credentials, I will re-run this authorize() in my next R session"))
     if (cache_it == 1) {
       message("You chose to cache your credentials,",
       " if you change your mind, run metricminer::delete_creds(). \n",
