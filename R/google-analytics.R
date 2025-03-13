@@ -378,7 +378,7 @@ get_multiple_ga_metrics <- function(account_id = NULL,
                                     start_date = "2015-08-14",
                                     end_date = NULL,
                                     dataformat = "dataframe",
-                                    stats_type = c("metrics", "dimensions", "link_clicks")) {
+                                    stats_type = c("metrics", "dimensions", "link_clicks", "pages")) {
   if (is.null(token)) {
     # Get auth token
     token <- get_token(app_name = "google")
@@ -427,6 +427,7 @@ get_multiple_ga_metrics <- function(account_id = NULL,
     if (a_stats_type == "metrics") per_type <- clean_ga_metrics(per_type, type = "metrics")
     if (a_stats_type == "dimensions") per_type <- clean_ga_dimensions(per_type)
     if (a_stats_type == "link_clicks") per_type <- clean_ga_dimensions(per_type)
+    # TODO: needs to be carried through: if (a_stats_type == "pages") per_type <- clean_ga_dimensions(per_type, type = "pages")
 
     return(per_type)
   })
