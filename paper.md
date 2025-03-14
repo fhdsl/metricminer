@@ -12,10 +12,10 @@ authors:
     orcid: 0000-0001-6331-7070
     corresponding: true
     affiliation: 1
-  - name: Howard Baek
-    affiliation: 2
   - name: Kate Isaac
     affiliation: 1
+  - name: Howard Baek
+    affiliation: 2
   - name: Carrie Wright
     affiliation: 1
   - name: Jeff Leek
@@ -25,15 +25,17 @@ affiliations:
    index: 1
  - name: Yale School of Public Health
    index: 2
-date: 12 February 2025
+date: 12 March 2025
 bibliography: paper.bib
 ---
 
 # Summary
 
-The collection and analysis of standardized metrics is crucial for understanding the true impact and usage patterns of research software, extending far beyond traditional citation counts [@bioinformatics]. Citations alone fail to capture many critical aspects of software utilization, including version information, indirect usage through platforms, and evolving impact over time. Mining metrics aims to systematically collect and analyze comprehensive usage data, making it accessible to developers, funders, and evaluation committees. However, the current academic infrastructure, built around static manuscript publication, presents significant challenges in creating unified, reproducible analyses of software impact. There is a vital need for automated, standardized metric collection systems that can track software usage across platforms, capture version-specific information, and document indirect utilization through larger frameworks or platforms.
+The collection and analysis of standardized metrics is crucial for understanding the true impact and usage patterns of research software, extending far beyond traditional citation counts [@bioinformatics]. Citations alone fail to capture many critical aspects of software utilization, including version information, indirect usage through platforms, and evolving impact over time. "Metric mining" aims to systematically collect and analyze comprehensive usage data, making it accessible to developers, funders, and evaluation committees. There is a vital need for automated, standardized metric collection so that software impact can be demonstrated to funders and potential users. `metricminer` is an open source R package to help address the difficulty and lack of standardization  for metric collection. 
 
 # Statement of need
+
+Previous research by our group showed that the main reason researchers do not collect more metrics is a lack of time and funding to do so [@bioinformatics]. This does create a re-enforcing problem: metrics can help demonstrate impact to funders which would, in turn, give developers more funding to increase the software's impact. Collecting meaningful metrics from Application Programming Interfaces (APIs) can be time consuming, so `metricminer` aims to be an open-source solution to make the metric collection process more efficient.
 
 `metricminer` is an R package designed to simplify the process of collecting metrics from common web services. R provides an ideal environment for data analysis and visualization, while allowing for reproducible research workflows. `metricminer` was designed to provide a consistent and user-friendly interface to various web services including GitHub, Google Analytics, Calendly, Google Forms, and YouTube. The package handles authentication, data retrieval, and transformation of the raw API responses into opinionated tidy data frames, making it immediately useful for analysis [@wickham_tidy_2014].
 
