@@ -55,7 +55,7 @@ The package implements several key features that facilitate metrics collection:
 
 2. **Unified Authentication**: Through the `authorize()` function, users can authenticate with multiple services using a consistent interface. The package supports both interactive and non-interactive authentication methods, making it suitable for both manual use and automated workflows.
 
-3. **Bulk Retrieval Functions**: Not infrequently, users may want to collect metrics from multiple websites, code bases, or etc. This could prove tricky to combine these data but metricminer has bulk retrieval functions that allow a  list of the necessary items to be retrieved and metrics from all the items in the list are returned in one standard, tidy data frame. The package includes wrapper functions for collecting data from multiple sources simultaneously, such as `get_multiple_repos_metrics()` for GitHub repositories and `get_multiple_ga_metrics()` for Google Analytics properties.
+3. **Bulk Retrieval Functions**: Not infrequently, users may want to collect metrics from multiple websites, code bases, or etc. This could prove tricky to combine these data but metricminer has bulk retrieval functions that allow a list of the necessary items to be retrieved and metrics from all the items in the list are returned in one standard, tidy data frame. The package includes wrapper functions for collecting data from multiple sources simultaneously, such as `get_multiple_repos_metrics()` for GitHub repositories and `get_multiple_ga_metrics()` for Google Analytics properties.
 
 # Example usage
 
@@ -102,11 +102,12 @@ This will return a data frame stored in `metrics` that will look something like 
 |fhdsl/metricminer-dashboard|2024-05-05|16|9|3|1|
 
 
+Each data source has a set of functions for metrics it can retrieve and [all are described here](https://hutchdatascience.org/metricminer/).
 metricminer also has a template dashboard that can be used as a starting point and for example usage and plots [@dashboard].
 
 # Future Work
 
-Future development of `metricminer` will focus on further polishing and development of this package and its [template dashboard repository](https://hutchdatascience.org/metricminer-dashboard/). This may include adding new sources and features where metric mining is supported by `metricminer`.
+Future development of `metricminer` will focus on further polishing and development of this package and its [template dashboard repository](https://hutchdatascience.org/metricminer-dashboard/). This may include adding support for new sources of metrics depending on user reported needs.
 
 # Acknowledgements
 
