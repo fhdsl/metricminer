@@ -28,8 +28,6 @@ get_ga_stats(
 \item{stats_type}{Do you want to retrieve metrics or dimensions?}
 
 \item{dataformat}{How would you like the data returned to you? Default is a "dataframe" but if you'd like to see the original API list result, put "raw".}
-
-\item{type}{If type == "pages" then treat the data frame for in the instance that the dimensions of the subpages were collected}
 }
 \value{
 Metrics dimensions for a GA returned from the Google Analytics API. It can be returned as a curated data.frame or the raw version which is the API response as a list

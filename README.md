@@ -16,7 +16,7 @@ Currently `metricminer` supports mining data from:
 
 - [Calendly](https://calendly.com/)
 - [GitHub](https://github.com/)
-- [Google Analytics](https://analytics.google.com/analytics/academy/course/6)
+- [Google Analytics](https://developers.google.com/analytics)
 - [Google Forms](https://www.google.com/forms/about/)
 - [Youtube](https://www.youtube.com/)
 - [Slido](https://admin.sli.do/events) export files stored on Googledrive
@@ -161,14 +161,13 @@ slido_data <- get_slido_files(drive_folder_id)
 ```
 ### YouTube
 
-If you have a YouTube channel and the URL is https://www.youtube.com/channel/a_bunch_of_letters_here
+If you have a YouTube channel and the URL is https://www.youtube.com/watch?v=oMVVeZjHJ48
 
 Then you can extract stats for the videos on that YouTube channel using that URL.
 ```
 authorize("google")
 youtube_video_stats <- get_youtube_video_stats("oMVVeZjHJ48")
 youtube_playlist_stats <- get_youtube_playlist_stats("PL9bqxQvtZgAMblZJhg7e0_ThDD-pN4UqA")
-
 ```
 
 ## Bulk Retrievals

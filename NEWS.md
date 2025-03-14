@@ -1,3 +1,4 @@
-# metricminer 0.5.1
+# metricminer 1.0.0
 
-* This is an initial release of this package! See more on metricminer.org
+* metricminer is a bit more polished and working on getting google verification for the OAuth scopes it uses.
+* Also addressed some broken links

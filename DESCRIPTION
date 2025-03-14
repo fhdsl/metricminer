@@ -1,7 +1,7 @@
 Type: Package
 Package: metricminer
 Title: Mine Metrics from Common Places on the Web
-Version: 0.5.1
+Version: 1.0.0
 Authors@R: c(
     person("Candace", "Savonen", , 
     c("cansav09@gmail.com","csavonen@fredhutch.org"), 
