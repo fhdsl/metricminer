@@ -35,7 +35,7 @@ The collection and analysis of standardized metrics is crucial for understanding
 
 # Statement of need
 
-`metricminer` is an R package designed to simplify the process of collecting metrics from common web services. R provides an ideal environment for data analysis and visualization, while allowing for reproducible research workflows. `metricminer` was designed to provide a consistent and user-friendly interface to various web services including GitHub, Google Analytics, Calendly, Google Forms, and YouTube. The package handles authentication, data retrieval, and transformation of the raw API responses into opinionated tidy data frames, making it immediately useful for analysis [@tidy].
+`metricminer` is an R package designed to simplify the process of collecting metrics from common web services. R provides an ideal environment for data analysis and visualization, while allowing for reproducible research workflows. `metricminer` was designed to provide a consistent and user-friendly interface to various web services including GitHub, Google Analytics, Calendly, Google Forms, and YouTube. The package handles authentication, data retrieval, and transformation of the raw API responses into opinionated tidy data frames, making it immediately useful for analysis [@wickham_tidy_2014].
 
 `metricminer` was developed to serve both researchers, educators, and other practitioners who need to collect and analyze metrics from multiple platforms. It has been specifically designed to support educational initiatives and research projects that require tracking engagement across various platforms. The combination of simplified authentication, consistent data formats, and integration with the R ecosystem makes `metricminer` particularly valuable for organizations that need to generate regular reports or maintain dashboards of their metrics.
 
@@ -57,10 +57,59 @@ The package implements several key features that facilitate metrics collection:
 
 3. **Bulk Retrieval Functions**: Not infrequently, users may want to collect metrics from multiple websites, code bases, or etc. This could prove tricky to combine these data but metricminer has bulk retrieval functions that allow a  list of the necessary items to be retrieved and metrics from all the items in the list are returned in one standard, tidy data frame. The package includes wrapper functions for collecting data from multiple sources simultaneously, such as `get_multiple_repos_metrics()` for GitHub repositories and `get_multiple_ga_metrics()` for Google Analytics properties.
 
+# Example usage
+
+The authorize function takes care of all API authorization for any apps attempting to integrate with.
+
+```
+library(metricminer)
+authorize("github")
+```
+
+By running this code it will trigger some menu options:
+```
+Would you like to store/cache your credentials?
+
+1: Yes cache/store credentials
+2: No do not store credentials, I will re-run this authorize() in my next R session
+```
+Credentials have the option to be cached and can be deleted anytime by running the `delete_creds()` function.
+```
+You chose to cache your credentials, if you change your mind, run metricminer::delete_creds().
+Be careful not to push the cache files to GitHub or share it anywhere.
+```
+For authorization, the proper pages will be open and instructions given for the user to provide their credentials.
+```
+On the opened page, scroll down and click 'Generate Token'.
+```
+
+The authorization process can be done for GitHub, Google, or Calendly.
+After authorization then you can run individual metric mining functions like:
+
+```
+metrics <- get_github_repo_timecourse(
+  repo = "fhdsl/metricminer"
+  )
+```
+
+This will return a data frame stored in `metrics` that will look something like this.
+
+|repo|timestamp|count_clones|uniques_clones|count_views|uniques_views|
+|---|---|---|---|---|---|
+|fhdsl/metricminer-dashboard|2024-04-29|1|2|1|1|
+|fhdsl/metricminer-dashboard|2024-04-30|1|1|5|1|
+|fhdsl/metricminer-dashboard|2024-05-01|1|1|1|NA|
+|fhdsl/metricminer-dashboard|2024-05-05|16|9|3|1|
+
+
+metricminer also has a template dashboard that can be used as a starting point and for example usage and plots [@dashboard].
+
 # Future Work
 
-Future development of `metricminer` will focus on further polishing and development of this package and its [template dashboard repository](https://hutchdatascience.org/metricminer-dashboard/). This may include adding new sources and features where metricmining is supported by `metricminer`.
+Future development of `metricminer` will focus on further polishing and development of this package and its [template dashboard repository](https://hutchdatascience.org/metricminer-dashboard/). This may include adding new sources and features where metric mining is supported by `metricminer`.
 
 # Acknowledgements
+
+This work was supported by National Cancer Institute grant UE5CA254170.
 
 # References
