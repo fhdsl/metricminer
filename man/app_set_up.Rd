@@ -7,8 +7,10 @@
 app_set_up(app_name = "google")
 }
 \arguments{
-\item{app_name}{app would you like to authorize? Supported apps are 'google' 'calendly' and 'github'}
+\item{app_name}{app would you like to authorize? Supported apps are 'google'
+'calendly' and 'github'}
 }
 \description{
-This is a function that sets up the app. It's generally called by another function
+This is a function that sets up the app. It's generally called
+by another function
 }

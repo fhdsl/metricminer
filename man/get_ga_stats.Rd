@@ -19,7 +19,7 @@ get_ga_stats(
 
 \item{start_date}{YYYY-MM-DD format of what metric you'd like to collect metrics from to start. Default is the earliest date Google Analytics were collected.}
 
-\item{token}{credentials for access to Google using OAuth.  `authorize("google")`}
+\item{token}{credentials for access to Google using OAuth. `authorize("google")`}
 
 \item{body_params}{The body parameters for the request}
 
@@ -42,10 +42,11 @@ This is a function to get the Google Analytics accounts that this user has acces
 authorize("google")
 accounts <- get_ga_user()
 
-properties_list <- get_ga_properties(account_id = accounts$id[1])
+properties_list <- get_ga_properties(account_id = accounts$id[2])
 
 property_id <- gsub("properties/", "", properties_list$name[1])
 metrics <- get_ga_stats(property_id, stats_type = "metrics")
 dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
+pages <- get_ga_stats(property_id, stats_type = "pages")
 }
 }

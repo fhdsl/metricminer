@@ -8,24 +8,43 @@ get_multiple_repos_metrics(
   repo_names = NULL,
   token = NULL,
   data_format = "dataframe",
-  time_course = FALSE
+  time_course = FALSE,
+  github_stats = "all"
 )
 }
 \arguments{
-\item{repo_names}{a character vector of repositories you'd like to collect metrics from.}
+\item{repo_names}{a character vector of repositories you'd like to collect
+metrics from.}
 
-\item{token}{You can provide the Personal Access Token key directly or this function will attempt to grab a PAT that was stored using the `authorize("github")` function}
+\item{token}{You can provide the Personal Access Token key directly or this
+function will attempt to grab a PAT that was stored using the
+`authorize("github")` function}
 
-\item{data_format}{Default is to return a curated data frame. However if you'd like to see the raw information returned from GitHub set format to "raw".}
+\item{data_format}{Default is to return a curated data frame.
+However if you'd like to see the raw information returned from GitHub set
+format to "raw".}
 
-\item{time_course}{Should the time course data be collected or only the summary metrics?}
+\item{time_course}{Should the time course data be collected or only the
+summary metrics?}
+
+\item{github_stats}{Which stats would you like to collect from the GitHub
+API?
+Argument should be a vector of the names of the stats to be collected.
+This differs whether time_course is TRUE/FALSE.
+If time_course = FALSE should be a vector that can include: "repo_activity",
+"stars", "forks", "contributors", "community"
+If time_course = TRUE should be a vector that can include: "clones" and
+ "views".
+By default "all" will be collected.}
 }
 \value{
-Information regarding a Github account
+A list of metrics for a list of repos in a dataframe format
 }
 \description{
-This is a function to get metrics for a list of repos. You can provide an owner and attempt retrieve all repositories from a
-particular organization, or you can provide a character vector of repositories like "
+This is a function to get metrics for a list of repos.
+You can provide an owner and attempt retrieve all repositories from a
+particular organization, or you can provide a character vector of
+repositories.
 }
 \examples{
 \dontrun{
@@ -35,7 +54,11 @@ authorize("github")
 repo_names <- c("fhdsl/metricminer", "jhudsl/OTTR_Template")
 some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names)
 
-some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names, time_course = TRUE)
+stars_and_forks <- get_multiple_repos_metrics(repo_names = repo_names,
+github_stats = c("stars", "forks"))
+
+some_repos_metrics <- get_multiple_repos_metrics(repo_names = repo_names,
+ time_course = TRUE)
 }
 
 }
