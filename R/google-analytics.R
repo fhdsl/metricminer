@@ -425,8 +425,6 @@ get_multiple_ga_metrics <- function(account_id = NULL,
     })
     names(per_type) <- display_names
     
-    #return(per_type)
-
     if (a_stats_type == "metrics") per_type <- clean_ga_metrics(per_type, type = "metrics")
     if (a_stats_type == "dimensions") per_type <- clean_ga_dimensions(per_type)
     if (a_stats_type == "link_clicks") per_type <- clean_ga_dimensions(per_type)
