@@ -7,13 +7,15 @@
 delete_creds(app_name = "all")
 }
 \arguments{
-\item{app_name}{which app would you like to delete the creds for? Default is to delete the creds for all.}
+\item{app_name}{which app would you like to delete the creds for?
+Default is to delete the creds for all.}
 }
 \value{
 Cached credentials are deleted and report is given back
 }
 \description{
-This is a function to delete cached creds and creds in the current environment that were set by metricminer
+This is a function to delete cached creds and creds in the
+current environment that were set by metricminer
 }
 \examples{
 \dontrun{
