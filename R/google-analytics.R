@@ -424,11 +424,14 @@ get_multiple_ga_metrics <- function(account_id = NULL,
       return(metrics)
     })
     names(per_type) <- display_names
+    
+    #return(per_type)
 
     if (a_stats_type == "metrics") per_type <- clean_ga_metrics(per_type, type = "metrics")
     if (a_stats_type == "dimensions") per_type <- clean_ga_dimensions(per_type)
     if (a_stats_type == "link_clicks") per_type <- clean_ga_dimensions(per_type)
-
+    if (a_stats_type == "pages") per_type <- clean_ga_metrics(per_type, type = "pages")
+    
     return(per_type)
   })
 
@@ -452,16 +455,16 @@ clean_ga_metrics <- function(metrics = NULL, type = NULL) {
   if (length(metrics$metricHeaders$name) == 0) {
     stat_names <- metrics[[1]]$metricHeaders$name
     clean_df <- purrr::map(metrics, "rows")
-  } else {
+  } else if (length(metrics$metricHeaders$name) > 1) {
     # this is for if we only are given one property
     stat_names <- metrics$metricHeaders$name
     clean_df <- metrics$rows
   }
 
   if (type == "pages") {
-    dim_df <- clean_df$dimensionValues %>%
-      dplyr::bind_rows() %>%
-      dplyr::rename(page = value)
+    dim_df <- clean_df %>%
+      dplyr::bind_rows(.id = "website_parent") %>%
+      dplyr::rename(page = dimensionValues)
 
     clean_df <- clean_df[names(clean_df) != "dimensionValues"]
   }
@@ -471,11 +474,14 @@ clean_ga_metrics <- function(metrics = NULL, type = NULL) {
     dplyr::bind_rows(.id = "website") %>%
     tidyr::separate(col = "metricValues", sep = ",", into = stat_names) %>%
     dplyr::mutate_all(~ gsub("list\\(value = c\\(|\\)\\)|\"|", "", .)) %>%
+    dplyr::mutate_all(~ gsub("^list\\(value = |\\)", "", .)) %>%
     dplyr::mutate_at(stat_names, as.numeric)
 
   if (type == "pages") {
     clean_df <- dim_df %>%
-     dplyr::bind_cols(clean_df)
+      dplyr::bind_cols(clean_df) %>%
+      select(!c(page, metricValues, website)) %>%
+      rename(page = dimensionValues)
   }
 
   return(clean_df)

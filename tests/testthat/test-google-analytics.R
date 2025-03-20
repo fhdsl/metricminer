@@ -51,6 +51,16 @@ if (all(!(auth_tokens == ""))) {
       "averageSessionDuration", "screenPageViews", "engagementRate"
     ))
 
+    pages <- get_ga_stats(property_id, stats_type = "pages")
+    
+    expect_true(!is.null(dim(pages)))
+    
+    expect_named(pages, c(
+      "website_parent, page", "activeUsers", "newUsers", "totalUsers",
+      "eventCountPerUser", "screenPageViewsPerUser", "sessions",
+      "averageSessionDuration", "screenPageViews", "engagementRate"
+    ))
+    
     dimensions <- get_ga_stats(property_id, stats_type = "dimensions")
     expect_named(dimensions, c("day", "month", "year", "country", "fullPageUrl"))
   })
@@ -71,6 +81,27 @@ if (all(!(auth_tokens == ""))) {
     stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989))
 
     expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
+    
+    expect_true(!is.null(dim(stats_list$metrics))) #make sure there's dimension for the clean dataframe
+    
+    expect_true(!is.null(dim(stats_list$dimensions)))
+    
+    expect_true(!is.null(dim(stats_list$link_clicks)))
+    
+    stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989), 
+                                          stats_type = c("metrics", "dimensions", "link_clicks", "pages"))
+    
+    expect_named(stats_list, c("metrics", "dimensions", "link_clicks", "pages"))
+    
+    expect_true(!is.null(dim(stats_list$pages))) #make sure there's dimension for the clean dataframe
+    
+    stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989),
+                                          stats_type = c("metrics", "dimensions"))
+    
+    expect_named(stats_list, c("metrics", "dimensions"))
+    
+    expect_false("link_clicks" %in% names(stats_list))
+    
   })
 } else {
   message("testthat tests skipped because no auth detected")
