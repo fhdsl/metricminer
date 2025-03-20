@@ -453,7 +453,7 @@ clean_ga_metrics <- function(metrics = NULL, type = NULL) {
   if (length(metrics$metricHeaders$name) == 0) {
     stat_names <- metrics[[1]]$metricHeaders$name
     clean_df <- purrr::map(metrics, "rows")
-  } else if (length(metrics$metricHeaders$name) > 1) {
+  } else {
     # this is for if we only are given one property
     stat_names <- metrics$metricHeaders$name
     clean_df <- metrics$rows
