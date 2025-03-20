@@ -56,7 +56,7 @@ if (all(!(auth_tokens == ""))) {
     expect_true(!is.null(dim(pages)))
     
     expect_named(pages, c(
-      "website_parent, page", "activeUsers", "newUsers", "totalUsers",
+      "website_parent", "page", "activeUsers", "newUsers", "totalUsers",
       "eventCountPerUser", "screenPageViewsPerUser", "sessions",
       "averageSessionDuration", "screenPageViews", "engagementRate"
     ))
