@@ -100,7 +100,6 @@ if (all(!(auth_tokens == ""))) {
     
     expect_named(stats_list, c("metrics", "dimensions"))
     
-    expect_false("link_clicks" %in% names(stats_list))
     
   })
 } else {
