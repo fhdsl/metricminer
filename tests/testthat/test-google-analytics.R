@@ -86,7 +86,7 @@ if (all(!(auth_tokens == ""))) {
     
     expect_true(!is.null(dim(stats_list$dimensions)))
     
-    expect_true(!is.null(dim(stats_list$link_clicks)))
+    expect_type(stats_list$link_clicks, "data.frame")
     
     stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989), 
                                           stats_type = c("metrics", "dimensions", "link_clicks", "pages"))
