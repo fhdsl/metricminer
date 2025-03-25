@@ -84,7 +84,7 @@ if (all(!(auth_tokens == ""))) {
     
     expect_type(stats_list$metrics, "data.frame") #make sure there's dimension for the clean dataframe
     
-    expect_true(!is.null(dim(stats_list$dimensions)))
+    expect_type(stats_list$dimensions, "data.frame")
     
     expect_type(stats_list$link_clicks, "data.frame")
     
