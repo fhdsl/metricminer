@@ -93,7 +93,7 @@ if (all(!(auth_tokens == ""))) {
     
     expect_named(stats_list, c("metrics", "dimensions", "link_clicks", "pages"))
     
-    expect_true(!is.null(dim(stats_list$pages))) #make sure there's dimension for the clean dataframe
+    expect_type(stats_list$pages, "data.frame") #make sure there's dimension for the clean dataframe
     
     stats_list <- get_multiple_ga_metrics(property_ids = c(422671031, 422558989),
                                           stats_type = c("metrics", "dimensions"))
