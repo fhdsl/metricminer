@@ -53,7 +53,7 @@ if (all(!(auth_tokens == ""))) {
 
     pages <- get_ga_stats(property_id, stats_type = "pages")
     
-    expect_true(!is.null(dim(pages)))
+    expect_type(pages, "data.frame")
     
     expect_named(pages, c(
       "website_parent", "page", "activeUsers", "newUsers", "totalUsers",
