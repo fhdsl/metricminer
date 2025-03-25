@@ -82,7 +82,7 @@ if (all(!(auth_tokens == ""))) {
 
     expect_named(stats_list, c("metrics", "dimensions", "link_clicks"))
     
-    expect_true(!is.null(dim(stats_list$metrics))) #make sure there's dimension for the clean dataframe
+    expect_type(stats_list$metrics, "data.frame") #make sure there's dimension for the clean dataframe
     
     expect_true(!is.null(dim(stats_list$dimensions)))
     
