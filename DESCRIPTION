@@ -7,7 +7,16 @@ Authors@R: c(
     c("cansav09@gmail.com","csavonen@fredhutch.org"), 
     role = c("aut", "cre")), 
     person("Howard", "Baek", , 
-    c("howardbaek@fredhutch.org","howardbaek.fh@gmail.com"), 
+    c("howardbaek.fh@gmail.com"), 
+    role = c("aut")),
+    person("Kate", "Isaac", , 
+    c("kisaac@fredhutch.org"), 
+    role = c("aut")),
+    person("Carrie", "Wright", , 
+    c("cwright@fredhutch.org"), 
+    role = c("aut")),
+    person("Jeff", "Leek", , 
+    c("jtleek@hey.com"), 
     role = c("aut"))
     )
 Description: Mine metrics on common places on the web through the power of their APIs (application programming interfaces). 
@@ -36,7 +45,7 @@ Imports:
     magrittr, 
     rvest,
     rprojroot, 
-    yaml,
+    yaml
 Suggests: 
     knitr,
     rmarkdown,
